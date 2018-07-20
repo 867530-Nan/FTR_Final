@@ -5,8 +5,19 @@ Note.create({title: "Guest Chef: Joshua Cornell", body: "", date: "2018-07-18T05
 Employee.create({name: "Ian Acker", title: "Founder & Executive Director", image: "http://files.constantcontact.com/25b22253501/6cb708ec-7c6d-47b0-a318-5babb9bc5dfc.jpg", index: 1})
 Employee.create({name: "Georiga Gregersen", title: "Operations Officer", image: "http://files.constantcontact.com/25b22253501/8c70e945-e6c4-4947-ace2-1c63517cea3f.jpg", index: 2})
 Employee.create({name: "Crystal Yazzie", title: "Fitness Director", image: "http://files.constantcontact.com/25b22253501/eb5b1298-13e8-4eeb-bdea-55ca2d71ce2a.jpg", index: 3})
-Employee.create({name: "Tessa ACker", title: "Lead Dietitian, Food to Recover", image: "http://files.constantcontact.com/25b22253501/f91e67f2-114f-4de6-961d-1e16fba46499.jpg", index: 4})
-Employee.create({name: "Crystal Yazzie", title: "Community Service Director", image: "http://files.constantcontact.com/25b22253501/0562a0a4-d736-4e8e-ad61-8b58ee715356.png", index: 5})
+Employee.create({name: "Frank Young", title: "Fitness Director", image: "http://files.constantcontact.com/25b22253501/eb5b1298-13e8-4eeb-bdea-55ca2d71ce2a.jpg", index: 4})
+Employee.create({name: "Tessa Acker", title: "Lead Dietitian, Food to Recover", image: "http://files.constantcontact.com/25b22253501/f91e67f2-114f-4de6-961d-1e16fba46499.jpg", index: 5})
+Employee.create({name: "Crystal Yazzie", title: "Community Service Director", image: "http://files.constantcontact.com/25b22253501/0562a0a4-d736-4e8e-ad61-8b58ee715356.png", index: 6})
+Employee.create({name: "Courtney Strong", title: "Yoga Instructor", image: "http://files.constantcontact.com/25b22253501/53f86a3e-df13-4a74-adf1-b7d385c6c2d6.png", index: 7})
+Employee.create({name: "Lacey Garcia", title: "Woman's Group Leader", image: "http://files.constantcontact.com/25b22253501/f30ac5c3-b170-4025-8510-3922b03f56fe.jpg", index: 8})
+Employee.create({name: "Matt Lane", title: "Fitness Instructor", image: "http://files.constantcontact.com/25b22253501/5b28374f-fdd3-4f9a-9d76-0b6c674ade0c.png", index: 9})
+Employee.create({name: "Marina Davydova", title: "Fitness Instructor", image: "http://files.constantcontact.com/25b22253501/60dfab98-14e0-4cef-b823-2734ad5e4078.jpg", index: 10})
+Employee.create({name: "Matt Martin", title: "Consumer Advisory Board Chair and Facilitator", image: "http://files.constantcontact.com/25b22253501/2bbd854c-d6a8-4988-9604-7c8a7d3d5a34.jpg", index: 11})
+Employee.create({name: "Jami Werner Wright", title: "HIGH Fitness Instructor", image: "http://files.constantcontact.com/25b22253501/d0edbed1-9cba-44ea-8c3c-df9fdde81c44.jpg", index: 12})
+Employee.create({name: "Carla Mandingueira", title: "Capoeira Instructor", image: "http://files.constantcontact.com/25b22253501/145b25d4-0628-452b-8bd9-ecc5f90e1c2b.jpg", index: 13})
+Employee.create({name: "Matt Moore", title: "Fitness Instructor", image: "http://files.constantcontact.com/25b22253501/33c87d90-85cb-4a37-8069-fc97fa84a2d4.jpg", index: 14})
+Employee.create({name: "Kelsie Beasley", title: "Adminstrative Assistant", image: "http://files.constantcontact.com/25b22253501/4d29b552-5048-4cb2-8041-62de697b3b38.jpg", index: 15})
+Employee.create({name: "Vickie Shaw", title: "Fitness Instructor", image: "http://files.constantcontact.com/25b22253501/e63c416a-2e8d-4772-9f2f-263e1cc60124.jpg", index: 16})
 
 Board.create({name: "Martha Macomber", title: "Founder & Executive Director", bio: "As the University of Utah’s educational coordinator for the Ute Indian Tribes, Martha helps increase educational opportunities among this vulnerable population. She owns M Squared Productions, a video producer and events organizer designed to strengthen nonprofits, a passion to which she has dedicated most of her professional life.", image: "http://files.constantcontact.com/25b22253501/f2f8c875-8d3e-4417-8eec-9a6e56de63ef.png", index: 1})
 Board.create({name: "Jennifer Carlson", title: "Board Vice President", bio: "Jennifer Carlson is Clinical Director of Turning Point Centers Mountain View Residential Treatment Program. She is a Licensed Clinical Mental Health Counselor and a nationally certified Master Addictions Counselor. Jen has worked in the field of addictions treatment and recovery since 2004.", image: "http://files.constantcontact.com/25b22253501/f0f04e38-351a-4f6d-99b8-6ec36573a40d.jpg", index: 2})
@@ -385,6 +396,12 @@ Newsletter.create([
     image: "http://files.constantcontact.com/25b22253501/ed058422-e4da-4292-98dc-8a4be618f686.png",
     index: 35,
     link: "https://conta.cc/2M357wN"
+  },
+  {
+    title: "July 2018",
+    image: "http://files.constantcontact.com/25b22253501/6b15b2a8-1423-48c5-a90b-57cfaaf0edcc.png",
+    index: 35,
+    link: "https://conta.cc/2L5tdG9"
   }
 ])
 
