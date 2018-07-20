@@ -1,0 +1,32 @@
+.entireTestimonial {
+	padding: 0 100px;
+	margin: 20px 0;
+	}
+	
+.testAuthor {
+	font-size: 26px;
+	font-weight: 500;
+	}
+
+.testimonialList {
+	display: flex;
+	justify-content: flex-start;
+}
+
+@media (max-width: 992px) {
+	.entireTestimonial{
+		padding: 0 60px;
+	}
+}
+
+@media (max-width: 768px) {
+	.entireTestimonial{
+		padding: 0 30px;
+	}
+}
+
+@media (max-width: 600px) {
+	.entireTestimonial{
+		padding: 0 20px;
+	}
+}

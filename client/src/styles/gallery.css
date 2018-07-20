@@ -1,0 +1,101 @@
+.title {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	align-items: center;
+	padding: 30px;
+	height: 170px;
+	width: 80%;
+	background-color: linear-gradient(left, #FF0002 0%, white 50%, #FF0002 120%);
+	margin: 0 auto;
+	margin-bottom: 40px;
+	border: 0px solid black;
+	border-radius: 5px;
+	box-shadow: 2px 2px 10px red;
+}
+
+.galleryTitle {
+	font-size: 40px;
+	font-weight: 200;
+}
+
+.galleryDesc {
+	font-size: 30px;
+}
+
+.mediaCardGroup {
+	display: flex;
+	justify-content: space-around;
+}
+
+.mediaCard {
+	height: 250px !important;
+  margin: 0 auto;
+  display: flex !important;
+}
+
+a.mediaCard{
+	color: black;
+}
+
+.mediaCardContent:hover {
+	cursor: pointer;
+}
+
+.mediaCard > img {
+	width: 290px !important;
+	height: 160px !important;
+}
+
+.mediaCardContent{
+	margin: 0 auto;
+	justify-content: center;
+}
+
+.mediaText {
+	text-align: center;
+	font-size: 20px;
+}
+
+.instaGrid {
+	margin-bottom: 0 !important;
+	margin-left: 0 !important;
+}
+
+a.instaTitle {
+		display: flex;
+		color: black;
+		justify-content: center;
+		font-size: 30px;
+		text-decoration: underline red;
+		margin-bottom: 30px;
+	}
+
+@media (max-width: 992px) {
+	.instaGrid {
+		height: 100% !important;
+	}
+	.singleInsta {
+		height: 300px !important;
+		width: 300px !important;
+		margin: 0 auto;
+	}
+}
+
+@media (max-width: 768px) {
+	.modalInsta {
+		margin-top: -150px !important;
+		height: 300px !important;
+		width: 300px !important;
+		margin-left: -150px !important;
+	}
+}
+
+@media (max-width: 700px) {
+	.galleryTitle{
+		font-size: 26px !important;
+	}
+	.galleryDesc {
+		font-size: 18px;
+	}
+}

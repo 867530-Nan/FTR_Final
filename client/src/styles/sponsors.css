@@ -1,0 +1,96 @@
+.sponsorsTop {
+	height: 100px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.sponsorsPic {
+	width: 100%;
+}
+
+.sponsorsTopHeading {
+	margin-bottom: 0;
+	font-size: 56px;
+}
+
+.tripGrid {
+	display: flex;
+	justify-content: center;
+	align-self: center;
+	text-align: center;
+}
+
+.sponsorLevels {
+	font-size: 24px;
+	line-height: 1.2em;
+}
+
+.donorColumnHeader {
+	font-size: 18px;
+	padding-bottom: 20px;
+	line-height: 1.1;
+	text-align: center;
+}
+
+.leftImage {
+	width: 90%;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+.rightImage {
+	width: 90%;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+.singleDonor {
+	font-size: 1.2em;
+	margin: 10px 0;
+	text-align: center;
+}
+
+@media (max-width: 992px) {
+	.sponsorLevels {
+		font-size: 20px;
+		line-height: 1.2em;
+	}
+	.donorColumnHeader {
+		font-size: 16px;
+		padding: 0 10px;
+	}
+}
+
+@media (max-width: 768px) {
+	.sponsorsPic {
+		margin: 0 auto;
+		margin-bottom: 30px;
+	}
+	.xsColumn {
+		width: 100% !important;
+	}
+}
+
+@media (max-width: 575px) {
+	.sponsorsTopHeading {
+		margin-bottom: 0;
+		font-size: 56px;
+	}
+	.sponsorsTop {
+		height: 100px;
+	}
+}
+
+@media (max-width: 575px) {
+	.sponsorsTopHeading {
+		font-size: 24px;
+	}
+}
+
+@media (max-width: 400px) {
+	.sponsorLevels {
+		font-size: 16px;
+	}
+}

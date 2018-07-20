@@ -1,0 +1,126 @@
+.newNav {
+	width: 100%;
+	position: fixed;
+	display: flex !important;
+	flex-direction: row;
+	justify-content: space-between;
+	z-index: 1000 !important;
+}
+
+.hamburgerNewNav {
+	padding-top: 10px;
+}
+
+.small-menu-classname {
+	height: 70px;
+	position: fixed;
+	z-index: 1001 !important;
+	width: 100%;
+	background-color: white;
+}
+
+.newNavLinks {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	margin-left: auto;
+}
+
+.logoWrapper {
+	width: 150px;
+	height: 50px;
+	align-items: center;
+	display: flex;
+	justify-content: center;
+}
+
+.HomeNavLink {
+	display: none !important;
+}
+
+@media (max-width: 768px) {
+	.HomeNavLink{
+		display: flex !important;
+	}
+	
+	.newNavLinks {
+		flex-direction: column;
+		flex-wrap: wrap;
+		justify-content: center;
+		margin-left: unset;
+	}
+
+	.ui.top.right.pointing.dropdown.link.item.lastGuyNav {
+		margin-left: 0 !important;
+	}
+
+	.newNav {
+		margin-top: 10px !important;
+		flex-direction: column;
+	}
+
+	.logoWrapper { 
+		display: none;
+	}
+}
+
+.navbar {
+	border-bottom: 1px solid lightgray !important;
+	top: 0px !important;
+	width: 100% !important;
+	background-color: white !important;
+	z-index: 1000 !important;
+	margin-bottom: 0px !important;
+	position: fixed !important;
+}
+
+.navbarImage {
+	height: 50%;
+	display: flex !important;
+	align-self: center;
+}
+
+.navbar-brand {
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+	margin-right: 0 !important;
+	font-size: 0 !important;
+	height: 50%;
+	margin: 10px;
+}
+
+.dropdown-menu {
+	left: -50px
+}
+
+.paypalDonateButton {
+	background-color: red;
+	border-radius: 5px;
+}
+
+li.nav-item:hover {
+	background-color: #d3d3d3;
+	border-radius: 5px;
+}
+
+li.nav-item:first-child:hover {
+	background-color: #009cde;
+	border-radius: 5px;
+}
+
+.donateText {
+	color: white;
+}
+
+.donateText:hover {
+	color: white;
+}
+
+.nav-link {
+	color: black !important;
+	padding: 10px !important;
+}
+
+.donateNavLink:hover {
+	background-color: #C32C2C;
+}

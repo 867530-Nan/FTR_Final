@@ -1,0 +1,218 @@
+.top-padding {
+	padding-top: 70px;
+}
+
+.sugar-house-group-photo {
+	height: 400px;
+	width: 100%;
+	background: linear-gradient(
+	      rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url('../assets/images/sugar-house-groupCROP.jpeg') top center no-repeat;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.firstPath {
+	border-right: 1px solid black;
+}
+
+.diverse-group {
+	height: 550px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: linear-gradient(
+	      rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)),  url('../assets/images/memberGrid.png') center no-repeat;
+}
+
+@media (max-width: 1079px) {
+	.sugar-house-group-photo {
+		background: linear-gradient(
+		      rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url('../assets/images/sugar-house-group1080.jpeg') top center no-repeat;
+	}
+	.established {
+		width: 992px !important;
+	}
+}
+
+@media (max-width: 992px) {
+	.sugar-house-group-photo {
+		height: 394px;
+		background: linear-gradient(
+		      rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url('../assets/images/sugar-house-group768.jpeg') top center no-repeat;
+	}
+	.philosophyHeadline {
+		font-size: 6em;
+	}
+	.established {
+		width: 768px !important;
+	}
+	.uniquePath{
+		height: 140px !important;
+	}
+	.uniquePathWords{
+		font-size: 35px !important;
+	}
+	.story {
+		font-size: 4.5em !important;
+	}
+	.diverse-group {
+		height: 400px;
+		background: linear-gradient(
+	      rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)),  url('../assets/images/memberGrid992.png') center no-repeat;
+	}
+}
+
+@media (max-width: 840px){
+	.uniquePathWords{
+		font-size: 30px !important;
+	}
+}
+
+@media (max-width: 800px){
+	.story {
+		font-size: 4em !important;
+	}
+}
+
+@media (max-width: 768px) {
+	.uniquePath {
+		height: 100px !important;
+		flex-direction: column;
+	}
+	.firstPath {
+		border-right: none;
+		border-bottom: 1px solid black;
+	}
+	.path {
+		padding: 5px 0;
+	}
+	.established {
+		width: 500px !important;
+	}
+	.estWords{
+		font-size: 22px !important;
+	}
+	.sugar-house-group-photo {
+		height: 257px;
+		background: linear-gradient(
+		      rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url('../assets/images/sugar-house-group500.jpeg') top center no-repeat;
+	}
+	.philosophyHeadline {
+		font-size: 4em !important;
+		color: black;
+	}
+	.diverse-group {
+		height: 310px;
+		background: linear-gradient(
+	      rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)),  url('../assets/images/memberGrid768.png') center no-repeat;
+	}
+	.together{
+		height: 80px !important;
+	}
+	.togetherWords {
+		font-size: 30px !important;
+	}
+	.pillarOverview {
+		font-size: 16px !important;
+	}
+	.moreInfo {
+		height: 100px !important;
+	}
+}
+
+@media (max-width: 714px){
+	.pillarOverview {
+		font-size: 14px !important;
+	}
+}
+
+@media (max-width: 700px) {
+	.story {
+		font-size: 3.5em !important
+	}
+	.moreInfo {
+		height: 60px !important;
+	}
+	.moreInfoWords, .togetherWords {
+		font-size: 24px !important;
+	}
+}
+
+@media (max-width: 640px){
+	.pillarOverview {
+		font-size: 12px !important;
+	}
+}
+
+@media (max-width: 600px) {
+	.story {
+		font-size: 3em !important
+	}
+}
+
+@media (max-width: 560px) {
+	.moreInfoWords, .togetherWords {
+		font-size: 20px !important;
+	}
+}
+
+@media (max-width: 520px) {
+	.story {
+		font-size: 2.3em !important
+	}
+}
+
+@media (max-width: 500px) {
+	.sugar-house-group-photo {
+		height: 205px;
+		background: linear-gradient(
+		      rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url('../assets/images/sugar-house-group400.jpeg') top center no-repeat;
+	}
+	.diverse-group {
+		height: 200px;
+		background: linear-gradient(
+	      rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.35)),  url('../assets/images/memberGrid500.png') center no-repeat;
+	}
+	.established {
+		width: 100% !important;
+		height: 140px !important;
+	}
+	.estWords{
+		font-size: 18px !important;
+	}
+	.philosophyHeadline {
+		font-size: 3em !important;
+	}
+}
+
+@media (max-width: 450px) {
+	.moreInfoWords {
+		font-size: 16px !important;
+	}
+	.story {
+		font-size: 2em !important
+	}
+}
+
+@media (max-width: 440px) {
+	.moreInfo {
+		margin: 5px 0 !important;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,610 @@
+.hashtagTop{ 
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.christmasModal {
+  margin-top: 60px !important;
+  height: 1100px !important;
+}
+
+.twasTheNightWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 390px;
+  background: url(../assets/images/ftrHoliday2017.jpg) bottom center no-repeat !important;
+}
+
+.twasTheNightWrap:hover {
+  cursor: pointer;
+  background:  linear-gradient(
+    rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url(../assets/images/ftrHoliday2017.jpg) bottom center no-repeat !important;;
+}
+
+.portalButton {
+  border: none;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+}
+
+.tuesdayHashtag {
+  color: #084582;
+  font-size: 90px;
+  margin-bottom: 50px
+}
+
+.stepTwo {
+  color: #084582;  
+}
+
+.wantToHelpWrap {
+  background-color: #34502B;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ui.page.modals.dimmer.transition.visible.active {
+  margin-top: 50px !important
+}
+
+.wantToHelpText {
+  color: white;
+  font-weight: 500;
+  font-size: 34px;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.supportBeyondWrap {
+  background-color: white;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.supportBeyondText {
+  color: #34502B;
+  font-weight: 500;
+  font-size: 34px;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.donateSocialWrap {
+  height: 200px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.socialWrap {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #941f1f
+}
+
+.socialWrap:hover {
+  background-color: #941F1F;
+  border-right: 1px solid white;
+}
+
+.socialWrap:hover .socialText {
+  color: white;
+}
+
+.socialText {
+  width: 70%;
+  margin: 0 auto;
+  line-height: 1.5;
+  text-align: center;
+  font-size: 21px;
+  color: #C32C2C;
+  font-weight: 500;
+}
+
+.donateWrap {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #941F1F;
+  height: 100%;
+}
+
+.donateWrap:hover {
+  cursor: pointer;
+  background-color: white;
+  border-left: 1px solid #941F1F;
+}
+
+.donateWrap:hover .donateHashtagText {
+  color: #941F1F;
+}
+
+.fontAwesome {
+  fill: white;
+  vertical-align: middle;
+  font-size: 40px;
+
+}
+
+.donateHashtagText {
+  color: white;
+  font-size: 40px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.hashtagTitle {
+  color: white;
+  margin: 0;
+  text-align: center;
+  font-size: 70px;
+  font-weight: 500;
+  padding: 0 20px;
+}
+
+.dateTimeText {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 500;
+  color: white;
+}
+
+.eventInfoWrap {
+  height: 200px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  background-color: #34502B;
+  border-bottom: 1px solid lightgray;
+}
+
+.eventInfoWrap:hover {
+  background-color: #7B9971
+}
+
+.topIntro {
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.showingUp {
+  flex: 1 1 33%;
+  margin: 0 auto;
+  color: #34502B;
+  padding: 0 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 300;
+}
+
+.showingUp:nth-child(2) {
+  border-left: 1px solid #34502B;
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+.showingUp:nth-child(3) {
+  border-left: 1px solid #34502B;
+}
+
+.donateTripleWrap {
+  display: flex;
+  height: 151px;
+  border-bottom: 1px solid #C32C2C;
+}
+
+.singleDonateWrap {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  width: 33.3%;
+  background-color: #C32C2C;
+  color: white;
+  height: 150px;
+}
+
+.donateTripleWrapSMALL {
+  display: none;
+}
+
+.singleDonateWrap:nth-child(odd):hover .singleDonateText {
+  color: white !important;
+}
+
+.singleDonateWrap:nth-child(even):hover .singleDonateText {
+  color: #C32C2C !important;
+}
+
+.givingTuesdayText {
+  color: #084582;
+  font-style: italic;
+}
+
+.singleDonate {
+  font-size: 24px;
+  border-bottom: 1px solid white;
+  padding-bottom: 10px;
+}
+
+.singleDonateText {
+  font-size: 20px;
+  text-align: center;
+}
+
+.singleDonateWrap:nth-child(even) .singleDonate {
+  border-bottom: 1px solid #C32C2C;
+}
+
+.singleDonateWrap:nth-child(even){
+  background-color: white;
+}
+
+.singleDonateWrap:nth-child(even):hover{
+  background-color: #cad0d6;
+  cursor: pointer;
+}
+
+.singleDonateWrap:nth-child(even) .singleDonate{
+  color: #C32C2C;
+}
+
+.singleDonateWrap:nth-child(even) .singleDonateText{
+  color: #C32C2C;
+}
+
+a.singleDonate:nth-child(odd) {
+  color: white;
+}
+
+
+.singleDonateWrap:nth-child(odd):hover {
+  background-color: #981616;
+  cursor: pointer;
+}
+
+
+
+.topText {
+  text-align: center;
+  color: #C32C2C;
+  font-size: 40px;
+  font-weight: 300;
+  padding: 0 30px;
+  font-family: 'Cabin Sketch', sans-serif;
+}
+
+.dateTimeWrap {
+  border-bottom: 1px solid lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+}
+
+
+
+
+.rsvp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rsvpText {
+  font-size: 40px;
+  color: white;
+  line-height: 1;
+  text-align: center;
+  padding: 0 10px;
+}
+
+
+.dateTimeSmallText {
+  margin: 0;
+  color: white;
+  text-align: center
+}
+
+.quoteWrap {
+  display: flex;
+  height: 250px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-bottom: 1px solid #34502B;
+}
+
+.topOurDay {
+  margin-bottom: 30px;
+}
+
+.ourDayText {
+  color: #34502B;
+  font-size: 40px;
+  font-weight: 300;
+}
+
+.bottomOurDay {
+  display: flex;
+  width: 100%;
+}
+
+.imageAboutWrap{
+  display: flex;
+  align-items: center;
+}
+
+.giveImage {
+  height: 500px;
+}
+
+@media (max-width: 1170px){
+  .socialText {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 1150px){
+  .socialText {
+    padding-left: 10px;
+  }
+}
+
+@media (max-width: 1050px) {
+  .tuesdayHashtag {
+    font-size: 70px !important;
+  }
+  .hashtagTitle {
+    font-size: 50px;
+  }
+}
+
+@media (max-width: 992px) {
+  .singleDonateText {
+    font-size: 16px;
+  }
+  .singleDonate {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 900px){
+  .donateTripleWrapSMALL {
+    display: flex;
+    flex-direction: column;
+  }
+  .tripleDonationsWrap {
+    display: flex;
+  }
+  .singleDonateWrapBottom:nth-child(odd) {
+    background-color: white;
+  }
+  .singleDonateWrapBottom:nth-child(odd):hover {
+    background-color: #cad0d6;
+  }
+  .singleDonateWrapBottom:nth-child(2):hover {
+    background-color: #981616;
+  }
+  .singleDonateWrapBottom:nth-child(2):hover .singleDonateText {
+    color: white !important;
+  }
+  .singleDonateWrapBottom:nth-child(odd) .singleDonate {
+    color: #C32C2C;
+    border-bottom: 1px solid #C32C2C;
+  }
+  .singleDonateWrapBottom:nth-child(odd) .singleDonateText {
+    color: #C32C2C;
+  }
+  .singleDonateWrapBottom {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    width: 33.3%;
+    background-color: #C32C2C;
+    color: white;
+    height: 150px;
+  }
+  .donateTripleWrap {
+    display: none;
+  }
+}
+
+@media (max-width: 950px){
+  .socialWrap:hover {
+    border: none;
+  }
+  .dateTimeWrap {
+    height: 150px
+  }
+  .topText {
+    font-size: 30px;
+  }
+  .donateSocialWrap {
+    height: 220px;
+    flex-direction: column;
+  }
+  .donateWrap {
+    width: 100%;
+  }
+  .socialWrap {
+    width: 100%;
+    display: flex;
+    height: 250px;
+    justify-content: center;
+    align-items: center;
+  }
+  .wantToHelpText {
+    font-size: 26px
+  }
+}
+
+@media (max-width: 774px){ 
+  .hashtagTitle {
+    font-size: 34px;
+  }
+  .twasTheNightWrap {
+    height: 300px;
+  }
+  .wantToHelpWrap {
+    height: 200px;
+  }
+  .wantToHelpText {
+    font-size: 20px
+  }
+  .donateSocialWrap {
+    height: 300px
+  }
+  .socialWrap {
+    height: 100px
+  }
+  .donateWrap {
+    height: 200px
+  }
+  .eventInfoWrap {
+    height: 200px;
+    justify-content: space-evenly;
+  }
+  .dateTimeText {
+    padding-top: 0;
+  }
+  .supportBeyondWrap {
+    height: 200px;
+  }
+  .donateWrap:hover {
+    border-top: 1px solid #941f1f;
+    border-bottom: 2px solid #941f1f;
+  }
+  .supportBeyondText {
+    font-size: 25px
+  }
+}
+
+@media (max-width: 710px){
+  .topText {
+    font-size: 24px;
+  }
+  .topIntro {
+    height: 200px;
+  }
+}
+
+@media (max-width: 700px){
+  .showingUp {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 650px) {
+  .dateTimeText {
+    font-size: 24px
+  }
+}
+
+@media (max-width: 600px){
+  
+}
+
+@media (max-width: 588px) {
+  .showingUp:nth-child(2){
+    letter-spacing: 0;
+    font-size: 16px 
+  }
+}
+
+@media (max-width: 543px) {
+  .hashtagTitle {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 520px) {
+  .dateTimeText {
+    font-size: 20px
+  }
+}
+
+@media (max-width: 500px){
+  .ourDayText {
+    font-size: 30px
+  }
+  .socialText {
+    font-size: 14px;
+  }
+  .donateHashtagText {
+    font-size: 30px;
+  }
+  .singleDonate {
+    font-size: 16px;
+  }
+  .christmasGroupPic {
+    height: 280px;
+  }
+  .dateTimeWrap {
+    margin-top: 80px
+  }
+  .rsvpText {
+    font-size: 30px
+  }
+}
+
+@media (max-width: 480px) {
+  .wantToHelpText {
+    font-size: 16px
+  }
+}
+
+@media (max-width: 450px) {
+  .dateTimeText {
+    font-size: 16px
+  }
+  .topText {
+    font-size: 20px
+  }
+}
+
+@media (max-width: 400px){
+  .dateTimeText {
+    margin-bottom: 10px;
+  }
+  .quoteWrap {
+    height: 250px;
+  }
+  .singleDonate {
+    font-size: 14px;
+  }
+  .singleDonateText {
+    font-size: 14px;
+  }
+  .tuesdayHashtag{
+    font-size: 50px;
+  }
+  .hashtagTitle {
+    font-size: 24px;
+  }
+  .showingUp:nth-child(2){
+    font-size: 15px 
+  }
+  .rsvpText {
+    font-size: 24px
+  }
+}

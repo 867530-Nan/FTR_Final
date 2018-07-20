@@ -1,0 +1,130 @@
+.monthlyNewsletter {
+	margin-bottom: 30px;
+	opacity: 0.6;
+}
+
+.monthlyNewsletter:hover {
+	opacity: 1.0;
+	cursor: pointer;
+}
+
+.month {
+	font-size: 2em;
+	margin: -10px 0 0 0 !important;
+}
+
+.eachOne {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.year2017 {
+	width: 100%;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	border-bottom: 1px solid red;
+	text-align: center;
+	margin: 20px auto;
+}
+
+.newsletterLink {
+	margin-bottom: 20px;
+}
+
+.year2016 {
+	margin-top: 30px;
+	width: 80%;
+	border-bottom: 1px solid red;
+	text-align: center;
+	margin: 20px auto;
+}
+
+.year2015 {
+	margin-top: 30px;
+	width: 80%;
+	border-bottom: 1px solid red;
+	text-align: center;
+	margin: 20px auto;
+}
+
+@media (max-width: 992px){
+	.newsletterHeaderWords {
+	font-size: 5em !important;
+	}
+
+	.glyphicon-envelope {
+		font-size: 4em !important;
+	}
+	.aboutNewsletterWords{
+		font-size: 2.4em !important;
+	}
+}
+
+@media (max-width: 900px){
+	.newsletterHeaderWords {
+	font-size: 4em !important;
+	}
+
+	.glyphicon-envelope {
+		font-size: 4em !important;
+	}
+	.aboutNewsletterWords {
+		font-size: 2.4em !important;
+	}
+}
+
+@media (max-width: 800px){
+	.aboutNewsletterWords {
+		font-size: 2em !important;
+	}
+}
+
+@media (max-width: 768px) {
+	.singleMonthGrouped {
+		width: 90% !important;
+	}
+	.img-responsive {
+		margin: auto;
+	}
+}
+
+@media (max-width:  650px){
+	.newsletterHeaderWords {
+		font-size: 4em !important;
+	}
+	.glyphicon-envelope {
+		font-size: 2em !important;
+	}
+	.aboutNewsletterWords {
+		font-size: 1.6em !important;
+		margin-bottom: 0 !important;
+	}
+	.year2017Words, .year2016Words, .year2015Words {
+		font-size: 2em !important;
+	}
+}
+
+@media (max-width:  550px){
+	.newsletterHeaderWords {
+		font-size: 3em !important;
+	}
+	.aboutNewsletterWords {
+		font-size: 1.3em !important;
+		margin-bottom: 0 !important;
+	}
+}
+
+@media (max-width:  430px){
+	.newsletterHeaderWords {
+		font-size: 2em !important;
+	}
+
+	.glyphicon-envelope {
+		font-size: 1.2em !important;
+	}
+	.aboutNewsletterWords {
+		font-size: 1em !important;
+	}
+}

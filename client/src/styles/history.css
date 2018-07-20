@@ -1,0 +1,100 @@
+	.beforeafter{
+		background: linear-gradient(
+	      rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('../assets/images/BeforeAfter.jpg') center no-repeat;
+	}
+
+	.CFU > img {
+		margin: 0 auto !important;
+	}
+
+.redStripeWords {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	font-size: 24px;
+	width: 90%;
+	margin: 0 auto;
+	font-weight: 300;
+}
+
+@media (max-width: 998px){
+	.redstripe {
+		width: 100% !important;
+	}
+}  
+	
+@media(max-width: 768px) {
+	.beforeafter {
+		height: 200px;
+		background: linear-gradient(
+		      rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('../assets/images/empty-gym.jpeg') center no-repeat;
+		align-items: flex-start !important;
+	}
+	.beforeAfterWords{
+		padding-top: 50px !important;
+		font-size: 6em !important;
+	}
+	.singlePic {
+		width: 50% !important;
+		margin: 0 auto !important;
+	}
+	.gridWords {
+		text-align: center;
+	}
+	.gridContainer:last-child {
+		margin-bottom: 0px !important;
+	}
+	.gridContainer:nth-child(even) {
+		background-color: lightgray;
+	}
+	.gridWords {
+		width: 100% !important;
+	}
+	.redStripeWords {
+		font-size: 18px;
+	}
+	.redstripe {
+		height: 350px !important;
+	}
+}
+
+@media (max-width: 660px){
+	.redStripeWords {
+		padding: 0 30px;
+		font-size: 16px !important;
+	}
+}
+
+@media (max-width: 562px){
+	.redstripe {
+		height: 420px !important;
+	}
+}
+
+@media (max-width: 454px){
+	.beforeAfterWords {
+		font-size: 4em !important;
+	}
+	.redstripe {
+		height: 500px !important;
+	}
+}
+
+@media (max-width: 400px){
+	.redstripe {
+		height: 500px !important;
+	}
+	.redstripeWords {
+		font-size: 14px !important;
+	}
+}
+
+@media (max-width: 350px){
+	.redStripeWords {
+		padding: 0 30px;
+		font-size: 12px !important;
+	}
+}
+
+
+	
