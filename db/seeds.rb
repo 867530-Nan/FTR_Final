@@ -4,7 +4,6 @@
 
 Employee.create({name: "Ian Acker", title: "Founder & Executive Director", image: "http://files.constantcontact.com/25b22253501/6cb708ec-7c6d-47b0-a318-5babb9bc5dfc.jpg", index: 1})
 Employee.create({name: "Georiga Gregersen", title: "Operations Officer", image: "http://files.constantcontact.com/25b22253501/8c70e945-e6c4-4947-ace2-1c63517cea3f.jpg", index: 2})
-Employee.create({name: "Crystal Yazzie", title: "Fitness Director", image: "http://files.constantcontact.com/25b22253501/eb5b1298-13e8-4eeb-bdea-55ca2d71ce2a.jpg", index: 3})
 Employee.create({name: "Frank Young", title: "Fitness Director", image: "http://files.constantcontact.com/25b22253501/eb5b1298-13e8-4eeb-bdea-55ca2d71ce2a.jpg", index: 4})
 Employee.create({name: "Tessa Acker", title: "Lead Dietitian, Food to Recover", image: "http://files.constantcontact.com/25b22253501/f91e67f2-114f-4de6-961d-1e16fba46499.jpg", index: 5})
 Employee.create({name: "Crystal Yazzie", title: "Community Service Director", image: "http://files.constantcontact.com/25b22253501/0562a0a4-d736-4e8e-ad61-8b58ee715356.png", index: 6})
