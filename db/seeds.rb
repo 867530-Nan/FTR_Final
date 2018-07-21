@@ -25,8 +25,6 @@ Board.create({name: "Doug McNeil", title: "Treasurer", bio: "Doug retired from I
 Board.create({name: "Kathleen Brachter", title: "Member", bio: "Kathleen is a Licensed Massage Therapist, in private practice 23 years, and former instructor of professional development at Utah College of Massage Therapy. Her previous non-profit experience includes Fourth Street Clinic, U-Fit, Community Food Co-Op of Utah, and Big Brothers, Big Sisters.", image: "http://files.constantcontact.com/25b22253501/83730a67-50bc-4e13-879a-faf323126897.jpg", index: 4})
 Board.create({name: "Steve Acker", title: "Member", bio: "Steve is Emeritus Professor, The Ohio State University, where he taught and conducted research for 25 years on new media and learning technologies. For FTR, he serves in the capacity of directing research and offering strategic direction for innovation.", image: "http://files.constantcontact.com/25b22253501/91b5f864-e4ff-4a45-ad3d-8445a0b07cc0.jpg", index: 5})
 
-User.create({email: "contact@fit2recover.org", password: "adminAEIOU2468", password_confirmation: "adminAEIOU2468"})
-
 Testimonial.create!([
 	{
 		author: 'Meg Tom',
@@ -405,6 +403,4 @@ Newsletter.create([
   }
 ])
 
-
-
-
+User.create({email: "contact@fit2recover.org", password: "adminAEIOU2468", password_confirmation: "adminAEIOU2468"})
