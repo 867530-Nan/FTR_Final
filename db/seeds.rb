@@ -401,5 +401,3 @@ Newsletter.create([
     link: "https://conta.cc/2L5tdG9"
   }
 ])
-
-User.create({email: "contact@fit2recover.org", password: "adminAEIOU2468", password_confirmation: "adminAEIOU2468"})
