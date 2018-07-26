@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Button, Table } from 'semantic-ui-react'
+import { Button, Item } from 'semantic-ui-react'
 import moment from 'moment';
 
 const ButtonWrap = styled.div`
@@ -28,31 +28,40 @@ class SingleNote extends React.Component {
   render() {
     const { single, index } = this.props
     return(
-      <Table.Row>
-        <Table.Cell>
-          {single.title}
-        </Table.Cell>
-        <Table.Cell
-          style={{width: '40%'}}
-        >
-          {single.body}
-        </Table.Cell>
-        <Table.Cell>{single.date !== null && single.date !== undefined && this.configureTime(single.date)}</Table.Cell>
+      <Item.Group
+        style={{borderBottom: '1px solid gray', padding: '30px'}}
+      >
+        <Item>
+          <Item.Content>
+            <Item.Header as='a'>{single.title}</Item.Header>
+            <Item.Meta>{single.date !== null && single.date !== undefined && this.configureTime(single.date)}</Item.Meta>
+            <Item.Meta>{single.body}</Item.Meta>
+            <Item.Meta>{single.link_text}</Item.Meta>
+            <Item.Extra
+              as="a"
+              href={single.link}
+            >
+              {single.link}
+            </Item.Extra>
+          </Item.Content>
+        </Item>
         <ButtonWrap>
           <Button 
+            style={{width: '100%'}}
             onClick={() => this.props.editButton(this.props.single)} 
             color="teal"
           >
             Edit
           </Button>
           <Button 
+            style={{width: '100%'}}
             onClick={() => this.props.deleteButton(this.props.single)} 
             color="orange"
           >
             Delete
           </Button>
         </ButtonWrap>
-      </Table.Row>
+      </Item.Group>
     )
   }
 }

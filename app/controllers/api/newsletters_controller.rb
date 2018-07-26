@@ -37,7 +37,7 @@ class Api::NewslettersController < ApplicationController
   end
 
   def newsletter_params
-    params.require(:newsletter).permit(:title, :image, :link, :index)
+    params.require(:newsletter).permit(:title, :image, :link, :index, :link_text)
   end
 
 end

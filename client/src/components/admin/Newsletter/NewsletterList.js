@@ -1,8 +1,8 @@
 import React from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
-import { Button, Card } from 'semantic-ui-react'
-import SingleStaff from './SingleStaff'
+import { Button, Table } from 'semantic-ui-react'
+import SingleNewsletter from './SingleNewsletter'
 
 const Header = styled.h3`
   font-family: helvetica;
@@ -16,7 +16,7 @@ const ButtonWrap = styled.div`
   padding: 20px;
 `
 
-class StaffList extends React.Component {
+class NewsletterList extends React.Component {
 
   compare = (a,b) => {
     if (a.index < b.index)
@@ -26,11 +26,11 @@ class StaffList extends React.Component {
     return 0;
   }
 
-  displayStaff = () => {
-    const newArr = this.props.staff.sort(this.compare)
+  displayNewsletter = () => {
+    const newArr = this.props.newsletters.sort(this.compare)
     return newArr.map( (single, index) => {
       return(
-        <SingleStaff 
+        <SingleNewsletter 
           single={single} 
           index={index} 
           editButton={(single) => this.props.editButton(single)} 
@@ -41,23 +41,33 @@ class StaffList extends React.Component {
   }
 
   render(){
-    if (this.props.staff.length) {
+    if (this.props.newsletters.length) {
       return(
         <div
           style={{width: '90%', margin: '0 auto'}}
         >
-          <Header>Current Staff Members</Header>
           <ButtonWrap>
             <Button 
               onClick={this.props.createButton} 
               color="blue"
+              size="huge"
               >
-              New Staff Member
+              Add Newsletter
             </Button>
           </ButtonWrap>
-          <Card.Group>
-            {this.displayStaff()}
-          </Card.Group>
+          <Table celled>
+            <Table.Header>
+              <Table.Row>
+                <Table.HeaderCell>Title</Table.HeaderCell>
+                <Table.HeaderCell>Link</Table.HeaderCell>
+                <Table.HeaderCell>Image</Table.HeaderCell>
+                <Table.HeaderCell>Index</Table.HeaderCell>
+              </Table.Row>
+            </Table.Header>
+            <Table.Body>
+            {this.displayNewsletter()}
+            </Table.Body>
+          </Table>
         </div>
       )
     } else {
@@ -73,12 +83,12 @@ class StaffList extends React.Component {
             alignItems: 'center'
           }}
         >
-          No Current Staff
+          No Newsletters
           <Button 
             onClick={this.props.createButton} 
             color="blue"
           >
-            Add Staff Member
+            Add Newsletter
           </Button>
         </div>
       ) 
@@ -86,4 +96,4 @@ class StaffList extends React.Component {
   }
 }
 
-export default StaffList
+export default NewsletterList

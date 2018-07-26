@@ -29,6 +29,8 @@ class CreateForm extends React.Component{
             title: "",
             date: new Date(),
             image: "",
+            link: "",
+            link_text: ""
           }
 
   handleChange = e => {
@@ -39,8 +41,8 @@ class CreateForm extends React.Component{
   handleDate = date => this.setState({ date })
 
   handleSubmit = () => {
-    const note = { ...this.state }
-    axios.post('/api/notes/', { note })
+    const bulletin = { ...this.state }
+    axios.post('/api/bulletins/', { bulletin })
     .then(() => this.props.back())
     .catch( err => console.log(err))
   }
@@ -62,6 +64,14 @@ class CreateForm extends React.Component{
             <Form.Field>
               <label>Date</label>
               <input placeholder='Enter Date' type="datetime-local" value={this.state.date} id="date" onChange={this.handleChange} />
+            </Form.Field>
+            <Form.Field>
+              <label>Link Text</label>
+              <input placeholder='Enter the Link Will Say' type="text" value={this.state.link_text} id="link_text" onChange={this.handleChange} />
+            </Form.Field>
+            <Form.Field>
+              <label>Link URL</label>
+              <input placeholder='Paste Facebook (or other) Link URL' type="text" value={this.state.link} id="link" onChange={this.handleChange} />
             </Form.Field>
           </Form>
           <ButtonWrap>

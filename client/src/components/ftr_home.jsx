@@ -42,11 +42,11 @@ const BulletinHeader = styled.h1`
 
 //comment to push to heroku
 class Home extends Component {
-	state = { photos: [], notes: [], newsletter: undefined }
+	state = { photos: [], bulletins: [], newsletter: undefined }
 
 	componentDidMount() {
 		axios.get('/api/home/index')
-		.then( res => this.setState({ photos: res.data.photos.data, notes: res.data.notes, newsletter: res.data.newsletter }) )
+		.then( res => this.setState({ photos: res.data.photos.data, bulletins: res.data.bulletins, newsletter: res.data.newsletter }) )
 		saveAddress(window.location.href)
 	}
  
@@ -107,7 +107,7 @@ class Home extends Component {
 				<BulletinHeader>
 					FTR Events for {moment(new Date()).format('MMMM')}
 				</BulletinHeader>
-				{ this.state.notes.map( single => {
+				{ this.state.bulletins.map( single => {
 					return(
 						<SingleBulletinItem single={single} />
 					)
@@ -180,7 +180,7 @@ class Home extends Component {
 				</BLink >
 			</div>
 
-					{ this.state.notes.length ? this.displayBulletin() : null }				
+					{ this.state.bulletins.length ? this.displayBulletin() : null }				
 
 				<div className="instaNewsBar">
 					<Grid

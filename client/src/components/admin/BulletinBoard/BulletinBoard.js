@@ -6,27 +6,27 @@ import CreateBulletinItem from './CreateBulletinItem';
 
 
 class BulletinBoard extends React.Component {
-  state = { notes: [], showAll: true, editNote: undefined }
+  state = { bulletins: [], showAll: true, editBulletin: undefined }
 
   componentDidMount(){
-    this.fetchNotes()
+    this.fetchBulletins()
   }
 
-  fetchNotes = () => {
-    axios.get('/api/notes/')
-    .then( res => this.setState({ notes: res.data, showAll: true }))
+  fetchBulletins = () => {
+    axios.get('/api/bulletins/')
+    .then( res => this.setState({ bulletins: res.data, showAll: true }))
     .catch( res => console.log(res))
   }
 
   editButton = info => {
-    this.setState({ editNote: info, showAll: false, create: false  })
+    this.setState({ editBulletin: info, showAll: false, create: false  })
   }
 
   deleteButton = (note) => {
-    axios.delete(`/api/notes/${note.id}`)
-    let notes = this.state.notes
-    const newArr = notes.filter(single => single.id !== note.id)
-    this.setState({ notes: newArr })
+    axios.delete(`/api/bulletins/${note.id}`)
+    let bulletins = this.state.bulletins
+    const newArr = bulletins.filter(single => single.id !== note.id)
+    this.setState({ bulletins: newArr })
   }
 
   cancelButton = () => {
@@ -37,22 +37,22 @@ class BulletinBoard extends React.Component {
     if (this.state.showAll){
       return <ShowAllBulletinItems 
               editButton={this.editButton} 
-              notes={this.state.notes} 
+              bulletins={this.state.bulletins} 
               deleteButton={this.deleteButton}
               createButton={() => this.setState({ create: true, showAll: false })}
             />
     } else if (this.state.create){
       return(
         <CreateBulletinItem 
-          back={this.fetchNotes} 
+          back={this.fetchBulletins} 
           cancelButton={this.cancelButton}
         />
       )
     } else {
       return(
         <EditBulletinItem 
-          note={this.state.editNote} 
-          back={this.fetchNotes} 
+          bulletin={this.state.editBulletin} 
+          back={this.fetchBulletins} 
           cancelButton={this.cancelButton} 
         />
       )

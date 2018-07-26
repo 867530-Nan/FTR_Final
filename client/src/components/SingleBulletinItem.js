@@ -43,6 +43,7 @@ const SingleItemWrap = styled.div`
 
 const BottomWrap = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 30px;
@@ -50,7 +51,8 @@ const BottomWrap = styled.div`
 
 const TopWrap = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
   justify-content: space-around;
 
   @media (max-width: 768px) {
@@ -58,11 +60,11 @@ const TopWrap = styled.div`
   }
 `
 
-const SingleBody = styled.p`
-
+const SingleBody = styled.h3`
+  font-weight: 300;
 `
 
-const SingleTitle = styled.h3`
+const SingleTitle = styled.h1`
   font-weight: 500;
   margin: 0;
 
@@ -73,10 +75,26 @@ const SingleTitle = styled.h3`
   }
 `
 
-const SingleDate = styled.h4`
+const SingleDate = styled.h3`
   font-weight: 400;
+  font-style: italic;
   margin: 0;
+`
 
+const SingleAnchor = styled.a`
+  color: #353535;
+  border-radius: 3px;
+  box-shadow: 0px 0px 15px 6px #E8E8E8;
+  padding: 20px;
+  border: 1px solid rgba(0, 123, 255, .47);
+  cursor: pointer;
+  width: 90%;
+  text-align: center;
+  font-size: 20px
+
+  &:hover {
+    box-shadow: 0px 0px 15px 6px #D3D3D3;
+  }
 `
 
 
@@ -91,56 +109,42 @@ class SingleBulletinItem extends React.Component{
         <SingleBody>
           {this.props.single.body}
         </SingleBody>
+        <SingleAnchor
+          href={this.props.single.link}
+          target="_blank"
+        >
+          {this.props.single.link_text}
+        </SingleAnchor>
       </BottomWrap>
     )
   }
 
   configureTime = info => {
-    // const dateSplit = info.split("T")
-    // const date = dateSplit[0]
-    // const time = dateSplit[1].split(".")
-    // const splitTime = time[0].split(":")
-    // const finalTime = splitTime[0]+":"+splitTime[1]
-    // const finalDate = moment(date + " " + finalTime).format("dddd, MMMM Do YYYY, h:mma")
-    // return(
-    //     finalDate
-    // )
+    const dateSplit = info.split("T")
+    const date = dateSplit[0]
+    const time = dateSplit[1].split(".")
+    const splitTime = time[0].split(":")
+    const finalTime = splitTime[0]+":"+splitTime[1]
+    const finalDate = moment(date + " " + finalTime).format("dddd, MMMM Do YYYY, h:mma")
+    return(
+        finalDate
+    )
     return info
   }
 
-  // getMostRecentMessage = (a, b) => {
-	// 	if (a.date < b.date)
-	// 		return -1;
-	// 	if (a.date > b.date)
-	// 		return 1;
-	// 	return 0;
-	// }
-
-	// justDate = info => {
-	// 	return (
-	// 		info.map( single => {
-	// 			const first = single.date.split("T")
-	// 			const second = first[0]
-	// 			const third = second.split("-")
-	// 			const fourth = third.join("")
-	// 			return fourth
-	// 	}))
-	// }
-
   render(){
-    // const justDate = this.justDate(this.state.notes)
-		// const recentArr = justDate.sort(this.getMostRecentMessage)
     return(
-      <EntireWrap
-        onClick={() => this.setState({ showMore: !this.state.showMore })}
-      >
+      <EntireWrap>
         <PlusMinusWrap
           id="plusMinus"
+          onClick={() => this.setState({ showMore: !this.state.showMore })}
         >
           {this.state.showMore ? '-' : '+' }
         </PlusMinusWrap>
         <SingleItemWrap>
-          <TopWrap>
+          <TopWrap
+            onClick={() => this.setState({ showMore: !this.state.showMore })}
+          >
             <SingleTitle>
               {this.props.single.title}
             </SingleTitle>

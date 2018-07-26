@@ -1,8 +1,7 @@
 import React from 'react'
-import axios from 'axios'
+import SingleNote from './SingleNote'
 import styled from 'styled-components'
-import { Button, Card } from 'semantic-ui-react'
-import SingleBoardMember from './SingleBoardMember'
+import { Button, Table } from 'semantic-ui-react'
 
 const Header = styled.h3`
   font-family: helvetica;
@@ -16,48 +15,40 @@ const ButtonWrap = styled.div`
   padding: 20px;
 `
 
-class BoardList extends React.Component {
+class ShowAllBulletinItems extends React.Component {
+  state = { bulletins: [], create: false }
 
-  compare = (a,b) => {
-    if (a.index < b.index)
-      return -1;
-    if (a.index > b.index)
-      return 1;
-    return 0;
-  }
-
-  displayBoard = () => {
-    const newArr = this.props.Board.sort(this.compare)
-    return newArr.map( (single, index) => {
+  displayBulletin = () => {
+    return this.props.bulletins.map( (single, index) => {
       return(
-        <SingleBoardMember 
-          single={single} 
-          index={index} 
-          editButton={(single) => this.props.editButton(single)} 
-          deleteButton={this.props.deleteButton}
-        />
+        <div
+          style={{display: 'flex', flexDirection: 'center', alignItems: 'center'}}
+        >
+          <div>
+            <h1 style={{alignSelf: 'center'}}>{index+1}</h1>
+          </div>
+          <SingleNote single={single} index={index} editButton={(single) => this.props.editButton(single)} deleteButton={this.props.deleteButton}/>
+        </div>
       )
     })
   }
 
   render(){
-    if (this.props.Board.length) {
+    if (this.props.bulletins.length) {
       return(
         <div
           style={{width: '90%', margin: '0 auto'}}
         >
-          <Header>Current Board Members</Header>
           <ButtonWrap>
             <Button 
               onClick={this.props.createButton} 
               color="blue"
-              >
-              New Board Member
+              size="huge"
+            >
+              Create New Bulletin Item
             </Button>
           </ButtonWrap>
-          <Card.Group>
-            {this.displayBoard()}
-          </Card.Group>
+          { this.displayBulletin() }
         </div>
       )
     } else {
@@ -73,12 +64,12 @@ class BoardList extends React.Component {
             alignItems: 'center'
           }}
         >
-          No Current Board
+          No Bulletin Items
           <Button 
             onClick={this.props.createButton} 
             color="blue"
           >
-            Add Board Member
+            Create New Bulletin Item
           </Button>
         </div>
       ) 
@@ -86,4 +77,4 @@ class BoardList extends React.Component {
   }
 }
 
-export default BoardList
+export default ShowAllBulletinItems

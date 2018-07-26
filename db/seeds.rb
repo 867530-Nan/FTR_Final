@@ -2,6 +2,43 @@
 # Note.create({title: "Learn to Cook with Your Kids", body: "Cooking is a great way to help kids develop skills, learn healthy habits that can last a lifetime, gain a new hobby, and most of all a change to bond with your child! Class are every other Wednesday for 3 weeks", date: "2018-07-18T05:35:00.944Z" })
 # Note.create({title: "Guest Chef: Joshua Cornell", body: "", date: "2018-07-18T05:35:00.944Z" })
 
+Fitness.create({
+  title: "Saturday Bootcamp", 
+  sub_title: "Led by Ian Acker", 
+  body: "The Original Class.\nEvery day Saturday morning at 10am. We do it all from body weight exercises to cardio, flexibility, and strength. In the warmer weather, we meet at Sugar House Park. It doesn't matter whether you are in shape or just getting started on your physical fitness. We're all there for each other and it is a great way to start the weekend. Come one, and come all!", 
+  image: "http://files.constantcontact.com/25b22253501/d06609a1-7d63-49ae-af55-d826c5c140ea.jpg"
+})
+
+Fitness.create({
+  title: "FTR Fitness", 
+  body: "This class is for all levels, and the exercises change frequently. Exercises range from kettlebells and circuit training, to strength & conditioning. These classes are formatted to have a warm-up period of instruction, PRACTICE, then cool down and stretch. Come and learn with us.", 
+  image: "http://files.constantcontact.com/25b22253501/e12430d8-50ab-49e0-9b80-799be718a18a.png"
+})
+
+Fitness.create({
+  title: "Capoeira (The Dance of War)", 
+  body: "Capoeira is a Brazilian martial art that combines elements of dance, acrobatics and music. It is known for its quick and complex maneuvers, predominantly using power, speed, and leverage across a wide variety of kicks, spins and techniques. All are welcome to learn and participate.", 
+  image: "http://files.constantcontact.com/25b22253501/8b225eeb-6f21-4a88-b8fb-fdfa25e5ae6e.png"
+})
+
+Fitness.create({
+  title: "HIGH Fitness", 
+  body: "HIGH Fitness is a hardcore, fun fitness class that incorporates aerobic interval training with music you love and intense easy to follow fitness choreography. It combines FUN (pop songs of old and new that everyone knows and loves) with INTENSITY (interval, plyometrics and cardio) with CONSISTENCY (each song has specific simple moves taught the same by all instructors). Together they make a recipe for success, repeat participation and results! HIGH Fitness produces a high caloric burn and full-body toning through its carefully formulated choreography that alternates between intense cardio peaks and toning tracks.", 
+  image: "http://files.constantcontact.com/25b22253501/62d79e8b-bab3-425d-b352-3d9a4691b2b9.jpg"
+})
+
+Fitness.create({
+  title: "Recovery Yoga", 
+  body: "Described as the perfect balance between activity and meditation, Courtney's classes leave members energized and relaxed. This class focuses on an evolution of mind, body, and spirit and encourages their harmony.\nRestorative yoga is a form of yoga that seeks to achieve physical, mental and emotional relaxation with the aid of props. The use of props makes it easier for you to maintain balance while you are stimulating and relaxing your body.", 
+  image: "http://files.constantcontact.com/25b22253501/1811d2fc-4228-4eed-9c20-8a57abc828b6.jpg"
+})
+
+Fitness.create({
+  title: "Team Sports", 
+  body: "On the court or on the field, you'll find Fit To Recover teams focused on fun, camaraderie, and team spirit. Currently, we field teams in volleyball and softball, and we just added co-ed indoor soccer this season.\nOpen to players of all levels, our co-ed teams enjoy the challenges, and often enjoy a meal together after the game. Come join us!", 
+  image: "http://files.constantcontact.com/25b22253501/567cb980-6c60-414b-8d4b-0406510857bc.jpg"
+})
+
 Employee.create({name: "Ian Acker", title: "Founder & Executive Director", image: "http://files.constantcontact.com/25b22253501/6cb708ec-7c6d-47b0-a318-5babb9bc5dfc.jpg", index: 1})
 Employee.create({name: "Georiga Gregersen", title: "Operations Officer", image: "http://files.constantcontact.com/25b22253501/8c70e945-e6c4-4947-ace2-1c63517cea3f.jpg", index: 2})
 Employee.create({name: "Frank Young", title: "Fitness Director", image: "http://files.constantcontact.com/25b22253501/eb5b1298-13e8-4eeb-bdea-55ca2d71ce2a.jpg", index: 4})

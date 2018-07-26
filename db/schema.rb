@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_19_044730) do
+ActiveRecord::Schema.define(version: 2018_07_26_053520) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,17 @@ ActiveRecord::Schema.define(version: 2018_07_19_044730) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "bulletins", force: :cascade do |t|
+    t.string "title"
+    t.string "date"
+    t.text "body"
+    t.text "image"
+    t.text "link"
+    t.text "link_text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "employees", force: :cascade do |t|
     t.string "name"
     t.string "title"
@@ -34,20 +45,21 @@ ActiveRecord::Schema.define(version: 2018_07_19_044730) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "fitnesses", force: :cascade do |t|
+    t.string "title"
+    t.string "sub_title"
+    t.text "body"
+    t.string "index"
+    t.text "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "newsletters", force: :cascade do |t|
     t.string "title"
     t.text "image"
     t.text "link"
     t.integer "index"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "notes", force: :cascade do |t|
-    t.string "title"
-    t.string "date"
-    t.text "body"
-    t.text "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

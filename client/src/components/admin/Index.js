@@ -1,6 +1,6 @@
 import React from 'react'
 import Login from './Login'
-import AdminConsole from './AdminConsole'
+import AdminNavigationTabs from './AdminNavigationTabs';
 
 class Index extends React.Component {
 
@@ -24,17 +24,13 @@ class Index extends React.Component {
   }
 
   render(){
-    if (this.state.loggedIn) {
-      return <AdminConsole />
-    } else {
-      return(
-        <Login 
-          handleChange={this.handleChange} 
-          buttonDisable={this.buttonDisable} 
-          checkInputs={this.checkInputs}
-        />
+      return (
+      <div
+        style={{paddingTop: '100px'}}
+      >
+        <AdminNavigationTabs />
+      </div>
       )
-    }
   }
 }
 

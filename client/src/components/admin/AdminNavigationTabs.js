@@ -1,12 +1,13 @@
 import React from 'react'
 import { Tab } from 'semantic-ui-react'
-import BulletinBoard from './BulletinBoard'
-import CurrentStaff from './CurrentStaff'
-import BoardMembers from './BoardMembers'
-import Newsletter from './Newsletter'
+import BulletinBoard from './BulletinBoard/BulletinBoard'
+import CurrentStaff from './CurrentStaff/CurrentStaff'
+import BoardMembers from './BoardMembers/BoardMembers'
+import Newsletter from './Newsletter/Newsletter'
 import { Button } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { handleLogout } from '../../reducers/user';
+import Programs from './Programs/Index'
 
 
 class TabExampleSecondaryPointing extends React.Component {
@@ -17,6 +18,7 @@ class TabExampleSecondaryPointing extends React.Component {
       { menuItem: 'Current Staff', render: () => <CurrentStaff /> },
       { menuItem: 'Board Members', render: () => <BoardMembers /> },
       { menuItem: 'Newsletter', render: () => <Newsletter /> },
+      { menuItem: 'Programs', render: () => <Programs /> },
       { menuItem: 'Log Out', render: () => <Button primary onClick={() => this.props.dispatch(handleLogout(this.props.history))} />},
     ]
     return(

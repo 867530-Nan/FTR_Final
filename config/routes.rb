@@ -2,22 +2,15 @@ Rails.application.routes.draw do
   mount_devise_token_auth_for 'User', at: 'api/auth'
   namespace :api do
     resources 'newsletters'
-  end
-
-  namespace :api do
+    resources 'bulletins'
     resources 'boards'
-  end
-
-  namespace :api do
     resources 'employees'
+    resources 'testimonials'
+    resources 'fitness'
   end
 
   namespace :api do
     get 'home/index'
-  end
-
-  namespace :api do
-    resources 'notes'
   end
 
   namespace :api do
@@ -36,11 +29,6 @@ Rails.application.routes.draw do
     get 'instagram/home'
   end
 
-  namespace :api do
-    resources :testimonials
-  end
 
-
-  #Do not place any routes below this one
   get '*other', to: 'static#index'
 end

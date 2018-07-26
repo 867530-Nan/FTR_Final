@@ -24,10 +24,12 @@ const DatePickerWrap = styled.div`
 class EditBulletinItem extends React.Component{ 
 
   state = { 
-            body: this.props.note.body ? this.props.note.body : null, 
-            title: this.props.note.title ? this.props.note.title : null, 
-            date: this.props.note.date ? this.props.note.date : null,
-            image: this.props.note.image ? this.props.note.image : null
+            body: this.props.bulletin.body ? this.props.bulletin.body : null, 
+            title: this.props.bulletin.title ? this.props.bulletin.title : null, 
+            date: this.props.bulletin.date ? this.props.bulletin.date : null,
+            image: this.props.bulletin.image ? this.props.bulletin.image : null,
+            link: this.props.bulletin.link ? this.props.bulletin.link : null,
+            link_text: this.props.bulletin.link_text ? this.props.bulletin.link_text : null
           }
 
   handleChange = e => {
@@ -36,8 +38,8 @@ class EditBulletinItem extends React.Component{
   }
 
   handleSubmit = () => {
-    const note = { ...this.state }
-    axios.put(`/api/notes/${this.props.note.id}`, { note })
+    const bulletin = { ...this.state }
+    axios.put(`/api/bulletins/${this.props.bulletin.id}`, { bulletin })
     .then(() => this.props.back())
     .catch( err => console.log(err))
   }
@@ -45,8 +47,8 @@ class EditBulletinItem extends React.Component{
   handleDate = date => this.setState({ date })
 
   render() {
-    const { note } = this.props
-    if (this.props.note){
+    const { bulletin } = this.props
+    if (this.props.bulletin){
       return(
         <div>
           <Form
@@ -63,6 +65,14 @@ class EditBulletinItem extends React.Component{
             <Form.Field>
               <label>Date</label>
               <input placeholder='Enter Date' type="datetime-local" value={this.state.date} id="date" onChange={this.handleChange} />
+            </Form.Field>
+            <Form.Field>
+              <label>Link Text</label>
+              <input placeholder='Enter the Link Will Say' type="text" value={this.state.link_text} id="link_text" onChange={this.handleChange} />
+            </Form.Field>
+            <Form.Field>
+              <label>Link URL</label>
+              <input placeholder='Paste Facebook (or other) Link URL' type="text" value={this.state.link} id="link" onChange={this.handleChange} />
             </Form.Field>
           </Form>
           <ButtonWrap>
