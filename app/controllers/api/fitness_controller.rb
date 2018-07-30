@@ -32,8 +32,8 @@ class Api::FitnessController < ApplicationController
 
   private
 
-  def set_bulletin
-    @fitness = fitness.find(params[:id])
+  def set_fitness
+    @fitness = Fitness.find(params[:id])
   end
 
   def fitness_params

@@ -14,12 +14,12 @@ class TabExampleSecondaryPointing extends React.Component {
   
   render() {
     const panes = [
+      { menuItem: 'Programs', render: () => <Programs /> },
       { menuItem: 'Bulletin Board', render: () => <BulletinBoard /> },
       { menuItem: 'Current Staff', render: () => <CurrentStaff /> },
       { menuItem: 'Board Members', render: () => <BoardMembers /> },
       { menuItem: 'Newsletter', render: () => <Newsletter /> },
-      { menuItem: 'Programs', render: () => <Programs /> },
-      { menuItem: 'Log Out', render: () => <Button primary onClick={() => this.props.dispatch(handleLogout(this.props.history))} />},
+      { menuItem: 'Log Out', render: () => <Button primary onClick={() => this.props.dispatch(handleLogout(this.props.history))}>Log Out</Button>},
     ]
     return(
       <Tab menu={{ secondary: true, pointing: true }} panes={panes} style={{width: '90%', margin: '0 auto'}} />

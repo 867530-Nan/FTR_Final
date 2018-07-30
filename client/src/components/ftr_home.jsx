@@ -35,8 +35,12 @@ const BulletinWrap = styled.div`
 `
 
 const BulletinHeader = styled.h1`
-	font-weight: 500;
+	font-weight: 900;
+	font-size: 3em;
 
+	@media (max-width: 450px) {
+		font-size: 2.5em;
+	}
 `
 
 
@@ -105,7 +109,7 @@ class Home extends Component {
 		return ( 
 			<BulletinWrap>
 				<BulletinHeader>
-					FTR Events for {moment(new Date()).format('MMMM')}
+					FTR Bulletin Board
 				</BulletinHeader>
 				{ this.state.bulletins.map( single => {
 					return(

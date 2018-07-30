@@ -15,7 +15,7 @@ class Login extends React.Component {
   }
 
   buttonDisable = () => {
-    if (this.state.email === "contact@fit2recover.org" && this.state.password === "adminAEIOU2468") {
+    if (this.state.email !== "" && this.state.password !== "") {
       return false
     } else {
       return true

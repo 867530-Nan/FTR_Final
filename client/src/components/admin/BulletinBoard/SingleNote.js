@@ -28,9 +28,7 @@ class SingleNote extends React.Component {
   render() {
     const { single, index } = this.props
     return(
-      <Item.Group
-        style={{borderBottom: '1px solid gray', padding: '30px'}}
-      >
+      <div>
         <Item>
           <Item.Content>
             <Item.Header as='a'>{single.title}</Item.Header>
@@ -61,7 +59,7 @@ class SingleNote extends React.Component {
             Delete
           </Button>
         </ButtonWrap>
-      </Item.Group>
+      </div>
     )
   }
 }

@@ -4,11 +4,7 @@ import styled from 'styled-components'
 import { Button, Card } from 'semantic-ui-react'
 import SingleStaff from './SingleStaff'
 
-const Header = styled.h3`
-  font-family: helvetica;
-  text-align: center;
-  font-weight: 300;
-`
+
 const ButtonWrap = styled.div`
   display: flex; 
   justify-content: center;

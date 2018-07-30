@@ -10,8 +10,64 @@ import capoeira from '../../assets/images/capoeira.PNG'
 import ftrFitness from '../../assets/images/ftrFitness.png'
 import DonateButton from '../DonateButton'
 import { Lazy } from 'react-lazy'
+import axios from 'axios';
 
 class Fitness extends Component {
+	state = { classes: [] }
+
+	componentDidMount() {
+		axios.get("/api/fitness")
+		.then( res => this.setState({classes: res.data }) )
+	}
+
+	displayClasses = () => {
+		return this.state.classes.map ( (single, index) => {
+			if (index % 2 === 0){
+				return(
+					
+						<Grid columns={2} stackable className='programs programsBlack' style={styles.programs}>
+							<Grid.Column computer={10} tablet={8} mobile={16}>
+								<div className="programDesc" style={styles.programDesc}>
+									<h2 className="classHeader" style={styles.classHeaderWhite}>{single.title}</h2>
+									<h4 class="classLed" style={styles.classLedWhite}>{single.sub_title}</h4>
+									<p className="classParaWhite" style={styles.classParaWhite}>{single.body}</p>
+								</div>
+							</Grid.Column>
+							<Grid.Column computer={6} tablet={8} mobile={16}>
+								<Lazy className="programPic" style={styles.programPic}>
+									<Image className="bcPhoto img-responsive" style={styles.bcPhoto} src={single.image} alt={single.title} />
+								</Lazy>
+							</Grid.Column>
+						</Grid>
+
+						
+				)
+			} else {
+				return(
+					<div>
+						<Grid columns={2} stackable className='programs' style={styles.programs}>
+							<Grid.Column computer={6} tablet={8} mobile={16}>
+								<Lazy className="programPic" style={styles.programPic}>
+									<Image className="bcPhoto img-responsive" style={styles.bcPhoto} src={single.image} alt={single.title} />
+								</Lazy>
+							</Grid.Column>
+							<Grid.Column computer={10} tablet={8} mobile={16}>
+								<div className="programDesc" style={styles.programDesc}>
+									<h2 className="classHeader" style={styles.classHeader}>{single.title}</h2>
+									<h4 class="classLed" style={styles.classLed}>{single.sub_title}</h4>
+									<p className="classPara" style={styles.classPara}>{single.body}</p>
+								</div>
+							</Grid.Column>
+						</Grid>
+						<a className="middleLink" style={styles.middleLink} target="_blank" rel="noopener noreferrer" href="/calendar">
+							<h4 className="middleLinkWords" style={styles.middleLinkWords}>Click Here for FTR's Fitness Class Calendar</h4>
+						</a>
+					</div>
+				)
+			}
+		})
+	}
+
 	render() {
 		return (
 <div>
@@ -34,7 +90,10 @@ class Fitness extends Component {
 		<div>
 			<a name="fitness-jump" alt="this marks the start of fitness programs"> </a>
 		</div>
-		<Grid columns={2} stackable className="programs programsBlack" style={styles.programs}>
+
+			{ this.state.classes.length && this.displayClasses() }
+
+		{/* <Grid columns={2} stackable className="programs programsBlack" style={styles.programs}>
 				<Grid.Column computer={6} tablet={8} mobile={16}>
 					<Lazy className="programPic" style={styles.programPic}>
 						<Image className="bcPhoto img-responsive" style={styles.bcPhoto} src={bootcamp} alt="Saturday Morning Bootcamp" />
@@ -130,7 +189,7 @@ class Fitness extends Component {
 					<p className="classPara" style={styles.classPara}>On the court or on the field, you'll find Fit To Recover teams focused on fun, camaraderie, and team spirit. Currently, we field teams in volleyball and softball, and we just added co-ed indoor soccer this season.<br />Open to players of all levels, our co-ed teams enjoy the challenges, and often enjoy a meal together after the game. Come join us!</p>
 				</div>
 			</Grid.Column>
-		</Grid>
+		</Grid> */}
 
 
 </div>

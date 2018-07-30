@@ -1,0 +1,2 @@
+class FitnessHeading < ApplicationRecord
+end

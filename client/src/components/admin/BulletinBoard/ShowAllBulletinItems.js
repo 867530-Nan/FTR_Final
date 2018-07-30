@@ -1,7 +1,7 @@
 import React from 'react'
 import SingleNote from './SingleNote'
 import styled from 'styled-components'
-import { Button, Table } from 'semantic-ui-react'
+import { Button, Item } from 'semantic-ui-react'
 
 const Header = styled.h3`
   font-family: helvetica;
@@ -27,7 +27,11 @@ class ShowAllBulletinItems extends React.Component {
           <div>
             <h1 style={{alignSelf: 'center'}}>{index+1}</h1>
           </div>
-          <SingleNote single={single} index={index} editButton={(single) => this.props.editButton(single)} deleteButton={this.props.deleteButton}/>
+          <Item.Group
+            style={{borderBottom: '1px solid gray', padding: '30px'}}
+          >
+            <SingleNote single={single} index={index} editButton={(single) => this.props.editButton(single)} deleteButton={this.props.deleteButton}/>
+          </Item.Group>>
         </div>
       )
     })
