@@ -21,6 +21,8 @@ import { withRouter } from 'react-router'
 import ResponsiveMenu from './ResponsiveNavbar'
 import hamburgerIcon from '../assets/images/logoHamburger.png'
 
+const ThisPlace = "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=GJ2922U6S4SEN&lc=US&no_note=1&no_shipping=1&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted"
+
 const thisIsNavbar = (
   <Menu
     className="newNav"
@@ -37,15 +39,17 @@ const thisIsNavbar = (
     >
     <Menu.Item
       style={{backgroundColor: 'red'}}
+      as="a"
+      href={ThisPlace}
     >
-      <Link 
+      <a 
         target="_blank" 
         rel="noopener referrer" 
-        to="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=GJ2922U6S4SEN&lc=US&no_note=1&no_shipping=1&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted" 
+        to={ThisPlace} 
         style={{color: 'white'}}
       >
         DONATE
-      </Link>
+      </a>
     </Menu.Item>
     <Menu.Item
       className="HomeNavLink"
