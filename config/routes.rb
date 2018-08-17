@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources 'employees'
     resources 'testimonials'
     resources 'fitness'
+    resources 'nutrition'
   end
 
   namespace :api do

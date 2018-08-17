@@ -23,7 +23,7 @@ class BoardMembers extends React.Component {
   }
 
   deleteButton = (Board) => {
-    axios.delete(`/api/boards${Board.id}`)
+    axios.delete(`/api/boards/${Board.id}`)
     const newArr = this.state.Board.filter(single => single.id !== Board.id)
     this.setState({ Board: newArr })
   }

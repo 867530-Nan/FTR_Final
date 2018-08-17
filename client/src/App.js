@@ -161,7 +161,7 @@ class App extends Component {
             <Route exact path='/newstime' component={Newsletter}/>
             <AuthRoute exact path='/login' component={Login} />
             {/* <Route exact path='/register' component={Register} /> */}
-            <Route exact path='/admin' component={Admin} />
+            <ProtectedRoute exact path='/admin' component={Admin} />
             <Route component={NoMatch} />
           </Switch>
 
