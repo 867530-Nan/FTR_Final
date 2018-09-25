@@ -15,8 +15,31 @@ import BLink from './BLink'
 import { Lazy } from 'react-lazy'
 import { saveAddress } from '../actions/address';
 import moment from 'moment'
-import styled from 'styled-components'
+import styled, {keyframes} from 'styled-components'
 import SingleBulletinItem from './SingleBulletinItem';
+import LUGT from '../assets/images/LUGT.png'
+
+const keyFramesLogo = keyframes`
+	0% {
+		margin-top: 100%;
+	}
+	100% {
+		margin-top: 0;
+	}
+`
+
+const LogoWrap = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 400px;
+`
+
+const LUGTImage = styled.img`
+	height: 100%;
+	width: 75%;
+	animation: ${keyFramesLogo} 2s ease;
+`
 
 const BulletinWrap = styled.div`
 	padding: 40px 0;
@@ -171,6 +194,12 @@ class Home extends Component {
 					</BLink>
 				</h4>
 			</div>
+
+			{/*
+				<LogoWrap>
+					<LUGTImage src={LUGT} alt="thing" />
+				</LogoWrap>
+			*/}
 
 			<div className="ftrMemberClass"> 
 				<BLink className="ftrMemberLink"  target="_blank" rel="noopener noreferrer" href="https://clients.mindbodyonline.com/classic/ws?studioid=280495&stype=40&prodId=100">
