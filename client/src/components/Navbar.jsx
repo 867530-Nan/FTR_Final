@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { } from 'react-router-dom';
+import styled from 'styled-components'
 import {
   Collapse,
   Navbar,
@@ -20,12 +20,56 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 import ResponsiveMenu from './ResponsiveNavbar'
 import hamburgerIcon from '../assets/images/logoHamburger.png'
+import  { PayPalLink } from '../GlobalLinks/Links'
 
-const ThisPlace = "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=GJ2922U6S4SEN&lc=US&no_note=1&no_shipping=1&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted"
+const CalendarLink = styled(Link)`
+display: flex;
+justify-content: center;
+align-items: ccenter;
+width: 100%;
+padding: 13px;
+color: white;
+
+@media (max-width: 768px){
+  justify-content: flex-start;
+}
+`
+
+const DonateWrap = styled(Menu.Item)`
+  background-color: ${props => props.backgroundColor} !important;
+
+  &:hover {
+    filter: brightness(80%) !important;
+  }
+
+  &:hover .calendarLink {
+    color: white;
+  }
+`
+
+const StyledLink = styled(Link)`
+  min-width: 150px;
+  height: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    background-color: #f6f6f6 !important;
+    color: black;
+  }
+
+  @media (max-width: 768px){
+    justify-content: flex-start;
+    padding-left: 15px;
+  }
+`
 
 const thisIsNavbar = (
   <Menu
     className="newNav"
+    style={{zIndex: 100}}
   >
     <div
       className="logoWrapper"
@@ -37,20 +81,31 @@ const thisIsNavbar = (
     <div
       className="newNavLinks"
     >
-    <Menu.Item
-      style={{backgroundColor: 'red'}}
+    <DonateWrap
       as="a"
-      href={ThisPlace}
+      href={PayPalLink}
+      backgroundColor={'rgb(255, 0, 28)'}
     >
       <a 
         target="_blank" 
         rel="noopener referrer" 
-        to={ThisPlace} 
+        to={PayPalLink} 
         style={{color: 'white'}}
       >
         DONATE
       </a>
-    </Menu.Item>
+    </DonateWrap>
+    <DonateWrap
+      backgroundColor={'#000080'}
+      style={{padding: '0'}}
+    >
+      <CalendarLink 
+        to="/calendar"
+        className="calendarLink"
+      >
+        Calendar
+      </CalendarLink>
+    </DonateWrap> 
     <Menu.Item
       className="HomeNavLink"
     >
@@ -61,62 +116,33 @@ const thisIsNavbar = (
         Home
       </Link>
     </Menu.Item>
-    <Menu.Item>
-      <Link to="/calendar">Calendar</Link>
-    </Menu.Item>
     <Dropdown text='About Us' pointing className='link item'>
       <Dropdown.Menu>
-        <Dropdown.Item>
-          <Link to="/philosophy">Philosophy</Link>
-        </Dropdown.Item>
-        <Dropdown.Item>
-          <Link to="/history">History</Link>
-        </Dropdown.Item>
-        <Dropdown.Item>
-          <Link to="/testimonials">Testimonials</Link>
-        </Dropdown.Item>
-        <Dropdown.Item>
-          <Link to="/sponsorsandpartners">Sponsors &amp; Partners</Link>
-        </Dropdown.Item>
+          <StyledLink to="/philosophy">Philosophy</StyledLink>
+          <StyledLink to="/history">History</StyledLink>
+          <StyledLink to="/testimonials">Testimonials</StyledLink>
+          <StyledLink to="/sponsorsandpartners">Sponsors &amp; Partners</StyledLink>
       </Dropdown.Menu>
     </Dropdown>
     <Dropdown text='Programs' pointing className='link item'>
       <Dropdown.Menu>
-        <Dropdown.Item>
-          <Link to="/fitness">Fitness</Link>
-        </Dropdown.Item>
-        <Dropdown.Item>
-          <Link to="/nutrition">Nutrition</Link>
-        </Dropdown.Item>
-        <Dropdown.Item>
-          <Link to="/community">Community</Link>
-        </Dropdown.Item>
-        <Dropdown.Item>
-          <Link to="/creativearts">Creative Arts</Link>
-        </Dropdown.Item>
+        <StyledLink to="/fitness">Fitness</StyledLink>
+        <StyledLink to="/nutrition">Nutrition</StyledLink>
+        <StyledLink to="/community">Community</StyledLink>
+        <StyledLink to="/creativearts">Creative Arts</StyledLink>
       </Dropdown.Menu>
     </Dropdown>
     <Dropdown text='Media' pointing className='link item'>
       <Dropdown.Menu>
-        <Dropdown.Item>
-          <Link to="/gallery">Gallery</Link>
-        </Dropdown.Item>
-        <Dropdown.Item>
-          <Link to="/newstime">Newsletter Archive</Link>
-        </Dropdown.Item>
+          <StyledLink to="/gallery">Gallery</StyledLink>
+          <StyledLink to="/newstime">Newsletter Archive</StyledLink>
       </Dropdown.Menu>
     </Dropdown>
     <Dropdown text='Team FTR' pointing="top right" className='link item lastGuyNav'>
       <Dropdown.Menu>
-        <Dropdown.Item>
-          <Link to="/currentstaff">Current Staff</Link>
-        </Dropdown.Item>
-        <Dropdown.Item>
-          <Link to="/board">Board of Directors</Link>
-        </Dropdown.Item>
-        <Dropdown.Item>
-          <Link to="/contact">Contact Us</Link>
-        </Dropdown.Item>
+          <StyledLink to="/currentstaff">Current Staff</StyledLink>
+          <StyledLink to="/board">Board of Directors</StyledLink>
+          <StyledLink to="/contact">Contact Us</StyledLink>
       </Dropdown.Menu>
     </Dropdown>
     </div>

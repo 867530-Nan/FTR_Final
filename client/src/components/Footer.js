@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import { Image, Icon, Grid } from 'semantic-ui-react'
-import { } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import '../styles/Footer.css'
 import mindBody from '../assets/images/mindBodyWhite.png'
-import paypal from '../assets/images/paypalDonate.png'
-import silver from '../assets/images/silverStar.png'
+import paypal from '../assets/images/paypal.png'
+import GuideStar from '../assets/images/guidestar2018.jpg'
+import { PayPalLink, Instagram, MindBody, Facebook } from '../GlobalLinks/Links';
 
 
 class Footer extends Component {
@@ -14,37 +15,33 @@ class Footer extends Component {
 			<div className="socialLinks">
 				<Grid columns={16} >
 					<Grid.Column mobile={8} tablet={4} computer={4} className="lessPadding">
-				    <div className="facebook actualSocial">
+				    <div className="facebook actualSocial" onClick={() => window.location.href = Facebook}>
 				    	<Icon name="facebook square" className="fbLink"/>
-				      <a className="smallMB mindBodyA" target="_blank" rel="noopener noreferrer" link href="https://www.facebook.com/teamFTR24/"> Facebook</a>
+				      <a className="smallMB mindBodyA" target="_blank" rel="noopener noreferrer" link href={Facebook}> Facebook</a>
 				    </div>
 				  </Grid.Column>
 				  <Grid.Column mobile={8} tablet={4} computer={4} className="lessPadding">
-						<div className="youtube actualSocial">
+						<div className="youtube actualSocial" onClick={() => window.location.href = Instagram}>
 						<Icon name="instagram" className="youtubeLink"/>
 				      <a className="smallMB mindBodyA" target="_blank" rel="noopener noreferrer" link href="https://www.instagram.com/fit_2recover/?hl=en"> Instagram </a>
 				    </div>
 				    </Grid.Column>
 				  <Grid.Column mobile={8} tablet={4} computer={4} className="lessPadding">
-				    <div className="mindBody actualSocial">
+				    <div className="mindBody actualSocial" onClick={() => window.location.href = MindBody}>
 				    	<Image src={mindBody} className="smallMB mbWhite"/>
-				      <a className="smallMB mindBodyA" target="_blank" rel="noopener noreferrer" href="https://clients.mindbodyonline.com/classic/ws?studioid=280495&stype=-7&sView=week&sLoc=0">MindBody</a>
+				      <a className="smallMB mindBodyA" target="_blank" rel="noopener noreferrer" href={MindBody}>MindBody</a>
 				    </div>
 				    </Grid.Column>
-				  <Grid.Column mobile={8} tablet={4} computer={4} className="lessPadding">
-				  	<div className="paypalButton">
-					  	<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" rel="noopener noreferrer">
-								<input type="hidden" name="cmd" value="_s-xclick"/>
-								<input type="hidden" name="hosted_button_id" value="D2PFU4W5XAR2Y"/>
-								<input type="image" src={paypal} border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"/>
-								<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1"/>
-							</form>
-						</div>
-				  </Grid.Column>
+						<Grid.Column mobile={8} tablet={4} computer={4} className="lessPadding">
+							<div className="paypalButton actualSocial" onClick={() => window.location.href = PayPalLink}>
+								<Image src={paypal} className="smallMB paypalIcon"/>
+								<a className="smallMB PayPal" target="_blank" rel="noopener noreferrer" href={PayPalLink}>Donate</a>
+							</div>
+				    </Grid.Column>
 				</Grid>
 				</div>
 				<a rel="noopener noreferrer" href="https://www.guidestar.org/profile/47-0998466" className="guideStar" target="_blank">
-					<img alt="guidestar seal" src="https://widgets.guidestar.org/gximage2?o=9376676&l=v4" />
+					<img style={{maxHeight: '150px'}} alt="guidestar seal" src={GuideStar} />
 				</a>
 
 
@@ -97,4 +94,4 @@ f
   }
 }
 
-export default Footer;
+export default withRouter(Footer);

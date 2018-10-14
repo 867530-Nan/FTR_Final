@@ -1,13 +1,19 @@
 import React, { Component } from 'react'
+import styled from 'styled-components'
 import {  } from 'react-router-dom'
 import '../../styles/sponsors.css'
 import { Image, Grid, List } from 'semantic-ui-react'
 import sponsors from '../../assets/images/2016SponsorBanner.jpg'
 import huddle from '../../assets/images/bootcamp-end-huddle.jpeg'
 import lugu from '../../assets/images/lugu2017.jpeg'
-import silver from '../../assets/images/silverStar.png'
+import silver from '../../assets/images/guidestar2018.jpg'
+import { PayPalLink } from '../../GlobalLinks/Links';
+import PayPalMock from '../../assets/images/paypalDonateMock.png'
 
-
+const DonateMock = styled.a`
+	max-height: 50px;
+	max-width: 155px;
+`
 
 class Sponsors extends Component {
 
@@ -22,12 +28,15 @@ class Sponsors extends Component {
 
 			<Grid>
 	      <Grid.Column className="tripGrid" mobile={16} tablet={4} computer={4}>
-	        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" rel="noopener noreferrer">
-						<input type="hidden" name="cmd" value="_s-xclick"/>
-						<input type="hidden" name="hosted_button_id" value="LF6G389XTHZR6"/>
-						<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"/>
-						<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1"/>
-					</form>
+	        <DonateMock
+						href={PayPalLink}
+						style={{height: '100%', width: '100%'}}
+					>
+						<img
+							src={PayPalMock}
+							alt="pay pal link"
+						/>
+					</DonateMock>
 	      </Grid.Column>
 	      <Grid.Column className="tripGrid" mobile={16} tablet={8} computer={8}>
 	        <div className="sponsorLevels" >
@@ -38,7 +47,7 @@ class Sponsors extends Component {
 	      </Grid.Column>
 	      <Grid.Column className="tripGrid" mobile={16} tablet={4} computer={4}>
 					<a rel="noopener noreferrer" href="https://www.guidestar.org/profile/47-0998466" className="guidestar" target="_blank">
-	        	<Image centered src={silver} />
+	        	<Image style={{maxHeight: '125px'}} centered src={silver} />
 	        </a>
 	      </Grid.Column>
 	    </Grid>

@@ -3,9 +3,9 @@ import  {} from 'react-router-dom'
 import '../styles/home.css'
 import axios from 'axios'
 import { Grid, Segment, Image, Icon } from 'semantic-ui-react'
-import Logo from '../assets/images/FTR-logo-hd-no-footer.png'
-import Logo768 from '../assets/images/FTR-just-words.png'
-import Logo300 from '../assets/images/FTR-just-words300.png'
+import FTRGroup from '../assets/images/GroupWithFTR.png'
+import Logo from '../assets/images/LUGTFall2018/LUGTLogo_Horiz_CFUTag.png'
+
 import Mountain from '../assets/images/mountainCROPStar.jpg'
 import donate from '../assets/images/July_2014_Bootcamp_CROP.jpeg'
 import June2018 from '../assets/images/June2018.png'
@@ -18,28 +18,6 @@ import moment from 'moment'
 import styled, {keyframes} from 'styled-components'
 import SingleBulletinItem from './SingleBulletinItem';
 import LUGT from '../assets/images/LUGT.png'
-
-const keyFramesLogo = keyframes`
-	0% {
-		margin-top: 100%;
-	}
-	100% {
-		margin-top: 0;
-	}
-`
-
-const LogoWrap = styled.div`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 400px;
-`
-
-const LUGTImage = styled.img`
-	height: 100%;
-	width: 75%;
-	animation: ${keyFramesLogo} 2s ease;
-`
 
 const BulletinWrap = styled.div`
 	padding: 40px 0;
@@ -164,34 +142,14 @@ class Home extends Component {
 		return(
 		<div>
 
-			<div style={{paddingTop: '60px'}} />
+			<div style={{paddingTop: '65px'}} />
 
-			<div className="mountain" style={styles.mountain}>
- 				<div className="heading" style={styles.heading}>
-					<Image src={ Logo } alt="FTR Logo" />
-				</div>
-
-				<div className="heading768" style={styles.heading}>
-					<Image src={ Logo768 } alt="FTR Logo" />
-				</div>
-
-				<div className="heading300" style={styles.heading}>
-					<Image src={ Logo300 } alt="FTR Logo" />
-				</div>
-
-			</div>
+ 				<LUGTWrap>
+					<Image src={ FTRGroup } alt="FTR Logo" />
+				</LUGTWrap>
 
 			<div className="slcOnly" style={styles.slcOnly}> 
-				<h4 className="slcMap" style={styles.slcMAP}>Our mission is to provide people in recovery from drug and alcohol misuse with a safe place to connect through exercise, nutrition, creative expression, and community service.&nbsp;::&nbsp;
-					<BLink
-						style={styles.mapButton} 	
-						target="_blank" 
-						rel="noopener noreferrer"  
-						className="map" 
-						color="red" 
-						href="https://www.google.com/maps/place/Fit+to+Recover/@40.7399488,-111.9142314,17z/data=!4m13!1m7!3m6!1s0x8752f4da86d2a85f:0x98c2d4e4a171bc13!2s789+W+1390+S,+Salt+Lake+City,+UT+84104!3b1!8m2!3d40.7392009!4d-111.9137379!3m4!1s0x8752f4da86ddc03f:0x24d4219acbd712ad!8m2!3d40.739265!4d-111.913712">
-						MAP
-					</BLink>
+				<h4 className="slcMap" style={styles.slcMAP}>Our mission is to provide people in recovery from drug and alcohol misuse with a safe place to connect through exercise, nutrition, creative expression, and community service..&nbsp;&nbsp;
 				</h4>
 			</div>
 
@@ -446,7 +404,14 @@ let styles = {
 
 export default Home;
 
+const LUGTWrap = styled.div`
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 
+`
 
 
 

@@ -42,7 +42,12 @@
   height: 36px !important;
   width: 120px !important;
   margin: 0 auto !important;
-  padding: 0px;
+	padding: 0px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	border: 2px solid #253db0;
+	border-radius: 5px;
 }
 
 .paypalButton:hover {
@@ -123,8 +128,19 @@ a.mindBodyA {
 	line-height: 1em;
 }
 
+a.PayPal {
+	font-size: 1rem;
+	color: #253db0 !important;
+	font-weight: 700;
+	line-height: 1em;
+}
+
 .mbWhite {
 	height: 20px;
+}
+
+.paypalIcon {
+	height: 100%;
 }
 
 .paypal.actualSocial {

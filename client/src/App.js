@@ -7,6 +7,7 @@ import AsyncComponent from './AsyncComponent'
 import FetchUser from './FetchUser'
 import AuthRoute from './AuthRoute'
 import ProtectedRoute from './ProtectedRoute'
+import GivingTuesdayNav from './components/GivingTuesdayNav';
 
 const Calendar = AsyncComponent(() => {
   return (
@@ -142,7 +143,7 @@ class App extends Component {
     return (
       <div> 
         <NavBar router={routerNumber}/>
-
+        <GivingTuesdayNav />
           <Switch>
             <Route exact path='/' component={Home}/>
             <Route exact path='/calendar' component={Calendar}/>

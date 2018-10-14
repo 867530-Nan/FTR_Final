@@ -18,6 +18,15 @@ const LargeMenu = styled.div`
   }
 `;
 
+const NavWrap = styled.div`
+  display: flex;
+  margin-bottom: 52px;
+
+  @media(max-width: 768px){
+    margin-bottom: 70px;
+  }
+`
+
 const MenuIcon = ({ onClick, icon }) => (
   <div role="button" onClick={onClick}>
     {icon}
@@ -25,12 +34,7 @@ const MenuIcon = ({ onClick, icon }) => (
 );
 
 class ResponsiveMenu extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      showMenu: false
-    };
-  }
+  state = { showMenu: false }
 
   handleClick = () => {
     this.setState({ showMenu: !this.state.showMenu });
@@ -46,7 +50,7 @@ class ResponsiveMenu extends Component {
       menuCloseButton
     } = this.props;
     return (
-      <div>
+      <NavWrap className="navwrapperthewarpper">
         <LargeMenu className={largeMenuClassName} size={changeMenuOn}>
           {menu}
         </LargeMenu>
@@ -58,7 +62,7 @@ class ResponsiveMenu extends Component {
           )}
           {this.props.showMenu ? <div>{menu}</div> : null}
         </SmallMenu>
-      </div>
+      </NavWrap>
     );
   }
 }
