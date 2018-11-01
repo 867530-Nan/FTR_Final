@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import styled from 'styled-components'
+import React, { Component } from "react";
+import styled from "styled-components";
 import {
   Collapse,
   Navbar,
@@ -11,29 +11,30 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem } from 'reactstrap';
-import { Dropdown, Menu } from 'semantic-ui-react'
-import  Logo from '../assets/images/FTR-logo-NAVBAR.png';
+  DropdownItem
+} from "reactstrap";
+import { Dropdown, Menu } from "semantic-ui-react";
+import Logo from "../assets/images/FTR-logo-NAVBAR.png";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import '../styles/navbar.css'
-import { connect } from 'react-redux'
-import { withRouter } from 'react-router'
-import ResponsiveMenu from './ResponsiveNavbar'
-import hamburgerIcon from '../assets/images/logoHamburger.png'
-import  { PayPalLink } from '../GlobalLinks/Links'
+import "../styles/navbar.css";
+import { connect } from "react-redux";
+import { withRouter } from "react-router";
+import ResponsiveMenu from "./ResponsiveNavbar";
+import hamburgerIcon from "../assets/images/logoHamburger.png";
+import { PayPalLink } from "../GlobalLinks/Links";
 
 const CalendarLink = styled(Link)`
-display: flex;
-justify-content: center;
-align-items: ccenter;
-width: 100%;
-padding: 13px;
-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: ccenter;
+  width: 100%;
+  padding: 13px;
+  color: white;
 
-@media (max-width: 768px){
-  justify-content: flex-start;
-}
-`
+  @media (max-width: 768px) {
+    justify-content: flex-start;
+  }
+`;
 
 const DonateWrap = styled(Menu.Item)`
   background-color: ${props => props.backgroundColor} !important;
@@ -45,7 +46,7 @@ const DonateWrap = styled(Menu.Item)`
   &:hover .calendarLink {
     color: white;
   }
-`
+`;
 
 const StyledLink = styled(Link)`
   min-width: 150px;
@@ -60,113 +61,103 @@ const StyledLink = styled(Link)`
     color: black;
   }
 
-  @media (max-width: 768px){
+  @media (max-width: 768px) {
     justify-content: flex-start;
     padding-left: 15px;
   }
-`
+`;
 
 const thisIsNavbar = (
-  <Menu
-    className="newNav"
-    style={{zIndex: 100}}
-  >
-    <div
-      className="logoWrapper"
-    >
+  <Menu className="newNav" style={{ zIndex: 100 }}>
+    <div className="logoWrapper">
       <a href="/">
-        <img className="navbarImage" src={Logo} alt="FTR Logo"/>
+        <img className="navbarImage" src={Logo} alt="FTR Logo" />
       </a>
     </div>
-    <div
-      className="newNavLinks"
-    >
-    <DonateWrap
-      as="a"
-      href={PayPalLink}
-      backgroundColor={'rgb(255, 0, 28)'}
-    >
-      <a 
-        target="_blank" 
-        rel="noopener referrer" 
-        to={PayPalLink} 
-        style={{color: 'white'}}
+    <div className="newNavLinks">
+      <DonateWrap
+        as="a"
+        href={"https://www.mightycause.com/organization/Fit2recover"}
+        backgroundColor={"rgb(255, 0, 28)"}
       >
-        DONATE
-      </a>
-    </DonateWrap>
-    <DonateWrap
-      backgroundColor={'#000080'}
-      style={{padding: '0'}}
-    >
-      <CalendarLink 
-        to="/calendar"
-        className="calendarLink"
-      >
-        Calendar
-      </CalendarLink>
-    </DonateWrap> 
-    <Menu.Item
-      className="HomeNavLink"
-    >
-      <Link 
-        to="/" 
-        style={{color: 'red'}}
-      >
-        Home
-      </Link>
-    </Menu.Item>
-    <Dropdown text='About Us' pointing className='link item'>
-      <Dropdown.Menu>
+        <a
+          target="_blank"
+          rel="noopener referrer"
+          to={"https://www.mightycause.com/organization/Fit2recover"}
+          style={{ color: "white" }}
+        >
+          DONATE
+        </a>
+      </DonateWrap>
+      <DonateWrap backgroundColor={"#000080"} style={{ padding: "0" }}>
+        <CalendarLink to="/calendar" className="calendarLink">
+          Calendar
+        </CalendarLink>
+      </DonateWrap>
+      <Menu.Item className="HomeNavLink">
+        <Link to="/" style={{ color: "red" }}>
+          Home
+        </Link>
+      </Menu.Item>
+      <Dropdown text="About Us" pointing className="link item">
+        <Dropdown.Menu>
           <StyledLink to="/philosophy">Philosophy</StyledLink>
           <StyledLink to="/history">History</StyledLink>
           <StyledLink to="/testimonials">Testimonials</StyledLink>
-          <StyledLink to="/sponsorsandpartners">Sponsors &amp; Partners</StyledLink>
-      </Dropdown.Menu>
-    </Dropdown>
-    <Dropdown text='Programs' pointing className='link item'>
-      <Dropdown.Menu>
-        <StyledLink to="/fitness">Fitness</StyledLink>
-        <StyledLink to="/nutrition">Nutrition</StyledLink>
-        <StyledLink to="/community">Community</StyledLink>
-        <StyledLink to="/creativearts">Creative Arts</StyledLink>
-      </Dropdown.Menu>
-    </Dropdown>
-    <Dropdown text='Media' pointing className='link item'>
-      <Dropdown.Menu>
+          <StyledLink to="/sponsorsandpartners">
+            Sponsors &amp; Partners
+          </StyledLink>
+        </Dropdown.Menu>
+      </Dropdown>
+      <Dropdown text="Programs" pointing className="link item">
+        <Dropdown.Menu>
+          <StyledLink to="/fitness">Fitness</StyledLink>
+          <StyledLink to="/nutrition">Nutrition</StyledLink>
+          <StyledLink to="/community">Community</StyledLink>
+          <StyledLink to="/creativearts">Creative Arts</StyledLink>
+        </Dropdown.Menu>
+      </Dropdown>
+      <Dropdown text="Media" pointing className="link item">
+        <Dropdown.Menu>
           <StyledLink to="/gallery">Gallery</StyledLink>
           <StyledLink to="/newstime">Newsletter Archive</StyledLink>
-      </Dropdown.Menu>
-    </Dropdown>
-    <Dropdown text='Team FTR' pointing="top right" className='link item lastGuyNav'>
-      <Dropdown.Menu>
+        </Dropdown.Menu>
+      </Dropdown>
+      <Dropdown
+        text="Team FTR"
+        pointing="top right"
+        className="link item lastGuyNav"
+      >
+        <Dropdown.Menu>
           <StyledLink to="/currentstaff">Current Staff</StyledLink>
           <StyledLink to="/board">Board of Directors</StyledLink>
           <StyledLink to="/contact">Contact Us</StyledLink>
-      </Dropdown.Menu>
-    </Dropdown>
+        </Dropdown.Menu>
+      </Dropdown>
     </div>
   </Menu>
-)
+);
 
 const hamburger = (
-  <div
-    className="hamburgerNewNav"
-  >
-    <img src={hamburgerIcon} alt="navbar Icon" style={{height: '100%', margin: '10px'}}/>
+  <div className="hamburgerNewNav">
+    <img
+      src={hamburgerIcon}
+      alt="navbar Icon"
+      style={{ height: "100%", margin: "10px" }}
+    />
   </div>
-)
+);
 
 class NavBar extends Component {
-  state = { showMenu: false }
+  state = { showMenu: false };
 
   handleClick = () => {
     this.setState({ showMenu: !this.state.showMenu });
   };
 
-  componentDidUpdate(pP){
+  componentDidUpdate(pP) {
     if (pP.router !== this.props.router) {
-      this.setState({ showMenu: false })
+      this.setState({ showMenu: false });
     }
   }
 
@@ -183,15 +174,14 @@ class NavBar extends Component {
         handleClick={this.handleClick}
         showMenu={this.state.showMenu}
       />
-    )
+    );
   }
 }
 
-export default connect()(withRouter(NavBar))
+export default connect()(withRouter(NavBar));
 
-
-
-{/* <Navbar color="faded" light expand="md">
+{
+  /* <Navbar color="faded" light expand="md">
         <NavbarBrand href="/">
           <a href="/">
             <img className="navbarImage" src={Logo} alt="FTR Logo"/>
@@ -275,4 +265,5 @@ export default connect()(withRouter(NavBar))
             </UncontrolledDropdown>
           </Nav>
         </Collapse>
-      </Navbar> */}
+      </Navbar> */
+}
