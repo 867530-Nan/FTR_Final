@@ -49,6 +49,10 @@ const Header = styled.h1`
   @media (max-width: 770px) {
     font-size: 30px;
   }
+
+  @media (max-width: 500px) {
+    font-size: 24px;
+  }
 `;
 
 const ButtonWrap = styled.div`
