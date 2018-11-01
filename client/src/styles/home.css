@@ -1,396 +1,396 @@
-
-
 .map:hover {
-	background-color: #CC0000 !important;
+  background-color: #cc0000 !important;
 }
 
 .heading768 {
-	display: none;
+  display: none;
 }
 .heading300 {
-	display: none;
-} 
+  display: none;
+}
 
 .slcOnly {
-	padding: 0 20px;
-	display: flex;
-	align-items: center;
-	color: black;
-	height: 120px;
-	text-align: center;
-	justify-content: center;
-	border-bottom: 1px solid #E7E7E8;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  color: black;
+  height: 120px;
+  text-align: center;
+  justify-content: center;
+  border-bottom: 1px solid #e7e7e8;
 }
 
 .ftrMemberClass {
-	display: flex;
-	align-items: center;
-	text-align: center;
-	border-bottom: 1px solid #E7E7E8;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  border-bottom: 1px solid #e7e7e8;
 }
 
-.ftrMemberLink{
+.ftrMemberLink {
   flex: 0 1 50%;
   height: 80px;
   align-self: center;
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
-	color: white;
-	background-color: red;
+  color: white;
+  background-color: red;
   border-right: 1px solid #d3d3d1;
 }
 
-.ftrClassLink{
-	font-size: 2em !important;
+.ftrClassLink {
+  font-size: 2em !important;
   font-weight: 500 !important;
   text-align: center;
   flex: 0 1 50%;
   height: 2.5em;
   align-self: center;
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   color: white;
-	background-color: #941F1F;
+  background-color: #941f1f;
 }
 
-.ftrMemberLinkText{
-	font-size: 2em !important;
+.ftrMemberLinkText {
+  font-size: 2em !important;
   font-weight: 500 !important;
   text-align: center;
 }
 
 p.ftrMemberLinkText {
-	margin: 0 !important;
+  margin: 0 !important;
 }
 
 a.ftrMemberLink:hover {
-	color: #941F1F !important;
-	background-color: white !important;
+  color: #941f1f !important;
+  background-color: white !important;
 }
 
 a.ftrClassLink:hover {
-	color: #941F1F !important;
-	background-color: white !important;
+  color: #941f1f !important;
+  background-color: white !important;
 }
 
 a.ftrMemberClass {
-	color: white !important;
+  color: white !important;
 }
 
 a.creativeButton:hover {
-	background-color: #332df7;
-	color: white !important;
+  background-color: #332df7;
+  color: white !important;
 }
 
 a.fitnessButton:hover {
-	background-color: #f90101;
-	color: white !important;
+  background-color: #f90101;
+  color: white !important;
 }
 
 a.serviceButton:hover {
-	background-color: #8e44ad;
-	color: white !important;
+  background-color: #8e44ad;
+  color: white !important;
 }
 
 a.nutritionButton:hover {
-	background-color: #349c09;
-	color: white !important;
+  background-color: #349c09;
+  color: white !important;
 }
 
 .pButton:hover {
-	background-color: #941F1F !important;
-	color: white !important;
+  background-color: #941f1f !important;
+  color: white !important;
 }
 
 .singlePad {
-	display: flex;
+  display: flex;
 }
 
 .homeSingleInsta {
-	width: 45%;
-	margin: 0 auto;
-	border-radius: 10px;
+  width: 45%;
+  margin: 0 auto;
+  border-radius: 10px;
 }
 
 .homeNewsletterLink {
-	margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .homeMonthlyNewsletter {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	opacity: 1.0;
-	height: 450px;
-	border-radius: 10px 0 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  opacity: 1;
+  height: 450px;
+  border-radius: 10px 0 0 10px;
 }
 
 .homeMonthlyNewsletter:hover {
-	background-color: #6075AB;
-	cursor: pointer;
+  background-color: #6075ab;
+  cursor: pointer;
 }
 
 .homeMonth {
-	font-size: 2em;
-	margin: 0px !important;
+  font-size: 2em;
+  margin: 0px !important;
 }
 
 .homeEachOne {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
 }
 
 .quadCard {
-	flex-wrap: nowrap !important;
+  flex-wrap: nowrap !important;
 }
 
 .homeNewsletterPhoto {
-	width: 40%;
-	margin: 0 auto;
-	border-radius: 10px;
+  width: 40%;
+  margin: 0 auto;
+  border-radius: 10px;
 }
 
 .homeInsta {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	height: 450px;
-	border-radius: 0 10px 10px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 450px;
+  border-radius: 0 10px 10px 0;
 }
 
 .homeInsta:hover {
-	cursor: pointer;
-	background-color: #FF6464;
+  cursor: pointer;
+  background-color: #ff6464;
 }
 
 .homeInstaTitle {
-	align-self: center;
-	font-size: 2em;
-	color: black;
-	margin-top: 10px;
+  align-self: center;
+  font-size: 2em;
+  color: black;
+  margin-top: 10px;
 }
 
 .instaNewsBar {
-	height: 470px;
-	margin: 50px 0;
+  height: 470px;
+  margin: 50px 0;
 }
 
 @media (max-width: 1300px) {
-	.homeSingleInsta {
-		width: 60%;
-	}	
-	.homeNewsletterPhoto {
-		width: 56%;
-	}
+  .homeSingleInsta {
+    width: 60%;
+  }
+  .homeNewsletterPhoto {
+    width: 56%;
+  }
 }
 
-
 @media (max-width: 992px) {
-	.instaNewsBar {
-		height: 400px !important;
-	}
-	.homeInsta {
-		height: 400px !important;
-	}
-	.homeMonthlyNewsletter {
-		height: 400px !important;
-	}
-	.mountain {
-		background: linear-gradient(
-	      rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url(../assets/images/mountainCROPStar992.jpg) top center no-repeat !important;
-	}
+  .instaNewsBar {
+    height: 400px !important;
+  }
+  .homeInsta {
+    height: 400px !important;
+  }
+  .homeMonthlyNewsletter {
+    height: 400px !important;
+  }
+  .mountain {
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.3),
+        rgba(255, 255, 255, 0.3)
+      ),
+      url(../assets/images/mountainCROPStar992.jpg) top center no-repeat !important;
+  }
 }
 
 @media (max-width: 880px) {
-	.instaNewsBar {
-		height: 350px !important;
-	}
-	.homeInsta {
-		height: 350px !important;
-	}
-	.homeMonthlyNewsletter {
-		height: 350px !important;
-	}
-	.pEA {
-		height: 300px !important;
-	}
-	.homeMonth {
-		font-size: 1.7em !important;
-	}
-	.homeInstaTitle {
-		font-size: 1.7em !important;
-	}
-	.slcMap {
-		font-size: 1.5em !important;
-	}
+  .instaNewsBar {
+    height: 350px !important;
+  }
+  .homeInsta {
+    height: 350px !important;
+  }
+  .homeMonthlyNewsletter {
+    height: 350px !important;
+  }
+  .pEA {
+    height: 300px !important;
+  }
+  .homeMonth {
+    font-size: 1.7em !important;
+  }
+  .homeInstaTitle {
+    font-size: 1.7em !important;
+  }
+  .slcMap {
+    font-size: 1.5em !important;
+  }
 }
 
-
-@media (max-width: 768px){
-
-	.mountain {
-		background: linear-gradient(
-	      rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url(../assets/images/mountainCROP768Star.jpg) top center no-repeat !important;
-		height: 310px !important;
-		justify-content: flex-start !important;
-		margin-top: 10px;
-	}
-	.heading {
-		display: none;
-	}
-	.heading768 {
-		display: inline-flex !important;
-	}	
-	.pEA {
-		height: 450px !important;
-		margin: 20px 0 !important;
-	}
-	.triad {
-		margin: 10px 0 !important;
-	}
-	.pTitles {
-		font-size: 24px !important;
-	}
-	.pDesc {
-		font-size: 16px !important;
-	}
-	.quadCard {
-		padding: 0px 0px !important;
-		flex-wrap: wrap !important;
-	}
-	.quadPillarsFitness {
-		height: 290px !important;
-	}
-	.quadPillarLast {
-		margin-bottom: 20px;
-	}
-	.qTitile {
-		font-size: 24px !important;
-	}
-	.qDesc {
-		font-size: 16px !important;
-	}
-	.pillarIcon {
-		height: 60px !important;
-		width: 60px !important;
-	}
-	.donateWords {
-		font-size: 24px !important;
-		padding-bottom: 10px;
-	}
-	.instaNewsBar {
-		height: 760px !important;
-	}
-	.homeSingleInsta {
-		width: 40% !important;
-	}
-	.homeNewsletterPhoto {
-		width: 40% !important;
-	}
-	.homeMonthlyNewsletter {
-		height: 380px !important;
-	}
-	.homeMonthlyNewsletter.homeInsta {
-		border-radius: 0px !important;
-	}
+@media (max-width: 768px) {
+  .mountain {
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.3),
+        rgba(255, 255, 255, 0.3)
+      ),
+      url(../assets/images/mountainCROP768Star.jpg) top center no-repeat !important;
+    height: 310px !important;
+    justify-content: flex-start !important;
+    margin-top: 10px;
+  }
+  .heading {
+    display: none;
+  }
+  .heading768 {
+    display: inline-flex !important;
+  }
+  .pEA {
+    height: 450px !important;
+    margin: 20px 0 !important;
+  }
+  .triad {
+    margin: 10px 0 !important;
+  }
+  .pTitles {
+    font-size: 24px !important;
+  }
+  .pDesc {
+    font-size: 16px !important;
+  }
+  .quadCard {
+    padding: 0px 0px !important;
+    flex-wrap: wrap !important;
+  }
+  .quadPillarsFitness {
+    height: 290px !important;
+  }
+  .quadPillarLast {
+    margin-bottom: 20px;
+  }
+  .qTitile {
+    font-size: 24px !important;
+  }
+  .qDesc {
+    font-size: 16px !important;
+  }
+  .pillarIcon {
+    height: 60px !important;
+    width: 60px !important;
+  }
+  .donateWords {
+    font-size: 24px !important;
+    padding-bottom: 10px;
+  }
+  .instaNewsBar {
+    height: 760px !important;
+  }
+  .homeSingleInsta {
+    width: 40% !important;
+  }
+  .homeNewsletterPhoto {
+    width: 40% !important;
+  }
+  .homeMonthlyNewsletter {
+    height: 380px !important;
+  }
+  .homeMonthlyNewsletter.homeInsta {
+    border-radius: 0px !important;
+  }
 }
 
-@media (max-width: 700px){
-	.map {
-		padding: 5px 15px !important;
-	}
-	.ftrMemberClass {
-		display: block;
-	}
-	.ftrMemberLink:nth-child(2) {
-		border-top: 1px solid #e2e2e2;
-	}
+@media (max-width: 700px) {
+  .map {
+    padding: 5px 15px !important;
+  }
+  .ftrMemberClass {
+    display: block;
+  }
+  .ftrMemberLink:nth-child(2) {
+    border-top: 1px solid #e2e2e2;
+  }
 }
 
 @media (max-width: 670px) {
-	.pEA {
-		height: 550px !important;
-	}
-	.homeSingleInsta {
-		width: 47% !important;
-	}
-}
- 
-@media (max-width: 601px){
-	.slcMap {
-		font-size: 1.3em !important;
-	}
+  .pEA {
+    height: 550px !important;
+  }
+  .homeSingleInsta {
+    width: 47% !important;
+  }
 }
 
-@media (max-width: 540px){
-	
-	.map {
-		padding: 5px 10px !important;
-	}
-	.donateWords {
-		font-size: 20px !important;
-	}
-	.homeSingleInsta {
-		width: 50% !important;
-	}
-	.homeNewsletterPhoto {
-		width: 50% !important;
-	}
-	.homeMonthlyNewsletter {
-		height: 350px !important;
-	}
+@media (max-width: 601px) {
+  .slcMap {
+    font-size: 1.3em !important;
+  }
 }
 
-@media (max-width: 446px){
-.donateWords {
-		font-size: 18px !important;
-	}
+@media (max-width: 540px) {
+  .map {
+    padding: 5px 10px !important;
+  }
+  .donateWords {
+    font-size: 20px !important;
+  }
+  .homeSingleInsta {
+    width: 50% !important;
+  }
+  .homeNewsletterPhoto {
+    width: 50% !important;
+  }
+  .homeMonthlyNewsletter {
+    height: 350px !important;
+  }
+}
+
+@media (max-width: 446px) {
+  .donateWords {
+    font-size: 18px !important;
+  }
 }
 
 @media (max-width: 430px) {
-	.fourTitle {
-		font-size: 24px !important;
-	}
+  .fourTitle {
+    font-size: 24px !important;
+  }
 }
 
-@media (max-width: 415px){
-	.map {
-		padding: 3px 8px !important;
-	}
-	.heading768 {
-		display: none !important;
-	}	
-	.heading300 {
-		display: inline-flex;
-	}
+@media (max-width: 415px) {
+  .map {
+    padding: 3px 8px !important;
+  }
+  .heading768 {
+    display: none !important;
+  }
+  .heading300 {
+    display: inline-flex;
+  }
 }
 
-@media (max-width: 401px){
-	.slcOnly {
-		height: 160px;
-	}
-	.donateWords {
-		font-size: 16px !important;
-	}
-	.homeInsta {
-		height: 270px !important;
-	}
-	.homeMonthlyNewsletter {
-		height: 270px !important;
-	}
-	.instaNewsBar {
-		height: 580px !important;
-	}
-	.ftrClassLink {
-		font-size: 1.5em !important;
-	}
-	.ftrMemberLinkText {
-		font-size: 1.5em !important;
-	}
+@media (max-width: 401px) {
+  .slcOnly {
+    height: 160px;
+  }
+  .donateWords {
+    font-size: 16px !important;
+  }
+  .homeInsta {
+    height: 270px !important;
+  }
+  .homeMonthlyNewsletter {
+    height: 270px !important;
+  }
+  .instaNewsBar {
+    height: 580px !important;
+  }
+  .ftrClassLink {
+    font-size: 1.5em !important;
+  }
+  .ftrMemberLinkText {
+    font-size: 1.5em !important;
+  }
 }
