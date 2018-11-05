@@ -16,7 +16,7 @@ class MightyCauseButtons extends React.Component {
       );
     });
   };
-
+  // comment for pushing
   render() {
     return (
       <PageWrap>
