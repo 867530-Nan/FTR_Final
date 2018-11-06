@@ -199,7 +199,6 @@ class Home extends Component {
             className="homeNewsletterPhoto img-responsive"
             src={newsletter.image}
             alt={`${newsletter.title} Newsletter`}
-            style={{ maxHeight: "375px" }}
           />
         </div>
       </BLink>

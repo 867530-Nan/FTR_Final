@@ -152,6 +152,7 @@ a.nutritionButton:hover {
   width: 40%;
   margin: 0 auto;
   border-radius: 10px;
+  max-height: 375px;
 }
 
 .homeInsta {
