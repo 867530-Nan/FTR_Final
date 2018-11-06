@@ -52,7 +52,7 @@ class Home extends Component {
     axios.get("/api/home/index").then(res =>
       this.setState({
         photos: res.data.photos.data,
-        bulletins: res.data.bulletins,
+        // bulletins: res.data.bulletins,
         newsletter: res.data.newsletter
       })
     );
