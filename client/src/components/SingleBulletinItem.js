@@ -1,6 +1,6 @@
-import React from 'react'
-import styled from 'styled-components'
-import moment from 'moment'
+import React from "react";
+import styled from "styled-components";
+import moment from "moment";
 
 const EntireWrap = styled.div`
   display: flex;
@@ -17,9 +17,9 @@ const EntireWrap = styled.div`
   }
 
   &:hover > #plusMinus {
-    font-weight: 500; 
+    font-weight: 500;
   }
-`
+`;
 
 const PlusMinusWrap = styled.div`
   font-weight: 300;
@@ -30,7 +30,7 @@ const PlusMinusWrap = styled.div`
   width: 10%;
 
   
-`
+`;
 
 const SingleItemWrap = styled.div`
   padding: 10px;
@@ -39,7 +39,7 @@ const SingleItemWrap = styled.div`
   flex-direction: column;
   justify-content: center;
   margin: 10px 0;
-`
+`;
 
 const BottomWrap = styled.div`
   display: flex;
@@ -47,7 +47,7 @@ const BottomWrap = styled.div`
   justify-content: center;
   align-items: center;
   padding: 30px;
-`
+`;
 
 const TopWrap = styled.div`
   display: flex;
@@ -58,11 +58,11 @@ const TopWrap = styled.div`
   @media (max-width: 768px) {
     flex-direction: column;
   }
-`
+`;
 
 const SingleBody = styled.h3`
   font-weight: 300;
-`
+`;
 
 const SingleTitle = styled.h1`
   font-weight: 500;
@@ -73,90 +73,90 @@ const SingleTitle = styled.h1`
     font-weight: 500;
     font-size: 16px;
   }
-`
+`;
 
 const SingleDate = styled.h3`
   font-weight: 400;
   font-style: italic;
   margin: 0;
-`
+`;
 
 const SingleAnchor = styled.a`
   color: #353535;
   border-radius: 3px;
-  box-shadow: 0px 0px 15px 6px #E8E8E8;
+  box-shadow: 0px 0px 15px 6px #e8e8e8;
   padding: 20px;
-  border: 1px solid rgba(0, 123, 255, .47);
+  border: 1px solid rgba(0, 123, 255, 0.47);
   cursor: pointer;
   width: 90%;
   text-align: center;
   font-size: 20px
 
   &:hover {
-    box-shadow: 0px 0px 15px 6px #D3D3D3;
+    box-shadow: 0px 0px 15px 6px #d3d3d3;
   }
-`
+`;
 
-
-
-class SingleBulletinItem extends React.Component{
-
-  state = { showMore: false }
+class SingleBulletinItem extends React.Component {
+  state = { showMore: false };
 
   showMore = () => {
-    return(
+    return (
       <BottomWrap>
-        <SingleBody>
-          {this.props.single.body}
-        </SingleBody>
-        <SingleAnchor
-          href={this.props.single.link}
-          target="_blank"
-        >
+        <SingleBody>{this.props.single.body}</SingleBody>
+        <SingleAnchor href={this.props.single.link} target="_blank">
           {this.props.single.link_text}
         </SingleAnchor>
       </BottomWrap>
-    )
-  }
+    );
+  };
 
   configureTime = info => {
-    const dateSplit = info.split("T")
-    const date = dateSplit[0]
-    const time = dateSplit[1].split(".")
-    const splitTime = time[0].split(":")
-    const finalTime = splitTime[0]+":"+splitTime[1]
-    const finalDate = moment(date + " " + finalTime).format("dddd, MMMM Do YYYY, h:mma")
-    return(
-        finalDate
-    )
-    return info
-  }
+    const dateSplit = info.split("T");
+    const date = dateSplit[0];
+    const finalDate = moment(date).format("dddd, MMMM Do YYYY");
+    return finalDate;
+  };
 
-  render(){
-    return(
+  determineTime = time => {
+    let up = time.split(":");
+    if (parseInt(up[0]) > 12) {
+      up[0] = `${parseInt(up[0]) - 12}`;
+      const newt = up.join(":");
+      return `${newt} pm`;
+    } else {
+      return `${up.join(":")} am`;
+    }
+  };
+
+  render() {
+    return (
       <EntireWrap>
         <PlusMinusWrap
           id="plusMinus"
           onClick={() => this.setState({ showMore: !this.state.showMore })}
         >
-          {this.state.showMore ? '-' : '+' }
+          {this.state.showMore ? "-" : "+"}
         </PlusMinusWrap>
         <SingleItemWrap>
           <TopWrap
             onClick={() => this.setState({ showMore: !this.state.showMore })}
           >
-            <SingleTitle>
-              {this.props.single.title}
-            </SingleTitle>
+            <SingleTitle>{this.props.single.title}</SingleTitle>
             <SingleDate>
-              {this.props.single.date !== null && this.props.single.date !== undefined && this.configureTime(this.props.single.date)}
+              {this.props.single.date !== null &&
+                this.props.single.date !== undefined &&
+                this.configureTime(this.props.single.date)}
+            </SingleDate>
+            <SingleDate>
+              {this.determineTime(this.props.single.time)}
             </SingleDate>
           </TopWrap>
-          { this.state.showMore && this.showMore() }
+          {this.state.showMore && this.showMore()}
         </SingleItemWrap>
       </EntireWrap>
-    )
+    );
   }
 }
 
-export default SingleBulletinItem
+export default SingleBulletinItem;

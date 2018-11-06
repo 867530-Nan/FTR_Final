@@ -52,7 +52,7 @@ class Home extends Component {
     axios.get("/api/home/index").then(res =>
       this.setState({
         photos: res.data.photos.data,
-        // bulletins: res.data.bulletins,
+        bulletins: res.data.bulletins,
         newsletter: res.data.newsletter
       })
     );
@@ -199,6 +199,7 @@ class Home extends Component {
             className="homeNewsletterPhoto img-responsive"
             src={newsletter.image}
             alt={`${newsletter.title} Newsletter`}
+            style={{ maxHeight: "375px" }}
           />
         </div>
       </BLink>
