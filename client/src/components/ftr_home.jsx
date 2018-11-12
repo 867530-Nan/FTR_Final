@@ -45,6 +45,14 @@ const BulletinHeader = styled.h1`
   }
 `;
 
+export const TopPadding = styled.div`
+  padding-top: 120px;
+
+  @media (max-width: 768px) {
+    padding-top: 50px;
+  }
+`;
+
 class Home extends Component {
   state = { photos: [], bulletins: [], newsletter: undefined };
 
@@ -208,7 +216,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <div style={{ paddingTop: "65px" }} />
+        <TopPadding />
 
         <LUGTWrap>
           <Image src={FTRGroup} alt="FTR Logo" style={{ maxHeight: "500px" }} />
