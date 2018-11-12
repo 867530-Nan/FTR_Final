@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
 
 const SmallMenu = styled.div`
   display: none;
@@ -20,12 +20,7 @@ const LargeMenu = styled.div`
 
 const NavWrap = styled.div`
   display: flex;
-  margin-bottom: 52px;
-
-  @media(max-width: 768px){
-    margin-bottom: 70px;
-  }
-`
+`;
 
 const MenuIcon = ({ onClick, icon }) => (
   <div role="button" onClick={onClick}>
@@ -34,7 +29,7 @@ const MenuIcon = ({ onClick, icon }) => (
 );
 
 class ResponsiveMenu extends Component {
-  state = { showMenu: false }
+  state = { showMenu: false };
 
   handleClick = () => {
     this.setState({ showMenu: !this.state.showMenu });
@@ -76,7 +71,7 @@ ResponsiveMenu.propTypes = {
 };
 
 ResponsiveMenu.defaultProps = {
-  largeMenuClassName: '',
-  smallMenuClassName: ''
+  largeMenuClassName: "",
+  smallMenuClassName: ""
 };
 export default ResponsiveMenu;
