@@ -6,7 +6,7 @@ import { Image, Grid, List } from "semantic-ui-react";
 import sponsors from "../../assets/images/2016SponsorBanner.jpg";
 import huddle from "../../assets/images/bootcamp-end-huddle.jpeg";
 import lugu from "../../assets/images/lugu2017.jpeg";
-import silver from "../../assets/images/guidestar2018.jpg";
+import silver from "../../assets/images/GoldGuideStar2018.png";
 import { PayPalLink } from "../../GlobalLinks/Links";
 import PayPalMock from "../../assets/images/paypalDonateMock.png";
 
