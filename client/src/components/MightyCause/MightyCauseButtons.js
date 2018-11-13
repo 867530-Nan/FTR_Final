@@ -2,14 +2,34 @@ import React from "react";
 import styled from "styled-components";
 import { MightyInfo } from "./MightyInfo";
 import SingleGivingTuesdayButton from "./SingleGivingTuesdayButton";
+import BraintreeDrop from "../Paypal/BraintreeDrop";
 
 class MightyCauseButtons extends React.Component {
+  state = { showBraintree: false, choice: "" };
   displayButtons = () => {
     return MightyInfo.map((single, i) => {
-      return <SingleGivingTuesdayButton info={single} />;
+      return (
+        <SingleGivingTuesdayButton
+          info={single}
+          switchAndSet={this.switchAndSet}
+        />
+      );
     });
   };
-  // comment for pushing
+  switchAndSet = choice => {
+    this.setState({ showBraintree: !this.state.showBraintree, choice });
+  };
+  displayBraintree = () => {
+    return (
+      <Wrap>
+        <h1>{this.state.choice.header}</h1>
+        <BraintreeDrop
+          amount={this.state.choice.dollarAmount}
+          switchAndSet={() => this.setState({ showBraintree: false })}
+        />
+      </Wrap>
+    );
+  };
 
   render() {
     return (
@@ -20,7 +40,11 @@ class MightyCauseButtons extends React.Component {
             Please consider a gift below.
           </Header>
         </HeaderWrap>
-        <ButtonWrap>{this.displayButtons()}</ButtonWrap>
+        <ButtonWrap>
+          {this.state.showBraintree
+            ? this.displayBraintree()
+            : this.displayButtons()}
+        </ButtonWrap>
       </PageWrap>
     );
   }
@@ -58,6 +82,8 @@ const Header = styled.h1`
     font-size: 24px;
   }
 `;
+
+const Wrap = styled.div``;
 
 const ButtonWrap = styled.div`
   height: 100%;

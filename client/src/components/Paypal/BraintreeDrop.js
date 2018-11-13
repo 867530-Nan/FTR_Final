@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Dimmer, Loader, Segment } from "semantic-ui-react";
+import { Dimmer, Loader, Segment, Button } from "semantic-ui-react";
 import { connect } from "react-redux";
 import axios from "axios";
 import braintree from "braintree-web-drop-in";
@@ -11,7 +11,7 @@ class BraintreeDrop extends Component {
     loaded: false,
     token: ""
   };
-
+  //comment for push
   componentDidMount() {
     axios
       .get("/api/braintree_token")
@@ -23,7 +23,17 @@ class BraintreeDrop extends Component {
   }
 
   handlePaymentMethod = payload => {
-    //TODO: Make axios call to our server to post a payment
+    const { amount } = this.props;
+
+    axios
+      .post("/api/payment", { amount, ...payload })
+      .then(res => {
+        const { data: transactionId } = res;
+        this.setState({ transactionId });
+      })
+      .catch(res => {
+        window.location.reload();
+      });
   };
 
   render() {
@@ -38,6 +48,13 @@ class BraintreeDrop extends Component {
             handlePaymentMethod={this.handlePaymentMethod}
             renderSubmitButton={BraintreeSubmitButton}
           />
+          <Button
+            style={{ margin: "10px" }}
+            color="red"
+            onClick={this.props.switchAndSet}
+          >
+            Cancel
+          </Button>
         </Segment>
       );
     else
