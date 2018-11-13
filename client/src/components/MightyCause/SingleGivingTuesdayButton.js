@@ -6,30 +6,34 @@ class SingleGivingTuesdayButton extends React.Component {
 
   render() {
     return (
-      <SingleButton
-        // onMouseEnter={() => this.setState({ show: true })}
-        // onMouseLeave={() => this.setState({ show: false })}
-        target="_blank"
-        borderColor={"rgb(0, 120, 141)"}
-      >
-        <a href={this.props.info.link}>
+      <ButtonWrap href={this.props.info.link}>
+        <SingleButton
+          // onMouseEnter={() => this.setState({ show: true })}
+          // onMouseLeave={() => this.setState({ show: false })}
+          target="_blank"
+          borderColor={"rgb(0, 120, 141)"}
+        >
           <ButtonText color={"rgb(0, 120, 141)"}>
             {this.props.info.header}
           </ButtonText>
           <SmallText color={"#0d0047"}>{this.props.info.description}</SmallText>
-        </a>
-      </SingleButton>
+        </SingleButton>
+      </ButtonWrap>
     );
   }
 }
 
 export default SingleGivingTuesdayButton;
 
-const Wrap = styled.div``;
+const ButtonWrap = styled.a`
+  width: 45%;
+  height: 100px;
+  margin: 10px 0;
+`;
 
 const SingleButton = styled.div`
   display: flex;
-  width: 45%;
+  width: 100%;
   height: 100px;
   flex-direction: column;
   border: 3px solid ${props => props.borderColor};
@@ -37,7 +41,6 @@ const SingleButton = styled.div`
   justify-content: center;
   align-items: center;
   padding: 0 5px;
-  margin: 10px 0;
 
   &:hover {
     cursor: pointer;

@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     resources 'fitness'
     resources 'nutrition'
     resources 'events'
+
+    get '/braintree_token', to: 'braintree#token'
+    post '/payment', to: 'braintree#payment'
   end
 
   namespace :api do
