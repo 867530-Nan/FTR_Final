@@ -11,12 +11,13 @@ class SingleGivingTuesdayButton extends React.Component {
         // onMouseLeave={() => this.setState({ show: false })}
         target="_blank"
         borderColor={"rgb(0, 120, 141)"}
-        href={this.props.info.link}
       >
-        <ButtonText color={"rgb(0, 120, 141)"}>
-          {this.props.info.header}
-        </ButtonText>
-        <SmallText color={"#0d0047"}>{this.props.info.description}</SmallText>
+        <a href={this.props.info.link}>
+          <ButtonText color={"rgb(0, 120, 141)"}>
+            {this.props.info.header}
+          </ButtonText>
+          <SmallText color={"#0d0047"}>{this.props.info.description}</SmallText>
+        </a>
       </SingleButton>
     );
   }

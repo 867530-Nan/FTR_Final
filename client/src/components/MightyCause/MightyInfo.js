@@ -16,7 +16,7 @@ export const MightyInfo = [
   {
     dollarAmount: "$150",
     link:
-      "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JZ5DG2YCGQJKW",
+      "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JZ5DG2YCGQJKW&source=url",
     header: "$150 Support Our Jail Program",
     description:
       "Support a 1-hour program for 20 inmates of Salt Lake County Jail."
