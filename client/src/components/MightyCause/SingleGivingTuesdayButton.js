@@ -29,6 +29,11 @@ const ButtonWrap = styled.a`
   width: 45%;
   height: 100px;
   margin: 10px 0;
+
+  @media (max-width: 772px) {
+    width: 90%;
+    margin: 0 auto;
+  }
 `;
 
 const SingleButton = styled.div`
