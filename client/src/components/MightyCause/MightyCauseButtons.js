@@ -40,11 +40,7 @@ class MightyCauseButtons extends React.Component {
             Please consider a gift below.
           </Header>
         </HeaderWrap>
-        <ButtonWrap>
-          {this.state.showBraintree
-            ? this.displayBraintree()
-            : this.displayButtons()}
-        </ButtonWrap>
+        <ButtonWrap>{this.displayButtons()}</ButtonWrap>
       </PageWrap>
     );
   }

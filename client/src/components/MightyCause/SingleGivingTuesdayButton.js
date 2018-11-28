@@ -6,7 +6,7 @@ class SingleGivingTuesdayButton extends React.Component {
 
   render() {
     return (
-      <ButtonWrap onClick={() => this.props.switchAndSet(this.props.info)}>
+      <ButtonWrap href={this.props.info.link} target="_blank">
         <SingleButton
           // onMouseEnter={() => this.setState({ show: true })}
           // onMouseLeave={() => this.setState({ show: false })}
