@@ -70,7 +70,7 @@ class CurrentStaff extends Component {
 
   render() {
     return (
-      <div style={styles.boardBackground}>
+      <div>
         <TopPadding />
         <div className="currentStaffTop">Fit to Recover Staff</div>
         <Card.Group className="boardCardGroup" stye={styles.boardCardGroup}>
@@ -82,9 +82,6 @@ class CurrentStaff extends Component {
 }
 
 const styles = {
-  boardBackground: {
-    paddingTop: "65px"
-  },
   boardCardGroup: {
     width: "100%",
     margin: "0 auto"

@@ -102,7 +102,7 @@ let routerNumber = 0;
 
 const SwitchWrapper = styled.div`
   @media (max-width: 768px) {
-    padding-top: 100px;
+    padding-top: 75px;
   }
 `;
 
@@ -128,8 +128,8 @@ class App extends Component {
     return (
       <div>
         <NavBar router={routerNumber} />
-        <GivingTuesdayNav />
-        <SwitchWrapper>
+        {/* <GivingTuesdayNav /> */}
+        <SwitchWrapper id="asdfasdfasd">
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/calendar" component={Calendar} />

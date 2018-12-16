@@ -22,13 +22,18 @@
 
 .ftrMemberClass {
   display: flex;
-  align-items: center;
+  justify-content: space-around;
   text-align: center;
   border-bottom: 1px solid #e7e7e8;
 }
 
+.ftrMemberClass .ftrMemberLink:hover {
+  border: 3px solid gray;
+}
+
 .ftrMemberLink {
-  flex: 0 1 50%;
+  flex: 0 1 45%;
+  border-radius: 10px;
   height: 80px;
   align-self: center;
   display: flex;
@@ -36,8 +41,16 @@
   justify-content: space-around;
   align-items: center;
   color: white;
-  background-color: red;
+  background-color: rgb(155, 7, 7);
   border-right: 1px solid #d3d3d1;
+}
+
+.ftrMemberClass .ftrMemberLink:hover {
+  border: 3px solid gray;
+}
+
+.greenFTRMemberLink {
+  background-color: #076512;
 }
 
 .ftrClassLink {
@@ -67,6 +80,11 @@ p.ftrMemberLinkText {
 
 a.ftrMemberLink:hover {
   color: #941f1f !important;
+  background-color: white !important;
+}
+
+a.greenFTRMemberLink:hover {
+  color: #076512 !important;
   background-color: white !important;
 }
 

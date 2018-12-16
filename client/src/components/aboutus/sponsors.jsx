@@ -9,6 +9,7 @@ import lugu from "../../assets/images/lugu2017.jpeg";
 import silver from "../../assets/images/GoldGuideStar2018.png";
 import { PayPalLink } from "../../GlobalLinks/Links";
 import PayPalMock from "../../assets/images/paypalDonateMock.png";
+import { TopPadding } from "../ftr_home";
 
 const DonateMock = styled.a`
   max-height: 50px;
@@ -19,7 +20,7 @@ class Sponsors extends Component {
   render() {
     return (
       <div>
-        <div className="topPadding" style={styles.topPadding} />
+        <TopPadding />
 
         <div className="sponsorsTop img-responsive" style={styles.beforeafter}>
           <h1 className="sponsorsTopHeading" style={styles.beforeAfterWords}>

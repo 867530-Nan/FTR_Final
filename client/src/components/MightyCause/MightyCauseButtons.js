@@ -11,6 +11,7 @@ class MightyCauseButtons extends React.Component {
       return (
         <SingleGivingTuesdayButton
           info={single}
+          i={i}
           switchAndSet={this.switchAndSet}
         />
       );
@@ -35,10 +36,7 @@ class MightyCauseButtons extends React.Component {
     return (
       <PageWrap>
         <HeaderWrap>
-          <Header>
-            November is the month for giving, <br />
-            Please consider a gift below.
-          </Header>
+          <Header>'Tis the season to support FTR</Header>
         </HeaderWrap>
         <ButtonWrap>{this.displayButtons()}</ButtonWrap>
       </PageWrap>
@@ -69,6 +67,7 @@ const Header = styled.h1`
   font-size: 36px;
   color: red;
   padding: 10px 0;
+  font-style: italic;
 
   @media (max-width: 770px) {
     font-size: 30px;

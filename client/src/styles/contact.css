@@ -1,73 +1,79 @@
 .backgroundCollage {
-	background: url('../assets/images/superCollage.jpg') top center no-repeat;
-	width: 100%;
-	height: 700px;
-	margin: 0 auto;
-	display: flex;
-	justify-content: center;
-	align-items: flex-start;
-	padding-top: 78px;
+  background: url("../assets/images/superCollage.jpg") top center no-repeat;
+  width: 100%;
+  height: 700px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 73px;
 }
 
-.cardStyle:hover{
-	background-color: #D1E2FF !important;
+.cardStyle:hover {
+  background-color: #d1e2ff !important;
+}
+
+@media (max-width: 845px) {
+  .backgroundCollage {
+    padding-top: 80px;
+  }
 }
 
 @media (max-width: 768px) {
-	.backgroundCollage {
-		background-repeat: repeat-y;
-		align-items: flex-start;
-	}
+  .backgroundCollage {
+    background-repeat: repeat-y;
+    align-items: flex-start;
+  }
 }
 
 @media (max-width: 546px) {
-	.whiteList {
-		height: 550px !important;
-	}
+  .whiteList {
+    height: 550px !important;
+  }
 }
 
 @media (max-width: 495px) {
-	.backgroundCollage {
-		background-repeat: repeat-y;
-	}
+  .backgroundCollage {
+    background-repeat: repeat-y;
+  }
 }
 
 @media (max-width: 488px) {
-	.whiteList {
-		height: 600px !important;
-	}
+  .whiteList {
+    height: 600px !important;
+  }
 }
 
 @media (max-width: 484px) {
-	.backgroundCollage {
-		background-repeat: repeat-y;
-		height: 720px;
-	}
+  .backgroundCollage {
+    background-repeat: repeat-y;
+    height: 720px;
+  }
 }
 
 @media (max-width: 402px) {
-	.backgroundCollage {
-		background-repeat: repeat-y;
-		height: 740px;
-	}
-	.whiteList {
-		height: 650px !important
-	}
+  .backgroundCollage {
+    background-repeat: repeat-y;
+    height: 740px;
+  }
+  .whiteList {
+    height: 650px !important;
+  }
 }
 
 @media (max-width: 390px) {
-	.backgroundCollage {
-		background-repeat: repeat-y;
-		height: 800px;
-	}
+  .backgroundCollage {
+    background-repeat: repeat-y;
+    height: 800px;
+  }
 }
 
 @media (max-width: 330px) {
-	.backgroundCollage {
-		background-repeat: repeat-y;
-		height: 860px;
-	}
-	.whiteList {
-		height: 770px !important;
-	}
+  .backgroundCollage {
+    background-repeat: repeat-y;
+    height: 860px;
+  }
+  .whiteList {
+    height: 770px !important;
+  }
 }

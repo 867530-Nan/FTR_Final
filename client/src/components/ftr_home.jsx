@@ -46,10 +46,10 @@ const BulletinHeader = styled.h1`
 `;
 
 export const TopPadding = styled.div`
-  padding-top: 120px;
+  padding-top: 70px;
 
-  @media (max-width: 768px) {
-    padding-top: 50px;
+  @media (max-width: 845px) {
+    padding-top: 0px;
   }
 `;
 
@@ -218,26 +218,13 @@ class Home extends Component {
       <div>
         <TopPadding />
 
-        <LUGTWrap>
+        <SplashWrap>
           <Image src={FTRGroup} alt="FTR Logo" style={{ maxHeight: "500px" }} />
-        </LUGTWrap>
-
-        <MightyCauseButtons />
-
-        {/* <div className="slcOnly" style={styles.slcOnly}> 
-				<h4 className="slcMap" style={styles.slcMAP}>Our mission is to provide people in recovery from drug and alcohol misuse with a safe place to connect through exercise, nutrition, creative expression, and community service..&nbsp;&nbsp;
-				</h4>
-			</div> */}
-
-        {/*
-				<LogoWrap>
-					<LUGTImage src={LUGT} alt="thing" />
-				</LogoWrap>
-			*/}
+        </SplashWrap>
 
         <div className="ftrMemberClass">
           <BLink
-            className="ftrMemberLink"
+            className="ftrMemberLink greenFTRMemberLink"
             target="_blank"
             rel="noopener noreferrer"
             href="https://clients.mindbodyonline.com/classic/ws?studioid=280495&stype=40&prodId=100"
@@ -256,6 +243,19 @@ class Home extends Component {
             <p className="ftrMemberLinkSmallText"> Click Here </p>
           </BLink>
         </div>
+
+        <MightyCauseButtons />
+
+        {/* <div className="slcOnly" style={styles.slcOnly}> 
+				<h4 className="slcMap" style={styles.slcMAP}>Our mission is to provide people in recovery from drug and alcohol misuse with a safe place to connect through exercise, nutrition, creative expression, and community service..&nbsp;&nbsp;
+				</h4>
+			</div> */}
+
+        {/*
+				<LogoWrap>
+					<LUGTImage src={LUGT} alt="thing" />
+				</LogoWrap>
+			*/}
 
         {this.state.bulletins.length ? this.displayBulletin() : null}
 
@@ -577,7 +577,7 @@ let styles = {
 
 export default Home;
 
-const LUGTWrap = styled.div`
+const SplashWrap = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
