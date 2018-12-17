@@ -46,7 +46,7 @@ const BulletinHeader = styled.h1`
 `;
 
 export const TopPadding = styled.div`
-  padding: 70px;
+  height: 65px;
 
   @media (max-width: 845px) {
     padding: 0px;
