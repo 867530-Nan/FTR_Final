@@ -11,6 +11,7 @@ import {
   MindBody,
   Facebook
 } from "../GlobalLinks/Links";
+import { emailAddresses } from "../assets/emailAddresses";
 
 class Footer extends Component {
   render() {
@@ -212,7 +213,7 @@ class Footer extends Component {
           <div className="feedback">
             <a
               className="bottomMailTo"
-              href="mailto:contact@fit2recover.org"
+              href={emailAddresses.nicolette}
               target="_top"
             >
               <Icon name="mail" color="white" />

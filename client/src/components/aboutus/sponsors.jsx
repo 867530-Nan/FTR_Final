@@ -10,6 +10,7 @@ import silver from "../../assets/images/GoldGuideStar2018.png";
 import { PayPalLink } from "../../GlobalLinks/Links";
 import PayPalMock from "../../assets/images/paypalDonateMock.png";
 import { TopPadding } from "../ftr_home";
+import { emailAddresses } from "../../assets/emailAddresses";
 
 const DonateMock = styled.a`
   max-height: 50px;
@@ -133,10 +134,8 @@ class Sponsors extends Component {
                 involve their clients in our safe, active, healthy community.{" "}
                 <br />
                 Contact{" "}
-                <a href="mailto:Georgia@fit2recover.org">
-                  Georgia Gregersen
-                </a>{" "}
-                for our menu of services!{" "}
+                <a href={emailAddresses.nicolette}>Nicolette Pessetto</a> for
+                our menu of services!{" "}
               </List.Header>
               <List.Item
                 as="a"
@@ -270,10 +269,8 @@ class Sponsors extends Component {
                 involve their clients in our safe, active, healthy community.{" "}
                 <br />
                 Contact{" "}
-                <a href="mailto:Georgia@fit2recover.org">
-                  Georgia Gregersen
-                </a>{" "}
-                for our menu of services!{" "}
+                <a href={emailAddresses.nicolette}>Nicolette Pessetto</a> for
+                our menu of services!{" "}
               </List.Header>
               <List.Item
                 as="a"

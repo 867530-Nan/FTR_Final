@@ -4,6 +4,7 @@ import "../../styles/contact.css";
 import { Card } from "semantic-ui-react";
 import DonateButton from "../DonateButton";
 import { TopPadding } from "../ftr_home";
+import { emailAddresses } from "../../assets/emailAddresses";
 
 class Contact extends Component {
   render() {
@@ -20,7 +21,7 @@ class Contact extends Component {
                 fluid
                 raised
               >
-                <Card.Content as="a" href="mailto:contact@fit2recover.org">
+                <Card.Content as="a" href={emailAddresses.nicolette}>
                   <Card.Header>Email Us!</Card.Header>
                   <Card.Meta>We'd love to hear from you</Card.Meta>
                 </Card.Content>

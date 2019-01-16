@@ -49,7 +49,7 @@ export const TopPadding = styled.div`
   height: 65px;
 
   @media (max-width: 845px) {
-    padding: 0px;
+    height: 0px;
   }
 `;
 
