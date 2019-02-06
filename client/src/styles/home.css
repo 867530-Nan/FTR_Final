@@ -41,7 +41,7 @@
   justify-content: space-around;
   align-items: center;
   color: white;
-  background-color: rgb(155, 7, 7);
+  background-color: rgb(208, 0, 0);
   border-right: 1px solid #d3d3d1;
 }
 
@@ -50,7 +50,7 @@
 }
 
 .greenFTRMemberLink {
-  background-color: #076512;
+  background-color: #1b1c1d;
 }
 
 .ftrClassLink {
@@ -84,7 +84,7 @@ a.ftrMemberLink:hover {
 }
 
 a.greenFTRMemberLink:hover {
-  color: #076512 !important;
+  color: #1b1c1d !important;
   background-color: white !important;
 }
 
