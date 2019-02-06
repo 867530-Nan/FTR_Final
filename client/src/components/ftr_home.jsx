@@ -20,6 +20,19 @@ import SingleBulletinItem from "./SingleBulletinItem";
 import LUGT from "../assets/images/LUGT.png";
 import MightyCauseButtons from "./MightyCause/MightyCauseButtons";
 
+const ClassesCancelled = styled.div`
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+`;
+const ClassesCancelledText = styled.h1`
+  font-size: 55px;
+  color: white;
+  text-align: center;
+`;
+
 const BulletinWrap = styled.div`
   padding: 40px 0;
   display: flex;
@@ -217,6 +230,13 @@ class Home extends Component {
     return (
       <div>
         <TopPadding />
+        <ClassesCancelled>
+          <ClassesCancelledText>
+            Classes are cancelled today,
+            <br />
+            February 6, 2019
+          </ClassesCancelledText>
+        </ClassesCancelled>
 
         <SplashWrap>
           <Image src={FTRGroup} alt="FTR Logo" style={{ maxHeight: "500px" }} />
@@ -244,7 +264,7 @@ class Home extends Component {
           </BLink>
         </div>
 
-        <MightyCauseButtons />
+        {/* <MightyCauseButtons /> */}
 
         {/* <div className="slcOnly" style={styles.slcOnly}> 
 				<h4 className="slcMap" style={styles.slcMAP}>Our mission is to provide people in recovery from drug and alcohol misuse with a safe place to connect through exercise, nutrition, creative expression, and community service..&nbsp;&nbsp;
