@@ -31,6 +31,12 @@ const ClassesCancelledText = styled.h1`
   font-size: 55px;
   color: white;
   text-align: center;
+  @media (max-width: 768px) {
+    font-size: 35px;
+  }
+  @media (max-width: 400px) {
+    font-size: 25px;
+  }
 `;
 
 const BulletinWrap = styled.div`
