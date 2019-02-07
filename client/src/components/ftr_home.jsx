@@ -236,13 +236,13 @@ class Home extends Component {
     return (
       <div>
         <TopPadding />
-        <ClassesCancelled>
+        {/* <ClassesCancelled>
           <ClassesCancelledText>
             Classes are cancelled today,
             <br />
             February 6, 2019
           </ClassesCancelledText>
-        </ClassesCancelled>
+        </ClassesCancelled> */}
 
         <SplashWrap>
           <Image src={FTRGroup} alt="FTR Logo" style={{ maxHeight: "500px" }} />
