@@ -2,6 +2,20 @@
   background-color: #cc0000 !important;
 }
 
+@keyframes anniversary {
+  50% {
+    transform: scale(1.03, 1.03);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+#anniversaryGrow {
+  animation: anniversary 1.2s ease;
+  animation-iteration-count: 100;
+}
+
 .heading768 {
   display: none;
 }

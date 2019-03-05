@@ -57,14 +57,6 @@ ActiveRecord::Schema.define(version: 2018_11_06_064458) do
     t.string "time"
   end
 
-  create_table "fitness_headings", force: :cascade do |t|
-    t.string "title"
-    t.string "sub_title"
-    t.text "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "fitnesses", force: :cascade do |t|
     t.string "title"
     t.string "sub_title"

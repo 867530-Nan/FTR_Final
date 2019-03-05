@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {} from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import "../styles/home.css";
 import axios from "axios";
 import { Grid, Segment, Image, Icon } from "semantic-ui-react";
@@ -19,6 +19,50 @@ import styled, { keyframes } from "styled-components";
 import SingleBulletinItem from "./SingleBulletinItem";
 import LUGT from "../assets/images/LUGT.png";
 import MightyCauseButtons from "./MightyCause/MightyCauseButtons";
+
+const AnniversaryWrap = styled.div`
+  margin: 0px auto 25px auto;
+  width: 80%;
+  border-radius: 15px;
+  height: 200px;
+  border: 3px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 6px 6px 6px 0px #c6c8c7;
+
+  &:hover {
+    filter: brightness(90%);
+    box-shadow: 12px 12px 12px 0px #c6c8c7;
+  }
+
+  @media (max-width: 600px) {
+    width: 92%;
+  }
+`;
+
+const AnniversaryAnimationLink = styled.a`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+const AnniversaryText = styled.h1`
+  padding: 0 5px;
+  text-align: center;
+  font-size: ${props => props.fontSize};
+  color: ${props => props.color};
+
+  @media (max-width: 600px) {
+    font-size: ${props => props.sixHundredSize};
+  }
+
+  @media (max-width: 400px) {
+    font-size: ${props => props.fourHundredSize};
+  }
+`;
 
 const ClassesCancelled = styled.div`
   height: 300px;
@@ -66,8 +110,7 @@ const BulletinHeader = styled.h1`
 
 export const TopPadding = styled.div`
   height: 65px;
-
-  @media (max-width: 845px) {
+  @media (max-width: 768px) {
     height: 0px;
   }
 `;
@@ -243,6 +286,31 @@ class Home extends Component {
             February 6, 2019
           </ClassesCancelledText>
         </ClassesCancelled> */}
+        <AnniversaryWrap id="anniversaryGrow">
+          <AnniversaryAnimationLink
+            target="_blank"
+            href={
+              "https://www.eventbrite.com/e/fit-to-recovery-5-year-anniversary-party-tickets-56945577756"
+            }
+          >
+            <AnniversaryText
+              fontSize="42px"
+              color="red"
+              sixHundredSize="32px"
+              fourHundredSize="24px"
+            >
+              FTR 5 Year Anniversary Celebration
+            </AnniversaryText>
+            <AnniversaryText
+              fontSize="32px"
+              color="red"
+              sixHundredSize="20px"
+              fourHundredSize="20px"
+            >
+              Buy Tickets Here!
+            </AnniversaryText>
+          </AnniversaryAnimationLink>
+        </AnniversaryWrap>
 
         <SplashWrap>
           <Image src={FTRGroup} alt="FTR Logo" style={{ maxHeight: "500px" }} />
@@ -601,8 +669,6 @@ let styles = {
   }
 };
 
-export default Home;
-
 const SplashWrap = styled.div`
   height: 100%;
   display: flex;
@@ -610,3 +676,5 @@ const SplashWrap = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
+export default withRouter(Home);
