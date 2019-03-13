@@ -263,7 +263,7 @@ class Nutrition extends Component {
             </p>
           </div>
           <a
-            href="mailto:ftr@fit2recover.org"
+            href="mailto:nicolette@fit2recover.org"
             className="nutritionBottomEmailWords"
           >
             <Icon
@@ -271,7 +271,7 @@ class Nutrition extends Component {
               color="white"
               style={{ fontSize: "20px" }}
             />
-            Contact Georgia Gregersen for more information
+            Contact Nicolette Pessetto for more information
             <Icon
               name="mail outline"
               color="white"
