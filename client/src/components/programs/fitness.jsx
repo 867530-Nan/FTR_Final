@@ -49,7 +49,12 @@ class Fitness extends Component {
 	}
 
 	displayClasses = () => {
-		return this.state.classes.map((single, index) => {
+		function compare(a, b) {
+			if (a.index > b.index) return 1;
+			if (a.index < b.index) return -1;
+			else return 0;
+		}
+		return this.state.classes.sort(compare).map((single, index) => {
 			if (index % 2 === 0) {
 				return (
 					<Grid columns={2} stackable className="programs programsBlack" style={styles.programs}>
