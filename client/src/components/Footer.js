@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 import "../styles/Footer.css";
 import mindBody from "../assets/images/mindBodyWhite.png";
 import paypal from "../assets/images/paypal.png";
-import GuideStar from "../assets/images/GoldGuideStar2018.png";
+import GuideStar from "../assets/images/GoldGuideStar2019.png";
 import { PayPalLink, Instagram, MindBody, Facebook } from "../GlobalLinks/Links";
 import { emailAddresses } from "../assets/emailAddresses";
 
