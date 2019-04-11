@@ -104,9 +104,14 @@ class SingleBulletinItem extends React.Component {
     return (
       <BottomWrap>
         <SingleBody>{this.props.single.body}</SingleBody>
-        <SingleAnchor href={this.props.single.link} target="_blank">
-          {this.props.single.link_text}
-        </SingleAnchor>
+        {this.props.single.link_text ? (
+          <SingleAnchor
+            href={this.props.single.link ? this.props.single.link : null}
+            target='_blank'
+          >
+            {this.props.single.link_text}
+          </SingleAnchor>
+        ) : null}
       </BottomWrap>
     );
   };
@@ -133,24 +138,20 @@ class SingleBulletinItem extends React.Component {
     return (
       <EntireWrap>
         <PlusMinusWrap
-          id="plusMinus"
+          id='plusMinus'
           onClick={() => this.setState({ showMore: !this.state.showMore })}
         >
           {this.state.showMore ? "-" : "+"}
         </PlusMinusWrap>
         <SingleItemWrap>
-          <TopWrap
-            onClick={() => this.setState({ showMore: !this.state.showMore })}
-          >
+          <TopWrap onClick={() => this.setState({ showMore: !this.state.showMore })}>
             <SingleTitle>{this.props.single.title}</SingleTitle>
             <SingleDate>
               {this.props.single.date !== null &&
                 this.props.single.date !== undefined &&
                 this.configureTime(this.props.single.date)}
             </SingleDate>
-            <SingleDate>
-              {this.determineTime(this.props.single.time)}
-            </SingleDate>
+            <SingleDate>{this.determineTime(this.props.single.time)}</SingleDate>
           </TopWrap>
           {this.state.showMore && this.showMore()}
         </SingleItemWrap>
