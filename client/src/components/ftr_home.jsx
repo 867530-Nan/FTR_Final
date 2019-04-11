@@ -430,7 +430,6 @@ class Home extends Component {
                 </p>
                 <BLink
                   href='/fitness'
-                  target='_blank'
                   rel='noopener noreferrer'
                   style={styles.fitnessButton}
                   className='fitnessButton'
@@ -458,7 +457,6 @@ class Home extends Component {
                 </p>
                 <BLink
                   href='/creativearts'
-                  target='_blank'
                   rel='noopener noreferrer'
                   style={styles.creativeButton}
                   className='creativeButton'
@@ -490,8 +488,7 @@ class Home extends Component {
                   allows us to step out of ourselves and our issues, and give back.
                 </p>
                 <BLink
-                  href='/communityservice'
-                  target='_blank'
+                  href='/community'
                   rel='noopener noreferrer'
                   style={styles.serviceButton}
                   className='serviceButton'
@@ -522,7 +519,6 @@ class Home extends Component {
                 </p>
                 <BLink
                   href='/nutrition'
-                  target='_blank'
                   rel='noopener noreferrer'
                   style={styles.nutritionButton}
                   className='nutritionButton'
@@ -534,13 +530,11 @@ class Home extends Component {
           </Grid.Row>
         </Grid>
 
-        <div style={styles.donate}>
-          <div className='donateWords' style={styles.donateWords}>
-            <p>
-              As a non-profit, community-center, and supportive environment, we're
-              grateful to those willing and able to support us.
-            </p>
-          </div>
+        <div className='donateWords' style={styles.donateWords}>
+          <p>
+            As a non-profit, community-center, and supportive environment, we're grateful
+            to those willing and able to support us.
+          </p>
         </div>
       </div>
     );
@@ -666,20 +660,16 @@ let styles = {
   donate: {
     display: "flex",
     height: "320px",
-    background:
-      "linear-gradient(rgba(255, 255, 255, 0.0), rgba(255, 255, 255, 1.0)), url(" +
-      donate +
-      ")",
-    backgroundPosition: "top center",
-    backgroundRepeat: "no-repeat",
     borderRadius: "10px 10px 0 0",
     flexDirection: "column",
     justifyContent: "flex-end",
     textAlign: "center"
   },
   donateWords: {
+    padding: "50px 0",
     fontSize: "30px",
     fontWeight: 300,
+    textAlign: "center",
     width: "75%",
     margin: "0 auto"
   },

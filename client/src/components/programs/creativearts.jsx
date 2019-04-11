@@ -1,12 +1,33 @@
 import React, { Component } from "react";
-import {} from "react-router-dom";
+import styled from "styled-components";
 import "../../styles/creativearts.css";
 import { List, Grid } from "semantic-ui-react";
 import riverWriting from "../../assets/images/creative-writing.png";
 import groupMural from "../../assets/images/guys-paintings.png";
 import outdoors from "../../assets/images/outdoorsPainting.png";
+import SongWriting from "../../assets/images/SongWriting.jpg";
+
 import DonateButton from "../DonateButton";
 import { TopPadding } from "../ftr_home";
+
+const HighlightedTrackWrap = styled.div`
+  height: 250px;
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+`;
+const HighlightHeader = styled.h1`
+  color: orange;
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
+`;
 
 class CreativeArts extends Component {
   render() {
@@ -20,7 +41,7 @@ class CreativeArts extends Component {
           </h1>
         </div>
 
-        <div className='sarahPainting' style={styles.sarahPainting} />
+        <div className='sarahPainting' />
 
         <div className='creativeArtsStory' style={styles.creativeArtsStory}>
           <div className='creativeArtsStoryWords' style={styles.creativeArtsStoryWords}>
@@ -29,7 +50,7 @@ class CreativeArts extends Component {
           </div>
         </div>
 
-        <a
+        {/* <a
           className='creativeCalendarButton'
           target='_blank'
           rel='noopener noreferrer'
@@ -38,7 +59,7 @@ class CreativeArts extends Component {
           <div className='creativeCalendarButtonWords'>
             Click here for the Creative Arts class calendar
           </div>
-        </a>
+        </a> */}
 
         <div className='artClass' style={styles.artClass}>
           <div className='artBox music' style={styles.artBox}>
@@ -65,30 +86,6 @@ class CreativeArts extends Component {
               src='data:image/png;base64,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'
             />
           </div>
-          <div className='artBox painting' style={styles.artBox}>
-            <h4 className='artBoxWords' style={styles.artBoxWords}>
-              Painting
-            </h4>
-            <img
-              class='icon icons8-Paint-Brush-Filled'
-              alt='small icon of paint brush'
-              width='75'
-              height='75'
-              src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAABLCAYAAAA4TnrqAAAFiUlEQVR4Xu2cUXITORBApQkfLKQK+IEKP+s9weZzN04V4QR4T0A4QeJcYMMFPNkTrDkBcAJMFWH3j3ACwk+88JNsFRR8EGtbMx7HHs9oWlK3LIedv1Q0GvVTd6vValmKJXxO0/WbX8T1F1KoP9a6r/uhRJChPkT1nQtQcj3vc/QoFLClgjUPqpiCMMCWBlY9qHDAlgJWM6gwwKKHhQfFDyxqWPageIFFC8sdFB+wKGH5g+IBFh0sOlD0wKKCRQ+KFlg0sPhA0QGLAhY/KBpgC4cVDpQ/sIXCCg/KD9jCYJGAUuJfIdSzDIGUD+0yG/ab74XAqgH1GIT9HSWwhiTFwVXx6eBW9+jsQ/prZyRWnqLenWlkByw4rGpQ+aBPehsHUiY7RqGVeiLk+f5a9+/joh3qvdpO8cCCwjKBMgpemFsJUvHOMG2/Azts2WuWnQ8LBgsD6kL4X0DwZCv/Ozle674a1IEYppu63Qt3UHhgQWBVggJzWts73PYVcthr9+2de91XzSbJDsu86uH9RZV4uu+vYvXUF/js+/VjYoWFCw/cgQ3TDdDM5E9aWLq36jGxwcKBwvuLKiAnvfYzKeUDeljVwFhg2YFyBzbsbQ4g3rrHA2seGDksN1BuwPhhzQIjheUHyh7YSdrelUKmfJo1OyYyWDSg7IBlq6FaPQZTvBECGBksmOU3MMvjI3WKoeNWyY/pxvq5SrTvmgemxEsl1BkIuQ6x2I8+o1JKvSWBRRdFl8XBAcvjrWsdCCNasOwfrwhxdLv7+qjozXd8GtQP8vMWCSxec8ABM2mND6wClM5ukMDSA/Xb+TcZiB8w1+B1GpQeIRmsYao3v1dg98/1uANz2T+WQZHCyrWrfQQR9c9cuFxrsWxTOFWg6GEFiXvsNQx8lsJOYB0oclj8pmgXh+nWNpkJEyhyWGFM0R4YbIvOmgLXJlAssEDl96Fj3MED1jZq2+FMMjvQUCuQJKyO9DGguGBtQccEaV4sSRywsYvYFkrsTkPDgmKBpTu1cahYJOZ2WGCzyUIbUHyw2PNMVejMwMqBqS0oNli8GUyTjlUDowDFBiusky/DmwVGBYoNFu8+EePlcmCUoFhg6fzSN5HAvRpxEyMWXxvVh63vdtG/i48qj41sI607jgfUrJgUoEg165/e5o6CyhY+TXHrmQoUCaxxYk1H7DoYjeqhBOUFK2ZIWjBqUE6wIJH2EJL/2nFGp0mUzrzKRFAOfpzm2IGkEJzTLXqVM1s6h0YVX2yEpTVJSXkQOyQu05ueGiMsSMdChcpFrBKV9y4NhlOjGjWLHRSUPiox6kMN6dlEbgV+0KHQIwSoWgcfAtSKHG1NH4ROK4peaZUadeCEu9N0khwKVCUs1zM2GxNNxPlvd7p/5fXrDU8Woii1XVUKGRLUHKysbkAkb5oE8Pk/CPj87t4hHLXbPeMVebfIdIYGNQcLZlGng5njp28/Tdew2yHLW2ttM1Uwu/SJeWeyGoYwPzAnkgpljGAcbaZg+RbeY4bnr1WYr3C1yWD9r1U4vGNYDb4KisIg/hmAU+241zIst1ZlDr75yN2c00bNyZL7qkJGaSpirVvm7atlll+rcs0y3315DEv0fll7rE5vLolWjWEZC+8HAOt+GRa62Bb2f1flp5YuMUSZa+SNwAw3T83pF3efBZXC3bvdw+jy8q5zAg4eVeg1gA8MQHi9ucWVb18i85s4eJYrHZcQFMbB22vsJQU1jrMo7+zhSn/sZyCON7II3j5uKg0eInxI5u3WJfPiENV/FBks4/0X0zeUei+kgp8NCPdbof4iu/cwyTpkdQpKQk4cUcee7RVH/e8F0mQ1LHPOi1UTyGTKFpzrtuCsEO6sSAgqFVxVUxBCjCBQvfgBCvd5Wr43/wPWQqTGGj4oagAAAABJRU5ErkJggg=='
-            />
-          </div>
-          <div className='artBox drawing' style={styles.artBox}>
-            <h4 className='artBoxWords' style={styles.artBoxWords}>
-              Drawing
-            </h4>
-            <img
-              class='icon icons8-Picture'
-              width='75'
-              height='75'
-              alt='small icon of generic painting'
-              src='data:image/png;base64,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'
-            />
-          </div>
           <div className='artBox writing' style={styles.artBox}>
             <h4 className='artBoxWords' style={styles.artBoxWords}>
               Writing
@@ -103,143 +100,68 @@ class CreativeArts extends Component {
           </div>
         </div>
 
+        <HighlightedTrackWrap>
+          <HighlightHeader>This Month's Songwriting Highlight</HighlightHeader>
+          <iframe
+            width='75%'
+            height='200'
+            scrolling='no'
+            frameborder='no'
+            allow='autoplay'
+            src='https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/604624452&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true'
+          />
+        </HighlightedTrackWrap>
+
         <div className='hidden-xs'>
           <div className='expression riverWriting'>
             <div className='expressionWords'>
-              <span className='riverWritingWords'>River Writing</span>
+              <span className='riverWritingWords'>Creative Writing</span>
               <br />
-              This class offers a healthy form of expression for those who are learning a
-              new way of life. It offers an outlet for thoughts and feelings. It is a
-              powerful tool in awareness. It can be used to process past events, or to
-              create a vision for the future.
+              Writing offers an outlet for thoughts and feelings. It is a powerful tool in
+              awareness. It can be used to process past events, or to create a vision for
+              the future.
             </div>
             <img
-              className='img-responsive'
               style={{ maxWidth: "400px", minWidth: "350px" }}
               src={riverWriting}
               alt='the words Creative Writing in unique font'
             />
           </div>
-
           <div className='expression groupMural'>
             <img
               className='img-responsive'
               style={{ maxWidth: "20%", minWidth: "350px" }}
-              src={groupMural}
+              src={SongWriting}
               alt='Group Paint Night'
             />
             <div className='expressionWordsEven'>
-              <span className='riverWritingWords'>Group Paint Nite</span>
+              <span className='riverWritingWords'>Song Writing Circle</span>
               <br />
-              It's not just for wine drinkers anymore! We offer one night of guided art
-              making in an atmosphere where you can succeed and have a finished piece to
-              be proud of. Participants will work individually on a painting of the same
-              composition.{" "}
+              Learn song writing techniques in a group setting that provides an
+              opportunity for enhanced creativity, self expression and community
+              connection. By the end of the session writers will have a completed,
+              recorded song!
             </div>
           </div>
-
-          <a
-            className='creativeCalendarButton'
-            target='_blank'
-            rel='noopener noreferrer'
-            href='https://clients.mindbodyonline.com/classic/ws?studioid=280495&stype=-7&sVT=18&sView=week&sLoc=0'
-          >
-            <div className='creativeCalendarButtonWords'>
-              Click here for the Creative Arts class calendar
+          <div className='expression groupMural'>
+            <div className='expressionWords'>
+              <span className='riverWritingWords'>Saturday Freestyle</span>
+              <br />
+              Come in, Catch a Vibe, Record a Freestyle. <br />
+              This program is for everyone and anyone, regardless of writing skills and
+              comfort in front of the mic. Creative Writing - free to members Remove
+              creative arts calendar
             </div>
-          </a>
-
-          <Grid className='expressionList sketchbook'>
-            <Grid.Column computer={2} tablet={2}>
-              <List>
-                <List.Item className='bottomCreativeIcons'>
-                  <List.Icon
-                    color='green'
-                    className='bottomSingleIcon'
-                    size='large'
-                    name='paint brush'
-                  />
-                  <List.Icon
-                    color='red'
-                    className='bottomSingleIcon'
-                    size='large'
-                    name='write'
-                  />
-                  <List.Icon
-                    color='teal'
-                    className='bottomSingleIcon'
-                    size='large'
-                    name='object group'
-                  />
-                  <List.Icon
-                    color='orange'
-                    className='bottomSingleIcon'
-                    size='large'
-                    name='image'
-                  />
-                </List.Item>
-              </List>
-            </Grid.Column>
-            <Grid.Column computer={8} tablet={8}>
-              <List style={styles.creativeBottomList}>
-                <List.Item className='bottomListIcon'>
-                  <List.Header style={styles.quadTitle}>
-                    Community Service Art Making
-                  </List.Header>
-                  <List.Description style={styles.quadDescription}>
-                    At FTR we seek to carry our voices into the community! Artists at Fit
-                    To Recover have made large scale paintings as decoration for area
-                    businesses &amp; organizations.
-                  </List.Description>
-                </List.Item>
-
-                <List.Item className='bottomListIcon'>
-                  <List.Header style={styles.quadTitle}>Record Your Story</List.Header>
-                  <List.Description style={styles.quadDescription}>
-                    Using FTR's recording studio, participants are invited to record their
-                    journey of recovery. Using the River Writing practice, participants
-                    will be guided through a series of prompts to help them write down
-                    their experience of getting sober, and seeking a powerful change.
-                  </List.Description>
-                </List.Item>
-
-                <List.Item className='bottomListIcon'>
-                  <List.Header style={styles.quadTitle}>
-                    Graphic Journal // Collage // Vision Board
-                  </List.Header>
-                  <List.Description style={styles.quadDescription}>
-                    We are flooded with images daily. In this class we will couple our
-                    words with images. Making a conscious choice about what images
-                    resonate and which ones to ignore is an exercise in awareness.
-                    Participants will have a visual record of this precious time of early
-                    recovery.
-                  </List.Description>
-                </List.Item>
-
-                <List.Item className='bottomListIcon'>
-                  <List.Header style={styles.quadTitle}>
-                    On-Site Mural // Painting made by residents
-                  </List.Header>
-                  <List.Description style={styles.quadDescription}>
-                    Leave your mark and let new people know it is possible to recover. Fit
-                    to Recover has been painted by hand by our own community. Residents
-                    develop content, and skills for painting for the final piece.
-                  </List.Description>
-                </List.Item>
-              </List>
-            </Grid.Column>
-            <Grid.Column computer={6} tablet={6} className='creativePicFTarts'>
-              <img
-                className='outdoorsPainting img-responsive'
-                src={outdoors}
-                alt='Daily Sketchbook'
-              />
-            </Grid.Column>
-          </Grid>
+            <img
+              style={{ maxWidth: "15%", minWidth: "200px", height: "unset !important" }}
+              src='https://files.constantcontact.com/25b22253501/45d6c501-b2e2-426d-9799-0ebf89a288de.jpg'
+              alt='Group Paint Night'
+            />
+          </div>
         </div>
 
-        <div className='variousMedia' style={styles.variousMediaWords}>
-          <h2 className='variousMediaWords' style={styles.variousMediaWords}>
+        <div className='variousMedia'>
+          <h2 className='variousMediaWords'>
             The Creative Expression Pillar offers tools for authentic processing of life.
             Many addicts are bright and artistic, they just need an opportunity to devlop
             their voice. By offering experiences in both visual and language arts, the
