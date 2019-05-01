@@ -26,8 +26,8 @@ const AnniversaryWrap = styled.div`
   margin: 0px auto 25px auto;
   width: 80%;
   border-radius: 15px;
-  height: 200px;
-  border: 3px solid red;
+  height: 150px;
+  border: 3px solid #2b1273;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,33 +51,7 @@ const AnniversaryAnimationLink = styled.a`
   justify-content: space-around;
   align-items: center;
 `;
-const EmojiTextWrap = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-`;
-const SingleEmoji = styled.h1`
-  display: flex;
-  width: 15%;
-  align-items: center;
-  margin: 0 !important;
-  justify-content: center;
-  height: 75%;
-  font-size: ${props => props.fontSize};
 
-  @media (max-width: 823px) {
-    font-size: ${props => props.eightHundredSize};
-  }
-
-  @media (max-width: 605px) {
-    font-size: ${props => props.sixHundredSize};
-  }
-
-  @media (max-width: 400px) {
-    font-size: ${props => props.fourHundredSize};
-  }
-`;
 const AnniversaryText = styled.h1`
   margin: 0 !important;
   width: 70%;
@@ -93,7 +67,21 @@ const AnniversaryText = styled.h1`
     font-size: ${props => props.fourHundredSize};
   }
 `;
+const MissionText = styled.h1`
+  margin: 15px auto !important;
+  width: 90%;
+  text-align: center;
+  font-size: ${props => props.fontSize};
+  color: ${props => props.color};
 
+  @media (max-width: 605px) {
+    font-size: ${props => props.sixHundredSize};
+  }
+
+  @media (max-width: 400px) {
+    font-size: ${props => props.fourHundredSize};
+  }
+`;
 const BulletinWrap = styled.div`
   padding: 40px 0;
   display: flex;
@@ -289,59 +277,43 @@ class Home extends Component {
     return (
       <div>
         <TopPadding />
-        {/* <ClassesCancelled>
-          <ClassesCancelledText>
-            Classes are cancelled today,
-            <br />
-            February 6, 2019
-          </ClassesCancelledText>
-        </ClassesCancelled> */}
-        <AnniversaryWrap id='anniversaryGrow'>
+        {/* <AnniversaryText
+          fontSize='42px'
+          color='black'
+          fontWeight='700'
+          sixHundredSize='32px'
+          fourHundredSize='24px'
+        >
+          Fit To Recover
+        </AnniversaryText> */}
+        <AnniversaryWrap>
           <AnniversaryAnimationLink target='_blank' href={MindBody}>
             <AnniversaryText
-              fontSize='42px'
-              color='black'
-              fontWeight='700'
-              sixHundredSize='32px'
-              fourHundredSize='24px'
+              fontSize='28px'
+              color='red'
+              sixHundredSize='24px'
+              fourHundredSize='18px'
+              fontWeight='400'
             >
-              Fit To Recover
+              Memberships Available
+              <hr />
+              $5 Drop-in
             </AnniversaryText>
-            <EmojiTextWrap>
-              <SingleEmoji
-                fontSize='60px'
-                eightHundredSize='45px'
-                sixHundredSize='32px'
-                fourHundredSize='24px'
-              >
-                {this.state.firstEmoji}
-              </SingleEmoji>
-              <AnniversaryText
-                fontSize='28px'
-                color='red'
-                sixHundredSize='24px'
-                fourHundredSize='18px'
-                fontWeight='400'
-              >
-                Memberships Available
-                <hr />
-                $5 Drop-in
-              </AnniversaryText>
-              <SingleEmoji
-                fontSize='60px'
-                eightHundredSize='45px'
-                sixHundredSize='32px'
-                fourHundredSize='24px'
-              >
-                {this.state.secondEmoji}
-              </SingleEmoji>
-            </EmojiTextWrap>
           </AnniversaryAnimationLink>
         </AnniversaryWrap>
-
         <SplashWrap>
           <Image src={FTRGroup} alt='FTR Logo' style={{ maxHeight: "500px" }} />
         </SplashWrap>
+        <MissionText
+          fontSize='24px'
+          color='#193125  '
+          sixHundredSize='20px'
+          fourHundredSize='16px'
+          fontWeight='400'
+        >
+          Fit to Recover is a safe place for people in Recovery to connect through
+          Fitness, Creative Expression, Nutrition, and Service.
+        </MissionText>
 
         <div className='ftrMemberClass'>
           <BLink
