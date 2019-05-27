@@ -1,26 +1,26 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
-import "../styles/home.css";
-import axios from "axios";
-import { Grid, Segment, Image, Icon } from "semantic-ui-react";
-import FTRGroup from "../assets/images/GroupWithFTR.png";
-import Logo from "../assets/images/LUGTFall2018/LUGTLogo_Horiz_CFUTag.png";
+import React, { Component } from 'react'
+import { withRouter } from 'react-router-dom'
+import '../styles/home.css'
+import axios from 'axios'
+import { Grid, Segment, Image, Icon } from 'semantic-ui-react'
+import FTRGroup from '../assets/images/GroupWithFTR.png'
+import Logo from '../assets/images/LUGTFall2018/LUGTLogo_Horiz_CFUTag.png'
 
-import Mountain from "../assets/images/mountainCROPStar.jpg";
-import donate from "../assets/images/July_2014_Bootcamp_CROP.jpeg";
-import June2018 from "../assets/images/June2018.png";
-import paypal from "../assets/images/paypalDonate.png";
-import DonateButton from "./DonateButton";
-import BLink from "./BLink";
-import { Lazy } from "react-lazy";
-import { saveAddress } from "../actions/address";
-import moment from "moment";
-import styled, { keyframes } from "styled-components";
-import SingleBulletinItem from "./SingleBulletinItem";
-import LUGT from "../assets/images/LUGT.png";
-import MightyCauseButtons from "./MightyCause/MightyCauseButtons";
-import { MindBody } from "../GlobalLinks/Links";
-import { Emoji as masterEmojiList } from "../Emojis";
+import Mountain from '../assets/images/mountainCROPStar.jpg'
+import donate from '../assets/images/July_2014_Bootcamp_CROP.jpeg'
+import June2018 from '../assets/images/June2018.png'
+import paypal from '../assets/images/paypalDonate.png'
+import DonateButton from './DonateButton'
+import BLink from './BLink'
+import { Lazy } from 'react-lazy'
+import { saveAddress } from '../actions/address'
+import moment from 'moment'
+import styled, { keyframes } from 'styled-components'
+import SingleBulletinItem from './SingleBulletinItem'
+import LUGT from '../assets/images/LUGT.png'
+import MightyCauseButtons from './MightyCause/MightyCauseButtons'
+import { MindBody } from '../GlobalLinks/Links'
+import { Emoji as masterEmojiList } from '../Emojis'
 
 const AnniversaryWrap = styled.div`
   margin: 0px auto 25px auto;
@@ -41,7 +41,7 @@ const AnniversaryWrap = styled.div`
   @media (max-width: 600px) {
     width: 92%;
   }
-`;
+`
 
 const AnniversaryAnimationLink = styled.a`
   width: 100%;
@@ -50,7 +50,7 @@ const AnniversaryAnimationLink = styled.a`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-`;
+`
 
 const AnniversaryText = styled.h1`
   margin: 0 !important;
@@ -66,7 +66,7 @@ const AnniversaryText = styled.h1`
   @media (max-width: 400px) {
     font-size: ${props => props.fourHundredSize};
   }
-`;
+`
 const MissionText = styled.h1`
   margin: 15px auto !important;
   width: 90%;
@@ -81,7 +81,7 @@ const MissionText = styled.h1`
   @media (max-width: 400px) {
     font-size: ${props => props.fourHundredSize};
   }
-`;
+`
 const BulletinWrap = styled.div`
   padding: 40px 0;
   display: flex;
@@ -96,7 +96,7 @@ const BulletinWrap = styled.div`
     white 20px
   );
   border-bottom: 1px solid #d3d3d3;
-`;
+`
 
 const BulletinHeader = styled.h1`
   font-weight: 900;
@@ -105,14 +105,14 @@ const BulletinHeader = styled.h1`
   @media (max-width: 450px) {
     font-size: 2.5em;
   }
-`;
+`
 
 export const TopPadding = styled.div`
   height: 65px;
   @media (max-width: 768px) {
     height: 0px;
   }
-`;
+`
 
 class Home extends Component {
   state = {
@@ -122,7 +122,7 @@ class Home extends Component {
     FTREmoji: masterEmojiList,
     firstEmoji: masterEmojiList[Math.floor(Math.random() * masterEmojiList.length)],
     secondEmoji: masterEmojiList[Math.floor(Math.random() * masterEmojiList.length)]
-  };
+  }
 
   componentDidMount() {
     setInterval(() => {
@@ -133,16 +133,16 @@ class Home extends Component {
         secondEmoji: this.state.FTREmoji[
           Math.floor(Math.random() * this.state.FTREmoji.length)
         ]
-      });
-    }, 2000);
-    axios.get("/api/home/index").then(res =>
+      })
+    }, 2000)
+    axios.get('/api/home/index').then(res =>
       this.setState({
         photos: res.data.photos.data,
         bulletins: res.data.bulletins,
         newsletter: res.data.newsletter
       })
-    );
-    saveAddress(window.location.href);
+    )
+    saveAddress(window.location.href)
   }
 
   displayImages = () => {
@@ -161,8 +161,8 @@ class Home extends Component {
           <Image className='homeSingleInsta' src={pic.images.standard_resolution.url} />
         </BLink>
       </Grid.Column>
-    ));
-  };
+    ))
+  }
 
   displayLinks = () => {
     return (
@@ -233,23 +233,23 @@ class Home extends Component {
           </Grid.Column>
         </Grid.Row>
       </Grid>
-    );
-  };
+    )
+  }
 
   displayBulletin = () => {
     return (
       <BulletinWrap>
         <BulletinHeader>FTR Bulletin Board</BulletinHeader>
         {this.state.bulletins.map(single => {
-          return <SingleBulletinItem single={single} />;
+          return <SingleBulletinItem single={single} />
         })}
       </BulletinWrap>
-    );
-  };
+    )
+  }
 
   displayNewsletter = () => {
-    const { newsletter } = this.state;
-    const Title = newsletter.title.split(" ")[0];
+    const { newsletter } = this.state
+    const Title = newsletter.title.split(' ')[0]
     return (
       <BLink
         className='homeNewsletterLink'
@@ -270,8 +270,8 @@ class Home extends Component {
           />
         </div>
       </BLink>
-    );
-  };
+    )
+  }
 
   render() {
     return (
@@ -289,20 +289,23 @@ class Home extends Component {
         <AnniversaryWrap>
           <AnniversaryAnimationLink target='_blank' href={MindBody}>
             <AnniversaryText
-              fontSize='28px'
+              fontSize='36px'
               color='red'
-              sixHundredSize='24px'
-              fourHundredSize='18px'
+              sixHundredSize='28px'
+              fourHundredSize='22px'
               fontWeight='400'
             >
-              Memberships Available
+              {/* Memberships Available
               <hr />
-              $5 Drop-in
+              $5 Drop-in */}
+              Memorial Day
+              <hr />
+              Noon Class ONLY
             </AnniversaryText>
           </AnniversaryAnimationLink>
         </AnniversaryWrap>
         <SplashWrap>
-          <Image src={FTRGroup} alt='FTR Logo' style={{ maxHeight: "500px" }} />
+          <Image src={FTRGroup} alt='FTR Logo' style={{ maxHeight: '500px' }} />
         </SplashWrap>
         <MissionText
           fontSize='24px'
@@ -353,12 +356,12 @@ class Home extends Component {
         {this.state.bulletins.length ? this.displayBulletin() : null}
 
         <div className='instaNewsBar'>
-          <Grid style={{ display: "flex", justifyContent: "center" }}>
+          <Grid style={{ display: 'flex', justifyContent: 'center' }}>
             <Grid.Column
               mobile={16}
               tablet={8}
               computer={8}
-              style={{ maxWidth: "750px" }}
+              style={{ maxWidth: '750px' }}
             >
               {this.state.photos && this.displayImages()}
             </Grid.Column>
@@ -366,7 +369,7 @@ class Home extends Component {
               mobile={16}
               tablet={8}
               computer={8}
-              style={{ maxWidth: "750px" }}
+              style={{ maxWidth: '750px' }}
             >
               {this.state.newsletter && this.displayNewsletter()}
             </Grid.Column>
@@ -509,147 +512,147 @@ class Home extends Component {
           </p>
         </div>
       </div>
-    );
+    )
   }
 }
 
 let styles = {
   mountain: {
-    height: "420px",
-    backgroundImage: "url(" + Mountain + ")",
-    backgroundPosition: "bottom center",
-    backgroundRepeat: "no-repeat",
-    width: "100%",
-    display: "flex",
-    flexFlow: "column",
-    paddingTop: "20px"
+    height: '420px',
+    backgroundImage: 'url(' + Mountain + ')',
+    backgroundPosition: 'bottom center',
+    backgroundRepeat: 'no-repeat',
+    width: '100%',
+    display: 'flex',
+    flexFlow: 'column',
+    paddingTop: '20px'
   },
   modalInsta: {
-    height: "500px",
-    width: "500px",
-    marginTop: "-250px",
-    marginLeft: "-250px"
+    height: '500px',
+    width: '500px',
+    marginTop: '-250px',
+    marginLeft: '-250px'
   },
   heading: {
-    alignSelf: "center",
-    color: "black"
+    alignSelf: 'center',
+    color: 'black'
   },
   slcMAP: {
-    fontWeight: "300",
-    fontSize: "2em"
+    fontWeight: '300',
+    fontSize: '2em'
   },
   ftrMemberLink: {
-    color: "white"
+    color: 'white'
   },
   ftrClassLink: {
-    color: "white"
+    color: 'white'
   },
   mapButton: {
-    color: "white",
-    backgroundColor: "red",
-    justifyContent: "center",
-    padding: "8px 20px",
-    borderRadius: "5px",
-    fontSize: "16px"
+    color: 'white',
+    backgroundColor: 'red',
+    justifyContent: 'center',
+    padding: '8px 20px',
+    borderRadius: '5px',
+    fontSize: '16px'
   },
   triad: {
-    display: "Flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center"
+    display: 'Flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   pTitles: {
-    fontSize: "28px"
+    fontSize: '28px'
   },
   pDesc: {
-    textAlign: "center",
-    padding: "0 10px",
-    fontSize: "18px",
-    fontWeight: "400"
+    textAlign: 'center',
+    padding: '0 10px',
+    fontSize: '18px',
+    fontWeight: '400'
   },
   learnMore: {
-    border: "1px solid #941F1F",
-    color: "#941F1F",
-    justifyContent: "center",
-    padding: "10px 5px",
-    cursor: "pointer",
-    borderRadius: "5px",
-    fontSize: "16px"
+    border: '1px solid #941F1F',
+    color: '#941F1F',
+    justifyContent: 'center',
+    padding: '10px 5px',
+    cursor: 'pointer',
+    borderRadius: '5px',
+    fontSize: '16px'
   },
   pEA: {
-    height: "250px",
-    display: "flex",
-    alignItems: "center"
+    height: '250px',
+    display: 'flex',
+    alignItems: 'center'
   },
   pillarsHeadline: {
-    display: "flex",
-    justifyContent: "center"
+    display: 'flex',
+    justifyContent: 'center'
   },
   fourTitle: {
-    fontSize: "28px"
+    fontSize: '28px'
   },
   quadPillarsFitness: {
-    height: "300px",
-    display: "flex",
-    flexFlow: "column nowrap",
-    justifyContent: "center",
-    alignItems: "center"
+    height: '300px',
+    display: 'flex',
+    flexFlow: 'column nowrap',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   qTitle: {
-    fontSize: "30px"
+    fontSize: '30px'
   },
   qDesc: {
-    fontSize: "18px",
-    textAlign: "center"
+    fontSize: '18px',
+    textAlign: 'center'
   },
   fitnessButton: {
-    border: "1px solid #f90101",
-    color: "#f90101",
-    padding: "15px 5px",
-    borderRadius: "5px"
+    border: '1px solid #f90101',
+    color: '#f90101',
+    padding: '15px 5px',
+    borderRadius: '5px'
   },
   serviceButton: {
-    border: "1px solid #8e44ad",
-    color: "#8e44ad",
-    padding: "15px 5px",
-    borderRadius: "5px"
+    border: '1px solid #8e44ad',
+    color: '#8e44ad',
+    padding: '15px 5px',
+    borderRadius: '5px'
   },
   creativeButton: {
-    border: "1px solid #332df7",
-    color: "#332df7",
-    padding: "15px 5px",
-    borderRadius: "5px"
+    border: '1px solid #332df7',
+    color: '#332df7',
+    padding: '15px 5px',
+    borderRadius: '5px'
   },
   nutritionButton: {
-    border: "1px solid #349c09",
-    color: "#349c09",
-    padding: "15px 5px",
-    borderRadius: "5px"
+    border: '1px solid #349c09',
+    color: '#349c09',
+    padding: '15px 5px',
+    borderRadius: '5px'
   },
   quadCard: {
-    padding: "40px 0"
+    padding: '40px 0'
   },
   donate: {
-    display: "flex",
-    height: "320px",
-    borderRadius: "10px 10px 0 0",
-    flexDirection: "column",
-    justifyContent: "flex-end",
-    textAlign: "center"
+    display: 'flex',
+    height: '320px',
+    borderRadius: '10px 10px 0 0',
+    flexDirection: 'column',
+    justifyContent: 'flex-end',
+    textAlign: 'center'
   },
   donateWords: {
-    padding: "50px 0",
-    fontSize: "30px",
+    padding: '50px 0',
+    fontSize: '30px',
     fontWeight: 300,
-    textAlign: "center",
-    width: "75%",
-    margin: "0 auto"
+    textAlign: 'center',
+    width: '75%',
+    margin: '0 auto'
   },
   footer: {
-    height: "200px",
-    backgroundColor: "#941F1F"
+    height: '200px',
+    backgroundColor: '#941F1F'
   }
-};
+}
 
 const SplashWrap = styled.div`
   height: 100%;
@@ -657,6 +660,6 @@ const SplashWrap = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-`;
+`
 
-export default withRouter(Home);
+export default withRouter(Home)

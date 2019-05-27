@@ -1,14 +1,14 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import "../../styles/creativearts.css";
-import { List, Grid } from "semantic-ui-react";
-import riverWriting from "../../assets/images/creative-writing.png";
-import groupMural from "../../assets/images/guys-paintings.png";
-import outdoors from "../../assets/images/outdoorsPainting.png";
-import SongWriting from "../../assets/images/SongWriting.jpg";
+import React, { Component } from 'react'
+import styled from 'styled-components'
+import '../../styles/creativearts.css'
+import { List, Grid } from 'semantic-ui-react'
+import riverWriting from '../../assets/images/creative-writing.png'
+import groupMural from '../../assets/images/guys-paintings.png'
+import outdoors from '../../assets/images/outdoorsPainting.png'
+import SongWriting from '../../assets/images/SongWriting.jpg'
 
-import DonateButton from "../DonateButton";
-import { TopPadding } from "../ftr_home";
+import DonateButton from '../DonateButton'
+import { TopPadding } from '../ftr_home'
 
 const HighlightedTrackWrap = styled.div`
   height: 250px;
@@ -21,13 +21,13 @@ const HighlightedTrackWrap = styled.div`
   @media (max-width: 768px) {
     width: 100%;
   }
-`;
+`
 const HighlightHeader = styled.h1`
   color: orange;
   @media (max-width: 768px) {
     font-size: 20px;
   }
-`;
+`
 
 class CreativeArts extends Component {
   render() {
@@ -40,7 +40,7 @@ class CreativeArts extends Component {
             Creative expression has the power to connect us.
           </h1>
         </div>
-
+        {/* asdfasdf */}
         <div className='sarahPainting' />
 
         <div className='creativeArtsStory' style={styles.creativeArtsStory}>
@@ -122,7 +122,7 @@ class CreativeArts extends Component {
               the future.
             </div>
             <img
-              style={{ maxWidth: "400px", minWidth: "350px" }}
+              style={{ maxWidth: '400px', minWidth: '350px' }}
               src={riverWriting}
               alt='the words Creative Writing in unique font'
             />
@@ -130,7 +130,7 @@ class CreativeArts extends Component {
           <div className='expression groupMural'>
             <img
               className='img-responsive'
-              style={{ maxWidth: "20%", minWidth: "350px" }}
+              style={{ maxWidth: '20%', minWidth: '350px' }}
               src={SongWriting}
               alt='Group Paint Night'
             />
@@ -153,7 +153,7 @@ class CreativeArts extends Component {
               creative arts calendar
             </div>
             <img
-              style={{ maxWidth: "15%", minWidth: "200px", height: "unset !important" }}
+              style={{ maxWidth: '15%', minWidth: '200px', height: 'unset !important' }}
               src='https://files.constantcontact.com/25b22253501/45d6c501-b2e2-426d-9799-0ebf89a288de.jpg'
               alt='Group Paint Night'
             />
@@ -170,85 +170,85 @@ class CreativeArts extends Component {
           </h2>
         </div>
       </div>
-    );
+    )
   }
 }
 
 const styles = {
   topCreativePadding: {
-    paddingTop: "55px"
+    paddingTop: '55px'
   },
   creativeTop: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    height: "110px"
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '110px'
   },
   creativityHead: {
-    color: "#007FFF",
+    color: '#007FFF',
     fontWeight: 700,
-    fontSize: "3.8em",
-    fontFamily: "Cabin Sketch",
-    textAlign: "center",
-    padding: "0 30px"
+    fontSize: '3.8em',
+    fontFamily: 'Cabin Sketch',
+    textAlign: 'center',
+    padding: '0 30px'
   },
   creativeArtsStory: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    height: "150px"
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    height: '150px'
   },
   creativeArtsStoryWords: {
-    width: "84%",
+    width: '84%',
     fontWeight: 300,
-    textAlign: "center",
-    fontSize: "2.5em",
-    margin: "0 auto",
-    color: "#007FFF",
+    textAlign: 'center',
+    fontSize: '2.5em',
+    margin: '0 auto',
+    color: '#007FFF',
     lineHeight: 1
   },
   recoveryWords: {
-    width: "84%",
+    width: '84%',
     fontWeight: 300,
-    textAlign: "center",
-    fontSize: "2em",
-    margin: "0 auto",
-    color: "#5A00BB",
+    textAlign: 'center',
+    fontSize: '2em',
+    margin: '0 auto',
+    color: '#5A00BB',
     lineHeight: 1
   },
   artClass: {
-    height: "200px",
-    display: "flex",
-    justifyContent: "space-around",
-    alignItems: "center",
-    borderBottom: "1px solid lightgray"
+    height: '200px',
+    display: 'flex',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    borderBottom: '1px solid lightgray'
   },
   artBox: {
-    borderRadius: "5px",
-    height: "170px",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-around",
-    alignItems: "center",
+    borderRadius: '5px',
+    height: '170px',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-around',
+    alignItems: 'center',
     flex: '0className="artBoxWords"  1 15%'
   },
   artBoxWords: {
-    fontSize: "3.2em",
+    fontSize: '3.2em',
     fontWeight: 300
   },
   creativeBottomList: {
-    height: "100%",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-around",
-    alignItems: "center"
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-around',
+    alignItems: 'center'
   },
   quadTitle: {
-    fontSize: "1.4em"
+    fontSize: '1.4em'
   },
   quadDescription: {
-    fontSize: "1.1em"
+    fontSize: '1.1em'
   }
-};
+}
 
-export default CreativeArts;
+export default CreativeArts

@@ -1,6 +1,6 @@
 .communityServiceHeaderPhoto {
   background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1)),
-    url("../assets/images/groupPhoto.jpeg") top no-repeat;
+    url('../assets/images/groupPhoto.jpeg') top no-repeat;
   height: 500px;
   display: flex;
   flex-direction: column;
@@ -159,7 +159,7 @@
   }
   .communityServiceHeaderPhoto {
     background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1)),
-      url("../assets/images/groupPhoto600PNG.png") top no-repeat;
+      url('../assets/images/groupPhoto600PNG.png') top no-repeat;
     height: 400px;
   }
   .serviceMeansText {
@@ -203,7 +203,7 @@
   }
   .communityServiceHeaderPhoto {
     background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1)),
-      url("../assets/images/groupPhoto450.jpeg") top no-repeat;
+      url('../assets/images/groupPhoto450.jpeg') top no-repeat;
   }
 }
 
@@ -225,7 +225,7 @@
   }
   .communityServiceHeaderPhoto {
     background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1)),
-      url("../assets/images/groupPhoto400.jpeg") top no-repeat;
+      url('../assets/images/groupPhoto400.jpeg') top no-repeat;
     height: 350px;
   }
   .communityServiceHeaderShort {
@@ -265,7 +265,7 @@
   }
   .communityServiceHeaderPhoto {
     background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1)),
-      url("../assets/images/groupPhoto300.jpeg") top no-repeat;
+      url('../assets/images/groupPhoto300.jpeg') top no-repeat;
     height: 260px;
   }
 }
