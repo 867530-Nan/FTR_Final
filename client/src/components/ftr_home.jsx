@@ -295,12 +295,9 @@ class Home extends Component {
               fourHundredSize='22px'
               fontWeight='400'
             >
-              {/* Memberships Available
+              Memberships Available
               <hr />
-              $5 Drop-in */}
-              Memorial Day
-              <hr />
-              Noon Class ONLY
+              $5 Drop-in
             </AnniversaryText>
           </AnniversaryAnimationLink>
         </AnniversaryWrap>
