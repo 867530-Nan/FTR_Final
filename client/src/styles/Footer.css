@@ -1,260 +1,265 @@
 .footerWide {
-	width: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .socialLinks {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 80px;
-	margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  margin: 20px 0;
 }
 
 .lessPadding {
-	padding: 0 !important;
-    align-self: center !important;
+  padding: 0 !important;
+  align-self: center !important;
 }
 
 .guideStar {
-	height: 150px;
+  height: 150px;
 }
 
 .actualSocial {
-	padding-bottom: 0 10px;
-	margin: 0 10px;
+  padding-bottom: 0 10px;
+  margin: 0 10px;
 }
 
-.actualFooter{
-	height: auto;
-	background-color: red;
-	padding-bottom: 10px;
+.actualFooter {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  background-color: red;
+  padding-bottom: 10px;
 }
 
 .smallMB {
-	margin: 0 5px;
+  margin: 0 5px;
 }
 
 .paypalButton {
   height: 36px !important;
   width: 120px !important;
   margin: 0 auto !important;
-	padding: 0px;
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-	border: 2px solid #253db0;
-	border-radius: 5px;
+  padding: 0px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 2px solid #253db0;
+  border-radius: 5px;
 }
 
 .paypalButton:hover {
-	opacity: 0.8 !important;
+  opacity: 0.8 !important;
 }
 
-.ui.grid>.column:not(.row) {
-	padding-top: 0px !important;
+.ui.grid > .column:not(.row) {
+  padding-top: 0px !important;
 }
 
-i.icon.facebook, i.icon.youtube {
-	font-size: 1.5em;
+i.icon.facebook,
+i.icon.youtube {
+  font-size: 1.5em;
 }
 
 .facebook.actualSocial {
-	background-color: #3b5998;
-	height: 36px;
-	width: 118px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border-radius: .28571429rem;
-	cursor: pointer;
-	padding: 0 20px;
+  background-color: #3b5998;
+  height: 36px;
+  width: 118px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.28571429rem;
+  cursor: pointer;
+  padding: 0 20px;
 }
 
 .facebook.actualSocial:hover {
-	background-color: #31497D;
+  background-color: #31497d;
 }
 
 .fbLink {
-	color: white;
-	font-size: 25px;
+  color: white;
+  font-size: 25px;
 }
 
 .youtube.actualSocial {
-	background: linear-gradient(left, #405de6 0%, #fd1d1d 50%,#ffdc80 100%);
-	height: 36px;
-	width: 118px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border-radius: .28571429rem;
-	cursor: pointer;
-	padding: 0 20px;
+  background: linear-gradient(left, #405de6 0%, #fd1d1d 50%, #ffdc80 100%);
+  height: 36px;
+  width: 118px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.28571429rem;
+  cursor: pointer;
+  padding: 0 20px;
 }
 
-
 .youtube.actualSocial:hover {
-  background:linear-gradient(left, #ffdc80 0%, #fd1d1d 50%,#405de6 100%);
+  background: linear-gradient(left, #ffdc80 0%, #fd1d1d 50%, #405de6 100%);
 }
 
 .youtubeLink {
-	color: white;
-	font-size: 20px !important;
+  color: white;
+  font-size: 20px !important;
 }
 
 .mindBody.actualSocial {
-	background: linear-gradient(45deg, #A61E71, #FF8000);
-	height: 36px;
-	width: 118px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border-radius: .28571429rem;
-	cursor: pointer;
-	padding: 0 20px;
+  background: linear-gradient(45deg, #a61e71, #ff8000);
+  height: 36px;
+  width: 118px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.28571429rem;
+  cursor: pointer;
+  padding: 0 20px;
 }
 
 .mindBody.actualSocial:hover {
-	background: linear-gradient(45deg, #87185C, #FF9500);
+  background: linear-gradient(45deg, #87185c, #ff9500);
 }
 
 a.mindBodyA {
-	font-size: 1rem;
-	color: white !important;
-	font-weight: 700;
-	line-height: 1em;
+  font-size: 1rem;
+  color: white !important;
+  font-weight: 700;
+  line-height: 1em;
 }
 
 a.PayPal {
-	font-size: 1rem;
-	color: #253db0 !important;
-	font-weight: 700;
-	line-height: 1em;
+  font-size: 1rem;
+  color: #253db0 !important;
+  font-weight: 700;
+  line-height: 1em;
 }
 
 .mbWhite {
-	height: 20px;
+  height: 20px;
 }
 
 .paypalIcon {
-	height: 100%;
+  height: 100%;
 }
 
 .paypal.actualSocial {
-	background: #009CDE;
-	height: 36px;
-	width: 118px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border-radius: .28571429rem;
-	cursor: pointer;
-	padding: 0 20px;
+  background: #009cde;
+  height: 36px;
+  width: 118px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.28571429rem;
+  cursor: pointer;
+  padding: 0 20px;
 }
 
 .paypal.actualSocial:hover {
-	background: #008AC4;
+  background: #008ac4;
 }
 
 .paypalLink {
-	font-size: 18px !important;
-	color: white;
+  font-size: 18px !important;
+  color: white;
 }
 
 .whoWeAre {
-	display: flex;
-	justify-content: center;
-	text-align: center;
-	padding: 10px 60px;
+  display: flex;
+  max-width: 768px;
+  justify-content: center;
+  text-align: center;
+  padding: 10px 60px;
 }
 
 .whoWords {
-	font-size: 13px;
-	font-weight: 600;
+  font-size: 13px;
+  font-weight: 600;
 }
 
-.navCopy{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 60px;
-} 
+.navCopy {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+}
 
-.footerLinks{
-	font-size: 18px;
-	margin: 0 10px;
+.footerLinks {
+  font-size: 18px;
+  margin: 0 10px;
 }
 
 .feedback {
-	display: flex;
-	justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
-.bottomMailTo{
-	display: flex;
-	justify-content: center;
+.bottomMailTo {
+  display: flex;
+  justify-content: center;
 }
 
 a.bottomMailTo {
-	color: white;
-	width: 100%;
-	cursor: pointer;
+  color: white;
+  width: 100%;
+  cursor: pointer;
 }
 
 a.bottomMailTo:hover {
-	color: black;
+  color: black;
 }
 
-a.footerALinks{
-	color: white;
-	cursor: pointer;
+a.footerALinks {
+  color: white;
+  cursor: pointer;
 }
 
 a.footerALinks:hover {
-	color: black;
+  color: black;
 }
 
 @media (max-width: 768px) {
-	.footerLinks {
-		font-size: 12px;
-	}
-	.actualSocial {
-		margin: 2px auto !important;
-	}
-	.ui.grid>.column:not(.row).lessPadding {
-		padding-top: 0 !important;
-		padding-bottom: 0 !important;
-		padding-left: 0 !important;
-		padding-right: 0 !important;
-	}
-	.artBox {
-		flex-basis: 50% !important;
-	}
+  .footerLinks {
+    font-size: 12px;
+  }
+  .actualSocial {
+    margin: 2px auto !important;
+  }
+  .ui.grid > .column:not(.row).lessPadding {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .artBox {
+    flex-basis: 50% !important;
+  }
 }
 
 @media (max-width: 560px) {
-	.socialLinks {
-		height: 100px;
-	}
+  .socialLinks {
+    height: 100px;
+  }
 }
 
 @media (max-width: 500px) {
-	.footerLinks {
-		font-size: 10px;
-	}
-	a.bottomMailTo {
-		font-size: 10px;
-	}
-	.footerLinks {
-		margin: 0 3px;
-	}
+  .footerLinks {
+    font-size: 10px;
+  }
+  a.bottomMailTo {
+    font-size: 10px;
+  }
+  .footerLinks {
+    margin: 0 3px;
+  }
 }
 
 @media (max-width: 360px) {
-	.footerLinks {
-		font-size: 8px;
-	}
+  .footerLinks {
+    font-size: 8px;
+  }
 }

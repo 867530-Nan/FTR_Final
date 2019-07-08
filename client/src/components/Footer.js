@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import { Image, Icon, Grid } from "semantic-ui-react";
-import { withRouter } from "react-router-dom";
-import "../styles/Footer.css";
-import mindBody from "../assets/images/mindBodyWhite.png";
-import paypal from "../assets/images/paypal.png";
-import GuideStar from "../assets/images/GoldGuideStar2019.png";
-import { PayPalLink, Instagram, MindBody, Facebook } from "../GlobalLinks/Links";
-import { emailAddresses } from "../assets/emailAddresses";
+import React, { Component } from 'react'
+import { Image, Icon, Grid } from 'semantic-ui-react'
+import { withRouter } from 'react-router-dom'
+import '../styles/Footer.css'
+import mindBody from '../assets/images/mindBodyWhite.png'
+import paypal from '../assets/images/paypal.png'
+import GuideStar from '../assets/images/GoldGuideStar2019.png'
+import { PayPalLink, Instagram, MindBody, Facebook } from '../GlobalLinks/Links'
+import { emailAddresses } from '../assets/emailAddresses'
 
 class Footer extends Component {
   render() {
@@ -26,7 +26,7 @@ class Footer extends Component {
                   link
                   href={Facebook}
                 >
-                  {" "}
+                  {' '}
                   Facebook
                 </a>
               </div>
@@ -43,8 +43,8 @@ class Footer extends Component {
                   link
                   href='https://www.instagram.com/fit_2recover/?hl=en'
                 >
-                  {" "}
-                  Instagram{" "}
+                  {' '}
+                  Instagram{' '}
                 </a>
               </div>
             </Grid.Column>
@@ -81,7 +81,7 @@ class Footer extends Component {
           href='https://www.guidestar.org/profile/47-0998466'
           className='guideStar'
         >
-          <img style={{ maxHeight: "150px" }} alt='guidestar seal' src={GuideStar} />
+          <img style={{ maxHeight: '150px' }} alt='guidestar seal' src={GuideStar} />
         </a>
 
         <div className='actualFooter'>
@@ -151,8 +151,8 @@ class Footer extends Component {
           <div />
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default withRouter(Footer);
+export default withRouter(Footer)
