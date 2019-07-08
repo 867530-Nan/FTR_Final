@@ -135,14 +135,19 @@ class Home extends Component {
         ]
       })
     }, 2000)
-    axios.get('/api/home/index').then(res =>
+    axios.get('/api/home/index').then(res => {
       this.setState({
         photos: res.data.photos.data,
-        bulletins: res.data.bulletins,
+        bulletins: res.data.bulletins.sort(this.compare),
         newsletter: res.data.newsletter
       })
-    )
+    })
     saveAddress(window.location.href)
+  }
+
+  compare(a, b) {
+    if (a.id > b.id) return 1
+    if (a.id < b.id) return -1
   }
 
   displayImages = () => {
