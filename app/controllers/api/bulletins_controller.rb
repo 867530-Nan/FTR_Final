@@ -3,7 +3,7 @@ class Api::BulletinsController < ApplicationController
   def index
     render json: Bulletin.all
   end
-
+ 
   def show
     render json: @bulletin
   end
