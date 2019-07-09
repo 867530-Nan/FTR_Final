@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Image, Icon, Grid } from 'semantic-ui-react'
+import { version } from '../../package.json'
 import { withRouter } from 'react-router-dom'
 import '../styles/Footer.css'
 import mindBody from '../assets/images/mindBodyWhite.png'
@@ -140,7 +141,6 @@ class Footer extends Component {
               </a>
             </div>
           </div>
-          f
           <div className='feedback'>
             <a className='bottomMailTo' href={emailAddresses.nicolette} target='_top'>
               <Icon name='mail' color='white' />
@@ -148,6 +148,7 @@ class Footer extends Component {
               <Icon name='mail' color='white' />
             </a>
           </div>
+          v{version}
           <div />
         </div>
       </div>

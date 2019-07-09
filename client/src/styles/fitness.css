@@ -1,122 +1,124 @@
 .fitnessPhoto {
-	background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)),
-		url('../assets/images/BC-Green-Shirt.jpg') top no-repeat;
-	background-size: contain;
-	background-attachment: fixed;
-	height: 463px;
-	width: 100%;
-	display: flex;
-	flex-flow: column;
-	justify-content: space-between;
-	align-items: center;
-	background-color: white;
-	color: white;
+  background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)),
+    url('../assets/images/BC-Green-Shirt.jpg') top no-repeat;
+  background-size: contain;
+  background-attachment: fixed;
+  height: 463px;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  color: white;
 }
 
 .programsBlack {
-	background-color: black;
+  background-color: black;
 }
 
 a.middleLink {
-	color: white !important;
-	background-color: red;
+  color: white !important;
+  background-color: red;
 }
 
 a.middleLink:hover {
-	color: red !important;
-	background-color: white;
-	border: 1px solid red;
+  color: red !important;
+  background-color: white;
+  border: 1px solid red;
 }
 
 @media (max-width: 1350px) {
-	.fitnessPhoto {
-		background-size: cover;
-	}
+  .fitnessPhoto {
+    background-size: cover;
+  }
 }
 
 @media (max-width: 992px) {
-	.introFitness {
-		height: 130px !important;
-	}
-	.introHeader {
-		font-size: 4em !important;
-	}
-	.introEnergy {
-		font-size: 1.8em !important;
-	}
+  .introFitness {
+    height: 130px !important;
+  }
+  .introHeader {
+    font-size: 4em !important;
+  }
+  .introEnergy {
+    font-size: 1.8em !important;
+  }
 }
 
 @media (max-width: 900px) {
-	.classPara {
-		font-size: 1.1em !important;
-	}
+  .classPara {
+    font-size: 1.1em !important;
+  }
 }
 
 @media (max-width: 768px) {
-	.fitnessPhoto {
-		background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)),
-			url('../assets/images/BC-Green-ShirtCROP500.jpeg') top no-repeat;
-		height: 400px;
-	}
-	.programs {
-		height: 100% !important;
-		width: 100%;
-		margin: 0 auto;
-	}
-	.bcPhoto {
-		height: 300px !important;
-		margin: 0 auto;
-		border-radius: 0 0 5px 5px !important;
-	}
-	.programDesc {
-		margin-bottom: 20px !important;
-		text-align: center;
-	}
-	.oddClass {
-		order: 1 !important;
-	}
-	.evenClass {
-		order: 2 !important;
-	}
-	.introEnergy {
-		font-size: 1.6em !important;
-	}
+  .fitnessPhoto {
+    background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)),
+      url('../assets/images/BC-Green-ShirtCROP500.jpeg') top no-repeat;
+    height: 400px;
+  }
+  .programs {
+    height: 100% !important;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .bcPhoto {
+    width: unset;
+    height: unset !important;
+    max-width: 350px;
+    margin: 0 auto;
+    border-radius: 0 0 5px 5px !important;
+  }
+  .programDesc {
+    margin-bottom: 20px !important;
+    text-align: center;
+  }
+  .oddClass {
+    order: 1 !important;
+  }
+  .evenClass {
+    order: 2 !important;
+  }
+  .introEnergy {
+    font-size: 1.6em !important;
+  }
 }
 
 @media (max-width: 560px) {
-	.introFitness {
-		height: 150px !important;
-	}
+  .introFitness {
+    height: 150px !important;
+  }
 }
 
 @media (max-width: 550px) {
-	.introHeader {
-		font-size: 3em !important;
-	}
+  .introHeader {
+    font-size: 3em !important;
+  }
 }
 
 @media (max-width: 523px) {
-	.fitnessPhoto {
-		background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)),
-			url('../assets/images/BC-Green-ShirtCROP350.jpeg') top no-repeat;
-		height: 350px;
-	}
+  .fitnessPhoto {
+    background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)),
+      url('../assets/images/BC-Green-ShirtCROP350.jpeg') top no-repeat;
+    height: 350px;
+  }
 }
 
 @media (max-width: 415px) {
-	.introHeader {
-		font-size: 2.5em !important;
-	}
-	.introEnergy {
-		font-size: 1.3em !important;
-	}
+  .introHeader {
+    font-size: 2.5em !important;
+  }
+  .introEnergy {
+    font-size: 1.3em !important;
+  }
 }
 
 @media (max-width: 340px) {
-	.introHeader {
-		font-size: 2.3em !important;
-	}
-	.introEnergy {
-		font-size: 1.2em !important;
-	}
+  .introHeader {
+    font-size: 2.3em !important;
+  }
+  .introEnergy {
+    font-size: 1.2em !important;
+  }
 }

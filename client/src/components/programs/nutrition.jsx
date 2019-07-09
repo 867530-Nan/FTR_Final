@@ -1,39 +1,39 @@
-import React, { Component } from "react";
-import {} from "react-router-dom";
-import axios from "axios";
-import "../../styles/nutrition.css";
-import {
-  Grid,
-  Image,
-  Item,
-  Icon,
-  Loader,
-  Segment,
-  Dimmer,
-  Card
-} from "semantic-ui-react";
-import nutritionApple from "../../assets/images/nutritionApple.jpg";
-import nutritionGroup from "../../assets/images/nutritionGroup.jpg";
-import nutritionMeal from "../../assets/images/nutritionMeal.jpg";
-import nutritionChopping from "../../assets/images/nutritionChopping.jpg";
-import DonateButton from "../DonateButton";
+import React, { Component } from 'react'
+import {} from 'react-router-dom'
+import axios from 'axios'
+import '../../styles/nutrition.css'
+import { Grid, Image, Item, Icon, Loader, Segment, Dimmer, Card } from 'semantic-ui-react'
+import nutritionApple from '../../assets/images/nutritionApple.jpg'
+import nutritionGroup from '../../assets/images/nutritionGroup.jpg'
+import nutritionMeal from '../../assets/images/nutritionMeal.jpg'
+import nutritionChopping from '../../assets/images/nutritionChopping.jpg'
+import DonateButton from '../DonateButton'
 
-import moment from "moment";
-import { TopPadding } from "../ftr_home";
-import { MindBody } from "../../GlobalLinks/Links";
+import moment from 'moment'
+import { TopPadding } from '../ftr_home'
+import { MindBody } from '../../GlobalLinks/Links'
 
 class Nutrition extends Component {
-  state = { posts: [], loaded: false };
+  state = { posts: [], loaded: false }
 
   componentDidMount() {
+    this.fetchBlogs()
+    this.fetchNutrition()
+  }
+
+  fetchNutrition() {
+    axios.get('/api/nutrition').then(res => this.setState({ classes: res.data }))
+  }
+
+  fetchBlogs() {
     axios
-      .get("api/blogs/index")
-      .then(res => this.setState({ posts: res.data, loaded: true }));
+      .get('api/blogs/index')
+      .then(res => this.setState({ posts: res.data, loaded: true }))
   }
 
   displayPosts = () => {
-    return this.state.posts.items.map(post => (
-      <Item className='singlePostEntire'>
+    return this.state.posts.items.map((post, i) => (
+      <Item key={i * Math.random()} className='singlePostEntire'>
         <Item.Image className='blogPic' as='a' src={post.images[0].url} />
         <Item.Content
           className='blogContent'
@@ -44,12 +44,51 @@ class Nutrition extends Component {
         >
           <Item.Header className='postAlignCenter'> {post.title} </Item.Header>
           <Item.Description className='postAlignCenter singlePostContent'>
-            {moment(post.published).format("MMMM Do YYYY")}
+            {moment(post.published).format('MMMM Do YYYY')}
           </Item.Description>
         </Item.Content>
       </Item>
-    ));
-  };
+    ))
+  }
+
+  displayClasses = () => {
+    const arr = ['orange', 'teal', 'green', 'red']
+
+    return this.state.classes.map((single, i) => {
+      console.log(arr[i])
+      return (
+        <Card
+          key={i * Math.random()}
+          color={arr[i]}
+          raised
+          centered
+          className='classCard'
+        >
+          <Card.Content
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center'
+            }}
+          >
+            <Card.Header style={{ textAlign: 'center', fontSize: '1.18em' }}>
+              {single.title}
+            </Card.Header>
+          </Card.Content>
+          <Image className='nutritionCardPhoto' src={single.image} />
+          <Card.Content
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-around'
+            }}
+          >
+            <Card.Description>{single.body}</Card.Description>
+          </Card.Content>
+        </Card>
+      )
+    })
+  }
 
   render() {
     if (this.state.loaded) {
@@ -78,10 +117,18 @@ class Nutrition extends Component {
             Click here to Sign Up for Classes
           </a>
 
-          <Grid stackable style={{ margin: "0 30px" }}>
+          <Grid stackable style={{ margin: '0 30px' }}>
             <Grid.Row>
               <Grid.Column className='cardsColumn' computer={12} tablet={10} mobile={16}>
-                <Card color='orange' raised centered className='classCard'>
+                {/* Connecting with Food: Cooking Classes
+Have you ever seen broccoli grow? Ever wondered how many different
+              dishes you can make with eggs? Looking for healthy and quick recipes
+              on a budget? Join us for a cooking class and use garden-fresh
+              ingredients from our Food to Recover garden, learn new techniques
+              and combinations in the kitchen, and gain confidence in preparing
+              your own food! */}
+                {this.displayClasses()}
+                {/* <Card color='orange' raised centered className='classCard'>
                   <Card.Content
                     style={{
                       display: "flex",
@@ -110,9 +157,9 @@ class Nutrition extends Component {
                       your own food!
                     </Card.Description>
                   </Card.Content>
-                </Card>
+                </Card> */}
 
-                <Card color='teal' raised centered className='classCard'>
+                {/* <Card color='teal' raised centered className='classCard'>
                   <Card.Content
                     style={{
                       display: "flex",
@@ -141,9 +188,9 @@ class Nutrition extends Component {
                       ingredients to bring.
                     </Card.Description>
                   </Card.Content>
-                </Card>
+                </Card> */}
 
-                <Card color='green' raised centered className='classCard'>
+                {/* <Card color='green' raised centered className='classCard'>
                   <Card.Content
                     style={{
                       display: "flex",
@@ -205,16 +252,16 @@ class Nutrition extends Component {
                       Recovery, Nutrition 101, Food and Mood, and many more!
                     </Card.Description>
                   </Card.Content>
-                </Card>
+                </Card> */}
               </Grid.Column>
 
               <Grid.Column computer={4} tablet={6} mobile={16}>
                 <div className='blogTitle'>
                   <a
-                    style={{ color: "black", fontSize: "20px" }}
+                    style={{ color: 'black', fontSize: '20px' }}
                     href='http://food2recover.blogspot.com/'
                   >
-                    <Icon style={{ marginTop: "10px" }} name='feed' color='green' /> Food
+                    <Icon style={{ marginTop: '10px' }} name='feed' color='green' /> Food
                     To Recover Blogposts
                   </a>
                 </div>
@@ -237,28 +284,28 @@ class Nutrition extends Component {
             href='mailto:nicolette@fit2recover.org'
             className='nutritionBottomEmailWords'
           >
-            <Icon name='mail outline' color='white' style={{ fontSize: "20px" }} />
+            <Icon name='mail outline' color='white' style={{ fontSize: '20px' }} />
             Contact Nicolette Pessetto for more information
-            <Icon name='mail outline' color='white' style={{ fontSize: "20px" }} />
+            <Icon name='mail outline' color='white' style={{ fontSize: '20px' }} />
           </a>
         </div>
-      );
+      )
     } else {
       return (
-        <Segment style={{ height: "600px" }}>
+        <Segment style={{ height: '600px' }}>
           <Dimmer active>
             <Loader>Loading Blog Posts</Loader>
           </Dimmer>
         </Segment>
-      );
+      )
     }
   }
 }
 
 const styles = {
   topNutritionPadding: {
-    paddingTop: "55px"
+    paddingTop: '55px'
   }
-};
+}
 
-export default Nutrition;
+export default Nutrition
