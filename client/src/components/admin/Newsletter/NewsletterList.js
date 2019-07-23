@@ -10,48 +10,39 @@ const Header = styled.h3`
   font-weight: 300;
 `
 const ButtonWrap = styled.div`
-  display: flex; 
+  display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
 `
 
 class NewsletterList extends React.Component {
-
-  compare = (a,b) => {
-    if (a.index < b.index)
-      return -1;
-    if (a.index > b.index)
-      return 1;
-    return 0;
+  compare = (a, b) => {
+    if (a.index < b.index) return -1
+    if (a.index > b.index) return 1
+    return 0
   }
 
   displayNewsletter = () => {
     const newArr = this.props.newsletters.sort(this.compare)
-    return newArr.map( (single, index) => {
-      return(
-        <SingleNewsletter 
-          single={single} 
-          index={index} 
-          editButton={(single) => this.props.editButton(single)} 
+    return newArr.map((single, index) => {
+      return (
+        <SingleNewsletter
+          single={single}
+          index={index}
+          editButton={single => this.props.editButton(single)}
           deleteButton={this.props.deleteButton}
         />
       )
     })
   }
 
-  render(){
+  render() {
     if (this.props.newsletters.length) {
-      return(
-        <div
-          style={{width: '90%', margin: '0 auto'}}
-        >
+      return (
+        <div style={{ width: '90%', margin: '0 auto' }}>
           <ButtonWrap>
-            <Button 
-              onClick={this.props.createButton} 
-              color="blue"
-              size="huge"
-              >
+            <Button onClick={this.props.createButton} color='blue' size='huge'>
               Add Newsletter
             </Button>
           </ButtonWrap>
@@ -61,37 +52,31 @@ class NewsletterList extends React.Component {
                 <Table.HeaderCell>Title</Table.HeaderCell>
                 <Table.HeaderCell>Link</Table.HeaderCell>
                 <Table.HeaderCell>Image</Table.HeaderCell>
-                <Table.HeaderCell>Index</Table.HeaderCell>
               </Table.Row>
             </Table.Header>
-            <Table.Body>
-            {this.displayNewsletter()}
-            </Table.Body>
+            <Table.Body>{this.displayNewsletter()}</Table.Body>
           </Table>
         </div>
       )
     } else {
-      return(
+      return (
         <div
           style={{
-            paddingTop: '100px', 
-            width: '90%', 
-            margin: '0 auto', 
-            display: 'flex', 
-            flexDirection: 'column', 
-            justifyContent: 'center', 
+            paddingTop: '100px',
+            width: '90%',
+            margin: '0 auto',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
             alignItems: 'center'
           }}
         >
           No Newsletters
-          <Button 
-            onClick={this.props.createButton} 
-            color="blue"
-          >
+          <Button onClick={this.props.createButton} color='blue'>
             Add Newsletter
           </Button>
         </div>
-      ) 
+      )
     }
   }
 }
