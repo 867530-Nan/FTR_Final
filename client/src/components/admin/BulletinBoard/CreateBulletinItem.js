@@ -29,7 +29,8 @@ class CreateForm extends React.Component {
     image: '',
     link: '',
     link_text: '',
-    time: ''
+    time: '',
+    itemNumber: this.props.bulletins.length + 1
   }
 
   handleChange = e => {

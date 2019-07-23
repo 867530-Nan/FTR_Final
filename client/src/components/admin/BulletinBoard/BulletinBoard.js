@@ -14,8 +14,16 @@ class BulletinBoard extends React.Component {
   fetchBulletins = () => {
     axios
       .get('/api/events/')
-      .then(res => this.setState({ bulletins: res.data, showAll: true }))
+      .then(res =>
+        this.setState({ bulletins: res.data.sort(this.compare), showAll: true })
+      )
       .catch(res => console.log(res))
+  }
+
+  compare(a, b) {
+    if (a.itemNumber > b.itemNumber) return 1
+    if (a.itemNumber < b.itemNumber) return -1
+    return 0
   }
 
   editButton = info => {
@@ -33,6 +41,26 @@ class BulletinBoard extends React.Component {
     this.setState({ showAll: true })
   }
 
+  handleMoveUp = e => {
+    if (e.itemNumber !== 1) {
+      axios
+        .post('/api/eventMoveUp/', e)
+        .then(res => this.setState({ bulletins: res.data.sort(this.compare) }))
+        .catch(res => console.log(res))
+    }
+  }
+
+  handleMoveDown = e => {
+    console.log('handle down')
+    console.log(e)
+    if (e.itemNumber !== this.state.bulletins.length) {
+      axios
+        .post('/api/eventMoveDown/', e)
+        .then(res => this.setState({ bulletins: res.data.sort(this.compare) }))
+        .catch(res => console.log(res))
+    }
+  }
+
   render() {
     if (this.state.showAll) {
       return (
@@ -41,11 +69,17 @@ class BulletinBoard extends React.Component {
           bulletins={this.state.bulletins}
           deleteButton={this.deleteButton}
           createButton={() => this.setState({ create: true, showAll: false })}
+          handleMoveUp={this.handleMoveUp}
+          handleMoveDown={this.handleMoveDown}
         />
       )
     } else if (this.state.create) {
       return (
-        <CreateBulletinItem back={this.fetchBulletins} cancelButton={this.cancelButton} />
+        <CreateBulletinItem
+          back={this.fetchBulletins}
+          cancelButton={this.cancelButton}
+          bulletins={this.state.bulletins}
+        />
       )
     } else {
       return (

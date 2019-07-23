@@ -19,6 +19,14 @@ Rails.application.routes.draw do
   end
 
   namespace :api do
+    post '/eventMoveUp', to: 'events#moveUp'
+  end
+
+  namespace :api do
+    post '/eventMoveDown', to: 'events#moveDown'
+  end
+
+  namespace :api do
     get 'blogs/index'
   end
 

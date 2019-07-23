@@ -146,8 +146,9 @@ class Home extends Component {
   }
 
   compare(a, b) {
-    if (a.id > b.id) return 1
-    if (a.id < b.id) return -1
+    if (a.itemNumber > b.itemNumber) return 1
+    if (a.itemNumber < b.itemNumber) return -1
+    return 0
   }
 
   displayImages = () => {

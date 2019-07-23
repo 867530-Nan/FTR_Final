@@ -7,6 +7,24 @@ class Api::EventsController < ApplicationController
   def show
     render json: @event
   end
+
+  def moveUp
+    currentID = params[:id]
+    second = Event.find_by(itemNumber: params[:itemNumber]-1)
+    second.update_attribute(:itemNumber, second[:itemNumber]+1)
+    first = Event.find(currentID)
+    first.update_attribute(:itemNumber, first[:itemNumber]-1)
+    render json: Event.all
+  end 
+  
+  def moveDown
+    currentID = params[:id]
+    second = Event.find_by(itemNumber: params[:itemNumber]+1)
+    second.update_attribute(:itemNumber, second[:itemNumber]-1)
+    first = Event.find(currentID)
+    first.update_attribute(:itemNumber, first[:itemNumber]+1)
+    render json: Event.all
+  end
   
   def create
     event = Event.new(event_params)
@@ -37,6 +55,6 @@ class Api::EventsController < ApplicationController
   end
   
   def event_params
-    params.require(:event).permit(:time, :body, :title, :date, :image, :link, :link_text)
+    params.require(:event).permit(:time, :body, :title, :date, :image, :link, :link_text, :itemNumber)
   end
 end
