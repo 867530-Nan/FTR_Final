@@ -130,7 +130,7 @@ const RelativeDiv = styled.h1`
   z-index: 10000;
   font-size: 62px;
   text-align: center;
-  font-weight: 400;
+  font-weight: 300;
 `
 
 class FakeHome extends Component {
