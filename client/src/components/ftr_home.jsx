@@ -161,11 +161,7 @@ class Home extends Component {
         href={'https://www.mightycause.com/story/Ftrmusic'}
         backgroundColor='#000000b8'
       >
-        <RelativeDiv>
-          Benefit Concert
-          <hr style={{ backgroundColor: 'white', width: '50%' }} />
-          09.16.2019
-        </RelativeDiv>
+        <RelativeDiv>Benefit Concert | 08-16-2019 FTR</RelativeDiv>
         <StyledImage maxWidth={window.innerWidth} src={LadyInPink} />
       </StyledDiv>
     ) : (
@@ -173,11 +169,7 @@ class Home extends Component {
         href={'https://www.mightycause.com/story/Ftrmusic'}
         backgroundColor='#000000b8'
       >
-        <RelativeDiv>
-          Benefit Concert
-          <hr style={{ backgroundColor: 'white', width: '50%' }} />
-          09.16.2019
-        </RelativeDiv>
+        <RelativeDiv>Benefit Concert | 08-16-2019 FTR</RelativeDiv>
         {/* J-4sJUED214 */}
         <iframe
           width={window.innerWidth}
