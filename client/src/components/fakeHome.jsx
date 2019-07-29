@@ -114,18 +114,17 @@ export const TopPadding = styled.div`
   }
 `
 
-const StyledDiv = styled.div`
+const StyledDiv = styled.a`
   display: flex;
   width: ${props => props.width};
   justify-content: center;
   align-items: center;
-  background-color: #000000bf;
+  background-color: ${props => props.backgroundColor};
 `
 
 const RelativeDiv = styled.h1`
   color: white;
   position: absolute;
-  height: ${props => props.height};
   width: 100%;
   z-index: 10000;
   font-size: 62px;
@@ -140,42 +139,50 @@ class FakeHome extends Component {
     newsletter: undefined,
     FTREmoji: masterEmojiList,
     firstEmoji: masterEmojiList[Math.floor(Math.random() * masterEmojiList.length)],
-    secondEmoji: masterEmojiList[Math.floor(Math.random() * masterEmojiList.length)]
+    secondEmoji: masterEmojiList[Math.floor(Math.random() * masterEmojiList.length)],
+    isMobile: false
   }
 
   displayMovie = () => {
     return (
-      <StyledDiv href={'https://www.mightycause.com/story/Ftrmusic'}>
-        <RelativeDiv>Join Us for a Celebration</RelativeDiv>
+      <StyledDiv
+        href={'https://www.mightycause.com/story/Ftrmusic'}
+        backgroundColor='#000000bf'
+      >
+        <RelativeDiv>
+          09.16.2019
+          <hr style={{ backgroundColor: 'white', width: '50%' }} />
+          FTR Music
+        </RelativeDiv>
         <iframe
           width={window.innerWidth}
-          height={window.innerHeight * 0.8}
+          height={window.innerHeight * 0.9}
           style={{ zIndex: '-100' }}
-          src='https://www.youtube.com/embed/J-4sJuED2l4?mute=1&autoplay=1&controls=0'
+          src={`https://www.youtube.com/embed/J-4sJuED2l4?mute=1&autoplay=${
+            this.state.isMobile ? 0 : 1
+          }&controls=${this.state.isMobile ? 1 : 0}&loop=1`}
           frameborder='0'
-          allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
+          // allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
           allowfullscreen
         />
       </StyledDiv>
     )
   }
 
+  isMobileDevice() {
+    return (
+      typeof window.orientation !== 'undefined' ||
+      navigator.userAgent.indexOf('IEMobile') !== -1
+    )
+  }
+
   componentDidMount() {
-    setInterval(() => {
-      this.setState({
-        firstEmoji: this.state.FTREmoji[
-          Math.floor(Math.random() * this.state.FTREmoji.length)
-        ],
-        secondEmoji: this.state.FTREmoji[
-          Math.floor(Math.random() * this.state.FTREmoji.length)
-        ]
-      })
-    }, 2000)
     axios.get('/api/home/index').then(res => {
       this.setState({
         photos: res.data.photos.data,
         bulletins: res.data.bulletins.sort(this.compare),
-        newsletter: res.data.newsletter
+        newsletter: res.data.newsletter,
+        isMobile: this.isMobileDevice()
       })
     })
     saveAddress(window.location.href)
@@ -343,6 +350,23 @@ class FakeHome extends Component {
             </AnniversaryText>
           </AnniversaryAnimationLink>
         </AnniversaryWrap> */}
+        {/* {this.state.isMobile ? (
+          <AnniversaryWrap>
+            <AnniversaryAnimationLink target='_blank' href={MindBody}>
+              <AnniversaryText
+                fontSize='36px'
+                color='red'
+                sixHundredSize='28px'
+                fourHundredSize='22px'
+                fontWeight='400'
+              >
+                09.16.2019
+                <hr />
+                Join us
+              </AnniversaryText>
+            </AnniversaryAnimationLink>
+          </AnniversaryWrap>
+        ) : null} */}
         {this.displayMovie()}
         {/* <SplashWrap>
           <Image src={FTRGroup} alt='FTR Logo' style={{ maxHeight: '500px' }} />

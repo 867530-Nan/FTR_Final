@@ -21,6 +21,7 @@ import LUGT from '../assets/images/LUGT.png'
 import MightyCauseButtons from './MightyCause/MightyCauseButtons'
 import { MindBody } from '../GlobalLinks/Links'
 import { Emoji as masterEmojiList } from '../Emojis'
+import LadyInPink from '../assets/images/PinkLady.png'
 
 const AnniversaryWrap = styled.div`
   margin: 0px auto 25px auto;
@@ -114,6 +115,35 @@ export const TopPadding = styled.div`
   }
 `
 
+const StyledDiv = styled.a`
+  display: flex;
+  width: ${props => props.width};
+  justify-content: center;
+  align-items: center;
+  background-color: ${props => props.backgroundColor};
+`
+
+const RelativeDiv = styled.h1`
+  color: white;
+  position: absolute;
+  width: 75%;
+  z-index: 10000;
+  font-size: 62px;
+  text-align: center;
+  font-weight: 300;
+
+  &:hover {
+    background-color: #0000008f;
+  }
+`
+
+const StyledImage = styled.img`
+  height: unset;
+  width: unset;
+  max-width: ${props => props.maxWidth}px;
+  z-index: -1;
+`
+
 class Home extends Component {
   state = {
     photos: [],
@@ -121,25 +151,64 @@ class Home extends Component {
     newsletter: undefined,
     FTREmoji: masterEmojiList,
     firstEmoji: masterEmojiList[Math.floor(Math.random() * masterEmojiList.length)],
-    secondEmoji: masterEmojiList[Math.floor(Math.random() * masterEmojiList.length)]
+    secondEmoji: masterEmojiList[Math.floor(Math.random() * masterEmojiList.length)],
+    isMobile: false
+  }
+
+  displayMovie = () => {
+    return this.state.isMobile ? (
+      <StyledDiv
+        href={'https://www.mightycause.com/story/Ftrmusic'}
+        backgroundColor='#000000b8'
+      >
+        <RelativeDiv>
+          09.16.2019
+          <hr style={{ backgroundColor: 'white', width: '50%' }} />
+          FTR Music
+        </RelativeDiv>
+        <StyledImage maxWidth={window.innerWidth} src={LadyInPink} />
+      </StyledDiv>
+    ) : (
+      <StyledDiv
+        href={'https://www.mightycause.com/story/Ftrmusic'}
+        backgroundColor='#000000b8'
+      >
+        <RelativeDiv>
+          09.16.2019
+          <hr style={{ backgroundColor: 'white', width: '50%' }} />
+          FTR Music
+        </RelativeDiv>
+        {/* J-4sJUED214 */}
+        <iframe
+          width={window.innerWidth}
+          height={window.innerHeight * 0.9}
+          style={{ zIndex: '-100' }}
+          src={`https://www.youtube.com/embed?listType=playlist&list=PLnM_nSADhpDFFZ6UJ3laEsKMd1vK1bgVw&loop=1&mute=1&autoplay=${
+            this.state.isMobile ? 0 : 1
+          }&controls=${this.state.isMobile ? 1 : 0}&modestbranding=1&rel=0&showinfo=0`}
+          frameborder='0'
+          // allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
+          allowfullscreen
+          loop='true'
+        />
+      </StyledDiv>
+    )
+  }
+
+  isMobileDevice() {
+    return (
+      typeof window.orientation !== 'undefined' ||
+      navigator.userAgent.indexOf('IEMobile') !== -1
+    )
   }
 
   componentDidMount() {
-    setInterval(() => {
-      this.setState({
-        firstEmoji: this.state.FTREmoji[
-          Math.floor(Math.random() * this.state.FTREmoji.length)
-        ],
-        secondEmoji: this.state.FTREmoji[
-          Math.floor(Math.random() * this.state.FTREmoji.length)
-        ]
-      })
-    }, 2000)
     axios.get('/api/home/index').then(res => {
       this.setState({
         photos: res.data.photos.data,
         bulletins: res.data.bulletins.sort(this.compare),
-        newsletter: res.data.newsletter
+        newsletter: res.data.newsletter,
+        isMobile: this.isMobileDevice()
       })
     })
     saveAddress(window.location.href)
@@ -292,7 +361,7 @@ class Home extends Component {
         >
           Fit To Recover
         </AnniversaryText> */}
-        <AnniversaryWrap>
+        {/* <AnniversaryWrap>
           <AnniversaryAnimationLink target='_blank' href={MindBody}>
             <AnniversaryText
               fontSize='36px'
@@ -306,10 +375,28 @@ class Home extends Component {
               $5 Drop-in
             </AnniversaryText>
           </AnniversaryAnimationLink>
-        </AnniversaryWrap>
-        <SplashWrap>
+        </AnniversaryWrap> */}
+        {/* {this.state.isMobile ? (
+          <AnniversaryWrap>
+            <AnniversaryAnimationLink target='_blank' href={MindBody}>
+              <AnniversaryText
+                fontSize='36px'
+                color='red'
+                sixHundredSize='28px'
+                fourHundredSize='22px'
+                fontWeight='400'
+              >
+                09.16.2019
+                <hr />
+                Join us
+              </AnniversaryText>
+            </AnniversaryAnimationLink>
+          </AnniversaryWrap>
+        ) : null} */}
+        {this.displayMovie()}
+        {/* <SplashWrap>
           <Image src={FTRGroup} alt='FTR Logo' style={{ maxHeight: '500px' }} />
-        </SplashWrap>
+        </SplashWrap> */}
         <MissionText
           fontSize='24px'
           color='#193125  '
@@ -346,15 +433,15 @@ class Home extends Component {
         {/* <MightyCauseButtons /> */}
 
         {/* <div className="slcOnly" style={styles.slcOnly}> 
-				<h4 className="slcMap" style={styles.slcMAP}>Our mission is to provide people in recovery from drug and alcohol misuse with a safe place to connect through exercise, nutrition, creative expression, and community service..&nbsp;&nbsp;
-				</h4>
-			</div> */}
+        <h4 className="slcMap" style={styles.slcMAP}>Our mission is to provide people in recovery from drug and alcohol misuse with a safe place to connect through exercise, nutrition, creative expression, and community service..&nbsp;&nbsp;
+        </h4>
+      </div> */}
 
         {/*
-				<LogoWrap>
-					<LUGTImage src={LUGT} alt="thing" />
-				</LogoWrap>
-			*/}
+        <LogoWrap>
+          <LUGTImage src={LUGT} alt="thing" />
+        </LogoWrap>
+      */}
 
         {this.state.bulletins.length ? this.displayBulletin() : null}
 
