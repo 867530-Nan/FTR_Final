@@ -162,9 +162,9 @@ class Home extends Component {
         backgroundColor='#000000b8'
       >
         <RelativeDiv>
-          09.16.2019
+          Benefit Concert
           <hr style={{ backgroundColor: 'white', width: '50%' }} />
-          FTR Music
+          09.16.2019
         </RelativeDiv>
         <StyledImage maxWidth={window.innerWidth} src={LadyInPink} />
       </StyledDiv>
@@ -174,9 +174,9 @@ class Home extends Component {
         backgroundColor='#000000b8'
       >
         <RelativeDiv>
-          09.16.2019
+          Benefit Concert
           <hr style={{ backgroundColor: 'white', width: '50%' }} />
-          FTR Music
+          09.16.2019
         </RelativeDiv>
         {/* J-4sJUED214 */}
         <iframe
