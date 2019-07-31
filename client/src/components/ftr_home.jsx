@@ -135,6 +135,11 @@ const RelativeDiv = styled.h1`
   &:hover {
     background-color: #0000008f;
   }
+
+  @media (max-width: 768px) {
+    width: 95%;
+    font-size: 40px;
+  }
 `
 
 const StyledImage = styled.img`
@@ -161,7 +166,13 @@ class Home extends Component {
         href={'https://www.mightycause.com/story/Ftrmusic'}
         backgroundColor='#000000b8'
       >
-        <RelativeDiv>Benefit Concert | 08-16-2019 FTR</RelativeDiv>
+        <RelativeDiv>
+          Benefit Concert
+          <hr style={{ backgroundColor: 'white', width: '50%' }} />
+          08.16.2019
+          <hr style={{ backgroundColor: 'white', width: '50%' }} />
+          7PM @ FTR
+        </RelativeDiv>
         <StyledImage maxWidth={window.innerWidth} src={LadyInPink} />
       </StyledDiv>
     ) : (
@@ -169,7 +180,13 @@ class Home extends Component {
         href={'https://www.mightycause.com/story/Ftrmusic'}
         backgroundColor='#000000b8'
       >
-        <RelativeDiv>Benefit Concert | 08-16-2019 FTR</RelativeDiv>
+        <RelativeDiv>
+          Benefit Concert
+          <hr style={{ backgroundColor: 'white', width: '50%' }} />
+          08.16.2019
+          <hr style={{ backgroundColor: 'white', width: '50%' }} />
+          7PM @ FTR
+        </RelativeDiv>
         {/* J-4sJUED214 */}
         <iframe
           width={window.innerWidth}
@@ -188,10 +205,21 @@ class Home extends Component {
   }
 
   isMobileDevice() {
-    return (
-      typeof window.orientation !== 'undefined' ||
-      navigator.userAgent.indexOf('IEMobile') !== -1
-    )
+    if (
+      navigator.userAgent.match(/Android/i) ||
+      navigator.userAgent.match(/webOS/i) ||
+      navigator.userAgent.match(/iPhone/i) ||
+      navigator.userAgent.match(/iPad/i) ||
+      navigator.userAgent.match(/iPod/i) ||
+      navigator.userAgent.match(/BlackBerry/i) ||
+      navigator.userAgent.match(/Windows Phone/i)
+    ) {
+      console.log('its true')
+      return true
+    } else {
+      console.log('youre the best')
+      return false
+    }
   }
 
   componentDidMount() {
