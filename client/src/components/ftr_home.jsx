@@ -169,7 +169,7 @@ class Home extends Component {
         <RelativeDiv>
           Benefit Concert
           <hr style={{ backgroundColor: 'white', width: '50%' }} />
-          08-16-2019
+          TONIGHT
           <hr style={{ backgroundColor: 'white', width: '50%' }} />
           7PM @ FTR
         </RelativeDiv>
@@ -183,7 +183,7 @@ class Home extends Component {
         <RelativeDiv>
           Benefit Concert
           <hr style={{ backgroundColor: 'white', width: '50%' }} />
-          08-16-2019
+          TONIGHT
           <hr style={{ backgroundColor: 'white', width: '50%' }} />
           7PM @ FTR
         </RelativeDiv>
