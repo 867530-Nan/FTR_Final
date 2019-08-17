@@ -39,6 +39,7 @@
   justify-content: space-around;
   text-align: center;
   border-bottom: 1px solid #e7e7e8;
+  margin: 20px 0;
 }
 
 .ftrMemberClass .ftrMemberLink:hover {
@@ -64,7 +65,7 @@
 }
 
 .greenFTRMemberLink {
-  background-color: #1b1c1d;
+  background-color: #0080ff;
 }
 
 .ftrClassLink {

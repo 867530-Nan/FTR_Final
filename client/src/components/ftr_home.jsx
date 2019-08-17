@@ -128,7 +128,7 @@ const RelativeDiv = styled.h1`
   position: absolute;
   width: 75%;
   z-index: 10000;
-  font-size: 62px;
+  font-size: 42px;
   text-align: center;
   font-weight: 300;
 
@@ -167,11 +167,12 @@ class Home extends Component {
         backgroundColor='#000000b8'
       >
         <RelativeDiv>
-          Benefit Concert
+          Fit To Recover
           <hr style={{ backgroundColor: 'white', width: '50%' }} />
-          TONIGHT
-          <hr style={{ backgroundColor: 'white', width: '50%' }} />
-          7PM @ FTR
+          <h3>
+          A safe place for people in Recovery to connect through Fitness, Creative
+          Expression, Nutrition, and Service.
+        </h3>
         </RelativeDiv>
         <StyledImage maxWidth={window.innerWidth} src={LadyInPink} />
       </StyledDiv>
@@ -181,11 +182,10 @@ class Home extends Component {
         backgroundColor='#000000b8'
       >
         <RelativeDiv>
-          Benefit Concert
+          Fit To Recover
           <hr style={{ backgroundColor: 'white', width: '50%' }} />
-          TONIGHT
-          <hr style={{ backgroundColor: 'white', width: '50%' }} />
-          7PM @ FTR
+          <span style={{fontSize: '20px'}}>A safe place for people in Recovery to connect through Fitness, Creative
+          Expression, Nutrition, and Service.</span>
         </RelativeDiv>
         {/* J-4sJUED214 */}
         <iframe
@@ -417,7 +417,7 @@ class Home extends Component {
         {/* <SplashWrap>
           <Image src={FTRGroup} alt='FTR Logo' style={{ maxHeight: '500px' }} />
         </SplashWrap> */}
-        <MissionText
+        {/* <MissionText
           fontSize='24px'
           color='#193125  '
           sixHundredSize='20px'
@@ -426,7 +426,7 @@ class Home extends Component {
         >
           Fit to Recover is a safe place for people in Recovery to connect through
           Fitness, Creative Expression, Nutrition, and Service.
-        </MissionText>
+        </MissionText> */}
 
         <div className='ftrMemberClass'>
           <BLink

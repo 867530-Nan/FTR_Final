@@ -17,13 +17,15 @@ const HighlightedTrackWrap = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
+  margin: 20px auto;
   @media (max-width: 768px) {
     width: 100%;
   }
 `
 const HighlightHeader = styled.h1`
-  color: orange;
+  color: black;
+  text-align: center;
+  width: 75%;
   @media (max-width: 768px) {
     font-size: 20px;
   }
@@ -101,14 +103,17 @@ class CreativeArts extends Component {
         </div>
 
         <HighlightedTrackWrap>
-          <HighlightHeader>This Month's Songwriting Highlight</HighlightHeader>
+          <HighlightHeader>
+            Think Benjamin helped start the music program and recorded his entire album at
+            the studio upstairs at FTR
+          </HighlightHeader>
           <iframe
             width='75%'
             height='200'
             scrolling='no'
             frameborder='no'
             allow='autoplay'
-            src='https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/604624452&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true'
+            src='https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/666503228&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true'
           />
         </HighlightedTrackWrap>
 
