@@ -138,7 +138,7 @@ const RelativeDiv = styled.div`
   transition: background-color 0.4s;
 
   &:hover {
-    background-color: #2d2d2d;
+    background-color: #2d2d2df0;
   }
 
   @media (max-width: 768px) {
