@@ -77,13 +77,13 @@ const thisIsNavbar = (
     <div className="newNavLinks">
       <DonateWrap
         as="a"
-        href={"https://www.mightycause.com/organization/Fit2recover"}
+        href={"https://givingtuesday.mightycause.com/story/Giveftr2019"}
         backgroundColor={"rgb(255, 0, 28)"}
       >
         <a
           target="_blank"
           rel="noopener referrer"
-          to={"https://www.mightycause.com/organization/Fit2recover"}
+          to={"https://givingtuesday.mightycause.com/story/Giveftr2019"}
           style={{ color: "white" }}
         >
           DONATE
