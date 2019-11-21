@@ -183,6 +183,7 @@ const GTName = styled.h1`
   font-weight: 900;
   font-family: Raleway;
   color: ${props => props.name};
+  transition: color 0.4s;
 
   @media (max-width: 768px) {
     font-size: 40px;
