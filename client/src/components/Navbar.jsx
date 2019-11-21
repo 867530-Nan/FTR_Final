@@ -89,7 +89,7 @@ const thisIsNavbar = (
           DONATE
         </a>
       </DonateWrap>
-      <DonateWrap backgroundColor={"#000080"} style={{ padding: "0" }}>
+      <DonateWrap backgroundColor={"#0080ff"} style={{ padding: "0" }}>
         <CalendarLink to="/calendar" className="calendarLink">
           Calendar
         </CalendarLink>
