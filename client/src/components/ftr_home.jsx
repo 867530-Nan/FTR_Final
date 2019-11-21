@@ -356,7 +356,7 @@ class Home extends Component {
         <GTText>
           Support Your <GTSpan>{this.state.gTS}</GTSpan>
         </GTText>
-        {!this.state.isMobile ? (
+        {this.state.isMobile ? (
           <h6 style={{ color: "black" }}>( Press for Details )</h6>
         ) : null}
       </GTWrap>
