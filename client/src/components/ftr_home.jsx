@@ -133,7 +133,6 @@ const RelativeDiv = styled.div`
   font-size: 42px;
   text-align: center;
   font-weight: 300;
-  padding: 50px 0;
   border-radius: 5px;
   transition: background-color 0.4s;
 
@@ -156,6 +155,7 @@ const StyledImage = styled.img`
 
 const GTWrap = styled.div`
   width: 100%;
+  padding: 50px 0;
 `;
 const GTIcon = styled.img`
   width: 50%;
@@ -168,6 +168,21 @@ const GTText = styled.h1`
   font-weight: 500;
   font-family: Raleway;
   color: red;
+
+  @media (max-width: 768px) {
+    font-size: 40px;
+  }
+
+  @media (max-width: 450px) {
+    font-size: 30px;
+  }
+`;
+
+const GTName = styled.h1`
+  font-size: 50px;
+  font-weight: 900;
+  font-family: Raleway;
+  color: ${props => props.name};
 
   @media (max-width: 768px) {
     font-size: 40px;
@@ -195,6 +210,7 @@ class Home extends Component {
       masterEmojiList[Math.floor(Math.random() * masterEmojiList.length)],
     isMobile: false,
     gTS: "",
+    gTHover: false,
     gTOptions: [
       "Community",
       "Safety",
@@ -329,11 +345,20 @@ class Home extends Component {
 
   displayGivingTuesday() {
     return (
-      <GTWrap>
+      <GTWrap
+        onMouseEnter={() => this.setState({ gTHover: true })}
+        onMouseLeave={() => this.setState({ gTHover: false })}
+      >
+        <GTName name={this.state.gTHover ? "white" : "black"}>
+          Fit To Recover
+        </GTName>
         <GTIcon src={GivingTuesdayIcon} />
         <GTText>
           Support Your <GTSpan>{this.state.gTS}</GTSpan>
         </GTText>
+        {!this.state.isMobile ? (
+          <h6 style={{ color: "black" }}>( Press for Details )</h6>
+        ) : null}
       </GTWrap>
     );
   }
