@@ -229,7 +229,7 @@ class Home extends Component {
       "Love",
       "Friendship",
       "High-Five",
-      "Burpy",
+      "Burpee",
       "Pull-Up",
       "Smiles"
     ]
