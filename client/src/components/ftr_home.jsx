@@ -123,11 +123,20 @@ const StyledDiv = styled.a`
   background-color: ${props => props.backgroundColor};
 `;
 
+const SplashWrap = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
 const RelativeDiv = styled.div`
   color: white;
   position: absolute;
   width: 75%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   z-index: 10000;
   font-size: 42px;
@@ -164,7 +173,7 @@ const GTIcon = styled.img`
 `;
 
 const GTText = styled.h1`
-  font-size: 50px;
+  font-size: 30px;
   font-weight: 500;
   font-family: Raleway;
   color: red;
@@ -175,6 +184,18 @@ const GTText = styled.h1`
 
   @media (max-width: 450px) {
     font-size: 30px;
+  }
+`;
+
+const FTRHeader = styled.h1`
+  font-size: 60px;
+  font-weight: 100;
+`;
+
+const SafePlaceText = styled.h3`
+  font-weight: 700;
+  @media (max-width: 768px) {
+    font-size: 20px;
   }
 `;
 
@@ -221,6 +242,12 @@ class Home extends Component {
       "Connection",
       "Service",
       "Service",
+      "Mental Health",
+      "Physical Health",
+      "Friends",
+      "Self",
+      "Future",
+      "Neighbors",
       "Gym",
       "Sobriety",
       "Recovery",
@@ -274,34 +301,39 @@ class Home extends Component {
     return this.state.isMobile ? (
       <StyledDiv
         href={"https://givingtuesday.mightycause.com/story/Giveftr2019"}
-        backgroundColor="#ffffffd1"
+        backgroundColor="#000000d9"
       >
         <RelativeDiv>
-          {this.displayGivingTuesday()}
-          {/* Fit To Recover
-          <hr style={{ backgroundColor: "white", width: "50%" }} />
-          <h3>
+          {/* {this.displayGivingTuesday()} */}
+          <FTRHeader>Fit To Recover</FTRHeader>
+          {/* <hr style={{ backgroundColor: "white", width: "50%" }} /> */}
+          <SafePlaceText>
             A safe place for people in Recovery to connect through Fitness,
             Creative Expression, Nutrition, and Service.
-          </h3> */}
+          </SafePlaceText>
+          <GTText>
+            Support Your <GTSpan>{this.state.gTS}</GTSpan>
+          </GTText>
         </RelativeDiv>
         <StyledImage maxWidth={window.innerWidth} src={LadyInPink} />
       </StyledDiv>
     ) : (
       <StyledDiv
         href={"https://givingtuesday.mightycause.com/story/Giveftr2019"}
-        backgroundColor="#ffffffd1"
+        backgroundColor="#000000d9"
       >
         <RelativeDiv>
-          {this.displayGivingTuesday()}
-          {/* Fit To Recover
-          <hr style={{ backgroundColor: "white", width: "50%" }} />
-          <span style={{ fontSize: "20px" }}>
+          {/* {this.displayGivingTuesday()} */}
+          <FTRHeader>Fit To Recover</FTRHeader>
+          {/* <hr style={{ backgroundColor: "white", width: "50%" }} /> */}
+          <SafePlaceText style={{ fontSize: "20px" }}>
             A safe place for people in Recovery to connect through Fitness,
             Creative Expression, Nutrition, and Service.
-          </span> */}
+          </SafePlaceText>
+          <GTText>
+            Support Your <GTSpan>{this.state.gTS}</GTSpan>
+          </GTText>
         </RelativeDiv>
-        {/* J-4sJUED214 */}
         <iframe
           width={window.innerWidth}
           height={window.innerHeight * 0.9}
@@ -558,7 +590,7 @@ class Home extends Component {
         {/* {this.displayGivingTuesday()} */}
         {this.displayMovie()}
         {/* <SplashWrap>
-          <Image src={FTRGroup} alt='FTR Logo' style={{ maxHeight: '500px' }} />
+          <Image src={FTRGroup} alt="FTR Logo" style={{ maxHeight: "500px" }} />
         </SplashWrap> */}
         {/* <MissionText
           fontSize='24px'
@@ -869,25 +901,29 @@ let styles = {
     border: "1px solid #f90101",
     color: "#f90101",
     padding: "15px 5px",
-    borderRadius: "5px"
+    borderRadius: "5px",
+    transition: "background-color 0.3s"
   },
   serviceButton: {
     border: "1px solid #8e44ad",
     color: "#8e44ad",
     padding: "15px 5px",
-    borderRadius: "5px"
+    borderRadius: "5px",
+    transition: "background-color 0.3s"
   },
   creativeButton: {
     border: "1px solid #332df7",
     color: "#332df7",
     padding: "15px 5px",
-    borderRadius: "5px"
+    borderRadius: "5px",
+    transition: "background-color 0.3s"
   },
   nutritionButton: {
     border: "1px solid #349c09",
     color: "#349c09",
     padding: "15px 5px",
-    borderRadius: "5px"
+    borderRadius: "5px",
+    transition: "background-color 0.3s"
   },
   quadCard: {
     padding: "40px 0"
@@ -913,13 +949,5 @@ let styles = {
     backgroundColor: "#941F1F"
   }
 };
-
-const SplashWrap = styled.div`
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
 
 export default withRouter(Home);

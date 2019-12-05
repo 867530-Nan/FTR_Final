@@ -58,6 +58,7 @@
   color: white;
   background-color: rgb(208, 0, 0);
   border-right: 1px solid #d3d3d1;
+  transition: background-color 0.3s;
 }
 
 .ftrMemberClass .ftrMemberLink:hover {
@@ -66,6 +67,7 @@
 
 .greenFTRMemberLink {
   background-color: #0080ff;
+  transition: background-color 0.3s;
 }
 
 .ftrClassLink {
