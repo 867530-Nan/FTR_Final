@@ -248,17 +248,15 @@ class Home extends Component {
       "Self",
       "Future",
       "Neighbors",
-      "Gym",
       "Sobriety",
       "Recovery",
       "Expression",
       "Cooking",
-      "Love",
-      "Friendship",
       "High-Five",
       "Burpee",
       "Pull-Up",
-      "Smiles"
+      "Smiles",
+      "Fitness"
     ]
   };
 
