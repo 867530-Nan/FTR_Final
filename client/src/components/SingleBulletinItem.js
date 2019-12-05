@@ -107,7 +107,7 @@ class SingleBulletinItem extends React.Component {
         {this.props.single.link_text ? (
           <SingleAnchor
             href={this.props.single.link ? this.props.single.link : null}
-            target='_blank'
+            target="_blank"
           >
             {this.props.single.link_text}
           </SingleAnchor>
@@ -117,41 +117,49 @@ class SingleBulletinItem extends React.Component {
   };
 
   configureTime = info => {
-    const dateSplit = info.split("T");
-    const date = dateSplit[0];
-    const finalDate = moment(date).format("dddd, MMMM Do YYYY");
-    return finalDate;
+    if (info) {
+      const dateSplit = info.split("T");
+      const date = dateSplit[0];
+      const finalDate = moment(date).format("dddd, MMMM Do YYYY");
+      return finalDate;
+    } else return;
   };
 
   determineTime = time => {
-    let up = time.split(":");
-    if (parseInt(up[0]) > 12) {
-      up[0] = `${parseInt(up[0]) - 12}`;
-      const newt = up.join(":");
-      return `${newt} pm`;
-    } else {
-      return `${up.join(":")} am`;
-    }
+    if (time) {
+      let up = time.split(":");
+      if (parseInt(up[0]) > 12) {
+        up[0] = `${parseInt(up[0]) - 12}`;
+        const newt = up.join(":");
+        return `${newt} pm`;
+      } else {
+        return `${up.join(":")} am`;
+      }
+    } else return;
   };
 
   render() {
     return (
       <EntireWrap>
         <PlusMinusWrap
-          id='plusMinus'
+          id="plusMinus"
           onClick={() => this.setState({ showMore: !this.state.showMore })}
         >
           {this.state.showMore ? "-" : "+"}
         </PlusMinusWrap>
         <SingleItemWrap>
-          <TopWrap onClick={() => this.setState({ showMore: !this.state.showMore })}>
+          <TopWrap
+            onClick={() => this.setState({ showMore: !this.state.showMore })}
+          >
             <SingleTitle>{this.props.single.title}</SingleTitle>
             <SingleDate>
               {this.props.single.date !== null &&
                 this.props.single.date !== undefined &&
                 this.configureTime(this.props.single.date)}
             </SingleDate>
-            <SingleDate>{this.determineTime(this.props.single.time)}</SingleDate>
+            <SingleDate>
+              {this.determineTime(this.props.single.time)}
+            </SingleDate>
           </TopWrap>
           {this.state.showMore && this.showMore()}
         </SingleItemWrap>
