@@ -985,6 +985,10 @@ const NewsWrap = styled.div`
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
+
+  @media (max-width: 768px) {
+    width: 90%;
+  }
 `;
 const TopHeaderWrap = styled.div`
   display: flex;
