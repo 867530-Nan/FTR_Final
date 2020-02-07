@@ -53,18 +53,13 @@ export default function register() {
 }
 
 function registerValidSW(swUrl) {
-  console.log(1);
   navigator.serviceWorker
     .register(swUrl)
     .then(registration => {
-      console.log(2);
       registration.onupdatefound = () => {
-        console.log(3);
         const installingWorker = registration.installing;
         installingWorker.onstatechange = () => {
-          console.log(4);
           if (installingWorker.state === "installed") {
-            console.log(5);
             if (navigator.serviceWorker.controller) {
               // At this point, the old content will have been purged and
               // the fresh content will have been added to the cache.
@@ -72,7 +67,6 @@ function registerValidSW(swUrl) {
               // available; please refresh." message in your web app.
               console.log("New content is available; please refresh.");
               if (!alert("Updated Content Available. Refreshing Page..")) {
-                console.log(6);
                 window.location.reload();
               }
             } else {

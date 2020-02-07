@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources 'testimonials'
     resources 'fitness'
     resources 'nutrition'
+    resources 'media'
     resources 'events'
 
     get '/braintree_token', to: 'braintree#token'
@@ -24,6 +25,14 @@ Rails.application.routes.draw do
 
   namespace :api do
     post '/eventMoveDown', to: 'events#moveDown'
+  end
+
+  namespace :api do
+    post '/galleryMoveUp', to: 'media#moveUp'
+  end
+
+  namespace :api do
+    post '/galleryMoveDown', to: 'media#moveDown'
   end
 
   namespace :api do

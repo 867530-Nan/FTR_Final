@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import styled from "styled-components";
 import {} from "react-router-dom";
 import { Grid, Image, Modal } from "semantic-ui-react";
 import axios from "axios";
@@ -15,12 +16,13 @@ import DonateButton from "../DonateButton";
 import { TopPadding } from "../ftr_home";
 
 class Gallery extends Component {
-  state = { photos: [] };
+  state = { photos: [], gallery: [] };
 
   componentDidMount() {
     axios
       .get("api/instagram/index")
       .then(res => this.setState({ photos: res.data.data }));
+    axios.get("api/media").then(res => this.setState({ gallery: res.data }));
   }
 
   displayImages = () => {
@@ -47,6 +49,17 @@ class Gallery extends Component {
     ));
   };
 
+  displayGallery = () => {
+    return this.state.gallery.map(s => {
+      return (
+        <SingleGallery href={s.link}>
+          <Image src={s.image} alt="One year anniversay photo" />
+          <div className="mediaText">{s.name}</div>
+        </SingleGallery>
+      );
+    });
+  };
+
   render() {
     return (
       <div className="Background">
@@ -59,117 +72,9 @@ class Gallery extends Component {
           </h3>
         </div>
 
-        <Grid style={styles.mediaGrid}>
-          <Grid.Column
-            href="https://www.youtube.com/watch?v=6FCefn56X5I"
-            className="mediaCard"
-            mobile={16}
-            tablet={8}
-            computer={5}
-          >
-            <div className="mediaCardContent" style={styles.mediaCardContent}>
-              <Image src={pictureOne} alt="One year anniversay photo" />
-              <div className="mediaText">
-                One Year Anniversary,
-                <br />
-                unveiling Bouldering Wall.
-              </div>
-            </div>
-          </Grid.Column>
-          <Grid.Column
-            className="mediaCard"
-            mobile={16}
-            tablet={8}
-            computer={5}
-            href="https://www.youtube.com/watch?v=GOGSNtlWOKg&feature=youtu.be"
-          >
-            <div className="mediaCardContent" style={styles.mediaCardContent}>
-              <Image src={pictureTwo} alt="FTR on the News Photo" />
-              <div className="mediaText">
-                November 2015,
-                <br />
-                Channel 4 tells our story.
-              </div>
-            </div>
-          </Grid.Column>
-          <Grid.Column
-            className="mediaCard"
-            mobile={16}
-            tablet={8}
-            computer={5}
-            href="http://fox13now.com/2014/11/15/program-using-fitness-to-help-treat-addictions-opens-new-facility/"
-          >
-            <div className="mediaCardContent" style={styles.mediaCardContent}>
-              <Image src={pictureThree} alt="FTR Moving to 789 West photo" />
-              <div className="mediaText">Fit To Recover moves to 789 West.</div>
-            </div>
-          </Grid.Column>
-          <Grid.Column
-            className="mediaCard"
-            mobile={16}
-            tablet={8}
-            computer={5}
-            href="https://www.youtube.com/watch?v=MFmxwWqVp-E&feature=youtu.be"
-          >
-            <div className="mediaCardContent" style={styles.mediaCardContent}>
-              <Image src={pictureFour} alt="Bootcamp 2013 Photo" />
-              <div className="mediaText">
-                Bootcamp, <br /> October 2013
-              </div>
-            </div>
-          </Grid.Column>
-          <Grid.Column
-            className="mediaCard"
-            mobile={16}
-            tablet={8}
-            computer={5}
-            href="https://www.youtube.com/watch?v=Mru8F-NIkfU&feature=youtu.be"
-          >
-            <div className="mediaCardContent" style={styles.mediaCardContent}>
-              <Image src={pictureFive} alt="The FTR Community" />
-              <div className="mediaText">Meet Our Community</div>
-            </div>
-          </Grid.Column>
-          <Grid.Column
-            className="mediaCard"
-            mobile={16}
-            tablet={8}
-            computer={5}
-            href="http://kutv.com/features/pay-it-forward/sweat-love-and-recovery"
-          >
-            <div className="mediaCardContent" style={styles.mediaCardContent}>
-              <Image src={pictureSix} alt="FTR Founder Receiving a gift" />
-              <div className="mediaText">Fit to Recover receives a gift</div>
-            </div>
-          </Grid.Column>
-          <Grid.Column
-            className="mediaCard"
-            mobile={16}
-            tablet={8}
-            computer={5}
-            href="https://www.youtube.com/watch?v=mqdRNKnV3Ew&feature=youtu.be"
-          >
-            <div className="mediaCardContent" style={styles.mediaCardContent}>
-              <Image src={pictureEight} alt="Screenshot from a Music Video" />
-              <div className="mediaText">
-                Music Video: <br />
-                Ian Acker, Addiction
-              </div>
-            </div>
-          </Grid.Column>
-          <Grid.Column
-            className="mediaCard"
-            mobile={16}
-            tablet={8}
-            computer={5}
-            href="https://vimeo.com/108387904"
-          >
-            <div className="mediaCardContent" style={styles.mediaCardContent}>
-              <Image src={pictureNine} alt="Screenshot from a Music Video" />
-              <div className="mediaText">Strong, Confident Women</div>
-            </div>
-          </Grid.Column>
-        </Grid>
+        {this.state.gallery.length ? (
+          <GalleryWrap>{this.displayGallery()}</GalleryWrap>
+        ) : null}
 
         <div>
           <a
@@ -181,7 +86,10 @@ class Gallery extends Component {
             -- #teamFTR --
           </a>
         </div>
-        <Grid className="instaGrid" style={{ height: "700px", width: "100%" }}>
+        <Grid
+          className="instaGrid"
+          style={{ height: "initial", width: "100%", margin: "15px" }}
+        >
           {this.displayImages()}
         </Grid>
       </div>
@@ -207,5 +115,27 @@ const styles = {
     cursor: "pointer"
   }
 };
+
+const GalleryWrap = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+`;
+
+const SingleGallery = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px;
+  max-width: 400px;
+  min-width: 400px;
+
+  &:hover {
+    cursor: pointer;
+    filter: brightness(90%);
+  }
+`;
 
 export default Gallery;

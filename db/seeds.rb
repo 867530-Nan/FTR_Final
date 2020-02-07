@@ -1,10 +1,77 @@
 
 
-Nutrition.create([
+Medium.create([
   {
-    title: "Connecting with Food: Cooking Classes",
-    sub_title: "",
-    body: ""
+    name: "One Year Anniversary, unveiling Bouldering wall.",
+    image: "https://files.constantcontact.com/25b22253501/c280152d-5a4a-4977-86c3-d2f9d533e447.jpg",
+    link: "https://www.youtube.com/watch?v=6FCefn56X5I",
+    frontPage: false,
+    description: "",
+    itemNumber: 1
+  },
+  {
+    name: "November 2015, Channel 4 tells our story",
+    image: "https://files.constantcontact.com/25b22253501/c79d2e72-b142-4802-9943-925d50e11222.jpg",
+    link: "https://www.youtube.com/watch?v=GOGSNtlWOKg&feature=youtu.be",
+    frontPage: true,
+    description: "",
+    itemNumber: 2
+  },
+  {
+    name: "Fit to Recover move to 789 West.",
+    image: "https://files.constantcontact.com/25b22253501/b6747871-182b-475f-b1ce-37675b378f4d.jpg",
+    link: "http://fox13now.com/2014/11/15/program-using-fitness-to-help-treat-addictions-opens-new-facility/",
+    frontPage: false,
+    description: "",
+    itemNumber: 3
+  },
+  {
+    name: "Bootcamp, October 2013",
+    image: "https://files.constantcontact.com/25b22253501/98f124b0-e86e-4323-9008-5ebf4665b4de.jpg",
+    link: "https://www.youtube.com/watch?v=MFmxwWqVp-E&feature=youtu.be",
+    frontPage: false,
+    description: "",
+    itemNumber: 4
+  },
+  {
+    name: "Meet Our Community",
+    image: "https://files.constantcontact.com/25b22253501/a9bb95cf-c9e7-4fc3-b2ef-b4cd1cc2eb43.jpg",
+    link: "https://www.youtube.com/watch?v=Mru8F-NIkfU&feature=youtu.be",
+    frontPage: false,
+    description: "",
+    itemNumber: 5
+  },
+  {
+    name: "Fit to Recover receives a gift",
+    image: "https://files.constantcontact.com/25b22253501/6e8bca47-478d-4d9c-a212-4f12d95fb32c.jpg",
+    link: "http://kutv.com/features/pay-it-forward/sweat-love-and-recovery",
+    frontPage: false,
+    description: "",
+    itemNumber: 6
+  },
+  {
+    name: "Music Video: Ian Acker, Addiction",
+    image: "https://files.constantcontact.com/25b22253501/d07d48e6-f614-4ca8-ba37-59ce0ae7fdfa.jpg",
+    link: "https://www.youtube.com/watch?v=mqdRNKnV3Ew&feature=youtu.be",
+    frontPage: false,
+    description: "",
+    itemNumber: 7
+  },
+  {
+    name: "Strong, Confident Women",
+    image: "https://files.constantcontact.com/25b22253501/5346c731-fcf0-484a-887c-a364c7416a78.jpg",
+    link: "https://vimeo.com/108387904",
+    frontPage: false,
+    description: "",
+    itemNumber: 8
+  },
+  {
+    name: "Channel 4 Spotlight: Fit To Recover",
+    image: "https://files.constantcontact.com/25b22253501/85fefd3c-c1e1-4301-ac27-58b9fc0983a4.png",
+    link: "https://kutv.com/news/addicted-utah/addicted-utah-gym-focuses-on-building-connection-instead-of-muscle-for-people-in-recovery",
+    frontPage: true,
+    description: "Addicted Utah: Gym focuses on building connection instead of muscle for people in recovery",
+    itemNumber: 8
   }
 ])
 

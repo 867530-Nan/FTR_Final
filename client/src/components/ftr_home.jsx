@@ -23,203 +23,6 @@ import { MindBody } from "../GlobalLinks/Links";
 import { Emoji as masterEmojiList } from "../Emojis";
 import LadyInPink from "../assets/images/PinkLady.png";
 
-const AnniversaryWrap = styled.div`
-  margin: 0px auto 25px auto;
-  width: 80%;
-  border-radius: 15px;
-  height: 150px;
-  border: 3px solid #2b1273;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 6px 6px 6px 0px #c6c8c7;
-
-  &:hover {
-    filter: brightness(90%);
-    box-shadow: 12px 12px 12px 0px #c6c8c7;
-  }
-
-  @media (max-width: 600px) {
-    width: 92%;
-  }
-`;
-
-const AnniversaryAnimationLink = styled.a`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-`;
-
-const AnniversaryText = styled.h1`
-  margin: 0 !important;
-  width: 70%;
-  text-align: center;
-  font-size: ${props => props.fontSize};
-  color: ${props => props.color};
-
-  @media (max-width: 605px) {
-    font-size: ${props => props.sixHundredSize};
-  }
-
-  @media (max-width: 400px) {
-    font-size: ${props => props.fourHundredSize};
-  }
-`;
-const MissionText = styled.h1`
-  margin: 15px auto !important;
-  width: 90%;
-  text-align: center;
-  font-size: ${props => props.fontSize};
-  color: ${props => props.color};
-
-  @media (max-width: 605px) {
-    font-size: ${props => props.sixHundredSize};
-  }
-
-  @media (max-width: 400px) {
-    font-size: ${props => props.fourHundredSize};
-  }
-`;
-const BulletinWrap = styled.div`
-  padding: 40px 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: repeating-linear-gradient(
-    45deg,
-    rgba(255, 0, 0, 0.3),
-    lightgray 1px,
-    white 1px,
-    white 20px
-  );
-  border-bottom: 1px solid #d3d3d3;
-`;
-
-const BulletinHeader = styled.h1`
-  font-weight: 900;
-  font-size: 3em;
-
-  @media (max-width: 450px) {
-    font-size: 2.5em;
-  }
-`;
-
-export const TopPadding = styled.div`
-  height: 65px;
-  @media (max-width: 768px) {
-    height: 0px;
-  }
-`;
-
-const StyledDiv = styled.a`
-  display: flex;
-  width: ${props => props.width};
-  justify-content: center;
-  align-items: center;
-  background-color: ${props => props.backgroundColor};
-`;
-
-const SplashWrap = styled.div`
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
-const RelativeDiv = styled.div`
-  color: white;
-  position: absolute;
-  width: 75%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  z-index: 10000;
-  font-size: 42px;
-  text-align: center;
-  font-weight: 300;
-  border-radius: 5px;
-  transition: background-color 0.4s;
-
-  &:hover {
-    background-color: #2d2d2df0;
-  }
-
-  @media (max-width: 768px) {
-    width: 95%;
-    font-size: 40px;
-  }
-`;
-
-const StyledImage = styled.img`
-  height: unset;
-  width: unset;
-  max-width: ${props => props.maxWidth}px;
-  z-index: -1;
-`;
-
-const GTWrap = styled.div`
-  width: 100%;
-  padding: 50px 0;
-`;
-const GTIcon = styled.img`
-  width: 50%;
-  height: initial;
-  max-width: 350px;
-`;
-
-const GTText = styled.h1`
-  font-size: 30px;
-  font-weight: 500;
-  font-family: Raleway;
-  color: red;
-
-  @media (max-width: 768px) {
-    font-size: 40px;
-  }
-
-  @media (max-width: 450px) {
-    font-size: 30px;
-  }
-`;
-
-const FTRHeader = styled.h1`
-  font-size: 60px;
-  font-weight: 100;
-`;
-
-const SafePlaceText = styled.h3`
-  font-weight: 700;
-  @media (max-width: 768px) {
-    font-size: 20px;
-  }
-`;
-
-const GTName = styled.h1`
-  font-size: 50px;
-  font-weight: 900;
-  font-family: Raleway;
-  color: ${props => props.name};
-  transition: color 0.4s;
-
-  @media (max-width: 768px) {
-    font-size: 40px;
-  }
-
-  @media (max-width: 450px) {
-    font-size: 30px;
-  }
-`;
-
-const GTSpan = styled.span`
-  font-family: "Gloria Hallelujah", cursive;
-  text-decoration: underline;
-`;
-
 class Home extends Component {
   state = {
     photos: [],
@@ -232,6 +35,7 @@ class Home extends Component {
       masterEmojiList[Math.floor(Math.random() * masterEmojiList.length)],
     isMobile: false,
     gTS: "",
+    gallery: {},
     gTHover: false,
     gTOptions: [
       "Community",
@@ -248,6 +52,7 @@ class Home extends Component {
       "Self",
       "Future",
       "Neighbors",
+
       "Sobriety",
       "Recovery",
       "Expression",
@@ -265,6 +70,7 @@ class Home extends Component {
       this.setState({
         photos: res.data.photos.data,
         bulletins: res.data.bulletins.sort(this.compare),
+        gallery: res.data.gallery,
         newsletter: res.data.newsletter,
         isMobile: this.isMobileDevice()
       });
@@ -503,6 +309,28 @@ class Home extends Component {
     );
   };
 
+  displayInTheNews = () => {
+    const { gallery } = this.state;
+    return (
+      <NewsWrap>
+        <TopHeaderWrap>
+          <TopHeaderText>
+            FTR | <NewsSpan>In The News</NewsSpan>
+          </TopHeaderText>
+        </TopHeaderWrap>
+        <StyledAnchor href={gallery.link} target="_blank">
+          <BottomWrap>
+            <GalleryTitle>{gallery.name}</GalleryTitle>
+            {gallery.description ? (
+              <GalleryDesc>{gallery.description}</GalleryDesc>
+            ) : null}
+            <GalleryImage src={gallery.image} />
+          </BottomWrap>
+        </StyledAnchor>
+      </NewsWrap>
+    );
+  };
+
   displayBulletin = () => {
     return (
       <BulletinWrap>
@@ -510,6 +338,7 @@ class Home extends Component {
         {this.state.bulletins.map(single => {
           return <SingleBulletinItem single={single} />;
         })}
+        {this.displayInTheNews()}
       </BulletinWrap>
     );
   };
@@ -947,5 +776,259 @@ let styles = {
     backgroundColor: "#941F1F"
   }
 };
+
+const AnniversaryWrap = styled.div`
+  margin: 0px auto 25px auto;
+  width: 80%;
+  border-radius: 15px;
+  height: 150px;
+  border: 3px solid #2b1273;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 6px 6px 6px 0px #c6c8c7;
+
+  &:hover {
+    filter: brightness(90%);
+    box-shadow: 12px 12px 12px 0px #c6c8c7;
+  }
+
+  @media (max-width: 600px) {
+    width: 92%;
+  }
+`;
+
+const AnniversaryAnimationLink = styled.a`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+`;
+
+const AnniversaryText = styled.h1`
+  margin: 0 !important;
+  width: 70%;
+  text-align: center;
+  font-size: ${props => props.fontSize};
+  color: ${props => props.color};
+
+  @media (max-width: 605px) {
+    font-size: ${props => props.sixHundredSize};
+  }
+
+  @media (max-width: 400px) {
+    font-size: ${props => props.fourHundredSize};
+  }
+`;
+const MissionText = styled.h1`
+  margin: 15px auto !important;
+  width: 90%;
+  text-align: center;
+  font-size: ${props => props.fontSize};
+  color: ${props => props.color};
+
+  @media (max-width: 605px) {
+    font-size: ${props => props.sixHundredSize};
+  }
+
+  @media (max-width: 400px) {
+    font-size: ${props => props.fourHundredSize};
+  }
+`;
+const BulletinWrap = styled.div`
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255, 0, 0, 0.3),
+    lightgray 1px,
+    white 1px,
+    white 20px
+  );
+  border-bottom: 1px solid #d3d3d3;
+`;
+
+const BulletinHeader = styled.h1`
+  font-weight: 900;
+  font-size: 3em;
+
+  @media (max-width: 450px) {
+    font-size: 2.5em;
+  }
+`;
+
+export const TopPadding = styled.div`
+  height: 65px;
+  @media (max-width: 768px) {
+    height: 0px;
+  }
+`;
+
+const StyledDiv = styled.a`
+  display: flex;
+  width: ${props => props.width};
+  justify-content: center;
+  align-items: center;
+  background-color: ${props => props.backgroundColor};
+`;
+
+const SplashWrap = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const RelativeDiv = styled.div`
+  color: white;
+  position: absolute;
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 10000;
+  font-size: 42px;
+  text-align: center;
+  font-weight: 300;
+  border-radius: 5px;
+  transition: background-color 0.4s;
+
+  &:hover {
+    background-color: #2d2d2df0;
+  }
+
+  @media (max-width: 768px) {
+    width: 95%;
+    font-size: 40px;
+  }
+`;
+
+const StyledImage = styled.img`
+  height: unset;
+  width: unset;
+  max-width: ${props => props.maxWidth}px;
+  z-index: -1;
+`;
+
+const GTWrap = styled.div`
+  width: 100%;
+  padding: 50px 0;
+`;
+const GTIcon = styled.img`
+  width: 50%;
+  height: initial;
+  max-width: 350px;
+`;
+
+const GTText = styled.h1`
+  font-size: 30px;
+  font-weight: 500;
+  font-family: Raleway;
+  color: red;
+
+  @media (max-width: 768px) {
+    font-size: 40px;
+  }
+
+  @media (max-width: 450px) {
+    font-size: 30px;
+  }
+`;
+
+const FTRHeader = styled.h1`
+  font-size: 60px;
+  font-weight: 100;
+`;
+
+const SafePlaceText = styled.h3`
+  font-weight: 700;
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
+`;
+
+const GTName = styled.h1`
+  font-size: 50px;
+  font-weight: 900;
+  font-family: Raleway;
+  color: ${props => props.name};
+  transition: color 0.4s;
+
+  @media (max-width: 768px) {
+    font-size: 40px;
+  }
+
+  @media (max-width: 450px) {
+    font-size: 30px;
+  }
+`;
+
+const GTSpan = styled.span`
+  font-family: "Gloria Hallelujah", cursive;
+  text-decoration: underline;
+`;
+
+const NewsWrap = styled.div`
+  display: flex;
+  min-height: 400px;
+  background-color: white;
+  border-radius: 5px;
+  margin-top: 10px;
+  box-shadow: 0px 0px 8px -4px #ff001c;
+  width: 50%;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+`;
+const TopHeaderWrap = styled.div`
+  display: flex;
+  margin: 15px 0;
+  height: initial;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid black;
+`;
+const TopHeaderText = styled.h1``;
+
+const NewsSpan = styled.span`
+  font-weight: 300;
+`;
+
+const BottomWrap = styled.div`
+  display: flex;
+  height: 100%;
+  width: 75%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
+const GalleryTitle = styled.h2`
+  margin: 0;
+  color: black;
+  width: 100%;
+  text-align: left;
+  padding: 10px;
+`;
+const GalleryDesc = styled.h5`
+  margin: 0;
+  width: 100%;
+  color: black;
+  padding: 10px;
+  text-align: left;
+`;
+const GalleryImage = styled.img`
+  max-width: 300px;
+`;
+
+const StyledAnchor = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
 export default withRouter(Home);
