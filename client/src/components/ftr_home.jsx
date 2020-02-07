@@ -1030,9 +1030,13 @@ const GalleryImage = styled.img`
   max-width: 300px;
 `;
 
-const StyledAnchor = styled.div`
+const StyledAnchor = styled.a`
   display: flex;
   justify-content: center;
+  &:hover {
+    filter: brightness(90%);
+    cursor: pointer;
+  }
 `;
 
 export default withRouter(Home);
