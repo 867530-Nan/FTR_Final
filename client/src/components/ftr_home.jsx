@@ -202,7 +202,7 @@ class Home extends Component {
 
   displayImages = () => {
     return this.state.photos.map(pic => (
-      <Grid.Column computer={4} mobile={16} tablet={8}>
+      <StyledDiv flexDirection="column" justifyContent="space-between">
         <BLink
           href="https://www.instagram.com/fit_2recover/?hl=en"
           target="_blank"
@@ -218,7 +218,7 @@ class Home extends Component {
             src={pic.images.standard_resolution.url}
           />
         </BLink>
-      </Grid.Column>
+      </StyledDiv>
     ));
   };
 

@@ -151,6 +151,8 @@ a.nutritionButton:hover {
 
 .homeNewsletterLink {
   margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .homeMonthlyNewsletter {
@@ -193,7 +195,7 @@ a.nutritionButton:hover {
 .homeInsta {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   height: 450px;
   border-radius: 0 10px 10px 0;
 }
