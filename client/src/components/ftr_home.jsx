@@ -373,49 +373,49 @@ class Home extends Component {
     return (
       <div>
         <TopPadding />
-        {/* <AnniversaryText
-          fontSize='42px'
-          color='black'
-          fontWeight='700'
-          sixHundredSize='32px'
-          fourHundredSize='24px'
-        >
-          Fit To Recover
-        </AnniversaryText> */}
-        {/* <AnniversaryWrap>
-          <AnniversaryAnimationLink target='_blank' href={MindBody}>
-            <AnniversaryText
-              fontSize='36px'
-              color='red'
-              sixHundredSize='28px'
-              fourHundredSize='22px'
-              fontWeight='400'
-            >
-              Memberships Available
-              <hr />
-              $5 Drop-in
-            </AnniversaryText>
-          </AnniversaryAnimationLink>
-        </AnniversaryWrap> */}
-        {/* {this.state.isMobile ? (
-          <AnniversaryWrap>
-            <AnniversaryAnimationLink target='_blank' href={MindBody}>
-              <AnniversaryText
-                fontSize='36px'
-                color='red'
-                sixHundredSize='28px'
-                fourHundredSize='22px'
-                fontWeight='400'
-              >
-                09.16.2019
-                <hr />
-                Join us
-              </AnniversaryText>
-            </AnniversaryAnimationLink>
-          </AnniversaryWrap>
-        ) : null} */}
+
+        <FTRClosedWrap>
+          <AnniversaryText
+            fontSize="46px"
+            color="black"
+            sixHundredSize="32px"
+            fourHundredSize="22px"
+            fontWeight="400"
+          >
+            FTR is CLOSED until March 30th.
+            <hr />
+          </AnniversaryText>
+          <AnniversaryText
+            fontSize="24px"
+            color="black"
+            sixHundredSize="20px"
+            fourHundredSize="16px"
+            fontWeight="400"
+          >
+            Due to the growing COVID-19 and FTR’s focus on the safety for our
+            staff and members we will be cancelling all programing starting
+            Monday, March 16th until March 30th. We will provide updates on a
+            weekly basis through Facebook, Instagram and on our website. We are
+            a community that cares both for those within our doors and out. We
+            are a healthy and strong group that may not have much concern for
+            the virus, but we can help our community by getting ahead of this
+            problem and not adding to it.
+          </AnniversaryText>
+          <AnniversaryText
+            fontSize="24px"
+            color="black"
+            sixHundredSize="20px"
+            fourHundredSize="16px"
+            fontWeight="400"
+          >
+            We care about your safety and well-being above all else. If you have
+            any comments, questions, or concerns we are here for you. All of our
+            staff will be available via email, phone, and social media. You can
+            reach Ian directly at 614.975.5689 or Nicolette at 801.557.0502.
+          </AnniversaryText>
+        </FTRClosedWrap>
         {/* {this.displayGivingTuesday()} */}
-        {this.displayMovie()}
+        {/* {this.displayMovie()} */}
         {/* <SplashWrap>
           <Image src={FTRGroup} alt="FTR Logo" style={{ maxHeight: "500px" }} />
         </SplashWrap> */}
@@ -777,25 +777,14 @@ let styles = {
   }
 };
 
-const AnniversaryWrap = styled.div`
-  margin: 0px auto 25px auto;
-  width: 80%;
-  border-radius: 15px;
-  height: 150px;
-  border: 3px solid #2b1273;
+const FTRClosedWrap = styled.div`
+  width: 100%;
+  min-height: 700px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: 6px 6px 6px 0px #c6c8c7;
-
-  &:hover {
-    filter: brightness(90%);
-    box-shadow: 12px 12px 12px 0px #c6c8c7;
-  }
-
-  @media (max-width: 600px) {
-    width: 92%;
-  }
+  padding: 30px 0;
 `;
 
 const AnniversaryAnimationLink = styled.a`
@@ -814,7 +803,7 @@ const AnniversaryText = styled.h1`
   font-size: ${props => props.fontSize};
   color: ${props => props.color};
 
-  @media (max-width: 605px) {
+  @media (max-width: 768px) {
     font-size: ${props => props.sixHundredSize};
   }
 
