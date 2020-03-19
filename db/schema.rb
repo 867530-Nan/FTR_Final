@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_07_003103) do
+ActiveRecord::Schema.define(version: 2019_07_23_013524) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,14 +69,14 @@ ActiveRecord::Schema.define(version: 2020_02_07_003103) do
   end
 
   create_table "media", force: :cascade do |t|
-    t.string "name"
     t.text "image"
     t.text "link"
     t.boolean "frontPage"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.text "link_text"
     t.integer "itemNumber"
     t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "newsletters", force: :cascade do |t|
