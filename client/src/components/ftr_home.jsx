@@ -122,38 +122,38 @@ class Home extends Component {
         <StyledImage maxWidth={window.innerWidth} src={LadyInPink} />
       </StyledDiv>
     ) : (
-      <StyledDiv
-        href={"https://givingtuesday.mightycause.com/story/Giveftr2019"}
-        backgroundColor="#000000d9"
-      >
-        <RelativeDiv>
-          {/* {this.displayGivingTuesday()} */}
-          <FTRHeader>Fit To Recover</FTRHeader>
-          {/* <hr style={{ backgroundColor: "white", width: "50%" }} /> */}
-          <SafePlaceText style={{ fontSize: "20px" }}>
-            A safe place for people in Recovery to connect through Fitness,
-            Creative Expression, Nutrition, and Service.
+        <StyledDiv
+          href={"https://givingtuesday.mightycause.com/story/Giveftr2019"}
+          backgroundColor="#000000d9"
+        >
+          <RelativeDiv>
+            {/* {this.displayGivingTuesday()} */}
+            <FTRHeader>Fit To Recover</FTRHeader>
+            {/* <hr style={{ backgroundColor: "white", width: "50%" }} /> */}
+            <SafePlaceText style={{ fontSize: "20px" }}>
+              A safe place for people in Recovery to connect through Fitness,
+              Creative Expression, Nutrition, and Service.
           </SafePlaceText>
-          <GTText>
-            Support Your <GTSpan>{this.state.gTS}</GTSpan>
-          </GTText>
-        </RelativeDiv>
-        <iframe
-          width={window.innerWidth}
-          height={window.innerHeight * 0.9}
-          style={{ zIndex: "-100" }}
-          src={`https://www.youtube-nocookie.com/embed?listType=playlist&list=PLnM_nSADhpDFFZ6UJ3laEsKMd1vK1bgVw&loop=1&mute=1&autoplay=${
-            this.state.isMobile ? 0 : 1
-          }&controls=${
-            this.state.isMobile ? 1 : 0
-          }&modestbranding=1&rel=0&showinfo=0`}
-          frameborder="0"
-          // allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
-          allowfullscreen
-          loop="true"
-        />
-      </StyledDiv>
-    );
+            <GTText>
+              Support Your <GTSpan>{this.state.gTS}</GTSpan>
+            </GTText>
+          </RelativeDiv>
+          <iframe
+            width={window.innerWidth}
+            height={window.innerHeight * 0.9}
+            style={{ zIndex: "-100" }}
+            src={`https://www.youtube-nocookie.com/embed?listType=playlist&list=PLnM_nSADhpDFFZ6UJ3laEsKMd1vK1bgVw&loop=1&mute=1&autoplay=${
+              this.state.isMobile ? 0 : 1
+              }&controls=${
+              this.state.isMobile ? 1 : 0
+              }&modestbranding=1&rel=0&showinfo=0`}
+            frameborder="0"
+            // allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
+            allowfullscreen
+            loop="true"
+          />
+        </StyledDiv>
+      );
   };
 
   isMobileDevice() {
@@ -386,9 +386,19 @@ class Home extends Component {
             <hr />
           </AnniversaryText>
           <AnniversaryText
-            fontSize="24px"
+            fontSize="36px"
+            color="#0080ff"
+            sixHundredSize="26px"
+            fourHundredSize="20px"
+            fontWeight="400"
+          >
+            &#8595; Online classes in bulletin board below &#8595;
+            <hr />
+          </AnniversaryText>
+          <AnniversaryText
+            fontSize="20px"
             color="black"
-            sixHundredSize="20px"
+            sixHundredSize="18px"
             fourHundredSize="16px"
             fontWeight="400"
           >
@@ -400,19 +410,13 @@ class Home extends Component {
             are a healthy and strong group that may not have much concern for
             the virus, but we can help our community by getting ahead of this
             problem and not adding to it.
-          </AnniversaryText>
-          <AnniversaryText
-            fontSize="24px"
-            color="black"
-            sixHundredSize="20px"
-            fourHundredSize="16px"
-            fontWeight="400"
-          >
+            <br />
             We care about your safety and well-being above all else. If you have
             any comments, questions, or concerns we are here for you. All of our
             staff will be available via email, phone, and social media. You can
             reach Ian directly at 614.975.5689 or Nicolette at 801.557.0502.
           </AnniversaryText>
+
         </FTRClosedWrap>
         {/* {this.displayGivingTuesday()} */}
         {/* {this.displayMovie()} */}
