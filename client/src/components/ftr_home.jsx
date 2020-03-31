@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
+import React,{Component} from "react";
+import {withRouter} from "react-router-dom";
 import "../styles/home.css";
 import axios from "axios";
-import { Grid, Segment, Image, Icon } from "semantic-ui-react";
+import {Grid,Segment,Image,Icon} from "semantic-ui-react";
 import FTRGroup from "../assets/images/GroupWithFTR.png";
 import GivingTuesdayIcon from "../assets/images/GivingTuesday2019.png";
 
@@ -12,15 +12,15 @@ import June2018 from "../assets/images/June2018.png";
 import paypal from "../assets/images/paypalDonate.png";
 import DonateButton from "./DonateButton";
 import BLink from "./BLink";
-import { Lazy } from "react-lazy";
-import { saveAddress } from "../actions/address";
+import {Lazy} from "react-lazy";
+import {saveAddress} from "../actions/address";
 import moment from "moment";
-import styled, { keyframes } from "styled-components";
+import styled,{keyframes} from "styled-components";
 import SingleBulletinItem from "./SingleBulletinItem";
 import LUGT from "../assets/images/LUGT.png";
 import MightyCauseButtons from "./MightyCause/MightyCauseButtons";
-import { MindBody } from "../GlobalLinks/Links";
-import { Emoji as masterEmojiList } from "../Emojis";
+import {MindBody} from "../GlobalLinks/Links";
+import {Emoji as masterEmojiList} from "../Emojis";
 import LadyInPink from "../assets/images/PinkLady.png";
 
 class Home extends Component {
@@ -79,13 +79,13 @@ class Home extends Component {
     var item = this.state.gTOptions[
       Math.floor(Math.random() * this.state.gTOptions.length)
     ];
-    this.setState({ gTS: item });
+    this.setState({gTS: item});
     setTimeout(() => {
       var item = this.state.gTOptions[
         Math.floor(Math.random() * this.state.gTOptions.length)
       ];
-      this.setState({ gTS: item }, this.startIntervalGT);
-    }, 2500);
+      this.setState({gTS: item},this.startIntervalGT);
+    },2500);
   }
 
   componentWillUnmount() {
@@ -97,8 +97,8 @@ class Home extends Component {
       var item = this.state.gTOptions[
         Math.floor(Math.random() * this.state.gTOptions.length)
       ];
-      this.setState({ gTS: item });
-    }, 1500);
+      this.setState({gTS: item});
+    },1500);
   };
 
   displayMovie = () => {
@@ -130,7 +130,7 @@ class Home extends Component {
             {/* {this.displayGivingTuesday()} */}
             <FTRHeader>Fit To Recover</FTRHeader>
             {/* <hr style={{ backgroundColor: "white", width: "50%" }} /> */}
-            <SafePlaceText style={{ fontSize: "20px" }}>
+            <SafePlaceText style={{fontSize: "20px"}}>
               A safe place for people in Recovery to connect through Fitness,
               Creative Expression, Nutrition, and Service.
           </SafePlaceText>
@@ -141,7 +141,7 @@ class Home extends Component {
           <iframe
             width={window.innerWidth}
             height={window.innerHeight * 0.9}
-            style={{ zIndex: "-100" }}
+            style={{zIndex: "-100"}}
             src={`https://www.youtube-nocookie.com/embed?listType=playlist&list=PLnM_nSADhpDFFZ6UJ3laEsKMd1vK1bgVw&loop=1&mute=1&autoplay=${
               this.state.isMobile ? 0 : 1
               }&controls=${
@@ -174,7 +174,7 @@ class Home extends Component {
     }
   }
 
-  compare(a, b) {
+  compare(a,b) {
     if (a.itemNumber > b.itemNumber) return 1;
     if (a.itemNumber < b.itemNumber) return -1;
     return 0;
@@ -183,8 +183,8 @@ class Home extends Component {
   displayGivingTuesday() {
     return (
       <GTWrap
-        onMouseEnter={() => this.setState({ gTHover: true })}
-        onMouseLeave={() => this.setState({ gTHover: false })}
+        onMouseEnter={() => this.setState({gTHover: true})}
+        onMouseLeave={() => this.setState({gTHover: false})}
       >
         <GTName name={this.state.gTHover ? "white" : "black"}>
           Fit To Recover
@@ -194,7 +194,7 @@ class Home extends Component {
           Support Your <GTSpan>{this.state.gTS}</GTSpan>
         </GTText>
         {this.state.isMobile ? (
-          <h6 style={{ color: "black" }}>( Press for Details )</h6>
+          <h6 style={{color: "black"}}>( Press for Details )</h6>
         ) : null}
       </GTWrap>
     );
@@ -310,7 +310,7 @@ class Home extends Component {
   };
 
   displayInTheNews = () => {
-    const { gallery } = this.state;
+    const {gallery} = this.state;
     return (
       <NewsWrap>
         <TopHeaderWrap>
@@ -344,7 +344,7 @@ class Home extends Component {
   };
 
   displayNewsletter = () => {
-    const { newsletter } = this.state;
+    const {newsletter} = this.state;
     const Title = newsletter.title.split(" ")[0];
     return (
       <BLink
@@ -382,7 +382,7 @@ class Home extends Component {
             fourHundredSize="22px"
             fontWeight="400"
           >
-            FTR is CLOSED until March 30th.
+            FTR is CLOSED until further notice.
             <hr />
           </AnniversaryText>
           <AnniversaryText
@@ -472,12 +472,12 @@ class Home extends Component {
         {this.state.bulletins.length ? this.displayBulletin() : null}
 
         <div className="instaNewsBar">
-          <Grid style={{ display: "flex", justifyContent: "center" }}>
+          <Grid style={{display: "flex",justifyContent: "center"}}>
             <Grid.Column
               mobile={16}
               tablet={8}
               computer={8}
-              style={{ maxWidth: "750px" }}
+              style={{maxWidth: "750px"}}
             >
               {this.state.photos && this.displayImages()}
             </Grid.Column>
@@ -485,7 +485,7 @@ class Home extends Component {
               mobile={16}
               tablet={8}
               computer={8}
-              style={{ maxWidth: "750px" }}
+              style={{maxWidth: "750px"}}
             >
               {this.state.newsletter && this.displayNewsletter()}
             </Grid.Column>
