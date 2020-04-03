@@ -64,7 +64,7 @@ const SingleBody = styled.h3`
   font-weight: 300;
 `;
 
-const SingleTitle = styled.h1`
+const SingleTitle = styled.h2`
   font-weight: 500;
   margin: 0;
 
@@ -116,7 +116,7 @@ class SingleBulletinItem extends React.Component {
     );
   };
 
-  configureTime = info => {
+  configureTime = (info) => {
     if (info) {
       const dateSplit = info.split("T");
       const date = dateSplit[0];
@@ -125,7 +125,7 @@ class SingleBulletinItem extends React.Component {
     } else return;
   };
 
-  determineTime = time => {
+  determineTime = (time) => {
     if (time) {
       let up = time.split(":");
       if (parseInt(up[0]) > 12) {

@@ -1,8 +1,8 @@
-import React,{Component} from "react";
-import {withRouter} from "react-router-dom";
+import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import "../styles/home.css";
 import axios from "axios";
-import {Grid,Segment,Image,Icon} from "semantic-ui-react";
+import { Grid, Segment, Image, Icon } from "semantic-ui-react";
 import FTRGroup from "../assets/images/GroupWithFTR.png";
 import GivingTuesdayIcon from "../assets/images/GivingTuesday2019.png";
 
@@ -12,15 +12,15 @@ import June2018 from "../assets/images/June2018.png";
 import paypal from "../assets/images/paypalDonate.png";
 import DonateButton from "./DonateButton";
 import BLink from "./BLink";
-import {Lazy} from "react-lazy";
-import {saveAddress} from "../actions/address";
+import { Lazy } from "react-lazy";
+import { saveAddress } from "../actions/address";
 import moment from "moment";
-import styled,{keyframes} from "styled-components";
+import styled, { keyframes } from "styled-components";
 import SingleBulletinItem from "./SingleBulletinItem";
 import LUGT from "../assets/images/LUGT.png";
 import MightyCauseButtons from "./MightyCause/MightyCauseButtons";
-import {MindBody} from "../GlobalLinks/Links";
-import {Emoji as masterEmojiList} from "../Emojis";
+import { MindBody } from "../GlobalLinks/Links";
+import { Emoji as masterEmojiList } from "../Emojis";
 import LadyInPink from "../assets/images/PinkLady.png";
 
 class Home extends Component {
@@ -61,31 +61,31 @@ class Home extends Component {
       "Burpee",
       "Pull-Up",
       "Smiles",
-      "Fitness"
-    ]
+      "Fitness",
+    ],
   };
 
   componentDidMount() {
-    axios.get("/api/home/index").then(res => {
+    axios.get("/api/home/index").then((res) => {
       this.setState({
         photos: res.data.photos.data,
         bulletins: res.data.bulletins.sort(this.compare),
         gallery: res.data.gallery,
         newsletter: res.data.newsletter,
-        isMobile: this.isMobileDevice()
+        isMobile: this.isMobileDevice(),
       });
     });
     saveAddress(window.location.href);
     var item = this.state.gTOptions[
       Math.floor(Math.random() * this.state.gTOptions.length)
     ];
-    this.setState({gTS: item});
+    this.setState({ gTS: item });
     setTimeout(() => {
       var item = this.state.gTOptions[
         Math.floor(Math.random() * this.state.gTOptions.length)
       ];
-      this.setState({gTS: item},this.startIntervalGT);
-    },2500);
+      this.setState({ gTS: item }, this.startIntervalGT);
+    }, 2500);
   }
 
   componentWillUnmount() {
@@ -97,8 +97,8 @@ class Home extends Component {
       var item = this.state.gTOptions[
         Math.floor(Math.random() * this.state.gTOptions.length)
       ];
-      this.setState({gTS: item});
-    },1500);
+      this.setState({ gTS: item });
+    }, 1500);
   };
 
   displayMovie = () => {
@@ -122,38 +122,38 @@ class Home extends Component {
         <StyledImage maxWidth={window.innerWidth} src={LadyInPink} />
       </StyledDiv>
     ) : (
-        <StyledDiv
-          href={"https://givingtuesday.mightycause.com/story/Giveftr2019"}
-          backgroundColor="#000000d9"
-        >
-          <RelativeDiv>
-            {/* {this.displayGivingTuesday()} */}
-            <FTRHeader>Fit To Recover</FTRHeader>
-            {/* <hr style={{ backgroundColor: "white", width: "50%" }} /> */}
-            <SafePlaceText style={{fontSize: "20px"}}>
-              A safe place for people in Recovery to connect through Fitness,
-              Creative Expression, Nutrition, and Service.
+      <StyledDiv
+        href={"https://givingtuesday.mightycause.com/story/Giveftr2019"}
+        backgroundColor="#000000d9"
+      >
+        <RelativeDiv>
+          {/* {this.displayGivingTuesday()} */}
+          <FTRHeader>Fit To Recover</FTRHeader>
+          {/* <hr style={{ backgroundColor: "white", width: "50%" }} /> */}
+          <SafePlaceText style={{ fontSize: "20px" }}>
+            A safe place for people in Recovery to connect through Fitness,
+            Creative Expression, Nutrition, and Service.
           </SafePlaceText>
-            <GTText>
-              Support Your <GTSpan>{this.state.gTS}</GTSpan>
-            </GTText>
-          </RelativeDiv>
-          <iframe
-            width={window.innerWidth}
-            height={window.innerHeight * 0.9}
-            style={{zIndex: "-100"}}
-            src={`https://www.youtube-nocookie.com/embed?listType=playlist&list=PLnM_nSADhpDFFZ6UJ3laEsKMd1vK1bgVw&loop=1&mute=1&autoplay=${
-              this.state.isMobile ? 0 : 1
-              }&controls=${
-              this.state.isMobile ? 1 : 0
-              }&modestbranding=1&rel=0&showinfo=0`}
-            frameborder="0"
-            // allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
-            allowfullscreen
-            loop="true"
-          />
-        </StyledDiv>
-      );
+          <GTText>
+            Support Your <GTSpan>{this.state.gTS}</GTSpan>
+          </GTText>
+        </RelativeDiv>
+        <iframe
+          width={window.innerWidth}
+          height={window.innerHeight * 0.9}
+          style={{ zIndex: "-100" }}
+          src={`https://www.youtube-nocookie.com/embed?listType=playlist&list=PLnM_nSADhpDFFZ6UJ3laEsKMd1vK1bgVw&loop=1&mute=1&autoplay=${
+            this.state.isMobile ? 0 : 1
+          }&controls=${
+            this.state.isMobile ? 1 : 0
+          }&modestbranding=1&rel=0&showinfo=0`}
+          frameborder="0"
+          // allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
+          allowfullscreen
+          loop="true"
+        />
+      </StyledDiv>
+    );
   };
 
   isMobileDevice() {
@@ -174,7 +174,7 @@ class Home extends Component {
     }
   }
 
-  compare(a,b) {
+  compare(a, b) {
     if (a.itemNumber > b.itemNumber) return 1;
     if (a.itemNumber < b.itemNumber) return -1;
     return 0;
@@ -183,8 +183,8 @@ class Home extends Component {
   displayGivingTuesday() {
     return (
       <GTWrap
-        onMouseEnter={() => this.setState({gTHover: true})}
-        onMouseLeave={() => this.setState({gTHover: false})}
+        onMouseEnter={() => this.setState({ gTHover: true })}
+        onMouseLeave={() => this.setState({ gTHover: false })}
       >
         <GTName name={this.state.gTHover ? "white" : "black"}>
           Fit To Recover
@@ -194,14 +194,14 @@ class Home extends Component {
           Support Your <GTSpan>{this.state.gTS}</GTSpan>
         </GTText>
         {this.state.isMobile ? (
-          <h6 style={{color: "black"}}>( Press for Details )</h6>
+          <h6 style={{ color: "black" }}>( Press for Details )</h6>
         ) : null}
       </GTWrap>
     );
   }
 
   displayImages = () => {
-    return this.state.photos.map(pic => (
+    return this.state.photos.map((pic) => (
       <StyledDiv flexDirection="column" justifyContent="space-between">
         <BLink
           href="https://www.instagram.com/fit_2recover/?hl=en"
@@ -310,7 +310,7 @@ class Home extends Component {
   };
 
   displayInTheNews = () => {
-    const {gallery} = this.state;
+    const { gallery } = this.state;
     return (
       <NewsWrap>
         <TopHeaderWrap>
@@ -335,7 +335,7 @@ class Home extends Component {
     return (
       <BulletinWrap>
         <BulletinHeader>FTR Bulletin Board</BulletinHeader>
-        {this.state.bulletins.map(single => {
+        {this.state.bulletins.map((single) => {
           return <SingleBulletinItem single={single} />;
         })}
         {this.displayInTheNews()}
@@ -344,7 +344,7 @@ class Home extends Component {
   };
 
   displayNewsletter = () => {
-    const {newsletter} = this.state;
+    const { newsletter } = this.state;
     const Title = newsletter.title.split(" ")[0];
     return (
       <BLink
@@ -382,17 +382,7 @@ class Home extends Component {
             fourHundredSize="22px"
             fontWeight="400"
           >
-            FTR is CLOSED until further notice.
-            <hr />
-          </AnniversaryText>
-          <AnniversaryText
-            fontSize="36px"
-            color="#0080ff"
-            sixHundredSize="26px"
-            fourHundredSize="20px"
-            fontWeight="400"
-          >
-            &#8595; Online classes in bulletin board below &#8595;
+            FTR is currently holding online classes only.
             <hr />
           </AnniversaryText>
           <AnniversaryText
@@ -403,20 +393,18 @@ class Home extends Component {
             fontWeight="400"
           >
             Due to the growing COVID-19 and FTR’s focus on the safety for our
-            staff and members we will be cancelling all programing starting
-            Monday, March 16th until March 30th. We will provide updates on a
-            weekly basis through Facebook, Instagram and on our website. We are
-            a community that cares both for those within our doors and out. We
-            are a healthy and strong group that may not have much concern for
-            the virus, but we can help our community by getting ahead of this
-            problem and not adding to it.
+            staff and members we are holding online classes only. We will
+            provide updates on a weekly basis through Facebook, Instagram and on
+            our website. We are a community that cares both for those within our
+            doors and out. We are a healthy and strong group that may not have
+            much concern for the virus, but we can help our community by getting
+            ahead of this problem and not adding to it.
             <br />
             We care about your safety and well-being above all else. If you have
             any comments, questions, or concerns we are here for you. All of our
             staff will be available via email, phone, and social media. You can
             reach Ian directly at 614.975.5689 or Nicolette at 801.557.0502.
           </AnniversaryText>
-
         </FTRClosedWrap>
         {/* {this.displayGivingTuesday()} */}
         {/* {this.displayMovie()} */}
@@ -472,12 +460,12 @@ class Home extends Component {
         {this.state.bulletins.length ? this.displayBulletin() : null}
 
         <div className="instaNewsBar">
-          <Grid style={{display: "flex",justifyContent: "center"}}>
+          <Grid style={{ display: "flex", justifyContent: "center" }}>
             <Grid.Column
               mobile={16}
               tablet={8}
               computer={8}
-              style={{maxWidth: "750px"}}
+              style={{ maxWidth: "750px" }}
             >
               {this.state.photos && this.displayImages()}
             </Grid.Column>
@@ -485,7 +473,7 @@ class Home extends Component {
               mobile={16}
               tablet={8}
               computer={8}
-              style={{maxWidth: "750px"}}
+              style={{ maxWidth: "750px" }}
             >
               {this.state.newsletter && this.displayNewsletter()}
             </Grid.Column>
@@ -648,27 +636,27 @@ let styles = {
     width: "100%",
     display: "flex",
     flexFlow: "column",
-    paddingTop: "20px"
+    paddingTop: "20px",
   },
   modalInsta: {
     height: "500px",
     width: "500px",
     marginTop: "-250px",
-    marginLeft: "-250px"
+    marginLeft: "-250px",
   },
   heading: {
     alignSelf: "center",
-    color: "black"
+    color: "black",
   },
   slcMAP: {
     fontWeight: "300",
-    fontSize: "2em"
+    fontSize: "2em",
   },
   ftrMemberLink: {
-    color: "white"
+    color: "white",
   },
   ftrClassLink: {
-    color: "white"
+    color: "white",
   },
   mapButton: {
     color: "white",
@@ -676,22 +664,22 @@ let styles = {
     justifyContent: "center",
     padding: "8px 20px",
     borderRadius: "5px",
-    fontSize: "16px"
+    fontSize: "16px",
   },
   triad: {
     display: "Flex",
     flexDirection: "column",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
   pTitles: {
-    fontSize: "28px"
+    fontSize: "28px",
   },
   pDesc: {
     textAlign: "center",
     padding: "0 10px",
     fontSize: "18px",
-    fontWeight: "400"
+    fontWeight: "400",
   },
   learnMore: {
     border: "1px solid #941F1F",
@@ -700,64 +688,64 @@ let styles = {
     padding: "10px 5px",
     cursor: "pointer",
     borderRadius: "5px",
-    fontSize: "16px"
+    fontSize: "16px",
   },
   pEA: {
     height: "250px",
     display: "flex",
-    alignItems: "center"
+    alignItems: "center",
   },
   pillarsHeadline: {
     display: "flex",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   fourTitle: {
-    fontSize: "28px"
+    fontSize: "28px",
   },
   quadPillarsFitness: {
     height: "300px",
     display: "flex",
     flexFlow: "column nowrap",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
   qTitle: {
-    fontSize: "30px"
+    fontSize: "30px",
   },
   qDesc: {
     fontSize: "18px",
-    textAlign: "center"
+    textAlign: "center",
   },
   fitnessButton: {
     border: "1px solid #f90101",
     color: "#f90101",
     padding: "15px 5px",
     borderRadius: "5px",
-    transition: "background-color 0.3s"
+    transition: "background-color 0.3s",
   },
   serviceButton: {
     border: "1px solid #8e44ad",
     color: "#8e44ad",
     padding: "15px 5px",
     borderRadius: "5px",
-    transition: "background-color 0.3s"
+    transition: "background-color 0.3s",
   },
   creativeButton: {
     border: "1px solid #332df7",
     color: "#332df7",
     padding: "15px 5px",
     borderRadius: "5px",
-    transition: "background-color 0.3s"
+    transition: "background-color 0.3s",
   },
   nutritionButton: {
     border: "1px solid #349c09",
     color: "#349c09",
     padding: "15px 5px",
     borderRadius: "5px",
-    transition: "background-color 0.3s"
+    transition: "background-color 0.3s",
   },
   quadCard: {
-    padding: "40px 0"
+    padding: "40px 0",
   },
   donate: {
     display: "flex",
@@ -765,7 +753,7 @@ let styles = {
     borderRadius: "10px 10px 0 0",
     flexDirection: "column",
     justifyContent: "flex-end",
-    textAlign: "center"
+    textAlign: "center",
   },
   donateWords: {
     padding: "50px 0",
@@ -773,12 +761,12 @@ let styles = {
     fontWeight: 300,
     textAlign: "center",
     width: "75%",
-    margin: "0 auto"
+    margin: "0 auto",
   },
   footer: {
     height: "200px",
-    backgroundColor: "#941F1F"
-  }
+    backgroundColor: "#941F1F",
+  },
 };
 
 const FTRClosedWrap = styled.div`
@@ -804,30 +792,30 @@ const AnniversaryText = styled.h1`
   margin: 0 !important;
   width: 70%;
   text-align: center;
-  font-size: ${props => props.fontSize};
-  color: ${props => props.color};
+  font-size: ${(props) => props.fontSize};
+  color: ${(props) => props.color};
 
   @media (max-width: 768px) {
-    font-size: ${props => props.sixHundredSize};
+    font-size: ${(props) => props.sixHundredSize};
   }
 
   @media (max-width: 400px) {
-    font-size: ${props => props.fourHundredSize};
+    font-size: ${(props) => props.fourHundredSize};
   }
 `;
 const MissionText = styled.h1`
   margin: 15px auto !important;
   width: 90%;
   text-align: center;
-  font-size: ${props => props.fontSize};
-  color: ${props => props.color};
+  font-size: ${(props) => props.fontSize};
+  color: ${(props) => props.color};
 
   @media (max-width: 605px) {
-    font-size: ${props => props.sixHundredSize};
+    font-size: ${(props) => props.sixHundredSize};
   }
 
   @media (max-width: 400px) {
-    font-size: ${props => props.fourHundredSize};
+    font-size: ${(props) => props.fourHundredSize};
   }
 `;
 const BulletinWrap = styled.div`
@@ -864,10 +852,10 @@ export const TopPadding = styled.div`
 
 const StyledDiv = styled.a`
   display: flex;
-  width: ${props => props.width};
+  width: ${(props) => props.width};
   justify-content: center;
   align-items: center;
-  background-color: ${props => props.backgroundColor};
+  background-color: ${(props) => props.backgroundColor};
 `;
 
 const SplashWrap = styled.div`
@@ -905,7 +893,7 @@ const RelativeDiv = styled.div`
 const StyledImage = styled.img`
   height: unset;
   width: unset;
-  max-width: ${props => props.maxWidth}px;
+  max-width: ${(props) => props.maxWidth}px;
   z-index: -1;
 `;
 
@@ -950,7 +938,7 @@ const GTName = styled.h1`
   font-size: 50px;
   font-weight: 900;
   font-family: Raleway;
-  color: ${props => props.name};
+  color: ${(props) => props.name};
   transition: color 0.4s;
 
   @media (max-width: 768px) {
