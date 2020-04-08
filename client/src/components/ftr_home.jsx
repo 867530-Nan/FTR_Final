@@ -104,7 +104,7 @@ class Home extends Component {
   displayMovie = () => {
     return this.state.isMobile ? (
       <StyledDiv
-        href={"https://givingtuesday.mightycause.com/story/Giveftr2019"}
+        href={"https://www.mightycause.com/story/Alltogethernow"}
         backgroundColor="#000000d9"
       >
         <RelativeDiv>
@@ -123,7 +123,7 @@ class Home extends Component {
       </StyledDiv>
     ) : (
       <StyledDiv
-        href={"https://givingtuesday.mightycause.com/story/Giveftr2019"}
+        href={"https://www.mightycause.com/story/Alltogethernow"}
         backgroundColor="#000000d9"
       >
         <RelativeDiv>

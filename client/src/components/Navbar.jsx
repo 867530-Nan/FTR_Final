@@ -11,7 +11,7 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem
+  DropdownItem,
 } from "reactstrap";
 import { Dropdown, Menu } from "semantic-ui-react";
 import Logo from "../assets/images/FTR-logo-NAVBAR.png";
@@ -37,7 +37,7 @@ const CalendarLink = styled(Link)`
 `;
 
 const DonateWrap = styled(Menu.Item)`
-  background-color: ${props => props.backgroundColor} !important;
+  background-color: ${(props) => props.backgroundColor} !important;
 
   &:hover {
     filter: brightness(80%) !important;
@@ -77,13 +77,13 @@ const thisIsNavbar = (
     <div className="newNavLinks">
       <DonateWrap
         as="a"
-        href={"https://givingtuesday.mightycause.com/story/Giveftr2019"}
+        href={"https://www.mightycause.com/story/Alltogethernow"}
         backgroundColor={"rgb(255, 0, 28)"}
       >
         <a
           target="_blank"
           rel="noopener referrer"
-          to={"https://givingtuesday.mightycause.com/story/Giveftr2019"}
+          to={"https://www.mightycause.com/story/Alltogethernow"}
           style={{ color: "white" }}
         >
           DONATE
