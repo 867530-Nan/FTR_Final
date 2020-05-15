@@ -76,12 +76,12 @@ const SingleTitle = styled.h2`
 `;
 
 const SingleSubtitle = styled.h3`
-  font-weight: 500;
+  font-weight: 900;
   margin: 0;
 
   @media (max-width: 768px) {
     margin: 10px 0;
-    font-weight: 500;
+    font-weight: 900;
     font-size: 14px;
   }
 `;
