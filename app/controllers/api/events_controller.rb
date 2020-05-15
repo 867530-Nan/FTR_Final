@@ -10,7 +10,7 @@ class Api::EventsController < ApplicationController
 
   def moveUp
     currentID = params[:id]
-    second = Event.find_by(itemNumber: params[:itemNumber]-1)
+    second = Event.find_by(location: params[:location], itemNumber: params[:itemNumber]-1)
     second.update_attribute(:itemNumber, second[:itemNumber]+1)
     first = Event.find(currentID)
     first.update_attribute(:itemNumber, first[:itemNumber]-1)
@@ -19,7 +19,7 @@ class Api::EventsController < ApplicationController
   
   def moveDown
     currentID = params[:id]
-    second = Event.find_by(itemNumber: params[:itemNumber]+1)
+    second = Event.find_by(location: params[:location], itemNumber: params[:itemNumber]+1)
     second.update_attribute(:itemNumber, second[:itemNumber]-1)
     first = Event.find(currentID)
     first.update_attribute(:itemNumber, first[:itemNumber]+1)
@@ -55,6 +55,6 @@ class Api::EventsController < ApplicationController
   end
   
   def event_params
-    params.require(:event).permit(:time, :body, :title, :date, :image, :link, :link_text, :itemNumber)
+    params.require(:event).permit(:time, :body, :title, :date, :image, :link, :link_text, :itemNumber, :location, :subtitle)
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_23_013524) do
+ActiveRecord::Schema.define(version: 2020_05_15_034411) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2019_07_23_013524) do
     t.text "link_text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "location"
   end
 
   create_table "employees", force: :cascade do |t|
@@ -56,6 +57,8 @@ ActiveRecord::Schema.define(version: 2019_07_23_013524) do
     t.datetime "updated_at", null: false
     t.string "time"
     t.integer "itemNumber"
+    t.integer "location"
+    t.string "subtitle"
   end
 
   create_table "fitnesses", force: :cascade do |t|

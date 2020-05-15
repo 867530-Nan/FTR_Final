@@ -75,6 +75,17 @@ const SingleTitle = styled.h2`
   }
 `;
 
+const SingleSubtitle = styled.h3`
+  font-weight: 500;
+  margin: 0;
+
+  @media (max-width: 768px) {
+    margin: 10px 0;
+    font-weight: 500;
+    font-size: 14px;
+  }
+`;
+
 const SingleDate = styled.h3`
   font-weight: 400;
   font-style: italic;
@@ -152,6 +163,7 @@ class SingleBulletinItem extends React.Component {
             onClick={() => this.setState({ showMore: !this.state.showMore })}
           >
             <SingleTitle>{this.props.single.title}</SingleTitle>
+            <SingleSubtitle>{this.props.single.subtitle}</SingleSubtitle>
             <SingleDate>
               {this.props.single.date !== null &&
                 this.props.single.date !== undefined &&

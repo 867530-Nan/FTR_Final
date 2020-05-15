@@ -1,8 +1,8 @@
-import React from 'react'
-import { Button, Checkbox, Form } from 'semantic-ui-react'
-import axios from 'axios'
-import styled from 'styled-components'
-import DateTimePicker from 'react-datetime-picker'
+import React from "react";
+import { Button, Radio, Form } from "semantic-ui-react";
+import axios from "axios";
+import styled from "styled-components";
+import DateTimePicker from "react-datetime-picker";
 
 const ButtonWrap = styled.div`
   display: flex;
@@ -10,7 +10,7 @@ const ButtonWrap = styled.div`
   margin: 30px auto;
   justify-content: space-around;
   align-items: center;
-`
+`;
 
 const DatePickerWrap = styled.div`
   width: 90%;
@@ -19,109 +19,154 @@ const DatePickerWrap = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-`
+`;
 
 class CreateForm extends React.Component {
   state = {
-    body: '',
-    title: '',
+    body: "",
+    title: "",
     date: new Date(),
-    image: '',
-    link: '',
-    link_text: '',
-    time: '',
-    itemNumber: this.props.bulletins.length + 1
-  }
+    image: "",
+    link: "",
+    link_text: "",
+    time: "",
+    itemNumber: this.props.bulletins.length + 1,
+    location: 0,
+    subtitle: "",
+  };
 
-  handleChange = e => {
-    const { id, value } = e.target
-    this.setState({ [id]: value })
-  }
+  handleChange = (e) => {
+    const { id, value } = e.target;
+    this.setState({ [id]: value });
+  };
 
-  handleDate = date => this.setState({ date })
+  handleLocation = (e) => {
+    this.setState({ location: parseInt(e.target.value) });
+  };
+
+  handleDate = (date) => this.setState({ date });
 
   handleSubmit = () => {
-    const event = { ...this.state }
+    const event = { ...this.state };
     axios
-      .post('/api/events/', { event })
+      .post("/api/events/", { event })
       .then(() => this.props.back())
-      .catch(err => console.log(err))
-  }
+      .catch((err) => console.log(err));
+  };
 
   render() {
     return (
       <div>
-        <Form style={{ paddingTop: '100px', width: '80%', margin: '0 auto' }}>
+        <Form style={{ paddingTop: "100px", width: "80%", margin: "0 auto" }}>
           <Form.Field>
             <label>Title</label>
             <input
-              placeholder='Enter Title'
+              placeholder="Enter Title"
               value={this.state.title}
-              id='title'
+              id="title"
+              onChange={this.handleChange}
+            />
+          </Form.Field>
+          <Form.Field>
+            <label>Sub Header</label>
+            <input
+              placeholder="Enter subtitle"
+              value={this.state.subtitle}
+              id="subtitle"
               onChange={this.handleChange}
             />
           </Form.Field>
           <Form.Field>
             <label>Body</label>
             <input
-              placeholder='Enter Body'
+              placeholder="Enter Body"
               value={this.state.body}
-              id='body'
+              id="body"
               onChange={this.handleChange}
             />
           </Form.Field>
           <Form.Field>
             <label>Date</label>
             <input
-              placeholder='Enter Date'
-              type='date'
+              placeholder="Enter Date"
+              type="date"
               value={this.state.date}
-              id='date'
+              id="date"
               onChange={this.handleChange}
             />
           </Form.Field>
           <Form.Field>
             <label>Time</label>
             <input
-              placeholder='Enter Time'
-              type='time'
+              placeholder="Enter Time"
+              type="time"
               value={this.state.time}
-              id='time'
+              id="time"
               onChange={this.handleChange}
             />
           </Form.Field>
           <Form.Field>
             <label>Link Text</label>
             <input
-              placeholder='Enter the Link Will Say'
-              type='text'
+              placeholder="Enter the Link Will Say"
+              type="text"
               value={this.state.link_text}
-              id='link_text'
+              id="link_text"
               onChange={this.handleChange}
             />
           </Form.Field>
           <Form.Field>
             <label>Link URL</label>
             <input
-              placeholder='Paste Facebook (or other) Link URL'
-              type='text'
+              placeholder="Paste Facebook (or other) Link URL"
+              type="text"
               value={this.state.link}
-              id='link'
+              id="link"
               onChange={this.handleChange}
+            />
+          </Form.Field>
+          <Form.Field>
+            <Radio
+              label="Gym"
+              name="radioGroup"
+              value={1}
+              id={1}
+              checked={this.state.location === 1}
+              onChange={this.handleLocation}
+            />
+          </Form.Field>
+          <Form.Field>
+            <Radio
+              label="Online"
+              name="radioGroup"
+              value={2}
+              id={2}
+              checked={this.state.location === 2}
+              onChange={this.handleLocation}
+            />
+          </Form.Field>
+          <Form.Field>
+            <Radio
+              label="Park"
+              name="radioGroup"
+              value={3}
+              id={3}
+              checked={this.state.location === 3}
+              onChange={this.handleLocation}
             />
           </Form.Field>
         </Form>
         <ButtonWrap>
-          <Button type='submit' onClick={this.handleSubmit} color='green'>
+          <Button type="submit" onClick={this.handleSubmit} color="green">
             Submit
           </Button>
-          <Button type='submit' onClick={this.props.back} color='red'>
+          <Button type="submit" onClick={this.props.back} color="red">
             Cancel
           </Button>
         </ButtonWrap>
       </div>
-    )
+    );
   }
 }
 
-export default CreateForm
+export default CreateForm;

@@ -37,6 +37,6 @@ class Api::BulletinsController < ApplicationController
   end
 
   def bulletin_params
-    params.require(:bulletin).permit(:body, :title, :date, :image, :link, :link_text)
+    params.require(:bulletin).permit(:body, :title, :date, :image, :link, :link_text, :location)
   end
 end

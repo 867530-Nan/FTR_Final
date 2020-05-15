@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import "../styles/home.css";
 import axios from "axios";
-import { Grid, Segment, Image, Icon } from "semantic-ui-react";
+import { Grid, Segment, Image, Icon, Button } from "semantic-ui-react";
 import FTRGroup from "../assets/images/GroupWithFTR.png";
 import GivingTuesdayIcon from "../assets/images/GivingTuesday2019.png";
 
@@ -332,13 +332,44 @@ class Home extends Component {
   };
 
   displayBulletin = () => {
+    const gym = this.state.bulletins.filter((s) => s.location === 1);
+    const park = this.state.bulletins.filter((s) => s.location === 2);
+    const online = this.state.bulletins.filter((s) => s.location === 3);
     return (
       <BulletinWrap>
-        <BulletinHeader>FTR Bulletin Board</BulletinHeader>
-        {this.state.bulletins.map((single) => {
-          return <SingleBulletinItem single={single} />;
-        })}
-        {this.displayInTheNews()}
+        <BulletinHeader>Class Schedule</BulletinHeader>
+        <BulletinSubheader>
+          You MUST register for an in-person class to participate.
+          <hr />
+          Classes are limited to 10 people.
+        </BulletinSubheader>
+        <Button
+          content="Register Here"
+          positive
+          as="a"
+          href="https://clients.mindbodyonline.com/classic/ws?studioid=280495&stype=-7&sView=week&sLoc=0"
+        ></Button>
+        <BulletinSection>
+          <SingleSection>
+            <SectionHeader>In the Gym</SectionHeader>
+            {gym.map((single) => {
+              return <SingleBulletinItem single={single} />;
+            })}
+          </SingleSection>
+          <SingleSection>
+            <SectionHeader>At the Park</SectionHeader>
+            {park.map((single) => {
+              return <SingleBulletinItem single={single} />;
+            })}
+          </SingleSection>
+          <SingleSection>
+            <SectionHeader>On the Internet</SectionHeader>
+            {online.map((single) => {
+              return <SingleBulletinItem single={single} />;
+            })}
+          </SingleSection>
+        </BulletinSection>
+        {this.state.gallery ? this.displayInTheNews() : null}
       </BulletinWrap>
     );
   };
@@ -376,34 +407,24 @@ class Home extends Component {
 
         <FTRClosedWrap>
           <AnniversaryText
+            className="ftrIsBack"
             fontSize="46px"
             color="black"
             sixHundredSize="32px"
             fourHundredSize="22px"
             fontWeight="400"
           >
-            FTR is currently holding online classes only.
-            <hr />
+            FTR is Back!
           </AnniversaryText>
           <AnniversaryText
-            fontSize="20px"
+            fontSize="30px"
             color="black"
-            sixHundredSize="18px"
-            fourHundredSize="16px"
+            sixHundredSize="28px"
+            fourHundredSize="20px"
             fontWeight="400"
           >
-            Due to the growing COVID-19 and FTR’s focus on the safety for our
-            staff and members we are holding online classes only. We will
-            provide updates on a weekly basis through Facebook, Instagram and on
-            our website. We are a community that cares both for those within our
-            doors and out. We are a healthy and strong group that may not have
-            much concern for the virus, but we can help our community by getting
-            ahead of this problem and not adding to it.
-            <br />
-            We care about your safety and well-being above all else. If you have
-            any comments, questions, or concerns we are here for you. All of our
-            staff will be available via email, phone, and social media. You can
-            reach Ian directly at 614.975.5689 or Nicolette at 801.557.0502.
+            <hr />
+            See schedule below for updates.
           </AnniversaryText>
         </FTRClosedWrap>
         {/* {this.displayGivingTuesday()} */}
@@ -771,7 +792,7 @@ let styles = {
 
 const FTRClosedWrap = styled.div`
   width: 100%;
-  min-height: 700px;
+  min-height: 500px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -824,13 +845,7 @@ const BulletinWrap = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: repeating-linear-gradient(
-    45deg,
-    rgba(255, 0, 0, 0.3),
-    lightgray 1px,
-    white 1px,
-    white 20px
-  );
+  background: repeating-linear-gradient( 45deg, rgba(255, 255, 255, 0.3), lightgray 1px, white 1px, white 20px )
   border-bottom: 1px solid #d3d3d3;
 `;
 
@@ -842,6 +857,18 @@ const BulletinHeader = styled.h1`
     font-size: 2.5em;
   }
 `;
+
+const BulletinSubheader = styled.h3`
+  font-weight: 900;
+  font-size: 2em;
+  text-align: center;
+
+  @media (max-width: 450px) {
+    font-size: 1.2em;
+  }
+`;
+
+const RegisterLink = styled.a``;
 
 export const TopPadding = styled.div`
   height: 65px;
@@ -1019,5 +1046,24 @@ const StyledAnchor = styled.a`
     cursor: pointer;
   }
 `;
+
+const BulletinSection = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
+
+const SingleSection = styled.div`
+  width: 350px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ebebeb;
+  padding: 20px;
+  border-radius: 5px;
+`;
+
+const SectionHeader = styled.h2``;
 
 export default withRouter(Home);
