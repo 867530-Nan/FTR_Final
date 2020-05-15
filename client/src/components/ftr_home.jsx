@@ -333,8 +333,8 @@ class Home extends Component {
 
   displayBulletin = () => {
     const gym = this.state.bulletins.filter((s) => s.location === 1);
-    const park = this.state.bulletins.filter((s) => s.location === 2);
-    const online = this.state.bulletins.filter((s) => s.location === 3);
+    const online = this.state.bulletins.filter((s) => s.location === 2);
+    const park = this.state.bulletins.filter((s) => s.location === 3);
     return (
       <BulletinWrap>
         <BulletinHeader>Class Schedule</BulletinHeader>

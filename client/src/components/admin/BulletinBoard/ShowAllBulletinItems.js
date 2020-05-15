@@ -109,7 +109,6 @@ class ShowAllBulletinItems extends React.Component {
             </Button>
           </ButtonWrap>
           <div style={{ display: "flex", flexWrap: "wrap" }}>
-            {this.createSection("Gym", this.props.bulletins)}
             {this.createSection(
               "Gym",
               this.props.bulletins.filter((s) => s.location === 1)
