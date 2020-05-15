@@ -162,7 +162,7 @@ class App extends Component {
             <Route exact path="/gallery" component={Gallery} />
             <Route exact path="/newstime" component={Newsletter} />
             <AuthRoute exact path="/login" component={Login} />
-            <Route exact path="/register" component={Register} />
+            {/* <Route exact path="/register" component={Register} /> */}
             <ProtectedRoute exact path="/admin" component={Admin} />
             <Route component={NoMatch} />
           </Switch>
