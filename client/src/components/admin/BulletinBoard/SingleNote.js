@@ -20,7 +20,9 @@ class SingleNote extends React.Component {
 
   determineTime = (time) => {
     let up = time.split(":");
-    if (parseInt(up[0]) > 12) {
+    if (time === "12:00") {
+      return "12:00pm";
+    } else if (parseInt(up[0]) > 12) {
       up[0] = `${parseInt(up[0]) - 12}`;
       const newt = up.join(":");
       return `${newt} pm`;

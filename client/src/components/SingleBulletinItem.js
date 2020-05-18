@@ -139,6 +139,10 @@ class SingleBulletinItem extends React.Component {
   determineTime = (time) => {
     if (time) {
       let up = time.split(":");
+      console.log(up);
+      if (up[0] === "12") {
+        return `${up.join(":")} pm`;
+      }
       if (parseInt(up[0]) > 12) {
         up[0] = `${parseInt(up[0]) - 12}`;
         const newt = up.join(":");
