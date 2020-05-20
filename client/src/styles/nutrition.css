@@ -1,323 +1,315 @@
 .nutritionTopPhoto {
-	background: url('../assets/images/tableFood450.jpeg') center no-repeat;
-	height: 440px;
-	display: flex;
-	width: 100%;
-	margin-top: 4px;
+  background: url("../assets/images/tableFood450.jpeg") center no-repeat;
+  height: 440px;
+  display: flex;
+  width: 100%;
+  margin-top: 4px;
 }
 
 .nourishingRecovery {
-	height: 150px;
-	display: flex;
-	flex-flow: column;
-	justify-content: space-around;
-	align-items: center;
-	padding-bottom: 10px;
-	text-align: center;
-	background: #00A65E;
-	color: #FAFAFA;
+  height: 150px;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: 10px;
+  text-align: center;
+  background: #00a65e;
+  color: #fafafa;
 }
 
 .program {
-	height: 325px;
-	display: flex;
-	flex-flow: column;
-	justify-content: center;
-	align-items: center;
-	border: 1px solid red;
-	margin: 5px 0;
-	padding: 0 20px;
+  height: 325px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid red;
+  margin: 5px 0;
+  padding: 0 20px;
 }
 
-.programWordsh2,.programWordsh3 {
-	width: 85%;
-	font-weight: 300;
-	text-align: center;
+.programWordsh2,
+.programWordsh3 {
+  width: 85%;
+  font-weight: 300;
+  text-align: center;
 }
 
 .programWordsh2 {
-	font-size: 30px;
-	line-height: 1;
+  font-size: 30px;
+  line-height: 1;
 }
 
 .programWordsh3 {
-	font-size: 24px;
+  font-size: 24px;
 }
 
 .blogTitle {
-	text-align: center;
-	font-size: 24px;
-	height: 50px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  text-align: center;
+  font-size: 24px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .singlePostEntire {
-	padding: 15px 0 !important;
-	display: flex !important;
+  padding: 15px !important;
+  display: flex !important;
 }
 
 .singlePostEntire:hover {
-	cursor: pointer;
-	background-color: #00673B !important;
-	border-radius: 5px !important;
+  cursor: pointer;
+  background-color: #00673b !important;
+  border-radius: 5px !important;
 }
 
 .singlePostContent {
-	width: 284px;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
+  width: 284px;
 }
 
-.blogPic{
-	flex: 1 1 25% !important;
+.blogPic {
+  flex: 1 1 25% !important;
 }
 .blogContent {
-	flex: 1 1 75% !important;
-	align-self: center;
-	color: white;
+  flex: 1 1 75% !important;
+  align-self: center;
+  color: white;
 }
 
 .bottomWords {
-	height: 200px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .bottomWords {
-	font-size: 16px;
-	text-align: center;
-	padding: 0 30px;
+  font-size: 16px;
+  text-align: center;
+  padding: 0 30px;
 }
 
 .classCard {
-	height: 560px !important;
-	width: 45% !important;
-	display: inline-flex !important;
-	justify-content: center !important;
-	align-items: center !important;
-	margin: 20px !important;
+  height: 560px !important;
+  width: 45% !important;
+  display: inline-flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin: 20px !important;
 }
 
 .cardsColumn {
-	width: 80%;
+  width: 80%;
 }
 
 .nutritionClassLink {
-	height: 60px;
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border: 1px solid #00A65E;
-	background-color: white;
-	color: #00A65E !important;
-	text-align: center;
-	font-size: 24px;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #00a65e;
+  background-color: white;
+  color: #00a65e !important;
+  text-align: center;
+  font-size: 24px;
 }
 
 .nutritionClassLink:hover {
-	color: white !important;
-	background-color: #00A65E;
-	cursor: pointer;
-	border-top: 2px solid white;
+  color: white !important;
+  background-color: #00a65e;
+  cursor: pointer;
+  border-top: 2px solid white;
 }
 
 .nutritionBottom {
-	display: flex;
+  display: flex;
   height: 150px;
   justify-content: center;
   align-items: center;
-	background-color: #96C546;
+  background-color: #96c546;
 }
 
-.nutritionBottomWords{
-	color: white;
-	font-size: 20px;
-	width: 80%;
-	text-align: center;
+.nutritionBottomWords {
+  color: white;
+  font-size: 20px;
+  width: 80%;
+  text-align: center;
 }
 
 .nutritionBottomEmail {
-	
 }
 
 .nutritionBottomEmailWords {
-	height: 60px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background-color: #F88279;
-	color: white;
-	font-size: 20px;
-	text-align: center;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f88279;
+  color: white;
+  font-size: 20px;
+  text-align: center;
 }
 
 .commentGroup {
-	border-radius: 20px;
-	background-color: #00A65E; 
-	padding: 14px; 
-	height: 95%;
-	margin: 5px;
-	width: 105%;
+  border-radius: 20px;
+  background-color: #00a65e;
+  padding: 14px;
+  height: 95%;
+  margin: 5px;
+  width: 105%;
 }
 
 .postAlignCenter {
-	color: white !important;
+  color: white !important;
 }
 
-
 @media (max-width: 1200px) {
-	.nutritionTopPhoto {
-	background: url('../assets/images/tableFood400.jpeg') center no-repeat;
-	}
+  .nutritionTopPhoto {
+    background: url("../assets/images/tableFood400.jpeg") center no-repeat;
+  }
 }
 
 @media (max-width: 1165px) {
-	.classCard {
-		margin: 20px 2% !important;
-		display: inline-flex !important;
-	}
-	.nutritionCardPhoto {
-		width: 80% !important;
-	}
-	.commentGroup {
-		border-radius: 20px;
-		background-color: #99E889; 
-		padding: 14px; 
-		margin: 5px !important;
-		width: 105% !important;
-	}
+  .classCard {
+    margin: 20px 2% !important;
+    display: inline-flex !important;
+  }
+  .nutritionCardPhoto {
+    width: 80% !important;
+  }
+  .commentGroup {
+    border-radius: 20px;
+    background-color: #99e889;
+    padding: 14px;
+    margin: 5px !important;
+    width: 105% !important;
+  }
 }
 
 @media (max-width: 1050px) {
-	.nutritionTopPhoto {
-	background: url('../assets/images/tableFood350.jpeg') center no-repeat;
-	height: 370px;
-	}
+  .nutritionTopPhoto {
+    background: url("../assets/images/tableFood350.jpeg") center no-repeat;
+    height: 370px;
+  }
 }
 
 @media (max-width: 992px) {
-	.classCard {
-		width: 96% !important;
-	}
-	.commentGroup {
-		height: 60% !important;
-	}
+  .classCard {
+    width: 96% !important;
+  }
+  .commentGroup {
+    height: 60% !important;
+  }
 }
 
 @media (max-width: 960px) {
-	.programWordsh2,.programWordsh3 {
-		width: 90%;
-		font-weight: 300;
-		text-align: center;
-	}
+  .programWordsh2,
+  .programWordsh3 {
+    width: 90%;
+    font-weight: 300;
+    text-align: center;
+  }
 }
 
 @media (max-width: 950px) {
-	.nutritionTopPhoto {
-	background: url('../assets/images/tableFood300.jpeg') center no-repeat;
-	height: 310px;
-	}
-	.commentGroup {
-		height: 57%;
-		margin: 5px;
-		width: 105%;
-	}
+  .nutritionTopPhoto {
+    background: url("../assets/images/tableFood300.jpeg") center no-repeat;
+    height: 310px;
+  }
+  .commentGroup {
+    height: 57%;
+    margin: 5px;
+    width: 105%;
+  }
 }
 
 @media (max-width: 800px) {
-	.nutritionTopPhoto {
-	background: url('../assets/images/tableFood250.jpeg') center no-repeat;
-	height: 260px;
-	}
+  .nutritionTopPhoto {
+    background: url("../assets/images/tableFood250.jpeg") center no-repeat;
+    height: 260px;
+  }
 }
 
 @media (max-width: 785px) {
-	.programWordsh2 {
-		font-size: 20px;
-	}
+  .programWordsh2 {
+    font-size: 20px;
+  }
 }
 
 @media (max-width: 768px) {
-	.nourishingRecovery {
-		height: 80px !important;
-	}
-	.programWordsh2 {
-		font-size: 18px;
-	}
-	.programWordsh3 {
-		display: none;
-	}
-	.cardsColumn {
-		width: 100%;
-	}
-	.commentGroup {
-		height: 98% !important;
-		margin: 5px auto !important;
-		width: 70% !important;
-	}
-	.nutritionBottomWords {
-		font-size: 16px
-	}
+  .nourishingRecovery {
+    height: 80px !important;
+  }
+  .programWordsh2 {
+    font-size: 18px;
+  }
+  .programWordsh3 {
+    display: none;
+  }
+  .cardsColumn {
+    width: 100%;
+  }
+  .commentGroup {
+    height: 98% !important;
+    margin: 5px auto !important;
+    width: 70% !important;
+  }
+  .nutritionBottomWords {
+    font-size: 16px;
+  }
 }
 
 @media (max-width: 705px) {
-	.nutritionBottomEmailWords {
-		font-size: 14px !important;
-	}
+  .nutritionBottomEmailWords {
+    font-size: 14px !important;
+  }
 }
 
 @media (max-width: 670px) {
-	.nutritionTopPhoto {
-	background: url('../assets/images/tableFood200.jpeg') center no-repeat;
-	height: 210px;
-	}
+  .nutritionTopPhoto {
+    background: url("../assets/images/tableFood200.jpeg") center no-repeat;
+    height: 210px;
+  }
 }
 
 @media (max-width: 530px) {
-	.nutritionTopPhoto {
-	background: url('../assets/images/tableFood150.jpeg') center no-repeat;
-	height: 160px;
-	}
-	.nutritionBottomEmailWords {
-		font-size: 12px !important;
-	}
-	.postAlignCenter{
-		width: 100%;
-		text-align: center;
-	}
+  .nutritionTopPhoto {
+    background: url("../assets/images/tableFood150.jpeg") center no-repeat;
+    height: 160px;
+  }
+  .nutritionBottomEmailWords {
+    font-size: 12px !important;
+  }
+  .postAlignCenter {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 @media (max-width: 470px) {
-	.commentGroup {
-		width: 95% !important;
-	}
+  .commentGroup {
+    width: 95% !important;
+  }
 }
 
 @media (max-width: 450px) {
-	.nutritionBottomWords {
-		font-size: 13px !important;
-	}
-	.nutritionBottom {
-		height: 100px !important;
-	}
+  .nutritionBottomWords {
+    font-size: 13px !important;
+  }
+  .nutritionBottom {
+    height: 100px !important;
+  }
 }
 
 @media (max-width: 400px) {
-	.nutritionTopPhoto {
-	background: url('../assets/images/tableFood125.jpeg') center no-repeat;
-	height: 130px;
-	}
-	.nutritionBottomWords {
-		font-size: 11px !important;
-	}
+  .nutritionTopPhoto {
+    background: url("../assets/images/tableFood125.jpeg") center no-repeat;
+    height: 130px;
+  }
+  .nutritionBottomWords {
+    font-size: 11px !important;
+  }
 }
-
-
-
-
-

@@ -1,94 +1,101 @@
-import React, { Component } from 'react'
-import {} from 'react-router-dom'
-import axios from 'axios'
-import '../../styles/nutrition.css'
-import { Grid, Image, Item, Icon, Loader, Segment, Dimmer, Card } from 'semantic-ui-react'
-import nutritionApple from '../../assets/images/nutritionApple.jpg'
-import nutritionGroup from '../../assets/images/nutritionGroup.jpg'
-import nutritionMeal from '../../assets/images/nutritionMeal.jpg'
-import nutritionChopping from '../../assets/images/nutritionChopping.jpg'
-import DonateButton from '../DonateButton'
+import React, { Component } from "react";
+import {} from "react-router-dom";
+import axios from "axios";
+import "../../styles/nutrition.css";
+import {
+  Grid,
+  Image,
+  Item,
+  Icon,
+  Loader,
+  Segment,
+  Dimmer,
+  Card,
+} from "semantic-ui-react";
+import DisplayBlog from "./DisplayBlog";
 
-import moment from 'moment'
-import { TopPadding } from '../ftr_home'
-import { MindBody } from '../../GlobalLinks/Links'
+import moment from "moment";
+import { TopPadding } from "../ftr_home";
+import { MindBody } from "../../GlobalLinks/Links";
 
 class Nutrition extends Component {
-  state = { posts: [], loaded: false }
+  state = { posts: [], loaded: false };
 
   componentDidMount() {
-    this.fetchBlogs()
-    this.fetchNutrition()
+    this.fetchBlogs();
+    this.fetchNutrition();
   }
 
   fetchNutrition() {
-    axios.get('/api/nutrition').then(res => this.setState({ classes: res.data }))
+    axios
+      .get("/api/nutrition")
+      .then((res) => this.setState({ classes: res.data }));
   }
 
   fetchBlogs() {
     axios
-      .get('api/blogs/index')
-      .then(res => this.setState({ posts: res.data, loaded: true }))
+      .get("api/blogs/index")
+      .then((res) => this.setState({ posts: res.data, loaded: true }));
   }
 
   displayPosts = () => {
     return this.state.posts.items.map((post, i) => (
-      <Item key={i * Math.random()} className='singlePostEntire'>
-        <Item.Image className='blogPic' as='a' src={post.images[0].url} />
+      <Item key={i * Math.random()} className="singlePostEntire">
+        <Item.Image className="blogPic" as="a" src={post.images[0].url} />
         <Item.Content
-          className='blogContent'
-          as='a'
-          target='_blank'
-          rel='noreferrer noopener'
+          className="blogContent"
+          as="a"
+          target="_blank"
+          rel="noreferrer noopener"
           href={post.url}
         >
-          <Item.Header className='postAlignCenter'> {post.title} </Item.Header>
-          <Item.Description className='postAlignCenter singlePostContent'>
-            {moment(post.published).format('MMMM Do YYYY')}
+          <Item.Header className="postAlignCenter"> {post.title} </Item.Header>
+          <Item.Description className="postAlignCenter singlePostContent">
+            {moment(post.published).format("MMMM Do YYYY")}
           </Item.Description>
         </Item.Content>
       </Item>
-    ))
-  }
+    ));
+  };
 
   displayClasses = () => {
-    const arr = ['orange', 'teal', 'green', 'red']
+    const arr = ["orange", "teal", "green", "red"];
 
     return this.state.classes.map((single, i) => {
-      console.log(arr[i])
+      console.log(arr[i]);
       return (
         <Card
           key={i * Math.random()}
           color={arr[i]}
           raised
           centered
-          className='classCard'
+          className="classCard"
         >
           <Card.Content
             style={{
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center'
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
             }}
           >
-            <Card.Header style={{ textAlign: 'center', fontSize: '1.18em' }}>
+            <Card.Header style={{ textAlign: "center", fontSize: "1.18em" }}>
               {single.title}
             </Card.Header>
           </Card.Content>
-          <Image className='nutritionCardPhoto' src={single.image} />
+          <Image className="nutritionCardPhoto" src={single.image} />
           <Card.Content
             style={{
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-around'
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-around",
             }}
           >
             <Card.Description>{single.body}</Card.Description>
           </Card.Content>
         </Card>
-      )
-    })
-  }
+      );
+    });
+  };
 
   render() {
     if (this.state.loaded) {
@@ -96,84 +103,86 @@ class Nutrition extends Component {
         <div>
           <TopPadding />
 
-          <div className='nutritionTopPhoto' />
-          <div className='nourishingRecovery'>
-            <div className='programWordsh2'>
-              Food To Recover promotes connecting with food, with others, and with
-              ourselves.
+          <div className="nutritionTopPhoto" />
+          <div className="nourishingRecovery">
+            <div className="programWordsh2">
+              Food To Recover promotes connecting with food, with others, and
+              with ourselves.
             </div>
-            <div className='programWordsh3'>
-              Together, we learn about the importance of proper nutrition in our daily
-              lives, how to eat mindfully, and how to create our own healthy meals.
+            <div className="programWordsh3">
+              Together, we learn about the importance of proper nutrition in our
+              daily lives, how to eat mindfully, and how to create our own
+              healthy meals.
             </div>
           </div>
 
           <a
-            rel='noopener noreferrer'
-            className='nutritionClassLink'
+            rel="noopener noreferrer"
+            className="nutritionClassLink"
             href={MindBody}
-            target='_blank'
+            target="_blank"
           >
             Click here to Sign Up for Classes
           </a>
 
-          <Grid stackable style={{ margin: '0 30px' }}>
+          <Grid stackable style={{ margin: "0 30px" }}>
             <Grid.Row>
-              <Grid.Column className='cardsColumn' computer={12} tablet={10} mobile={16}>
-                {this.displayClasses()}
+              <Grid.Column
+                className="cardsColumn"
+                computer={12}
+                tablet={10}
+                mobile={16}
+              >
+                {this.state.classes && this.displayClasses()}
               </Grid.Column>
 
-              <Grid.Column computer={4} tablet={6} mobile={16}>
-                <div className='blogTitle'>
-                  <a
-                    style={{ color: 'black', fontSize: '20px' }}
-                    href='http://food2recover.blogspot.com/'
-                  >
-                    <Icon style={{ marginTop: '10px' }} name='feed' color='green' /> Food
-                    To Recover Blogposts
-                  </a>
-                </div>
-                <Item.Group className='commentGroup' style={styles.commentGroup}>
-                  {this.displayPosts()}
-                </Item.Group>
-              </Grid.Column>
+              {this.state.posts && <DisplayBlog posts={this.state.posts} />}
             </Grid.Row>
           </Grid>
 
-          <div className='nutritionBottom'>
-            <p className='nutritionBottomWords'>
-              Proper nutrition is the foundation of good health. It can be especially
-              important during recovery to help keep blood sugars stable and reduce
-              cravings, to improve and stabilize mood, and to replenish nutritional
-              deficiencies that may have occurred during substance use.
+          <div className="nutritionBottom">
+            <p className="nutritionBottomWords">
+              Proper nutrition is the foundation of good health. It can be
+              especially important during recovery to help keep blood sugars
+              stable and reduce cravings, to improve and stabilize mood, and to
+              replenish nutritional deficiencies that may have occurred during
+              substance use.
             </p>
           </div>
           <a
-            href='mailto:nicolette@fit2recover.org'
-            className='nutritionBottomEmailWords'
+            href="mailto:nicolette@fit2recover.org"
+            className="nutritionBottomEmailWords"
           >
-            <Icon name='mail outline' color='white' style={{ fontSize: '20px' }} />
+            <Icon
+              name="mail outline"
+              color="white"
+              style={{ fontSize: "20px" }}
+            />
             Contact Nicolette Pessetto for more information
-            <Icon name='mail outline' color='white' style={{ fontSize: '20px' }} />
+            <Icon
+              name="mail outline"
+              color="white"
+              style={{ fontSize: "20px" }}
+            />
           </a>
         </div>
-      )
+      );
     } else {
       return (
-        <Segment style={{ height: '600px' }}>
+        <Segment style={{ height: "600px" }}>
           <Dimmer active>
             <Loader>Loading Blog Posts</Loader>
           </Dimmer>
         </Segment>
-      )
+      );
     }
   }
 }
 
 const styles = {
   topNutritionPadding: {
-    paddingTop: '55px'
-  }
-}
+    paddingTop: "55px",
+  },
+};
 
-export default Nutrition
+export default Nutrition;

@@ -10,7 +10,7 @@ import Mountain from "../assets/images/mountainCROPStar.jpg";
 import donate from "../assets/images/July_2014_Bootcamp_CROP.jpeg";
 import June2018 from "../assets/images/June2018.png";
 import paypal from "../assets/images/paypalDonate.png";
-import DonateButton from "./DonateButton";
+import DisplayBlog from "./programs/DisplayBlog";
 import BLink from "./BLink";
 import { Lazy } from "react-lazy";
 import { saveAddress } from "../actions/address";
@@ -34,6 +34,7 @@ class Home extends Component {
     secondEmoji:
       masterEmojiList[Math.floor(Math.random() * masterEmojiList.length)],
     isMobile: false,
+    posts: [],
     gTS: "",
     gallery: {},
     gTHover: false,
@@ -77,6 +78,9 @@ class Home extends Component {
         isMobile: this.isMobileDevice(),
       });
     });
+    axios
+      .get("api/blogs/index")
+      .then((res) => this.setState({ posts: res.data }));
     saveAddress(window.location.href);
     var item = this.state.gTOptions[
       Math.floor(Math.random() * this.state.gTOptions.length)
@@ -204,24 +208,35 @@ class Home extends Component {
 
   displayImages = () => {
     return this.state.photos.map((pic) => (
-      <StyledDiv flexDirection="column" justifyContent="space-between">
-        <BLink
-          href="https://www.instagram.com/fit_2recover/?hl=en"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="homeInsta"
-        >
-          <div className="homeInstaTitle">
-            Follow Us @fit_2recover
-            <Icon name="instagram" />
-          </div>
-          <Image
-            className="homeSingleInsta"
-            src={pic.images.standard_resolution.url}
-          />
-        </BLink>
-      </StyledDiv>
+      <Wrapper
+        href="https://www.instagram.com/fit_2recover/?hl=en"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <DisplayImages>
+          <h3>@fit_2recover</h3>
+          <InstaImage src={pic.images.standard_resolution.url} />
+        </DisplayImages>
+      </Wrapper>
     ));
+  };
+
+  displayNewsletter = () => {
+    const { newsletter } = this.state;
+    const Title = newsletter.title.split(" ")[0];
+    return (
+      <Wrapper target="_blank" rel="noopener noreferrer" href={newsletter.link}>
+        <DisplayImages>
+          <div className="homeEachOne">
+            <h3>&nbsp;Read our {Title} Newsletter&nbsp;</h3>
+          </div>
+          <InstaImage
+            src={newsletter.image}
+            alt={`${newsletter.title} Newsletter`}
+          />
+        </DisplayImages>
+      </Wrapper>
+    );
   };
 
   displayLinks = () => {
@@ -351,54 +366,30 @@ class Home extends Component {
           as="a"
           href="https://clients.mindbodyonline.com/classic/ws?studioid=280495&stype=-7&sView=week&sLoc=0"
         ></Button>
-        <BulletinSection>
-          <SingleSection>
-            <SectionHeader>In the Gym</SectionHeader>
-            {gym.map((single) => {
-              return <SingleBulletinItem single={single} />;
-            })}
-          </SingleSection>
-          <SingleSection>
-            <SectionHeader>At the Park</SectionHeader>
-            {park.map((single) => {
-              return <SingleBulletinItem single={single} />;
-            })}
-          </SingleSection>
-          <SingleSection>
-            <SectionHeader>On the Internet</SectionHeader>
-            {online.map((single) => {
-              return <SingleBulletinItem single={single} />;
-            })}
-          </SingleSection>
-        </BulletinSection>
+        {this.state.bulletins.length ? (
+          <BulletinSection>
+            <SingleSection>
+              <SectionHeader>In the Gym</SectionHeader>
+              {gym.map((single) => {
+                return <SingleBulletinItem single={single} />;
+              })}
+            </SingleSection>
+            <SingleSection>
+              <SectionHeader>At the Park</SectionHeader>
+              {park.map((single) => {
+                return <SingleBulletinItem single={single} />;
+              })}
+            </SingleSection>
+            <SingleSection>
+              <SectionHeader>On the Internet</SectionHeader>
+              {online.map((single) => {
+                return <SingleBulletinItem single={single} />;
+              })}
+            </SingleSection>
+          </BulletinSection>
+        ) : null}
         {this.state.gallery ? this.displayInTheNews() : null}
       </BulletinWrap>
-    );
-  };
-
-  displayNewsletter = () => {
-    const { newsletter } = this.state;
-    const Title = newsletter.title.split(" ")[0];
-    return (
-      <BLink
-        className="homeNewsletterLink"
-        target="_blank"
-        rel="noopener noreferrer"
-        href={newsletter.link}
-      >
-        <div className="homeMonthlyNewsletter">
-          <div className="homeEachOne">
-            <span className="glyphicon glyphicon-arrow-down" />
-            <p className="homeMonth">&nbsp;Read our {Title} Newsletter&nbsp;</p>
-            <span className="glyphicon glyphicon-arrow-down" />
-          </div>
-          <img
-            className="homeNewsletterPhoto img-responsive"
-            src={newsletter.image}
-            alt={`${newsletter.title} Newsletter`}
-          />
-        </div>
-      </BLink>
     );
   };
 
@@ -480,28 +471,19 @@ class Home extends Component {
         </LogoWrap>
       */}
 
-        {this.state.bulletins.length ? this.displayBulletin() : null}
+        {this.displayBulletin()}
 
-        <div className="instaNewsBar">
-          <Grid style={{ display: "flex", justifyContent: "center" }}>
-            <Grid.Column
-              mobile={16}
-              tablet={8}
-              computer={8}
-              style={{ maxWidth: "750px" }}
-            >
-              {this.state.photos && this.displayImages()}
-            </Grid.Column>
-            <Grid.Column
-              mobile={16}
-              tablet={8}
-              computer={8}
-              style={{ maxWidth: "750px" }}
-            >
-              {this.state.newsletter && this.displayNewsletter()}
-            </Grid.Column>
-          </Grid>
-        </div>
+        <NewsletterBlogWrap>
+          <InstaNews>
+            {this.state.photos && this.displayImages()}
+            {this.state.newsletter && this.displayNewsletter()}
+          </InstaNews>
+          <BlogWrap>
+            {this.state.posts.items && (
+              <DisplayBlog posts={this.state.posts} scroll={true} />
+            )}
+          </BlogWrap>
+        </NewsletterBlogWrap>
 
         <Segment padded raised style={styles.pillarsHeadline}>
           <h2 className="fourTitle" style={styles.fourTitle}>
@@ -1067,5 +1049,55 @@ const SingleSection = styled.div`
 `;
 
 const SectionHeader = styled.h2``;
+
+const NewsletterBlogWrap = styled.div`
+  display: flex;
+  flex-direction row;
+  height: 700px;
+`;
+
+const InstaNews = styled.div`
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+`;
+
+const BlogWrap = styled.div`
+  height: 100%;
+  width: 50%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+`;
+
+const DisplayImages = styled.div`
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const InstaImage = styled.img`
+  max-width: 250px;
+`;
+
+const Wrapper = styled.a`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 350px;
+  height: 50%;
+  &:hover {
+    opacity: 0.9;
+    cursor: pointer;
+    background-color: lightgray;
+  }
+`;
 
 export default withRouter(Home);
