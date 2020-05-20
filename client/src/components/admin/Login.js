@@ -5,10 +5,19 @@ import { connect } from "react-redux";
 
 class Login extends React.Component {
   state = {
-    email: "contact@fit2recover.org",
-    password: "adminAEIOU2468",
+    email: "",
+    password: "",
     loggedIn: true,
   };
+
+  componentDidMount() {
+    if (!process.env.NODE_ENV || process.env.NODE_ENV === "development") {
+      this.setState({
+        email: "contact@fit2recover.org",
+        password: "adminAEIOU2468",
+      });
+    }
+  }
 
   handleChange = (e) => {
     const { id, value } = e.target;
