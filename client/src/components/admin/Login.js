@@ -5,12 +5,12 @@ import { connect } from "react-redux";
 
 class Login extends React.Component {
   state = {
-    email: "",
-    password: "",
-    loggedIn: true
+    email: "contact@fit2recover.org",
+    password: "adminAEIOU2468",
+    loggedIn: true,
   };
 
-  handleChange = e => {
+  handleChange = (e) => {
     const { id, value } = e.target;
     this.setState({ [id]: value });
   };
@@ -39,7 +39,7 @@ class Login extends React.Component {
           flexDirection: "column",
           justifyContent: "space-around",
           width: "90%",
-          margin: "0 auto"
+          margin: "0 auto",
         }}
       >
         <Form.Field>

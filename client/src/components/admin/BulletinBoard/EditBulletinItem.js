@@ -36,6 +36,15 @@ class EditBulletinItem extends React.Component {
     link_text: this.props.bulletin.link_text
       ? this.props.bulletin.link_text
       : null,
+    isVisible: this.props.bulletin.isVisible || null,
+  };
+
+  toggleVisibility = () => {
+    this.setState((state) => {
+      return {
+        isVisible: !state.isVisible,
+      };
+    });
   };
 
   handleChange = (e) => {
@@ -130,6 +139,14 @@ class EditBulletinItem extends React.Component {
                 onChange={this.handleChange}
               />
             </Form.Field>
+          </Form>
+          <Form
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-around",
+            }}
+          >
             <Form.Field>
               <Radio
                 label="Gym"
@@ -158,6 +175,32 @@ class EditBulletinItem extends React.Component {
                 id={3}
                 checked={this.state.location === 3}
                 onChange={this.handleLocation}
+              />
+            </Form.Field>
+          </Form>
+          <Form
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-around",
+            }}
+          >
+            <Form.Field>
+              <Radio
+                label="Show"
+                name="visibility"
+                value={this.state.isVisible}
+                checked={this.state.isVisible === true}
+                onChange={this.toggleVisibility}
+              />
+            </Form.Field>
+            <Form.Field>
+              <Radio
+                label="Hide"
+                name="visibility"
+                value={this.state.isVisible}
+                checked={this.state.isVisible === false}
+                onChange={this.toggleVisibility}
               />
             </Form.Field>
           </Form>

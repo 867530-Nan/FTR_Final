@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_15_034411) do
+ActiveRecord::Schema.define(version: 2020_05_20_010015) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 2020_05_15_034411) do
     t.integer "itemNumber"
     t.integer "location"
     t.string "subtitle"
+    t.boolean "isVisible"
   end
 
   create_table "fitnesses", force: :cascade do |t|
