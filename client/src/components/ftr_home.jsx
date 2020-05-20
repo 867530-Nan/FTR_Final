@@ -219,9 +219,7 @@ class Home extends Component {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <h3 style={{ color: "black", fontSize: "20px", margin: "20px" }}>
-          IG: @fit_2recover
-        </h3>
+        <h2 style={{ color: "black", margin: "20px" }}>IG: @fit_2recover</h2>
         {this.state.photos.length ? (
           <InstaImage
             src={this.state.photos[0].images.standard_resolution.url}
@@ -261,7 +259,7 @@ class Home extends Component {
         href={newsletter.link}
       >
         <TopHeaderText>{Title} Newsletter</TopHeaderText>
-        <InstaImage
+        <NewsletterImage
           src={newsletter.image}
           alt={`${newsletter.title} Newsletter`}
         />
@@ -1031,6 +1029,7 @@ const TopHeaderWrap = styled.div`
 const TopHeaderText = styled.h1`
   padding: 15px 0;
   text-decoration: underline;
+  color: black;
 `;
 
 const NewsSpan = styled.span`
@@ -1118,8 +1117,12 @@ const BlogWrap = styled.div`
   }
 `;
 
-const InstaImage = styled.img`
+const NewsletterImage = styled.img`
   max-width: 300px;
+`;
+
+const InstaImage = styled.img`
+  max-width: 350px;
 `;
 
 const Wrapper = styled.a`

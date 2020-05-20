@@ -25,10 +25,15 @@ class DisplayBlog extends React.Component {
     return (
       <BlogWrap maxHeight={this.props.frontPage}>
         <a
-          style={{ color: "white", fontSize: "20px", margin: "20px" }}
+          style={{
+            color: "white",
+            margin: "20px",
+            width: "100%",
+            textAlign: "center",
+          }}
           href="http://food2recover.blogspot.com/"
         >
-          Food To Recover Blog
+          <h2>Food To Recover Blog</h2>
         </a>
         {this.props.posts.items ? (
           <PostWrap frontPage={this.props.frontPage}>
