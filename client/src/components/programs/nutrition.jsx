@@ -17,6 +17,7 @@ import DisplayBlog from "./DisplayBlog";
 import moment from "moment";
 import { TopPadding } from "../ftr_home";
 import { MindBody } from "../../GlobalLinks/Links";
+import styled from "styled-components";
 
 class Nutrition extends Component {
   state = { posts: [], loaded: false };
@@ -135,8 +136,9 @@ class Nutrition extends Component {
               >
                 {this.state.classes && this.displayClasses()}
               </Grid.Column>
-
-              {this.state.posts && <DisplayBlog posts={this.state.posts} />}
+              <Grid.Column computer={4} tablet={6} mobile={16}>
+                {this.state.posts && <DisplayBlog posts={this.state.posts} />}
+              </Grid.Column>
             </Grid.Row>
           </Grid>
 
@@ -149,22 +151,6 @@ class Nutrition extends Component {
               substance use.
             </p>
           </div>
-          <a
-            href="mailto:nicolette@fit2recover.org"
-            className="nutritionBottomEmailWords"
-          >
-            <Icon
-              name="mail outline"
-              color="white"
-              style={{ fontSize: "20px" }}
-            />
-            Contact Nicolette Pessetto for more information
-            <Icon
-              name="mail outline"
-              color="white"
-              style={{ fontSize: "20px" }}
-            />
-          </a>
         </div>
       );
     } else {
@@ -179,10 +165,8 @@ class Nutrition extends Component {
   }
 }
 
-const styles = {
-  topNutritionPadding: {
-    paddingTop: "55px",
-  },
-};
+const BlogWrap = styled.div`
+  width: 50%;
+`;
 
 export default Nutrition;

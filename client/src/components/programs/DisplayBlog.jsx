@@ -1,5 +1,4 @@
 import React from "react";
-import { Grid, Item, Icon } from "semantic-ui-react";
 import moment from "moment";
 import "../../styles/nutrition.css";
 import styled from "styled-components";
@@ -7,7 +6,7 @@ import styled from "styled-components";
 class DisplayBlog extends React.Component {
   displayPosts = () => {
     return this.props.posts.items.map((post, i) => (
-      <SinglePost key={i * Math.random()} className="singlePostEntire">
+      <SinglePost key={i * Math.random()} href={post.url} target="_blank">
         <SingleBlogPic src={post.images[0].url} />
         <PostTextWrap
           className="blogContent"
@@ -16,7 +15,7 @@ class DisplayBlog extends React.Component {
           rel="noreferrer noopener"
           href={post.url}
         >
-          <h3 style={{ color: "black" }}> {post.title} </h3>
+          <h3 style={{ color: "white" }}> {post.title} </h3>
           <Date>{moment(post.published).format("MMMM Do YYYY")}</Date>
         </PostTextWrap>
       </SinglePost>
@@ -24,14 +23,18 @@ class DisplayBlog extends React.Component {
   };
   render() {
     return (
-      <BlogWrap>
+      <BlogWrap maxHeight={this.props.frontPage}>
         <a
-          style={{ color: "black", fontSize: "20px", margin: "20px" }}
+          style={{ color: "white", fontSize: "20px", margin: "20px" }}
           href="http://food2recover.blogspot.com/"
         >
           Food To Recover Blog
         </a>
-        <PostWrap scroll={this.props.scroll}>{this.displayPosts()}</PostWrap>
+        {this.props.posts.items ? (
+          <PostWrap frontPage={this.props.frontPage}>
+            {this.displayPosts()}
+          </PostWrap>
+        ) : null}
       </BlogWrap>
     );
   }
@@ -42,21 +45,33 @@ const BlogWrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #99e889;
+  background-color: #0b6623;
   height: 100%;
+  max-height: ${(props) => (props.maxHeight ? "500px" : null)};
+
+  @media (max-width: 768px) {
+    margin: 40px 0;
+  }
 `;
 
 const PostWrap = styled.div`
-  overflow-y: ${(props) => (props.scroll ? "scroll" : null)};
+  overflow-y: ${(props) => (props.frontPage ? "scroll" : null)};
 `;
 
 const SingleBlogPic = styled.img`
   width: 25%;
+  max-width: 100px;
 `;
 
-const SinglePost = styled.div`
+const SinglePost = styled.a`
   height: 150px;
   display: flex;
+  padding: 15px;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #084318;
+  }
 `;
 
 const PostTextWrap = styled.div`
@@ -65,7 +80,7 @@ const PostTextWrap = styled.div`
 `;
 
 const Date = styled.h3`
-  color: black;
+  color: white;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

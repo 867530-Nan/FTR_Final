@@ -54,17 +54,6 @@
   justify-content: center;
 }
 
-.singlePostEntire {
-  padding: 15px !important;
-  display: flex !important;
-}
-
-.singlePostEntire:hover {
-  cursor: pointer;
-  background-color: #00673b !important;
-  border-radius: 5px !important;
-}
-
 .singlePostContent {
   width: 284px;
 }

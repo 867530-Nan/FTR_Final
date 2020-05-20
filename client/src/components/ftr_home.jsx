@@ -68,35 +68,41 @@ class Home extends Component {
 
   componentDidMount() {
     axios.get("/api/home/index").then((res) => {
-      this.setState({
-        photos: res.data.photos.data,
-        bulletins: res.data.bulletins
-          .filter((s) => s.isVisible)
-          .sort(this.compare),
-        gallery: res.data.gallery,
-        newsletter: res.data.newsletter,
-        isMobile: this.isMobileDevice(),
-      });
+      this.setState(
+        {
+          photos: res.data.photos.data,
+          bulletins: res.data.bulletins
+            .filter((s) => s.isVisible)
+            .sort(this.compare),
+          gallery: res.data.gallery,
+          newsletter: res.data.newsletter,
+          isMobile: this.isMobileDevice(),
+        },
+        this.fetchBlog
+      );
     });
-    axios
-      .get("api/blogs/index")
-      .then((res) => this.setState({ posts: res.data }));
     saveAddress(window.location.href);
-    var item = this.state.gTOptions[
-      Math.floor(Math.random() * this.state.gTOptions.length)
-    ];
-    this.setState({ gTS: item });
-    setTimeout(() => {
-      var item = this.state.gTOptions[
-        Math.floor(Math.random() * this.state.gTOptions.length)
-      ];
-      this.setState({ gTS: item }, this.startIntervalGT);
-    }, 2500);
+    // var item = this.state.gTOptions[
+    //   Math.floor(Math.random() * this.state.gTOptions.length)
+    // ];
+    // this.setState({ gTS: item });
+    // setTimeout(() => {
+    //   var item = this.state.gTOptions[
+    //     Math.floor(Math.random() * this.state.gTOptions.length)
+    //   ];
+    //   this.setState({ gTS: item }, this.startIntervalGT);
+    // }, 2500);
   }
 
   componentWillUnmount() {
     clearTimeout(this.timer);
   }
+
+  fetchBlog = () => {
+    axios
+      .get("api/blogs/index")
+      .then((res) => this.setState({ posts: res.data }));
+  };
 
   startIntervalGT = () => {
     this.timer = setInterval(() => {
@@ -207,35 +213,59 @@ class Home extends Component {
   }
 
   displayImages = () => {
-    return this.state.photos.map((pic) => (
+    return (
       <Wrapper
         href="https://www.instagram.com/fit_2recover/?hl=en"
         target="_blank"
         rel="noopener noreferrer"
       >
-        <DisplayImages>
-          <h3>@fit_2recover</h3>
-          <InstaImage src={pic.images.standard_resolution.url} />
-        </DisplayImages>
+        <h3 style={{ color: "black", fontSize: "20px", margin: "20px" }}>
+          IG: @fit_2recover
+        </h3>
+        {this.state.photos.length ? (
+          <InstaImage
+            src={this.state.photos[0].images.standard_resolution.url}
+          />
+        ) : null}
       </Wrapper>
-    ));
+    );
+  };
+
+  displayInTheNews = () => {
+    const { gallery } = this.state;
+    return (
+      <NewsWrap>
+        <TopHeaderText>
+          FTR | <NewsSpan>In The News</NewsSpan>
+        </TopHeaderText>
+        <StyledAnchor href={gallery.link} target="_blank">
+          <BottomWrap>
+            <GalleryTitle>{gallery.name}</GalleryTitle>
+            {gallery.description ? (
+              <GalleryDesc>{gallery.description}</GalleryDesc>
+            ) : null}
+            <GalleryImage src={gallery.image} />
+          </BottomWrap>
+        </StyledAnchor>
+      </NewsWrap>
+    );
   };
 
   displayNewsletter = () => {
     const { newsletter } = this.state;
     const Title = newsletter.title.split(" ")[0];
     return (
-      <Wrapper target="_blank" rel="noopener noreferrer" href={newsletter.link}>
-        <DisplayImages>
-          <div className="homeEachOne">
-            <h3>&nbsp;Read our {Title} Newsletter&nbsp;</h3>
-          </div>
-          <InstaImage
-            src={newsletter.image}
-            alt={`${newsletter.title} Newsletter`}
-          />
-        </DisplayImages>
-      </Wrapper>
+      <NewsletterWrap
+        target="_blank"
+        rel="noopener noreferrer"
+        href={newsletter.link}
+      >
+        <TopHeaderText>{Title} Newsletter</TopHeaderText>
+        <InstaImage
+          src={newsletter.image}
+          alt={`${newsletter.title} Newsletter`}
+        />
+      </NewsletterWrap>
     );
   };
 
@@ -326,28 +356,6 @@ class Home extends Component {
     );
   };
 
-  displayInTheNews = () => {
-    const { gallery } = this.state;
-    return (
-      <NewsWrap>
-        <TopHeaderWrap>
-          <TopHeaderText>
-            FTR | <NewsSpan>In The News</NewsSpan>
-          </TopHeaderText>
-        </TopHeaderWrap>
-        <StyledAnchor href={gallery.link} target="_blank">
-          <BottomWrap>
-            <GalleryTitle>{gallery.name}</GalleryTitle>
-            {gallery.description ? (
-              <GalleryDesc>{gallery.description}</GalleryDesc>
-            ) : null}
-            <GalleryImage src={gallery.image} />
-          </BottomWrap>
-        </StyledAnchor>
-      </NewsWrap>
-    );
-  };
-
   displayBulletin = () => {
     const gym = this.state.bulletins.filter((s) => s.location === 1);
     const online = this.state.bulletins.filter((s) => s.location === 2);
@@ -388,7 +396,6 @@ class Home extends Component {
             </SingleSection>
           </BulletinSection>
         ) : null}
-        {this.state.gallery ? this.displayInTheNews() : null}
       </BulletinWrap>
     );
   };
@@ -472,16 +479,14 @@ class Home extends Component {
       */}
 
         {this.displayBulletin()}
-
+        <NewsDuo flexWrap="wrap" justifyContent="space-around">
+          {this.state.gallery ? this.displayInTheNews() : null}
+          {this.state.newsletter && this.displayNewsletter()}
+        </NewsDuo>
         <NewsletterBlogWrap>
-          <InstaNews>
-            {this.state.photos && this.displayImages()}
-            {this.state.newsletter && this.displayNewsletter()}
-          </InstaNews>
+          {this.displayImages()}
           <BlogWrap>
-            {this.state.posts.items && (
-              <DisplayBlog posts={this.state.posts} scroll={true} />
-            )}
+            <DisplayBlog posts={this.state.posts} frontPage={true} />
           </BlogWrap>
         </NewsletterBlogWrap>
 
@@ -869,6 +874,12 @@ const StyledDiv = styled.a`
   background-color: ${(props) => props.backgroundColor};
 `;
 
+const NewsDuo = styled.div`
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+`;
+
 const SplashWrap = styled.div`
   height: 100%;
   display: flex;
@@ -966,17 +977,44 @@ const GTSpan = styled.span`
   text-decoration: underline;
 `;
 
-const NewsWrap = styled.div`
+const NewsletterWrap = styled.a`
+  display: flex;
+  min-height: 400px;
+  background-color: white;
+  border-radius: 5px;
+  margin-top: 10px;
+  box-shadow: 0px 0px 8px -4px #0080ff;
+  width: 45%;
+  min-width: 350px;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 8px 1px #0080ff;
+  }
+  @media (max-width: 768px) {
+    width: 90%;
+  }
+`;
+
+const NewsWrap = styled.a`
   display: flex;
   min-height: 400px;
   background-color: white;
   border-radius: 5px;
   margin-top: 10px;
   box-shadow: 0px 0px 8px -4px #ff001c;
-  width: 50%;
+  width: 45%;
+  min-width: 350px;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 8px 1px #ff001c;
+  }
 
   @media (max-width: 768px) {
     width: 90%;
@@ -990,7 +1028,10 @@ const TopHeaderWrap = styled.div`
   align-items: center;
   border-bottom: 1px solid black;
 `;
-const TopHeaderText = styled.h1``;
+const TopHeaderText = styled.h1`
+  padding: 15px 0;
+  text-decoration: underline;
+`;
 
 const NewsSpan = styled.span`
   font-weight: 300;
@@ -1053,11 +1094,12 @@ const SectionHeader = styled.h2``;
 const NewsletterBlogWrap = styled.div`
   display: flex;
   flex-direction row;
-  height: 700px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 50px 0;
 `;
 
-const InstaNews = styled.div`
-  width: 50%;
+const InstaWrap = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -1070,33 +1112,30 @@ const InstaNews = styled.div`
 const BlogWrap = styled.div`
   height: 100%;
   width: 50%;
-
+  min-width: 350px;
   @media (max-width: 768px) {
     width: 100%;
   }
 `;
 
-const DisplayImages = styled.div`
-  height: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
 const InstaImage = styled.img`
-  max-width: 250px;
+  max-width: 300px;
 `;
 
 const Wrapper = styled.a`
+  min-width: 350px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 350px;
-  height: 50%;
+  width: 50%;
   &:hover {
     opacity: 0.9;
     cursor: pointer;
     background-color: lightgray;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
   }
 `;
 

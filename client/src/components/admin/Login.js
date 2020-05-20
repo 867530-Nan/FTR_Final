@@ -5,8 +5,8 @@ import { connect } from "react-redux";
 
 class Login extends React.Component {
   state = {
-    email: "",
-    password: "",
+    email: "contact@fit2recover.org",
+    password: "adminAEIOU2468",
     loggedIn: true,
   };
 
