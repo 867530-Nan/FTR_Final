@@ -14,10 +14,10 @@ class GalleryBoard extends React.Component {
   fetchGallerys = () => {
     axios
       .get("/api/media/")
-      .then(res =>
+      .then((res) =>
         this.setState({ gallery: res.data.sort(this.compare), showAll: true })
       )
-      .catch(res => console.log(res));
+      .catch((res) => console.log(res));
   };
 
   compare(a, b) {
@@ -26,14 +26,14 @@ class GalleryBoard extends React.Component {
     return 0;
   }
 
-  editButton = info => {
+  editButton = (info) => {
     this.setState({ editGallery: info, showAll: false, create: false });
   };
 
-  deleteButton = note => {
-    axios.delete(`/api/medium/${note.id}`);
+  deleteButton = (note) => {
+    axios.delete(`/api/media/${note.id}`);
     let gallery = this.state.gallery;
-    const newArr = gallery.filter(single => single.id !== note.id);
+    const newArr = gallery.filter((single) => single.id !== note.id);
     this.setState({ gallery: newArr });
   };
 
@@ -41,36 +41,36 @@ class GalleryBoard extends React.Component {
     this.setState({ showAll: true });
   };
 
-  handleMoveUp = e => {
+  handleMoveUp = (e) => {
     if (e.itemNumber !== 1) {
       axios
         .post("/api/galleryMoveUp/", e)
-        .then(res => this.setState({ gallery: res.data.sort(this.compare) }))
-        .catch(res => console.log(res));
+        .then((res) => this.setState({ gallery: res.data.sort(this.compare) }))
+        .catch((res) => console.log(res));
     }
   };
 
-  handleMoveDown = e => {
+  handleMoveDown = (e) => {
     if (e.itemNumber !== this.state.gallery.length) {
       axios
         .post("/api/galleryMoveDown/", e)
-        .then(res => this.setState({ gallery: res.data.sort(this.compare) }))
-        .catch(res => console.log(res));
+        .then((res) => this.setState({ gallery: res.data.sort(this.compare) }))
+        .catch((res) => console.log(res));
     }
   };
 
-  handleCreate = media => {
+  handleCreate = (media) => {
     axios
       .post("/api/media/", { media })
       .then(() => this.fetchGallerys())
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   };
 
-  handleEdit = media => {
+  handleEdit = (media) => {
     axios
       .put(`/api/media/${this.state.editGallery.id}`, { media })
       .then(() => this.fetchGallerys())
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   };
 
   render() {
