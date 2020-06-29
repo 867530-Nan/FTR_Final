@@ -28,11 +28,6 @@ class Home extends Component {
     photos: [],
     bulletins: [],
     newsletter: undefined,
-    FTREmoji: masterEmojiList,
-    firstEmoji:
-      masterEmojiList[Math.floor(Math.random() * masterEmojiList.length)],
-    secondEmoji:
-      masterEmojiList[Math.floor(Math.random() * masterEmojiList.length)],
     isMobile: false,
     posts: [],
     gTS: "",
@@ -102,15 +97,6 @@ class Home extends Component {
     axios
       .get("api/blogs/index")
       .then((res) => this.setState({ posts: res.data }));
-  };
-
-  startIntervalGT = () => {
-    this.timer = setInterval(() => {
-      var item = this.state.gTOptions[
-        Math.floor(Math.random() * this.state.gTOptions.length)
-      ];
-      this.setState({ gTS: item });
-    }, 1500);
   };
 
   displayMovie = () => {
@@ -220,11 +206,7 @@ class Home extends Component {
         rel="noopener noreferrer"
       >
         <h2 style={{ color: "black", margin: "20px" }}>IG: @fit_2recover</h2>
-        {this.state.photos.length ? (
-          <InstaImage
-            src={this.state.photos[0].images.standard_resolution.url}
-          />
-        ) : null}
+        <InstaImage src={this.state.photos[0].images.standard_resolution.url} />
       </Wrapper>
     );
   };
@@ -372,7 +354,7 @@ class Home extends Component {
           as="a"
           href="https://clients.mindbodyonline.com/classic/ws?studioid=280495&stype=-7&sView=week&sLoc=0"
         ></Button>
-        {this.state.bulletins.length ? (
+        {this.state.bulletins && this.state.bulletins.length ? (
           <BulletinSection>
             <SingleSection>
               <SectionHeader>In the Gym</SectionHeader>
@@ -482,7 +464,9 @@ class Home extends Component {
           {this.state.newsletter && this.displayNewsletter()}
         </NewsDuo>
         <NewsletterBlogWrap>
-          {this.displayImages()}
+          {this.state.photos &&
+            this.state.photos.length &&
+            this.displayImages()}
           <BlogWrap>
             <DisplayBlog posts={this.state.posts} frontPage={true} />
           </BlogWrap>
