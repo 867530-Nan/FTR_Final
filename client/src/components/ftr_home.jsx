@@ -467,7 +467,11 @@ class Home extends Component {
           {this.state.photos &&
             this.state.photos.length &&
             this.displayImages()}
-          <BlogWrap>
+          <BlogWrap
+            width={
+              this.state.photos && this.state.photos.length ? "50%" : "90%"
+            }
+          >
             <DisplayBlog posts={this.state.posts} frontPage={true} />
           </BlogWrap>
         </NewsletterBlogWrap>
@@ -1077,7 +1081,7 @@ const SectionHeader = styled.h2``;
 const NewsletterBlogWrap = styled.div`
   display: flex;
   flex-direction row;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
   margin: 50px 0;
 `;
@@ -1094,7 +1098,7 @@ const InstaWrap = styled.div`
 
 const BlogWrap = styled.div`
   height: 100%;
-  width: 50%;
+  width: ${(props) => props.width};
   min-width: 350px;
   @media (max-width: 768px) {
     width: 100%;
