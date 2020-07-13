@@ -51,11 +51,15 @@ const BlogWrap = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: #0b6623;
+  max-width: 750px;
+  margin: 0 auto;
+  border-radius: 3px;
+  box-shadow: 0px 0px 30px -4px black;
   height: 100%;
   max-height: ${(props) => (props.maxHeight ? "500px" : null)};
 
   @media (max-width: 768px) {
-    margin: 40px 0;
+    margin: 40px auto;
   }
 `;
 
