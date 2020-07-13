@@ -8,6 +8,8 @@ class Api::HomeController < ApplicationController
       {access_token: ENV['INSTAGRAM_ACCESS_TOKEN'],
             count:  '1'}
           })
+    puts '--------------------------------------'
+    puts instagram
       render json: {photos: instagram, bulletins: bulletin, newsletter: newsletter, gallery: gallery} 
   end
 end

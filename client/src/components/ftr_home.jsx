@@ -63,6 +63,8 @@ class Home extends Component {
 
   componentDidMount() {
     axios.get("/api/home/index").then((res) => {
+      console.log("the res");
+      console.log(res.data);
       this.setState(
         {
           photos: res.data.photos.data,
@@ -164,10 +166,8 @@ class Home extends Component {
       navigator.userAgent.match(/BlackBerry/i) ||
       navigator.userAgent.match(/Windows Phone/i)
     ) {
-      console.log("its true");
       return true;
     } else {
-      console.log("youre the best");
       return false;
     }
   }
@@ -394,17 +394,28 @@ class Home extends Component {
             fourHundredSize="22px"
             fontWeight="400"
           >
-            FTR is Back!
+            FTR Gym Rules:
           </AnniversaryText>
           <AnniversaryText
-            fontSize="30px"
+            fontSize="18px"
             color="black"
-            sixHundredSize="28px"
-            fourHundredSize="20px"
+            sixHundredSize="16px"
+            fourHundredSize="14px"
             fontWeight="400"
           >
             <hr />
-            See schedule below for updates.
+            - Before and after each class, all equipment is sanitized.
+            <hr />
+            - FTR trainers must receive COVID-screening questions, and check
+            temperature, from each individual upon entering the gym.
+            <hr />
+            - High-Fives are restricted to Air-Fives.
+            <hr />
+            - Participants must maintain 6ft when demonstrating movements.
+            <hr />
+            - If desired, the FTR trainer will wear a mash during class.
+            <hr />- FTR requests no patient be sent to the gym if experiencing
+            any COVID-19 symptoms.
           </AnniversaryText>
         </FTRClosedWrap>
         {/* {this.displayGivingTuesday()} */}
