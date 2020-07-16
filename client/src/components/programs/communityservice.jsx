@@ -9,27 +9,27 @@ import { TopPadding } from "../ftr_home";
 class CommunityService extends Component {
   state = { photos: [] };
 
-  componentDidMount() {
-    axios
-      .get("api/instagram/service")
-      .then(res => this.setState({ photos: res.data.data }))
-      .then(res => this.checkWidth());
-  }
+  // componentDidMount() {
+  //   axios
+  //     .get("api/instagram/service")
+  //     .then(res => this.setState({ photos: res.data.data }))
+  //     .then(res => this.checkWidth());
+  // }
 
-  checkWidth = () => {
-    if (window.innerWidth < 992) {
-      let photos = this.state.photos;
-      photos.pop();
-      photos.pop();
-      this.setState({ photos: photos });
-    } else if (window.innerWidth < 1200) {
-      let photos = this.state.photos;
-      photos.pop();
-      this.setState({ photos: photos });
-    } else {
-      return;
-    }
-  };
+  // checkWidth = () => {
+  //   if (window.innerWidth < 992) {
+  //     let photos = this.state.photos;
+  //     photos.pop();
+  //     photos.pop();
+  //     this.setState({ photos: photos });
+  //   } else if (window.innerWidth < 1200) {
+  //     let photos = this.state.photos;
+  //     photos.pop();
+  //     this.setState({ photos: photos });
+  //   } else {
+  //     return;
+  //   }
+  // };
 
   displayImages = () => {
     return this.state.photos.map((pic, index) => (
@@ -40,7 +40,7 @@ class CommunityService extends Component {
         style={{
           display: "flex",
           justifyContent: "center",
-          alignItems: "center"
+          alignItems: "center",
         }}
       >
         <a
@@ -132,7 +132,7 @@ class CommunityService extends Component {
           </div>
         </div>
 
-        <div
+        {/* <div
           style={styles.serviceInstaTitle}
           href="https://www.instagram.com/fit_2recover_service/"
         >
@@ -148,7 +148,7 @@ class CommunityService extends Component {
           }}
         >
           {this.displayImages()}
-        </Grid>
+        </Grid> */}
 
         <div style={styles.whereWe} className="hidden-xs">
           <div style={styles.whereWeWords}>
@@ -176,29 +176,29 @@ class CommunityService extends Component {
 
 const styles = {
   communityServiceHeaderTitle: {
-    fontFamily: "Raleway"
+    fontFamily: "Raleway",
   },
   modalInsta: {
     height: "500px",
     width: "500px",
     marginTop: "-250px",
-    marginLeft: "-250px"
+    marginLeft: "-250px",
   },
   communityServiceHeaderShort: {
     fontFamily: "Raleway",
     fontweight: 500,
-    fontStyle: "italic"
+    fontStyle: "italic",
   },
   whatWeDo: {
     height: "300px",
-    display: "flex"
+    display: "flex",
   },
   serviceInstaTitle: {
     height: "60px",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    fontSize: "24px"
+    fontSize: "24px",
   },
   whereWe: {
     height: "100%",
@@ -206,16 +206,16 @@ const styles = {
     padding: "50px",
     alignItems: "center",
     textAlign: "center",
-    lineHeight: "1"
+    lineHeight: "1",
   },
   womensGroup: {
     textAlign: "center",
     height: "200px",
-    display: "flex"
+    display: "flex",
   },
   whereWeWords: {
     fontSize: "36px",
-    color: "#8A0035"
+    color: "#8A0035",
   },
   womensGroupTitle: {
     backgroundColor: "#4FA2BA",
@@ -225,7 +225,7 @@ const styles = {
     height: "100%",
     fontSize: "28px",
     padding: "80px 0",
-    lineHeight: "1"
+    lineHeight: "1",
   },
   womensGroupWords: {
     backgroundColor: "#034E63",
@@ -234,8 +234,8 @@ const styles = {
     alignSelf: "center",
     height: "100%",
     fontSize: "20px",
-    padding: "60px 20px 0px 20px"
-  }
+    padding: "60px 20px 0px 20px",
+  },
 };
 
 export default CommunityService;

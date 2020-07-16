@@ -387,7 +387,7 @@ class Home extends Component {
 
         <FTRClosedWrap>
           <AnniversaryText
-            className="ftrIsBack"
+            // className="ftrIsBack"
             fontSize="46px"
             color="black"
             sixHundredSize="32px"
