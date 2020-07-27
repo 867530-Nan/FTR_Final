@@ -8,6 +8,7 @@ const EntireWrap = styled.div`
   background-color: white;
   border-bottom: 1px solid lightgray;
   width: 90%;
+  min-width: 350px;
   justify-content: space-between;
   box-shadow: inset 1px 1px 20px 1px #f7eded;
   margin: 10px 0;
