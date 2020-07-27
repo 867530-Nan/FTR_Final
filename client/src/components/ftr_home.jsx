@@ -413,7 +413,7 @@ class Home extends Component {
             <hr />
             - Participants must maintain 6ft when demonstrating movements.
             <hr />
-            - If desired, the FTR trainer will wear a mash during class.
+            - If desired, the FTR trainer will wear a mask during class.
             <hr />- FTR requests no patient be sent to the gym if experiencing
             any COVID-19 symptoms.
           </AnniversaryText>
