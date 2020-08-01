@@ -45,7 +45,7 @@ class BulletinBoard extends React.Component {
     if (e.itemNumber !== 1) {
       axios
         .post("/api/eventMoveUp/", { id: parseInt(e) })
-        .then((res) => this.setState({ bulletins: res.data.sort }))
+        .then((res) => this.setState({ bulletins: res.data }))
         .catch((res) => console.log(res));
     }
   };
@@ -54,7 +54,7 @@ class BulletinBoard extends React.Component {
     if (e.itemNumber !== this.state.bulletins.length) {
       axios
         .post("/api/eventMoveDown/", { id: parseInt(e) })
-        .then((res) => this.setState({ bulletins: res.data.sort }))
+        .then((res) => this.setState({ bulletins: res.data }))
         .catch((res) => console.log(res));
     }
   };
