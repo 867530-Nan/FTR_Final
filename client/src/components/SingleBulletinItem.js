@@ -163,14 +163,7 @@ class SingleBulletinItem extends React.Component {
           <TopWrap>
             <SingleTitle>{this.props.single.title}</SingleTitle>
             <SingleSubtitle>{this.props.single.subtitle}</SingleSubtitle>
-            <SingleDate>
-              {this.props.single.date !== null &&
-                this.props.single.date !== undefined &&
-                this.configureTime(this.props.single.date)}
-            </SingleDate>
-            <SingleDate>
-              {this.determineTime(this.props.single.time)}
-            </SingleDate>
+            <SingleDate>{this.props.single.time}</SingleDate>
           </TopWrap>
           {this.state.showMore && this.showMore()}
         </SingleItemWrap>

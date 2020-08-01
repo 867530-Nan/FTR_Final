@@ -44,9 +44,7 @@ class SingleNote extends React.Component {
                 single.date !== undefined &&
                 this.configureTime(single.date)}
             </Item.Meta>
-            <Item.Meta>
-              {single.time && this.determineTime(single.time)}
-            </Item.Meta>
+            <Item.Meta>{single.time}</Item.Meta>
             <Item.Meta>{single.body && single.body}</Item.Meta>
             <Item.Extra as="a" href={single.link && single.link}>
               {single.link_text && single.link_text}

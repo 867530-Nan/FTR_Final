@@ -120,8 +120,8 @@ class EditBulletinItem extends React.Component {
             <Form.Field>
               <label>Time</label>
               <input
-                placeholder="Enter Date"
-                type="time"
+                placeholder="Enter Time"
+                type="text"
                 value={this.state.time}
                 id="time"
                 onChange={this.handleChange}
