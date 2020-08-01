@@ -21,8 +21,8 @@ class BulletinBoard extends React.Component {
   };
 
   compare(a, b) {
-    if (a.itemNumber > b.itemNumber) return 1;
-    if (a.itemNumber < b.itemNumber) return -1;
+    if (a.day > b.day) return 1;
+    if (a.day < b.day) return -1;
     return 0;
   }
 
@@ -44,10 +44,8 @@ class BulletinBoard extends React.Component {
   handleMoveUp = (e) => {
     if (e.itemNumber !== 1) {
       axios
-        .post("/api/eventMoveUp/", e)
-        .then((res) =>
-          this.setState({ bulletins: res.data.sort(this.compare) })
-        )
+        .post("/api/eventMoveUp/", { id: parseInt(e) })
+        .then((res) => this.setState({ bulletins: res.data.sort }))
         .catch((res) => console.log(res));
     }
   };
@@ -55,10 +53,8 @@ class BulletinBoard extends React.Component {
   handleMoveDown = (e) => {
     if (e.itemNumber !== this.state.bulletins.length) {
       axios
-        .post("/api/eventMoveDown/", e)
-        .then((res) =>
-          this.setState({ bulletins: res.data.sort(this.compare) })
-        )
+        .post("/api/eventMoveDown/", { id: parseInt(e) })
+        .then((res) => this.setState({ bulletins: res.data.sort }))
         .catch((res) => console.log(res));
     }
   };

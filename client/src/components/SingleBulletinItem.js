@@ -6,13 +6,10 @@ const EntireWrap = styled.div`
   display: flex;
   flex-direction: row;
   background-color: white;
-  border-bottom: 1px solid lightgray;
-  width: 90%;
-  min-width: 350px;
   justify-content: space-between;
-  box-shadow: inset 1px 1px 20px 1px #f7eded;
+  border: 2px solid #ebebeb;
   margin: 10px 0;
-
+  width: 100%;
   &:hover {
     cursor: pointer;
   }
@@ -24,7 +21,7 @@ const EntireWrap = styled.div`
 
 const PlusMinusWrap = styled.div`
   font-weight: 300;
-  font-size: 50px
+  font-size: 30px
   display: flex;
   align-items: center;
   justify-content: center;
@@ -156,17 +153,14 @@ class SingleBulletinItem extends React.Component {
 
   render() {
     return (
-      <EntireWrap>
-        <PlusMinusWrap
-          id="plusMinus"
-          onClick={() => this.setState({ showMore: !this.state.showMore })}
-        >
+      <EntireWrap
+        onClick={() => this.setState({ showMore: !this.state.showMore })}
+      >
+        <PlusMinusWrap id="plusMinus">
           {this.state.showMore ? "-" : "+"}
         </PlusMinusWrap>
         <SingleItemWrap>
-          <TopWrap
-            onClick={() => this.setState({ showMore: !this.state.showMore })}
-          >
+          <TopWrap>
             <SingleTitle>{this.props.single.title}</SingleTitle>
             <SingleSubtitle>{this.props.single.subtitle}</SingleSubtitle>
             <SingleDate>

@@ -3,13 +3,13 @@ class Api::HomeController < ApplicationController
     bulletin = Event.all
     newsletter = Newsletter.last
     gallery = Medium.find_by(frontPage: true)
-    instagram = HTTParty.get("https://api.instagram.com/v1/users/self/media/recent/?access_token=",
-    {query:
-      {access_token: ENV['INSTAGRAM_ACCESS_TOKEN'],
-            count:  '1'}
-          })
-    puts '--------------------------------------'
-    puts instagram
-      render json: {photos: instagram, bulletins: bulletin, newsletter: newsletter, gallery: gallery} 
+    # instagram = HTTParty.get("https://api.instagram.com/v1/users/self/media/recent/?access_token=",
+    # {query:
+    #   {access_token: ENV['INSTAGRAM_ACCESS_TOKEN'],
+    #         count:  '1'}
+    #       })
+    # puts '--------------------------------------'
+    # puts instagram
+      render json: {photos: [], bulletins: bulletin, newsletter: newsletter, gallery: gallery} 
   end
 end

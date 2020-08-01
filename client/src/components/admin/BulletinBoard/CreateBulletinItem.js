@@ -1,8 +1,16 @@
 import React from "react";
-import { Button, Radio, Form } from "semantic-ui-react";
+import { Button, Select, Form } from "semantic-ui-react";
 import axios from "axios";
 import styled from "styled-components";
-import DateTimePicker from "react-datetime-picker";
+const weekdays = [
+  { key: 1, value: 1, text: "Monday" },
+  { key: 2, value: 2, text: "Tuesday" },
+  { key: 3, value: 3, text: "Wednesday" },
+  { key: 4, value: 4, text: "Thursday" },
+  { key: 5, value: 5, text: "Friday" },
+  { key: 6, value: 6, text: "Saturday" },
+  { key: 7, value: 7, text: "Sunday" },
+];
 
 const ButtonWrap = styled.div`
   display: flex;
@@ -25,13 +33,12 @@ class CreateForm extends React.Component {
   state = {
     body: "",
     title: "",
-    date: new Date(),
+    day: "",
     image: "",
     link: "",
     link_text: "",
     time: "",
-    itemNumber: this.props.bulletins.length + 1,
-    location: 0,
+    itemNumber: 1,
     subtitle: "",
   };
 
@@ -40,18 +47,18 @@ class CreateForm extends React.Component {
     this.setState({ [id]: value });
   };
 
-  handleLocation = (e) => {
-    this.setState({ location: parseInt(e.target.value) });
-  };
-
   handleDate = (date) => this.setState({ date });
 
   handleSubmit = () => {
-    const event = { ...this.state };
+    const event = { ...this.state, isVisible: true };
     axios
       .post("/api/events/", { event })
       .then(() => this.props.back())
       .catch((err) => console.log(err));
+  };
+
+  selectDay = (e, data) => {
+    this.setState({ day: data.value });
   };
 
   render() {
@@ -86,20 +93,19 @@ class CreateForm extends React.Component {
             />
           </Form.Field>
           <Form.Field>
-            <label>Date</label>
-            <input
-              placeholder="Enter Date"
-              type="date"
-              value={this.state.date}
-              id="date"
-              onChange={this.handleChange}
+            <label>Day</label>
+            <Select
+              placeholder="Select Day"
+              options={weekdays}
+              value={this.state.day}
+              onChange={this.selectDay}
             />
           </Form.Field>
           <Form.Field>
             <label>Time</label>
             <input
               placeholder="Enter Time"
-              type="time"
+              type="text"
               value={this.state.time}
               id="time"
               onChange={this.handleChange}
@@ -123,36 +129,6 @@ class CreateForm extends React.Component {
               value={this.state.link}
               id="link"
               onChange={this.handleChange}
-            />
-          </Form.Field>
-          <Form.Field>
-            <Radio
-              label="Gym"
-              name="radioGroup"
-              value={1}
-              id={1}
-              checked={this.state.location === 1}
-              onChange={this.handleLocation}
-            />
-          </Form.Field>
-          <Form.Field>
-            <Radio
-              label="Online"
-              name="radioGroup"
-              value={2}
-              id={2}
-              checked={this.state.location === 2}
-              onChange={this.handleLocation}
-            />
-          </Form.Field>
-          <Form.Field>
-            <Radio
-              label="Park"
-              name="radioGroup"
-              value={3}
-              id={3}
-              checked={this.state.location === 3}
-              onChange={this.handleLocation}
             />
           </Form.Field>
         </Form>

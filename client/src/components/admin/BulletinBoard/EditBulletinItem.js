@@ -1,8 +1,18 @@
 import React from "react";
-import { Button, Radio, Form } from "semantic-ui-react";
+import { Button, Radio, Form, Select } from "semantic-ui-react";
 import axios from "axios";
 import DateTimePicker from "react-datetime-picker";
 import styled from "styled-components";
+
+const weekdays = [
+  { key: 1, value: 1, text: "Monday" },
+  { key: 2, value: 2, text: "Tuesday" },
+  { key: 3, value: 3, text: "Wednesday" },
+  { key: 4, value: 4, text: "Thursday" },
+  { key: 5, value: 5, text: "Friday" },
+  { key: 6, value: 6, text: "Saturday" },
+  { key: 7, value: 7, text: "Sunday" },
+];
 
 const ButtonWrap = styled.div`
   display: flex;
@@ -28,10 +38,9 @@ class EditBulletinItem extends React.Component {
       ? this.props.bulletin.subtitle
       : null,
     title: this.props.bulletin.title ? this.props.bulletin.title : null,
-    date: this.props.bulletin.date ? this.props.bulletin.date : null,
     image: this.props.bulletin.image ? this.props.bulletin.image : null,
+    day: this.props.bulletin.day || null,
     time: this.props.bulletin.time ? this.props.bulletin.time : null,
-    location: this.props.bulletin.location || null,
     link: this.props.bulletin.link ? this.props.bulletin.link : null,
     link_text: this.props.bulletin.link_text
       ? this.props.bulletin.link_text
@@ -52,16 +61,16 @@ class EditBulletinItem extends React.Component {
     this.setState({ [id]: value });
   };
 
-  handleLocation = (e) => {
-    this.setState({ location: parseInt(e.target.value) });
-  };
-
   handleSubmit = () => {
     const event = { ...this.state };
     axios
       .put(`/api/events/${this.props.bulletin.id}`, { event })
       .then(() => this.props.back())
       .catch((err) => console.log(err));
+  };
+
+  selectDay = (e, data) => {
+    this.setState({ day: data.value });
   };
 
   handleDate = (date) => this.setState({ date });
@@ -100,13 +109,12 @@ class EditBulletinItem extends React.Component {
               />
             </Form.Field>
             <Form.Field>
-              <label>Date</label>
-              <input
-                placeholder="Enter Date"
-                type="date"
-                value={this.state.date}
-                id="date"
-                onChange={this.handleChange}
+              <label>Day</label>
+              <Select
+                placeholder="Select Day"
+                options={weekdays}
+                value={this.state.day}
+                onChange={this.selectDay}
               />
             </Form.Field>
             <Form.Field>
@@ -137,44 +145,6 @@ class EditBulletinItem extends React.Component {
                 value={this.state.link}
                 id="link"
                 onChange={this.handleChange}
-              />
-            </Form.Field>
-          </Form>
-          <Form
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-around",
-            }}
-          >
-            <Form.Field>
-              <Radio
-                label="Gym"
-                name="radioGroup"
-                value={1}
-                id={1}
-                checked={this.state.location === 1}
-                onChange={this.handleLocation}
-              />
-            </Form.Field>
-            <Form.Field>
-              <Radio
-                label="Online"
-                name="radioGroup"
-                value={2}
-                id={2}
-                checked={this.state.location === 2}
-                onChange={this.handleLocation}
-              />
-            </Form.Field>
-            <Form.Field>
-              <Radio
-                label="Park"
-                name="radioGroup"
-                value={3}
-                id={3}
-                checked={this.state.location === 3}
-                onChange={this.handleLocation}
               />
             </Form.Field>
           </Form>

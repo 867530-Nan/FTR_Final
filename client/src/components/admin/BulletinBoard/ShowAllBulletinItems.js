@@ -45,7 +45,12 @@ class ShowAllBulletinItems extends React.Component {
   state = { bulletins: [], create: false };
 
   displayBulletin = (e) => {
-    return e.map((single, index) => {
+    function compare(a, b) {
+      if (a.itemNumber > b.itemNumber) return -1;
+      if (a.itemNumber < b.itemNumber) return 1;
+      return 0;
+    }
+    return e.sort(compare).map((single, index) => {
       return (
         <div
           style={{
@@ -69,13 +74,13 @@ class ShowAllBulletinItems extends React.Component {
           </Item.Group>
           <StyledDiv>
             <IconDiv
-              onClick={() => this.props.handleMoveUp(single)}
+              onClick={() => this.props.handleMoveUp(single.id)}
               style={{ height: "30px", width: "30px" }}
             >
               &#8593;
             </IconDiv>
             <IconDiv
-              onClick={() => this.props.handleMoveDown(single)}
+              onClick={() => this.props.handleMoveDown(single.id)}
               style={{ height: "30px", width: "30px" }}
             >
               &#8595;
@@ -110,16 +115,32 @@ class ShowAllBulletinItems extends React.Component {
           </ButtonWrap>
           <div style={{ display: "flex", flexWrap: "wrap" }}>
             {this.createSection(
-              "Gym",
-              this.props.bulletins.filter((s) => s.location === 1)
+              "Sunday",
+              this.props.bulletins.filter((s) => s.day === 7)
             )}
             {this.createSection(
-              "Online",
-              this.props.bulletins.filter((s) => s.location === 2)
+              "Monday",
+              this.props.bulletins.filter((s) => s.day === 1)
             )}
             {this.createSection(
-              "Park",
-              this.props.bulletins.filter((s) => s.location === 3)
+              "Tuesday",
+              this.props.bulletins.filter((s) => s.day === 2)
+            )}
+            {this.createSection(
+              "Wednesday",
+              this.props.bulletins.filter((s) => s.day === 3)
+            )}
+            {this.createSection(
+              "Thursday",
+              this.props.bulletins.filter((s) => s.day === 4)
+            )}
+            {this.createSection(
+              "Friday",
+              this.props.bulletins.filter((s) => s.day === 5)
+            )}
+            {this.createSection(
+              "Saturday",
+              this.props.bulletins.filter((s) => s.day === 6)
             )}
           </div>
         </div>

@@ -63,8 +63,6 @@ class Home extends Component {
 
   componentDidMount() {
     axios.get("/api/home/index").then((res) => {
-      console.log("the res");
-      console.log(res.data);
       this.setState(
         {
           photos: res.data.photos.data,
@@ -336,10 +334,28 @@ class Home extends Component {
     );
   };
 
+  dayOfWeek = (day) => {
+    switch (day) {
+      case 1:
+        return "Monday";
+      case 2:
+        return "Tuesday";
+      case 3:
+        return "Wednesday";
+      case 4:
+        return "Thursday";
+      case 5:
+        return "Friday";
+      case 6:
+        return "Saturday";
+      case 7:
+        return "Sunday";
+      default:
+        "Funday";
+    }
+  };
+
   displayBulletin = () => {
-    const gym = this.state.bulletins.filter((s) => s.location === 1);
-    const online = this.state.bulletins.filter((s) => s.location === 2);
-    const park = this.state.bulletins.filter((s) => s.location === 3);
     return (
       <BulletinWrap>
         <BulletinHeader>Class Schedule</BulletinHeader>
@@ -356,26 +372,40 @@ class Home extends Component {
         ></Button>
         {this.state.bulletins && this.state.bulletins.length ? (
           <BulletinSection>
-            <SingleSection>
-              <SectionHeader>In the Gym</SectionHeader>
-              {gym.map((single) => {
-                return <SingleBulletinItem single={single} />;
-              })}
-            </SingleSection>
-            <SingleSection>
-              <SectionHeader>At the Park</SectionHeader>
-              {park.map((single) => {
-                return <SingleBulletinItem single={single} />;
-              })}
-            </SingleSection>
-            <SingleSection>
-              <SectionHeader>On the Internet</SectionHeader>
-              {online.map((single) => {
-                return <SingleBulletinItem single={single} />;
-              })}
-            </SingleSection>
+            {[1, 2, 3, 4, 5, 6, 7].map((s) => {
+              return (
+                <SingleSection>
+                  <SHWrap>
+                    <SectionHeader>{this.dayOfWeek(s)}</SectionHeader>
+                  </SHWrap>
+                  {this.state.bulletins
+                    .filter((all) => all.day === s)
+                    .map((single) => {
+                      return <SingleBulletinItem single={single} />;
+                    })}
+                </SingleSection>
+              );
+            })}
           </BulletinSection>
-        ) : null}
+        ) : // <SingleSection>
+        //   <SectionHeader>In the Gym</SectionHeader>
+        //   {gym.map((single) => { */}
+        //     return <SingleBulletinItem single={single} />;
+        //   })}
+        // </SingleSection>
+        //   <SingleSection>
+        //     <SectionHeader>At the Park</SectionHeader>
+        //     {park.map((single) => {
+        //       return <SingleBulletinItem single={single} />;
+        //     })}
+        //   </SingleSection>
+        //   <SingleSection>
+        //     <SectionHeader>On the Internet</SectionHeader>
+        //     {online.map((single) => {
+        //       return <SingleBulletinItem single={single} />;
+        //     })}
+        //   </SingleSection>
+        null}
       </BulletinWrap>
     );
   };
@@ -1082,12 +1112,21 @@ const SingleSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #ebebeb;
+  border: 2px solid #ebebeb;
   padding: 20px;
   border-radius: 5px;
 `;
 
 const SectionHeader = styled.h2``;
+
+const SHWrap = styled.div`
+  background-color: #ebebeb;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 const NewsletterBlogWrap = styled.div`
   display: flex;
