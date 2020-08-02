@@ -154,18 +154,14 @@ class SingleBulletinItem extends React.Component {
   render() {
     return (
       <EntireWrap
-        cursor={
-          this.props.single && this.props.single.body.length > 1
-            ? "cursor"
-            : null
-        }
+        cursor={this.props.single && this.props.single.body ? "cursor" : null}
         onClick={
-          this.props.single && this.props.single.body.length > 1
+          this.props.single && this.props.single.body
             ? () => this.setState({ showMore: !this.state.showMore })
             : null
         }
       >
-        {this.props.single && this.props.single.body.length > 1 && (
+        {this.props.single && this.props.single.body > 1 && (
           <PlusMinusWrap id="plusMinus">
             {this.state.showMore ? "-" : "+"}
           </PlusMinusWrap>
