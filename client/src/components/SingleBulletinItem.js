@@ -10,9 +10,7 @@ const EntireWrap = styled.div`
   border: 2px solid #ebebeb;
   margin: 10px 0;
   width: 100%;
-  &:hover {
-    cursor: ${(props) => props.cursor};
-  }
+  cursor: ${(props) => props.cursor};
 
   &:hover > #plusMinus {
     font-weight: 500;
@@ -154,18 +152,20 @@ class SingleBulletinItem extends React.Component {
   render() {
     return (
       <EntireWrap
-        cursor={this.props.single && this.props.single.body ? "cursor" : null}
+        cursor={this.props.single && this.props.single.link ? "pointer" : null}
         onClick={
-          this.props.single && this.props.single.body
+          this.props.single &&
+          (this.props.single.body || this.props.single.link)
             ? () => this.setState({ showMore: !this.state.showMore })
             : null
         }
       >
-        {this.props.single && this.props.single.body > 1 && (
-          <PlusMinusWrap id="plusMinus">
-            {this.state.showMore ? "-" : "+"}
-          </PlusMinusWrap>
-        )}
+        {this.props.single &&
+          (this.props.single.body > 1 || this.props.single.link) && (
+            <PlusMinusWrap id="plusMinus">
+              {this.state.showMore ? "-" : "+"}
+            </PlusMinusWrap>
+          )}
         <SingleItemWrap width={this.state.showMore ? "90%" : "100%"}>
           <TopWrap>
             <SingleTitle>{this.props.single.title}</SingleTitle>
