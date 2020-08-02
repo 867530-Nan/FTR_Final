@@ -380,6 +380,7 @@ class Home extends Component {
                   </SHWrap>
                   {this.state.bulletins
                     .filter((all) => all.day === s)
+                    .sort(this.compare)
                     .map((single) => {
                       return <SingleBulletinItem single={single} />;
                     })}

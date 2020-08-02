@@ -11,7 +11,7 @@ const EntireWrap = styled.div`
   margin: 10px 0;
   width: 100%;
   &:hover {
-    cursor: pointer;
+    cursor: ${(props) => props.cursor};
   }
 
   &:hover > #plusMinus {
@@ -33,7 +33,7 @@ const PlusMinusWrap = styled.div`
 const SingleItemWrap = styled.div`
   padding: 10px;
   display: flex;
-  width: 90%;
+  width: ${(props) => props.width};
   flex-direction: column;
   justify-content: center;
   margin: 10px 0;
@@ -154,12 +154,23 @@ class SingleBulletinItem extends React.Component {
   render() {
     return (
       <EntireWrap
-        onClick={() => this.setState({ showMore: !this.state.showMore })}
+        cursor={
+          this.props.single && this.props.single.body.length > 1
+            ? "cursor"
+            : null
+        }
+        onClick={
+          this.props.single && this.props.single.body.length > 1
+            ? () => this.setState({ showMore: !this.state.showMore })
+            : null
+        }
       >
-        <PlusMinusWrap id="plusMinus">
-          {this.state.showMore ? "-" : "+"}
-        </PlusMinusWrap>
-        <SingleItemWrap>
+        {this.props.single && this.props.single.body.length > 1 && (
+          <PlusMinusWrap id="plusMinus">
+            {this.state.showMore ? "-" : "+"}
+          </PlusMinusWrap>
+        )}
+        <SingleItemWrap width={this.state.showMore ? "90%" : "100%"}>
           <TopWrap>
             <SingleTitle>{this.props.single.title}</SingleTitle>
             <SingleSubtitle>{this.props.single.subtitle}</SingleSubtitle>
