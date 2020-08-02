@@ -42,18 +42,18 @@ class BulletinBoard extends React.Component {
   };
 
   handleMoveUp = (e) => {
-    if (e.itemNumber !== 1) {
+    if (e.itemNumber > 1) {
       axios
-        .post("/api/eventMoveUp/", { id: parseInt(e) })
+        .post("/api/eventMoveUp/", { id: parseInt(e.id) })
         .then((res) => this.setState({ bulletins: res.data }))
         .catch((res) => console.log(res));
     }
   };
 
   handleMoveDown = (e) => {
-    if (e.itemNumber !== this.state.bulletins.length) {
+    if (e.itemNumber >= 1) {
       axios
-        .post("/api/eventMoveDown/", { id: parseInt(e) })
+        .post("/api/eventMoveDown/", { id: parseInt(e.id) })
         .then((res) => this.setState({ bulletins: res.data }))
         .catch((res) => console.log(res));
     }

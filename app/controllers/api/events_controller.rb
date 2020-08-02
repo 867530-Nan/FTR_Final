@@ -10,13 +10,13 @@ class Api::EventsController < ApplicationController
 
   def moveUp
     first = Event.find(params[:id])
-    first.update_attribute(:itemNumber, first[:itemNumber]+1)
+    first.update_attribute(:itemNumber, first[:itemNumber]-1)
     render json: Event.all
   end 
   
   def moveDown
     first = Event.find(params[:id])
-    first.update_attribute(:itemNumber, first[:itemNumber]-1)
+    first.update_attribute(:itemNumber, first[:itemNumber]+1)
     render json: Event.all
   end
   

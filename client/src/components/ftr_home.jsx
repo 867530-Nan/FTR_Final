@@ -66,7 +66,9 @@ class Home extends Component {
       this.setState(
         {
           photos: res.data.photos.data,
-          bulletins: res.data.bulletins.filter((s) => s.isVisible),
+          bulletins: res.data.bulletins
+            .filter((s) => s.isVisible)
+            .sort(this.compare),
           gallery: res.data.gallery,
           newsletter: res.data.newsletter,
           isMobile: this.isMobileDevice(),

@@ -46,8 +46,8 @@ class ShowAllBulletinItems extends React.Component {
 
   displayBulletin = (e) => {
     function compare(a, b) {
-      if (a.itemNumber > b.itemNumber) return -1;
-      if (a.itemNumber < b.itemNumber) return 1;
+      if (a.itemNumber > b.itemNumber) return 1;
+      if (a.itemNumber < b.itemNumber) return -1;
       return 0;
     }
     return e.sort(compare).map((single, index) => {
@@ -74,13 +74,13 @@ class ShowAllBulletinItems extends React.Component {
           </Item.Group>
           <StyledDiv>
             <IconDiv
-              onClick={() => this.props.handleMoveUp(single.id)}
+              onClick={() => this.props.handleMoveUp(single)}
               style={{ height: "30px", width: "30px" }}
             >
               &#8593;
             </IconDiv>
             <IconDiv
-              onClick={() => this.props.handleMoveDown(single.id)}
+              onClick={() => this.props.handleMoveDown(single)}
               style={{ height: "30px", width: "30px" }}
             >
               &#8595;
