@@ -1105,16 +1105,18 @@ const BulletinSection = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  padding: 10px 0;
 `;
 
 const SingleSection = styled.div`
-  width: 350px;
-  margin: 20px;
+  min-width: 250px;
+  width: unset;
+  margin: 0 2px;
   display: flex;
   flex-direction: column;
   align-items: center;
   border: 2px solid #ebebeb;
-  padding: 20px;
+  padding: 5px;
   border-radius: 5px;
 `;
 
