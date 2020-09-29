@@ -425,28 +425,27 @@ class Home extends Component {
             fourHundredSize="22px"
             fontWeight="400"
           >
-            FTR Gym Rules:
+            The website has updated.
           </AnniversaryText>
           <AnniversaryText
-            fontSize="18px"
+            // className="ftrIsBack"
+            fontSize="46px"
             color="black"
-            sixHundredSize="16px"
-            fourHundredSize="14px"
+            sixHundredSize="32px"
+            fourHundredSize="22px"
             fontWeight="400"
           >
-            <hr />
-            - Before and after each class, all equipment is sanitized.
-            <hr />
-            - FTR trainers must receive COVID-screening questions, and check
-            temperature, from each individual upon entering the gym.
-            <hr />
-            - High-Fives are restricted to Air-Fives.
-            <hr />
-            - Participants must maintain 6ft when demonstrating movements.
-            <hr />
-            - If desired, the FTR trainer will wear a mask during class.
-            <hr />- FTR requests no patient be sent to the gym if experiencing
-            any COVID-19 symptoms.
+            To view updated site, clear your browser cache
+          </AnniversaryText>
+          <AnniversaryText
+            // className="ftrIsBack"
+            fontSize="46px"
+            color="black"
+            sixHundredSize="32px"
+            fourHundredSize="22px"
+            fontWeight="400"
+          >
+            Google - Clear Browser Cache
           </AnniversaryText>
         </FTRClosedWrap>
         {/* {this.displayGivingTuesday()} */}
