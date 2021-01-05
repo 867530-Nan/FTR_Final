@@ -3,7 +3,7 @@
   "version": "2.0.9",
   "private": true,
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "braintree-dropin-react": "^0.1.1",
     "braintree-web-drop-in": "^1.14.0",
     "moment": "^2.22.2",
