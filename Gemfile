@@ -28,7 +28,7 @@ gem 'instagram'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'instagram'
 gem 'will_paginate', '~> 3.1.6'
-gem 'httparty', '~> 0.13.7'
+gem 'httparty', '~> 0.21.0'
 gem 'google-api-client', '~> 0.11', require: 'google/apis/calendar_v3'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
